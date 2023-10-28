@@ -1,0 +1,22 @@
+@startmindmap
+* Game
+    * Menu
+        * Start
+        * Help
+        * Quit
+    * Player
+        *_ Name
+        * Stats
+        * Inventory
+    * Enemies
+        *_ Name
+        *_ Stats
+        * Bosses
+        * Secret Enemies
+        * Lootdrop
+    * Map
+        * Stages
+            * Battles
+            * Shops
+            * Extras
+@endmindmap
