@@ -4,6 +4,10 @@
         * Start
         * Help
         * Quit
+    * Combat (Turnbased)
+        *_ Fight
+        *_ Defend
+        *_ Item
     * Player
         *_ Name
         * Stats

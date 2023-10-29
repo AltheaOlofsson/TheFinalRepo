@@ -4,7 +4,7 @@
 
 - structure.UML
 
-This is a file that generate an image
+This is a file that generates a structured image, to accurately portray the hierarchy of the classes/features.
 
 ### PlantUML
 
