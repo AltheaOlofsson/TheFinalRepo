@@ -12,15 +12,20 @@
         *_ Name
         * Stats
         * Inventory
+            *_ Array
     * Enemies
         *_ Name
         *_ Stats
         * Bosses
         * Secret Enemies
         * Lootdrop
+    * Weapon
+        * Stats
     * Map
+        * Random Events
         * Stages
             * Battles
             * Shops
             * Extras
+            * Reststop
 @endmindmap
