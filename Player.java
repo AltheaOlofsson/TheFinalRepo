@@ -1,93 +1,106 @@
 public class Player {
 
-String Name;
-int HealthPoints;
-int Strength;
-int Speed;
-int Dodge;
-int Level;
-int Experience;
-int Money;
-Item[] Inventory;
-Equipment[] Equipment;
+String name;
+int currentHp;
+int maxHp;
+int strength;
+int speed;
+// int Dodge;
+int level;
+int experience;
+int apple;
+// Item[] Inventory;
 
-Player(String Name) {
-this.Name = Name;
-this.HealthPoints = 0;
-this.Strength = 0;
-this.Speed = 0;
-this.Dodge = 0;
-this.Level = 0;
-this.Experience = 0;
-this.Inventory[] = new Item[5];
-this.Equipment[] = new Equipment[3];
+Player(String name) {
+this.name = name;
+this.currentHp = 10;
+this.maxHp = 20;
+this.strength = 0;
+this.speed = 0;
+// this.dodge = 0;
+this.level = 0;
+this.experience = 0;
+this.apple = 3;
+// this.Inventory[] = new Item[5];
 }
 
 public void displayPlayerStats() {
-    System.out.println("HP: " + HealthPoints);
-    // System.out.println("Attack: ");
-    System.out.println("Strength: " + Strength);
-    System.out.println("Speed: " + Speed);
-    System.out.println("Level: " + Level);
-}
-
-    public void displayPlayerInventory() {
-    System.out.println("Money: " + Money);
-    System.out.println("Inventory: " + Item[]); // forloop display all items?
+    System.out.println("HP: " + currentHp + "/" + maxHp);
+    System.out.println("Attack:");
+    System.out.println("Strength: " + strength);
+    System.out.println("Speed: " + speed);
+    System.out.println("Level: " + level);
+    System.out.println("Current EXP: " + getExperience());
+    System.out.println("Amount of apples: " + getApple());
 }
 
 public String getName() {
-    return Name;
+    return name;
 }
 public void setName(String name) {
-    Name = name;
+    this.name = name;
 }
 
-public int getHealthPoints() {
-    return HealthPoints;
+public int getCurrentHp() {
+    return currentHp;
 }
-public void setHealthPoints(int healthPoints) {
-    HealthPoints = healthPoints;
+public void setCurrentHp(int currentHp) {
+    this.currentHp = currentHp;
+}
+
+public int getMaxHp() {
+    return maxHp;
+}
+public void setMaxHp(int maxHp) {
+    this.maxHp = maxHp;
 }
 
 public int getStrength() {
-    return Strength;
+    return strength;
 }
 public void setStrength(int strength) {
-    Strength = strength;
+    this.strength = strength;
 }
 
 public int getLevel() {
-    return Level;
+    return level;
 }
 public void setLevel(int level) {
-    Level = level;
+    this.level = level;
 }
 
 public int getExperience() {
-    return Experience;
+    return experience;
 }
 public void setExperience(int experience) {
-    Experience = experience;
-}
-
-public int getMoney() {
-    return Money;
-}
-public void setMoney(int money) {
-    Money = money;
+    this.experience = experience;
 }
 
 public void increaseLevel() {
     // Need some kind of experience system
-    if (Experience == 10) {
-        Level++;
-        // statincrease
+    if (experience == 10) {
+        level++;
+        maxHp += 5;
+        strength += 1;
+        speed += 1;
+        setExperience(0);
     }
 }
 
+public int getApple() {
+    return apple;
+}
+public void setApple(int apple) {
+    this.apple = apple;
+}
+
+public void eatApple() {
+    currentHp = maxHp;
+    apple--;
+}
+
 public void swingWeapon() {
-    // method for player attack, will compare against enemy dodge
+
 }
 
 
