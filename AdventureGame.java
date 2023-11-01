@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class AdventureGame {
 
-    public static void main(String[] args) 
+    public static void main(String[] args) throws InterruptedException
     {
         boolean quit = false;
         int roomChoices;
