@@ -1,9 +1,11 @@
+import java.util.Random;
+
 public class Player {
 
 String name;
 int currentHp;
 int maxHp;
-int strength;
+// int strength;
 int speed;
 // int Dodge;
 int level;
@@ -15,19 +17,19 @@ Player(String name) {
 this.name = name;
 this.currentHp = 0;
 this.maxHp = 0;
-this.strength = 0;
+// this.strength = 0;
 this.speed = 0;
 // this.dodge = 0;
 this.level = 0;
 this.experience = 0;
 this.apple = 3;
-// this.Inventory[] = new Item[5];
+// this.Inventory[] = new Item[];
 }
 
 public void displayPlayerStats() {
     System.out.println("HP: " + currentHp + "/" + maxHp);
     System.out.println("Attack:");
-    System.out.println("Strength: " + strength);
+    // System.out.println("Strength: " + strength);
     System.out.println("Speed: " + speed);
     System.out.println("Level: " + level);
     System.out.println("Current EXP: " + getExperience());
@@ -55,12 +57,12 @@ public void setMaxHp(int maxHp) {
     this.maxHp = maxHp;
 }
 
-public int getStrength() {
-    return strength;
-}
-public void setStrength(int strength) {
-    this.strength = strength;
-}
+// public int getStrength() {
+//     return strength;
+// }
+// public void setStrength(int strength) {
+//     this.strength = strength;
+// }
 
 public int getLevel() {
     return level;
@@ -80,7 +82,7 @@ public void levelUp() {
     if (experience == 10) {
         level++;
         maxHp += 5;
-        strength += 1;
+        // strength += 1;
         speed += 1;
         setExperience(0);
     }
@@ -98,11 +100,15 @@ public void eatApple() {
     apple--;
 }
 
-public void swingWeapon() {
+public int swingWeapon() {
+    int minDamage = 3;
+    int maxDamage = 7;
 
+    Random random = new Random();
+
+    int damageDone = random.nextInt(maxDamage-minDamage+1) + minDamage;
+    return damageDone;
 }
-
-
 // public void rest()
 // public void takeDamage()
 // public boolean isAlive()
