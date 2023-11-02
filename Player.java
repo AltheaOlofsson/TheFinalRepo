@@ -13,8 +13,8 @@ int apple;
 
 Player(String name) {
 this.name = name;
-this.currentHp = 10;
-this.maxHp = 20;
+this.currentHp = 0;
+this.maxHp = 0;
 this.strength = 0;
 this.speed = 0;
 // this.dodge = 0;
@@ -76,8 +76,7 @@ public void setExperience(int experience) {
     this.experience = experience;
 }
 
-public void increaseLevel() {
-    // Need some kind of experience system
+public void levelUp() {
     if (experience == 10) {
         level++;
         maxHp += 5;
