@@ -30,6 +30,6 @@ public class Battle {
     }
 
     public void getFirstMonsterAttack() {
-        System.out.println();
+        
     }
 }

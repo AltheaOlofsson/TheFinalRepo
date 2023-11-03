@@ -8,15 +8,7 @@ public class AdventureGame {
         Scanner userInput = new Scanner(System.in);
         
         clearScreen();
-        System.out.println(Title());
-        Thread.sleep(4000);
-        System.out.println("\nPlease type the number or write one of the choices below.");
-        Thread.sleep(500);
-        System.out.println("[1]Start");
-        Thread.sleep(500);
-        System.out.println("[2]Help");
-        Thread.sleep(500);
-        System.out.println("[3]Quit");
+        Title();
         String menuChoice = userInput.nextLine();
         
         while (!quit) {
@@ -38,7 +30,7 @@ public class AdventureGame {
             
             if(menuChoice.equalsIgnoreCase("Quit") || menuChoice.equalsIgnoreCase("3"))
             {
-                System.out.println("This was the quit option, Goodbye!");
+                System.out.println("Game Shutting down...");
                 userInput.close();
                 quit = true;
             }
@@ -88,7 +80,9 @@ public class AdventureGame {
             }
             else
             {
+                clearScreen();
                 System.out.println("Incorrect Input! Please try again.");
+                i--;
             }
         }
         userInput.close();
@@ -97,14 +91,45 @@ public class AdventureGame {
         }
     }
 
-    public static void clearScreen() 
+    public static void Title() throws InterruptedException
+    {
+        System.out.print("PERFECTLY ");
+        Thread.sleep(800);
+        System.out.print("ACCEPTABLE ");
+        Thread.sleep(800);
+        System.out.print("ADVENTURE ");
+        Thread.sleep(800);
+        System.out.print("OF ");
+        Thread.sleep(800);
+        System.out.print("A ");
+        Thread.sleep(1000);
+        System.out.print("MUNDANE ");
+        Thread.sleep(800);
+        System.out.print("SOMEBODY");
+        Thread.sleep(800);
+        System.out.print("\n                      2023 EDITION");
+        clearScreen();
+
+        for(int i = 0; i < 10; i++)
+        {
+            Thread.sleep(50);
+            System.out.println("PERFECTLY ACCEPTABLE ADVENTURE OF A MUNDANE SOMEBODY\n                      2023 EDITION");
+            clearScreen();
+        }
+        System.out.println("PERFECTLY ACCEPTABLE ADVENTURE OF A MUNDANE SOMEBODY\n                      2023 EDITION");
+        Thread.sleep(1200);
+        System.out.println("\nPlease type the number or write one of the choices below.");
+        Thread.sleep(200);
+        System.out.println("[1]Start");
+        Thread.sleep(200);
+        System.out.println("[2]Help");
+        Thread.sleep(200);
+        System.out.println("[3]Quit");
+    }
+
+        public static void clearScreen() 
     {  
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
-    }
-
-    public static String Title()
-    {
-        return "PERFECTLY ACCEPTABLE ADVENTURE TRIP OF A MUNDANE SOMEBODY \n                      2023 EDITION";
     }
 }
