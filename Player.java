@@ -60,8 +60,8 @@ public int getAttack() {
 public void setAttack(int attack) {
     this.attack = attack;
 }
-public void addAttack() {
-    this.attack += 
+public void addAttack(int attack) {
+    this.attack += attack; 
 }
     
 public int getLevel() {
@@ -82,7 +82,7 @@ public void levelUp() {
     if (experience == 10) {
         level++;
         maxHp += 5;
-        attack += 10;
+        attack += 1;
         speed += 1;
         setExperience(0);
     }
@@ -113,16 +113,17 @@ public int swingWeapon() {
 
 public static void main(String[] args) {
     
-    Player player = new Player("JHimy");
+    Player player = new Player("Jimmy");
 
-    
-    System.out.println(player.swingWeapon());
+    Occurence kevin = new Occurence();
+
+    kevin.method1(player);
+    // System.out.println(player.swingWeapon());
 }
-// public void rest()
 public void takeDamage() {
 
 }
-
+// public void rest()
 // public boolean isAlive()
 
 
