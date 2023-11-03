@@ -1,22 +1,35 @@
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class Battle {
     
 
-    Monsters slime = new Monsters("Slime", 5, 1, 2, 1, 2);
-    Monsters wolf = new Monsters("Wolf", 25, 2, 4, 2, 15);
-    Monsters goblin = new Monsters("Goblin", 15, 4, 10, 2, 10);
-    Monsters orch = new Monsters("Orch", 20, 5, 15, 3, 10);
-    Monsters direWolf = new Monsters("Dire wolf", 35, 6, 12, 3, 25);
-    Monsters elf = new Monsters("Elf", 20, 8, 10, 3, 30);
-    Monsters troll = new Monsters("Troll", 55, 2, 15, 4, 8);
-    Monsters ogre = new Monsters("Ogre", 45, 10, 15, 4, 25);
-    Monsters wurm = new Monsters("Wurm", 35, 12, 14, 4, 20);
-    Monsters vampire = new Monsters("Vampire", 35, 8, 10, 5, 35);
-    Monsters warewolf = new Monsters("Warewolf", 50, 10, 20, 5, 55);
+    Monster slime = new Monster("Slime", 5, 1, 2, 1, 2);
+    Monster wolf = new Monster("Wolf", 25, 2, 4, 2, 15);
+    Monster goblin = new Monster("Goblin", 15, 4, 10, 2, 10);
+    Monster orc = new Monster("Orc", 20, 5, 15, 3, 10);
+    Monster direWolf = new Monster("Dire wolf", 35, 6, 12, 3, 25);
+    Monster elf = new Monster("Elf", 20, 8, 10, 3, 30);
+    Monster troll = new Monster("Troll", 55, 2, 15, 4, 8);
+    Monster ogre = new Monster("Ogre", 45, 10, 15, 4, 25);
+    Monster wurm = new Monster("Wurm", 35, 12, 14, 4, 20);
+    Monster vampire = new Monster("Vampire", 35, 8, 10, 5, 35);
+    Monster werewolf = new Monster("Werewolf", 50, 10, 20, 5, 55);
 
+    Monster[] monsterEncounters = {wolf,goblin,orc,direWolf,elf,troll,ogre,wurm,vampire,werewolf};
 
-    public getFirstMonsterAttack() {
-        
+    public ArrayList<Monster> createMonsterList(int lower, int upper) {
+        ArrayList<Monster> monsters = new ArrayList<Monster>(); 
+        for (Monster m : monsterEncounters) {
+            if (m.getLevel() >= lower && m.getLevel() <= upper) {
+                monsters.add(m);
+            }
+        }
+        return monsters;
+    }
+
+    public void getFirstMonsterAttack() {
+        System.out.println();
     }
 }
