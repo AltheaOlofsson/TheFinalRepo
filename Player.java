@@ -46,7 +46,7 @@ public int getCurrentHp() {
 public void setCurrentHp(int currentHp) {
     this.currentHp = currentHp;
 }
-public void adjustCurrenHp(int currentHp) {
+public void addCurrenHp(int currentHp) {
     this.currentHp += currentHp;
 }
 
@@ -56,7 +56,7 @@ public int getMaxHp() {
 public void setMaxHp(int maxHp) {
     this.maxHp = maxHp;
 }
-public void adjustMaxHp(int maxHp) {
+public void addMaxHp(int maxHp) {
     this.maxHp += maxHp;
 }
 
@@ -66,7 +66,7 @@ public int getAttack() {
 public void setAttack(int attack) {
     this.attack = attack;
 }
-public void adjustAttack(int attack) {
+public void addAttack(int attack) {
     this.attack += attack; 
 }
 
@@ -76,7 +76,7 @@ public int getSpeed() {
 public void setSpeed(int speed) {
     this.speed = speed;
 }
-public void adjustSpeed(int speed) {
+public void addSpeed(int speed) {
     this.speed += speed;
 }
     
@@ -110,7 +110,7 @@ public int getApple() {
 public void setApple(int apple) {
     this.apple = apple;
 }
-public void adjustApple(int apple) {
+public void addApple(int apple) {
     this.apple += apple;
 }
 
