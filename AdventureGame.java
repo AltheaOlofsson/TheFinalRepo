@@ -9,7 +9,7 @@ public class AdventureGame {
         
         clearScreen();
         Title();
-        Thread.sleep(4000);
+        Thread.sleep(1500);
         System.out.println("\nPlease type the number or write one of the choices below.");
         Thread.sleep(500);
         System.out.println("[1]Start");
@@ -38,7 +38,7 @@ public class AdventureGame {
             
             if(menuChoice.equalsIgnoreCase("Quit") || menuChoice.equalsIgnoreCase("3"))
             {
-                System.out.println("This was the quit option, Goodbye!");
+                System.out.println("Game Shutting down...");
                 userInput.close();
                 quit = true;
             }
@@ -88,7 +88,9 @@ public class AdventureGame {
             }
             else
             {
+                clearScreen();
                 System.out.println("Incorrect Input! Please try again.");
+                i--;
             }
         }
         userInput.close();
@@ -119,10 +121,10 @@ public class AdventureGame {
         for(int i = 0; i < 10; i++)
         {
             Thread.sleep(50);
-            System.out.println("PERFECTLY ACCEPTABLE ADVENTURE TRIP OF A MUNDANE SOMEBODY\n                      2023 EDITION");
+            System.out.println("PERFECTLY ACCEPTABLE ADVENTURE OF A MUNDANE SOMEBODY\n                      2023 EDITION");
             clearScreen();
         }
-        System.out.println("PERFECTLY ACCEPTABLE ADVENTURE TRIP OF A MUNDANE SOMEBODY\n                      2023 EDITION");
+        System.out.println("PERFECTLY ACCEPTABLE ADVENTURE OF A MUNDANE SOMEBODY\n                      2023 EDITION");
     }
 
         public static void clearScreen() 
