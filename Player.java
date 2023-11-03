@@ -98,17 +98,18 @@ public void eatApple() {
     apple--;
 }
 
-public double swingWeapon() {
+public int swingWeapon() {
 
     double maxDamage = (attack*1.5);
     // System.out.println(maxDamage);
     
 
     double calculateDamage = ThreadLocalRandom.current().nextDouble(attack, maxDamage);
-    System.out.println(calculateDamage);
+    // System.out.println(calculateDamage);
     long roundedResult = Math.round(calculateDamage);
     // System.out.println(roundedResult);
-    return roundedResult;
+    int outgoingDMG = (int) roundedResult;
+    return outgoingDMG;
 }
 
 
