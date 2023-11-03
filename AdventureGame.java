@@ -8,7 +8,7 @@ public class AdventureGame {
         Scanner userInput = new Scanner(System.in);
         
         clearScreen();
-        System.out.println(Title());
+        Title();
         Thread.sleep(4000);
         System.out.println("\nPlease type the number or write one of the choices below.");
         Thread.sleep(500);
@@ -97,14 +97,37 @@ public class AdventureGame {
         }
     }
 
-    public static void clearScreen() 
+    public static void Title() throws InterruptedException
+    {
+        System.out.print("PERFECTLY ");
+        Thread.sleep(800);
+        System.out.print("ACCEPTABLE ");
+        Thread.sleep(800);
+        System.out.print("ADVENTURE ");
+        Thread.sleep(800);
+        System.out.print("OF ");
+        Thread.sleep(800);
+        System.out.print("A ");
+        Thread.sleep(1000);
+        System.out.print("MUNDANE ");
+        Thread.sleep(800);
+        System.out.print("SOMEBODY");
+        Thread.sleep(800);
+        System.out.print("\n                      2023 EDITION");
+        clearScreen();
+
+        for(int i = 0; i < 10; i++)
+        {
+            Thread.sleep(50);
+            System.out.println("PERFECTLY ACCEPTABLE ADVENTURE TRIP OF A MUNDANE SOMEBODY\n                      2023 EDITION");
+            clearScreen();
+        }
+        System.out.println("PERFECTLY ACCEPTABLE ADVENTURE TRIP OF A MUNDANE SOMEBODY\n                      2023 EDITION");
+    }
+
+        public static void clearScreen() 
     {  
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
-    }
-
-    public static String Title()
-    {
-        return "PERFECTLY ACCEPTABLE ADVENTURE TRIP OF A MUNDANE SOMEBODY \n                      2023 EDITION";
     }
 }
