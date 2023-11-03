@@ -9,14 +9,6 @@ public class AdventureGame {
         
         clearScreen();
         Title();
-        Thread.sleep(1500);
-        System.out.println("\nPlease type the number or write one of the choices below.");
-        Thread.sleep(500);
-        System.out.println("[1]Start");
-        Thread.sleep(500);
-        System.out.println("[2]Help");
-        Thread.sleep(500);
-        System.out.println("[3]Quit");
         String menuChoice = userInput.nextLine();
         
         while (!quit) {
@@ -125,6 +117,14 @@ public class AdventureGame {
             clearScreen();
         }
         System.out.println("PERFECTLY ACCEPTABLE ADVENTURE OF A MUNDANE SOMEBODY\n                      2023 EDITION");
+        Thread.sleep(1500);
+        System.out.println("\nPlease type the number or write one of the choices below.");
+        Thread.sleep(500);
+        System.out.println("[1]Start");
+        Thread.sleep(500);
+        System.out.println("[2]Help");
+        Thread.sleep(500);
+        System.out.println("[3]Quit");
     }
 
         public static void clearScreen() 
