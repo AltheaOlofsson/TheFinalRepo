@@ -49,6 +49,9 @@ public void setCurrentHp(int currentHp) {
 public void addCurrenHp(int currentHp) {
     this.currentHp += currentHp;
 }
+public void decreaseCurrentHp(int currentHp) {
+    this.currentHp -= currentHp;
+}
 
 public int getMaxHp() {
     return maxHp;
