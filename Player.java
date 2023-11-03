@@ -82,6 +82,9 @@ public void setSpeed(int speed) {
 public void addSpeed(int speed) {
     this.speed += speed;
 }
+public void decreseSpeed(int speed) {
+    this.speed -= speed;
+}
     
 public int getLevel() {
     return level;
@@ -116,6 +119,9 @@ public void setApple(int apple) {
 public void addApple(int apple) {
     this.apple += apple;
 }
+public void decreseApple(int apple){
+    this.apple -= apple;
+}
 
 public void eatApple() {
     currentHp = maxHp;
@@ -137,14 +143,12 @@ public static void main(String[] args) {
     
     Player player = new Player("Jimmy");
 
-    Occurence kevin = new Occurence();
+    Occurence event = new Occurence();
 
-    kevin.method1(player);
+    event.occurance3(player);
     // System.out.println(player.swingWeapon());
 }
-public void takeDamage() {
 
-}
 // public void rest()
 // public boolean isAlive()
 
