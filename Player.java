@@ -46,12 +46,18 @@ public int getCurrentHp() {
 public void setCurrentHp(int currentHp) {
     this.currentHp = currentHp;
 }
+public void addCurrenHp(int currentHp) {
+    this.currentHp += currentHp;
+}
 
 public int getMaxHp() {
     return maxHp;
 }
 public void setMaxHp(int maxHp) {
     this.maxHp = maxHp;
+}
+public void addMaxHp(int maxHp) {
+    this.maxHp += maxHp;
 }
 
 public int getAttack() {
@@ -60,8 +66,18 @@ public int getAttack() {
 public void setAttack(int attack) {
     this.attack = attack;
 }
-public void addAttack() {
-    this.attack += 
+public void addAttack(int attack) {
+    this.attack += attack; 
+}
+
+public int getSpeed() {
+    return speed;
+}
+public void setSpeed(int speed) {
+    this.speed = speed;
+}
+public void addSpeed(int speed) {
+    this.speed += speed;
 }
     
 public int getLevel() {
@@ -82,7 +98,7 @@ public void levelUp() {
     if (experience == 10) {
         level++;
         maxHp += 5;
-        attack += 10;
+        attack += 1;
         speed += 1;
         setExperience(0);
     }
@@ -93,6 +109,9 @@ public int getApple() {
 }
 public void setApple(int apple) {
     this.apple = apple;
+}
+public void addApple(int apple) {
+    this.apple += apple;
 }
 
 public void eatApple() {
@@ -113,16 +132,17 @@ public int swingWeapon() {
 
 public static void main(String[] args) {
     
-    Player player = new Player("JHimy");
+    Player player = new Player("Jimmy");
 
-    
-    System.out.println(player.swingWeapon());
+    Occurence kevin = new Occurence();
+
+    kevin.method1(player);
+    // System.out.println(player.swingWeapon());
 }
-// public void rest()
 public void takeDamage() {
 
 }
-
+// public void rest()
 // public boolean isAlive()
 
 

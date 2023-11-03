@@ -7,7 +7,16 @@ public class AdventureGame {
         boolean quit = false;
         Scanner userInput = new Scanner(System.in);
         
+        clearScreen();
         System.out.println(Title());
+        Thread.sleep(4000);
+        System.out.println("\nPlease type the number or write one of the choices below.");
+        Thread.sleep(500);
+        System.out.println("[1]Start");
+        Thread.sleep(500);
+        System.out.println("[2]Help");
+        Thread.sleep(500);
+        System.out.println("[3]Quit");
         String menuChoice = userInput.nextLine();
         
         while (!quit) {
@@ -18,6 +27,7 @@ public class AdventureGame {
             else if((menuChoice.equalsIgnoreCase("Start") || menuChoice.equalsIgnoreCase("1")))
             {
                 //System.out.println("The Game started, You won! (I think?)");
+                clearScreen();
                 Game();
             }
             else
@@ -38,34 +48,42 @@ public class AdventureGame {
     private static void Game() //Main Code Here
     {
         Scanner userInput = new Scanner(System.in);
+        boolean gameComplete = false;
         int rooms = 5; //How many rooms or a.k.a event choice will happen.
         int apple = 3;
         String roomChoice;
         RandomEventGenerator Event = new RandomEventGenerator();
         
-        
-        for (int i = 1; i <= rooms; i++)
+        while(!gameComplete)
         {
+            for (int i = 1; i <= rooms; i++)
+            {
             System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right?\n[3]Eat Apple? " + apple + "/3");
             roomChoice = userInput.nextLine();
             if (roomChoice.equalsIgnoreCase("Left") || roomChoice.equalsIgnoreCase("1")) 
             {
+                clearScreen();
                 Event.generateRandomEvent();
             }
             else if (roomChoice.equalsIgnoreCase("Right") || roomChoice.equalsIgnoreCase("2"))
             {
+                clearScreen();
                 System.out.println("Combat");
             }
             else if (roomChoice.equalsIgnoreCase("Eat Apple") || roomChoice.equalsIgnoreCase("3"))
             {
                 if (apple > 0)
                 {
+                    clearScreen();
                     apple--;
-                    System.out.println("You ate an apple, you now have " + apple + "/3");
+                    System.out.println("You ate an apple.");
+                    i--;
                 }
                 else
                 {
+                    clearScreen();
                     System.out.println("Your out of apples.");
+                    i--;
                 }
             }
             else
@@ -73,13 +91,20 @@ public class AdventureGame {
                 System.out.println("Incorrect Input! Please try again.");
             }
         }
-        System.out.println("You win!");
         userInput.close();
+        gameComplete = true;
+        System.out.println("You win!");
+        }
     }
 
+    public static void clearScreen() 
+    {  
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();  
+    }
 
     public static String Title()
     {
-        return "PERFECTLY ACCEPTABLE ADVENTURE TRIP OF A MUNDANE SOMEBODY \n                      2023 EDITION\nPlease type the number or write one of the choices below\n[1]Start\n[2]Help\n[3]Quit";
+        return "PERFECTLY ACCEPTABLE ADVENTURE TRIP OF A MUNDANE SOMEBODY \n                      2023 EDITION";
     }
 }
