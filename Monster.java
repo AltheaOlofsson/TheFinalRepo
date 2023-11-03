@@ -1,6 +1,6 @@
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Monsters {
+public class Monster {
     private String name;
     private int hitPoints;
     private int minAttack;
@@ -8,7 +8,7 @@ public class Monsters {
     private int level;
     private int speed;
     
-    Monsters(String name, int hitPoints, int minAttack, int maxAttack, int level, int speed) {
+    Monster(String name, int hitPoints, int minAttack, int maxAttack, int level, int speed) {
         this.name = name;
         this.hitPoints = hitPoints;
         this.minAttack = minAttack;

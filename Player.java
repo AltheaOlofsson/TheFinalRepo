@@ -1,4 +1,3 @@
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Player {
@@ -61,7 +60,10 @@ public int getAttack() {
 public void setAttack(int attack) {
     this.attack = attack;
 }
-
+public void addAttack() {
+    this.attack += 
+}
+    
 public int getLevel() {
     return level;
 }
@@ -80,7 +82,7 @@ public void levelUp() {
     if (experience == 10) {
         level++;
         maxHp += 5;
-        // strength += 1;
+        attack += 10;
         speed += 1;
         setExperience(0);
     }
@@ -98,17 +100,14 @@ public void eatApple() {
     apple--;
 }
 
-public double swingWeapon() {
+public int swingWeapon() {
 
     double maxDamage = (attack*1.5);
-    // System.out.println(maxDamage);
-    
 
     double calculateDamage = ThreadLocalRandom.current().nextDouble(attack, maxDamage);
-    System.out.println(calculateDamage);
     long roundedResult = Math.round(calculateDamage);
-    // System.out.println(roundedResult);
-    return roundedResult;
+    int outgoingDmg = (int) roundedResult;
+    return outgoingDmg;
 }
 
 
@@ -118,10 +117,12 @@ public static void main(String[] args) {
 
     
     System.out.println(player.swingWeapon());
-    // System.out.println(Monsters.attack(10, 11));
 }
 // public void rest()
-// public void takeDamage()
+public void takeDamage() {
+
+}
+
 // public boolean isAlive()
 
 
