@@ -117,13 +117,13 @@ public class AdventureGame {
             clearScreen();
         }
         System.out.println("PERFECTLY ACCEPTABLE ADVENTURE OF A MUNDANE SOMEBODY\n                      2023 EDITION");
-        Thread.sleep(1500);
+        Thread.sleep(1200);
         System.out.println("\nPlease type the number or write one of the choices below.");
-        Thread.sleep(500);
+        Thread.sleep(200);
         System.out.println("[1]Start");
-        Thread.sleep(500);
+        Thread.sleep(200);
         System.out.println("[2]Help");
-        Thread.sleep(500);
+        Thread.sleep(200);
         System.out.println("[3]Quit");
     }
 
