@@ -22,7 +22,6 @@ public void occurance2(Player p, Scanner s) {
     System.out.println("You meet a traveler on the road. Do you stop and chat? (Y/N)");
     String choice = s.nextLine();
 
-
     if(choice.equalsIgnoreCase("y")){
         System.out.println("As you talk he tells you of his quest for a Golden Apple. You remember seeing some apples in your bag earlier and says as much.");
     System.out.println("His face lights up and he offers to trade his dagger for a Golden Apple.");
@@ -95,14 +94,14 @@ public void occurance2(Player p, Scanner s) {
         }
 }
 
-    public void occurance3(Player p) {
-        System.out.println("You come to an Inn by the road. You decide to take a rest.");
-        System.out.println("The inn served a delicious hearty stew, you asked for seconds. Twice.");
-        p.addCurrenHp(10);
-        System.out.println("Current HP: + 10");
-        System.out.println("When you set out again you realised you ate way too much. Your movements feel sluggish.");
-        p.decreseSpeed(1);
-        System.out.println("Speed: - 1");
+public void occurance3(Player p) {
+    System.out.println("You come to an Inn by the road. You decide to take a rest.");
+    System.out.println("The inn served a delicious hearty stew, you asked for seconds. Twice.");
+    p.addCurrenHp(10);
+    System.out.println("Current HP: + 10");
+    System.out.println("When you set out again you realised you ate way too much. Your movements feel sluggish.");
+    p.decreseSpeed(1);
+    System.out.println("Speed: - 1");
     }
 
 
