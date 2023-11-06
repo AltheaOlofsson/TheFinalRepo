@@ -3,9 +3,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Battle {
-    
 
-    Monster slime = new Monster("Slime", 5, 1, 2, 1, 2);
+    Monster slime = new Monster("Slime", 20, 2, 2, 1, 2);
     Monster wolf = new Monster("Wolf", 25, 2, 4, 2, 15);
     Monster goblin = new Monster("Goblin", 15, 4, 10, 2, 10);
     Monster orc = new Monster("Orc", 20, 5, 15, 3, 10);
@@ -29,7 +28,18 @@ public class Battle {
         return monsters;
     }
 
-    public void getFirstMonsterAttack() {
-        
+    public Monster getFirstMonsterAttack(ArrayList<Monster> monsterList) {
+        return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()));
+    }
+
+    public static void main(String[] args) {
+        Battle b = new Battle();
+
+        ArrayList<Monster> monsters = b.createMonsterList(2, 2);
+        for(int i=0; i < 5; i++) {
+            Monster currentMonster = b.getFirstMonsterAttack(monsters);
+
+            System.out.println(currentMonster.getName() + " attacks you for " + currentMonster.attack());
+        }
     }
 }
