@@ -39,7 +39,7 @@ public class Battle {
         for(int i=0; i < 5; i++) {
             Monster currentMonster = b.getFirstMonsterAttack(monsters);
 
-            System.out.println(currentMonster.getName());
+            System.out.println(currentMonster.getName() + " attacks you for " + currentMonster.attack());
         }
     }
 }
