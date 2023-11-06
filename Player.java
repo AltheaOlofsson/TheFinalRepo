@@ -1,5 +1,5 @@
 import java.util.concurrent.ThreadLocalRandom;
-
+import java.util.Scanner;
 public class Player {
 
 String name;
@@ -48,6 +48,9 @@ public void setCurrentHp(int currentHp) {
 }
 public void addCurrenHp(int currentHp) {
     this.currentHp += currentHp;
+    if (this.currentHp > maxHp){
+        this.currentHp = maxHp;
+    }
 }
 public void decreaseCurrentHp(int currentHp) {
     this.currentHp -= currentHp;
@@ -118,6 +121,10 @@ public void setApple(int apple) {
 }
 public void addApple(int apple) {
     this.apple += apple;
+    if(this.apple > 4){
+        this.apple = 4;
+        System.out.println("You can only carry four apples. Your bag is full.");
+    }
 }
 public void decreseApple(int apple){
     this.apple -= apple;
@@ -139,14 +146,17 @@ public int swingWeapon() {
 }
 
 
-public static void main(String[] args) {
+public static void main(String[] args) throws InterruptedException {
     
     Player player = new Player("Jimmy");
-
+    Scanner s = new Scanner (System.in);
     Occurence event = new Occurence();
 
-    event.occurance3(player);
+    // player.setApple(0);
+    event.occurance1(player);
     // System.out.println(player.swingWeapon());
+
+    
 }
 
 // public void rest()
