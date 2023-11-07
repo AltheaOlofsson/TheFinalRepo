@@ -6,6 +6,7 @@ public class AdventureGame {
     {
         boolean quit = false;
         Scanner userInput = new Scanner(System.in);
+        String name;
         
         clearScreen();
         Title();
@@ -20,7 +21,9 @@ public class AdventureGame {
             {
                 //System.out.println("The Game started, You won! (I think?)");
                 clearScreen();
-                Game();
+                System.out.println("This is an era of monster, critters ");
+                name = inputName(userInput);
+                Game(name);
             }
             else
             {
@@ -36,8 +39,28 @@ public class AdventureGame {
             }
         }
     }
+
+    public static String inputName(Scanner userInput)
+    {
+        boolean nameEmpty = true;
+        String name = "";
+        while(nameEmpty)
+        {
+            System.out.println("\n\n What is your name? ");
+            name = userInput.nextLine();
+            if (name.length() != 0) 
+            {
+                nameEmpty = false;
+            }
+            else
+            {
+                System.out.println("Incorrect name input! Please type it again. ");
+            }
+        }
+        return name;
+    }
     
-    private static void Game() //Main Code Here
+    private static void Game(String name) //Main Code Here
     {
         Scanner userInput = new Scanner(System.in);
         boolean gameComplete = false;
