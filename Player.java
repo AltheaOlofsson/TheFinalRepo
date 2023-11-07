@@ -153,7 +153,7 @@ public static void main(String[] args) throws InterruptedException {
     Occurence event = new Occurence();
 
     // player.setApple(0);
-    event.occurance1(player);
+    event.occurance2(player, s);
     // System.out.println(player.swingWeapon());
 
     

@@ -97,7 +97,7 @@ public class AdventureGame {
                 else
                 {
                     clearScreen();
-                    System.out.println("Your out of apples.");
+                    System.out.println("You're out of apples.");
                     i--;
                 }
             }
