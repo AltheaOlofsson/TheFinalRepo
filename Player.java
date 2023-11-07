@@ -1,35 +1,32 @@
-import java.util.Random;
-
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.Scanner;
 public class Player {
 
 String name;
 int currentHp;
 int maxHp;
-// int strength;
+int attack;
 int speed;
 // int Dodge;
 int level;
 int experience;
 int apple;
-// Item[] Inventory;
 
 Player(String name) {
 this.name = name;
-this.currentHp = 0;
-this.maxHp = 0;
-// this.strength = 0;
-this.speed = 0;
+this.currentHp = 20;
+this.maxHp = 20;
+this.attack = 10;
+this.speed = 15;
 // this.dodge = 0;
 this.level = 0;
 this.experience = 0;
 this.apple = 3;
-// this.Inventory[] = new Item[];
 }
 
 public void displayPlayerStats() {
     System.out.println("HP: " + currentHp + "/" + maxHp);
-    System.out.println("Attack:");
-    // System.out.println("Strength: " + strength);
+    System.out.println("Attack: " + attack);
     System.out.println("Speed: " + speed);
     System.out.println("Level: " + level);
     System.out.println("Current EXP: " + getExperience());
@@ -49,6 +46,15 @@ public int getCurrentHp() {
 public void setCurrentHp(int currentHp) {
     this.currentHp = currentHp;
 }
+public void addCurrenHp(int currentHp) {
+    this.currentHp += currentHp;
+    if (this.currentHp > maxHp){
+        this.currentHp = maxHp;
+    }
+}
+public void decreaseCurrentHp(int currentHp) {
+    this.currentHp -= currentHp;
+}
 
 public int getMaxHp() {
     return maxHp;
@@ -56,14 +62,33 @@ public int getMaxHp() {
 public void setMaxHp(int maxHp) {
     this.maxHp = maxHp;
 }
+public void addMaxHp(int maxHp) {
+    this.maxHp += maxHp;
+}
 
-// public int getStrength() {
-//     return strength;
-// }
-// public void setStrength(int strength) {
-//     this.strength = strength;
-// }
+public int getAttack() {
+    return attack;
+}
+public void setAttack(int attack) {
+    this.attack = attack;
+}
+public void addAttack(int attack) {
+    this.attack += attack; 
+}
 
+public int getSpeed() {
+    return speed;
+}
+public void setSpeed(int speed) {
+    this.speed = speed;
+}
+public void addSpeed(int speed) {
+    this.speed += speed;
+}
+public void decreseSpeed(int speed) {
+    this.speed -= speed;
+}
+    
 public int getLevel() {
     return level;
 }
@@ -82,7 +107,7 @@ public void levelUp() {
     if (experience == 10) {
         level++;
         maxHp += 5;
-        // strength += 1;
+        attack += 1;
         speed += 1;
         setExperience(0);
     }
@@ -94,6 +119,16 @@ public int getApple() {
 public void setApple(int apple) {
     this.apple = apple;
 }
+public void addApple(int apple) {
+    this.apple += apple;
+    if(this.apple > 4){
+        this.apple = 4;
+        System.out.println("You can only carry four apples. Your bag is full.");
+    }
+}
+public void decreseApple(int apple){
+    this.apple -= apple;
+}
 
 public void eatApple() {
     currentHp = maxHp;
@@ -101,16 +136,30 @@ public void eatApple() {
 }
 
 public int swingWeapon() {
-    int minDamage = 3;
-    int maxDamage = 7;
 
-    Random random = new Random();
+    double maxDamage = (attack*1.5);
 
-    int damageDone = random.nextInt(maxDamage-minDamage+1) + minDamage;
-    return damageDone;
+    double calculateDamage = ThreadLocalRandom.current().nextDouble(attack, maxDamage);
+    long roundedResult = Math.round(calculateDamage);
+    int outgoingDmg = (int) roundedResult;
+    return outgoingDmg;
 }
+
+
+public static void main(String[] args) throws InterruptedException {
+    
+    Player player = new Player("Jimmy");
+    Scanner s = new Scanner (System.in);
+    Occurence event = new Occurence();
+
+    // player.setApple(0);
+    event.occurance1(player);
+    // System.out.println(player.swingWeapon());
+
+    
+}
+
 // public void rest()
-// public void takeDamage()
 // public boolean isAlive()
 
 
