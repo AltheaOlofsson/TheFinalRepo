@@ -33,6 +33,9 @@ public class Monster {
         int attackDmg = ThreadLocalRandom.current().nextInt(minAttack, maxAttack + 1);
         return attackDmg;
     }
+    public void monsterDeath() {
+        System.out.println("You have defeated the " + name + ".");
+    }
 /* public static void main(String[] args) {
     Monsters ghoul = new Monsters("Ghoul", 2, 4, 8, 1, 3);
     int damageDone = ghoul.attack();
