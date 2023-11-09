@@ -32,6 +32,14 @@ public class Battle {
         return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()));
     }
 
+    public battle() {
+        Battle b = new Battle();
+        for (int i=2; i <= roomNumber; i++) {
+            ArrayList<Monster> monsters = b.createMonsterList(i, i);
+            while (player.currentHp != 0 && )
+        }
+    }
+
     public static void main(String[] args) {
         Battle b = new Battle();
 
