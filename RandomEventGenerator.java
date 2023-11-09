@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class RandomEventGenerator {
     private Random random;
+    Occurence event = new Occurence();
+    Player player = new Player("Erik");
 
     public RandomEventGenerator() {
         random = new Random();
@@ -11,43 +13,19 @@ public class RandomEventGenerator {
     public void generateRandomEvent() {
         Scanner userInput = new Scanner(System.in);
         String eventInput;
-        int eventNumber = random.nextInt(3) + 1;
+        int eventNumber = random.nextInt(4) + 1;
         switch (eventNumber) {
             case 1:
-                System.out.println("A monster appears! Kill it? [Y/N]");
-                eventInput = userInput.nextLine();
-                if(eventInput.equalsIgnoreCase("Y"))
-                {
-                    System.out.println("You killed it.");
-                }
-                else
-                {
-                    System.out.println("You ran away from the monster.");
-                }
+                event.occurance1(player);
                 break;
             case 2:
-                System.out.println("You find a treasure chest! loot it? [Y/N]");
-                eventInput = userInput.nextLine();
-                if(eventInput.equalsIgnoreCase("Y"))
-                {
-                    System.out.println("It held a shiny rock.");
-                }
-                else
-                {
-                    System.out.println("It could be a trap... Leave it.");
-                }
+                event.occurance2(player, userInput);
                 break;
             case 3:
-                System.out.println("You fall into a trap! Dodge it! [Y/N]");
-                eventInput = userInput.nextLine();
-                if(eventInput.equalsIgnoreCase("Y"))
-                {
-                    System.out.println("You did it.");
-                }
-                else
-                {
-                    System.out.println("You fell and took some damage.");
-                }
+                event.occurance3(player);
+                break;
+            case 4:
+                event.occurance4(player, userInput);
                 break;
             default:
                 System.out.println("Something went wrong...");

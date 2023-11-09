@@ -31,7 +31,12 @@ public class Monster {
     }
     public int attack() {
         int attackDmg = ThreadLocalRandom.current().nextInt(minAttack, maxAttack + 1);
+        player.decreaseCurrentHp(attackDmg);
         return attackDmg;
+    }
+
+    public void monsterDeath() {
+        if (Monster.hitPoints = 0)
     }
 /* public static void main(String[] args) {
     Monsters ghoul = new Monsters("Ghoul", 2, 4, 8, 1, 3);

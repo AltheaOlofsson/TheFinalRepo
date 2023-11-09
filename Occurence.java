@@ -23,7 +23,7 @@ public void occurance2(Player p, Scanner s) {
     String choice = s.nextLine();
 
     if(choice.equalsIgnoreCase("y")){
-        System.out.println("As you talk he tells you of his quest for a Golden Apple. You remember seeing some apples in your bag earlier and says as much.");
+        System.out.println("As you converse he tells you of his quest for a Golden Apple. You remember seeing some apples in your bag earlier and says as much.");
     System.out.println("His face lights up and he offers to trade his dagger for a Golden Apple.");
     System.out.println("Do you accept? (Y/N)");
         String secondChoice = s.nextLine();
@@ -35,12 +35,7 @@ public void occurance2(Player p, Scanner s) {
                     p.addAttack(3);
                     p.addSpeed(2);
                     p.decreseApple(1);
-                    System.out.println("Attack: + 3");
-                    System.out.println("Speed: + 2");
-                    System.out.println();
-                    System.out.println("You give up one Apple.");
-                    System.out.println("Apple: - 1");
-                    System.out.println();
+                    System.out.println("Attack: + 3\nSpeed: + 2\n\nYou give up one Apple.\nApple: - 1\n");
                     System.out.println("The traveler seems so happy about his new apple that you start to wonder if you might have gotten the short straw.");
                     System.out.println("Oh well, at least someone got the winning hand.");
             }   else {
@@ -120,6 +115,5 @@ public void occurance4(Player p, Scanner s){
     }
 
 }
-
 
 }

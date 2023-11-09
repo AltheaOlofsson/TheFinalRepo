@@ -11,6 +11,7 @@ int speed;
 int level;
 int experience;
 int apple;
+int fairy;
 
 Player(String name) {
 this.name = name;
@@ -22,6 +23,7 @@ this.speed = 15;
 this.level = 0;
 this.experience = 0;
 this.apple = 3;
+this.fairy = 0;
 }
 
 public void displayPlayerStats() {
@@ -30,7 +32,7 @@ public void displayPlayerStats() {
     System.out.println("Speed: " + speed);
     System.out.println("Level: " + level);
     System.out.println("Current EXP: " + getExperience());
-    System.out.println("Amount of apples: " + getApple());
+    System.out.println("Amount of Golden Apples: " + getApple() + "/4");
 }
 
 public String getName() {
@@ -50,6 +52,7 @@ public void addCurrenHp(int currentHp) {
     this.currentHp += currentHp;
     if (this.currentHp > maxHp){
         this.currentHp = maxHp;
+        System.out.println("You are at full health.");
     }
 }
 public void decreaseCurrentHp(int currentHp) {
@@ -153,7 +156,7 @@ public static void main(String[] args) throws InterruptedException {
     Occurence event = new Occurence();
 
     // player.setApple(0);
-    event.occurance1(player);
+    event.occurance2(player,s);
     // System.out.println(player.swingWeapon());
 
     

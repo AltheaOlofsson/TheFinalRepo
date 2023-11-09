@@ -28,8 +28,29 @@ public class Battle {
         return monsters;
     }
 
-    public Monster getFirstMonsterAttack(ArrayList<Monster> monsterList) {
+    public Monster getMonster(ArrayList<Monster> monsterList) {
         return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()));
+    }
+
+    public Monster getCurrentMonsterHP(ArrayList<Monster> monsterList) {
+        return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()))
+    }
+
+    public battle() {
+        Battle b = new Battle();
+        for (int i=2; i <= roomNumber; i++) {
+            ArrayList<Monster> monsters = b.createMonsterList(i, i);
+            while (player.currentHp != 0) {
+                Monster currentMonster = b.getMonster(monsters);
+                if (currentMonster.getHitPoints() != 0) {
+                    if (player.getSpeed() >= currentMonster.getSpeed()) {
+                        placeHolderChoiceOfAction
+                    } else {
+                        System.out.println(currentMonster.getName() + " attacks you for " + currentMonster.attack());
+                    }
+                }
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -37,7 +58,7 @@ public class Battle {
 
         ArrayList<Monster> monsters = b.createMonsterList(2, 2);
         for(int i=0; i < 5; i++) {
-            Monster currentMonster = b.getFirstMonsterAttack(monsters);
+            Monster currentMonster = b.getMonster(monsters);
 
             System.out.println(currentMonster.getName() + " attacks you for " + currentMonster.attack());
         }
