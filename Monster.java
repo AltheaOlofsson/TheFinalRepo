@@ -31,7 +31,7 @@ public class Monster {
     }
     public int attack() {
         int attackDmg = ThreadLocalRandom.current().nextInt(minAttack, maxAttack + 1);
-        player.decreaseCurrentHp(attackDmg);
+        player.decreaseCurrentHp(player.currentHp - attackDmg);
         return attackDmg;
     }
 
