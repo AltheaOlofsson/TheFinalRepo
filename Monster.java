@@ -29,19 +29,24 @@ public class Monster {
     public int getLevel() {
         return level;
     }
+    public void decreaseHitPoints(int hitPoints) {
+        this.hitPoints -= hitPoints;
+    }
     public int attack() {
         int attackDmg = ThreadLocalRandom.current().nextInt(minAttack, maxAttack + 1);
-        player.decreaseCurrentHp(player.currentHp - attackDmg);
+        Battle.player.decreaseCurrentHp(Battle.player.currentHp - attackDmg);
         return attackDmg;
     }
 
     public void monsterDeath() {
-        if (Monster.hitPoints = 0)
-    }
+       // if (Monster.decreaseHitPoints() <= 0) {
+
+        }
+}
 /* public static void main(String[] args) {
     Monsters ghoul = new Monsters("Ghoul", 2, 4, 8, 1, 3);
     int damageDone = ghoul.attack();
     System.out.println(damageDone); 
 } */
-}
+
 

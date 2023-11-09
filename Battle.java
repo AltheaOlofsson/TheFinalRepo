@@ -1,6 +1,6 @@
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.ArrayList;
-import java.util.Collection;
+//import java.util.Collection;
 
 public class Battle {
 
@@ -33,18 +33,18 @@ public class Battle {
     }
 
     public Monster getCurrentMonsterHP(ArrayList<Monster> monsterList) {
-        return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()))
+        return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()));
     }
-
-    public battle() {
+    int roomNumber = 5;
+    public void battle() {
         Battle b = new Battle();
         for (int i=2; i <= roomNumber; i++) {
             ArrayList<Monster> monsters = b.createMonsterList(i, i);
             while (player.currentHp != 0) {
                 Monster currentMonster = b.getMonster(monsters);
-                if (currentMonster.getHitPoints() != 0) {
+                while (currentMonster.getHitPoints() != 0) {
                     if (player.getSpeed() >= currentMonster.getSpeed()) {
-                        placeHolderChoiceOfAction
+                        System.out.println("You swing your weapon for " + player.swingWeapon());
                     } else {
                         System.out.println(currentMonster.getName() + " attacks you for " + currentMonster.attack());
                     }
@@ -52,15 +52,12 @@ public class Battle {
             }
         }
     }
+    static Player player = new Player("Brian");
 
     public static void main(String[] args) {
-        Battle b = new Battle();
-
-        ArrayList<Monster> monsters = b.createMonsterList(2, 2);
-        for(int i=0; i < 5; i++) {
-            Monster currentMonster = b.getMonster(monsters);
-
-            System.out.println(currentMonster.getName() + " attacks you for " + currentMonster.attack());
-        }
+        
+        player.setAttack(10);
+        player.setSpeed(15);
+        
     }
 }
