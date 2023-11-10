@@ -1,8 +1,10 @@
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.ArrayList;
 //import java.util.Collection;
+import java.util.Scanner;
 
 public class Battle {
+    Player player;
 
     Monster slime = new Monster("Slime", 20, 2, 2, 1, 2);
     Monster wolf = new Monster("Wolf", 25, 2, 4, 2, 15);
@@ -35,10 +37,16 @@ public class Battle {
     public Monster getCurrentMonsterHP(ArrayList<Monster> monsterList) {
         return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()));
     }
+    public int playerFirst() {
+        if (attackNow == true) {
+            int monsterDmgTaken = player.swingWeapon();
 
-
-
-    int roomNumber = 5;
+            System.out.println("You swing your weapon for " + player.swingWeapon());
+            return monsterDmgTaken;
+        } return player.swingWeapon(); // OBS Temporär implementering
+    }
+    public Boolean attackNow = false;
+    
     public void battle(int currentRoom) {
         
             ArrayList<Monster> monsters = createMonsterList(currentRoom + 1, currentRoom + 1);
@@ -46,18 +54,32 @@ public class Battle {
 
                 while (currentMonster.getHitPoints() > 0 && player.IsAlive() == true) {
                     if (player.getSpeed() >= currentMonster.getSpeed()) {
-                        System.out.println("You swing your weapon for " + player.swingWeapon());
+                        Scanner attackMonster = new Scanner(System.in);
+                        System.out.println("Do you want to attack? [Y] [N]");
+                        String attackChoice = attackMonster.nextLine();
+                        int monsterDmgTaken = playerFirst();
+                        currentMonster.decreaseHitPoints(monsterDmgTaken);
+                        int currentAttack = currentMonster.attack();
+                        System.out.println(currentMonster.getName() + " attacks you for " + currentAttack);
+                        player.decreaseCurrentHp(currentAttack);
+                        attackNow = false;
                     } else {
                         int currentAttack = currentMonster.attack();
                         System.out.println(currentMonster.getName() + " attacks you for " + currentAttack);
                         player.decreaseCurrentHp(currentAttack);
+                        Scanner attackMonster = new Scanner(System.in);
+                        System.out.println("Do you want to attack? [Y] [N]");
+                        String attackChoice = attackMonster.nextLine();
+                        int monsterDmgTaken = playerFirst();
+                        currentMonster.decreaseHitPoints(monsterDmgTaken);
+                        attackNow = false;
                     }
                     System.out.println(player.currentHp);
                 }
             }
     // Player player = new Player("Brian");
 
-    Player player;
+    
     
 
     public Battle(Player player) {
@@ -66,12 +88,20 @@ public class Battle {
 
     public static void main(String[] args) {
         Player player = new Player("Brian");
+        Battle b = new Battle(player);
+        Scanner attackMonster = new Scanner(System.in);
+        System.out.println("Do you want to attack? [Y] [N]");
+        String attackChoice = attackMonster.nextLine();
+        if (attackChoice == "y") {
+            b.attackNow = true;
+        }
         // player.setAttack(10);
         // player.setSpeed(15);
         player.setSpeed(20);
         player.setMaxHp(50);
         player.setCurrentHp(50);
-        Battle b = new Battle(player);
+        player.setAttack(12);
+        
         b.createMonsterList(0, 2);
         b.battle(4);
     }
