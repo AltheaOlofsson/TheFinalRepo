@@ -38,7 +38,7 @@ public class Battle {
     int roomNumber = 5;
     public void battle() {
         Battle b = new Battle();
-        for (int i=2; i <= roomNumber; i++) {
+        for (int i=2; i <= roomNumber + 2; i++) {
             ArrayList<Monster> monsters = b.createMonsterList(i, i);
             while (player.currentHp != 0) {
                 Monster currentMonster = b.getMonster(monsters);
