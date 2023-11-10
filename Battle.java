@@ -61,7 +61,7 @@ public class Battle {
     // Player player = new Player("Brian");
 
     Player player;
-    player.setSpeed(20);
+    
 
     public Battle(Player player) {
         this.player = player;
@@ -71,9 +71,9 @@ public class Battle {
         Player player = new Player("Brian");
         // player.setAttack(10);
         // player.setSpeed(15);
-        
+        player.setSpeed(20);
         Battle b = new Battle(player);
         b.createMonsterList(0, 2);
-        b.battle();
+        b.battle(4);
     }
 }
