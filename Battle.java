@@ -36,10 +36,7 @@ public class Battle {
         return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()));
     }
 
-    boolean playerIsAlive(Player p) {
-        if (p.currentHp > 0) return true;
-        else return false;
-    }
+
 
     int roomNumber = 5;
     public void battle(int currentRoom) {
@@ -47,20 +44,20 @@ public class Battle {
             ArrayList<Monster> monsters = createMonsterList(currentRoom + 1, currentRoom + 1);
             Monster currentMonster = getMonster(monsters);
 
-            while (playerIsAlive(player) == true) {
-                while (currentMonster.getHitPoints() > 0) {
+                while (currentMonster.getHitPoints() > 0 && player.IsAlive() == true) {
                     if (player.getSpeed() >= currentMonster.getSpeed()) {
                         System.out.println("You swing your weapon for " + player.swingWeapon());
                     } else {
-                        System.out.println(currentMonster.getName() + " attacks you for " + currentMonster.attack());
+                        int currentAttack = currentMonster.attack();
+                        System.out.println(currentMonster.getName() + " attacks you for " + currentAttack);
+                        player.decreaseCurrentHp(currentAttack);
                     }
+                    System.out.println(player.currentHp);
                 }
             }
-        
-    }
     // Player player = new Player("Brian");
 
-    static Player player;
+    Player player;
     
 
     public Battle(Player player) {

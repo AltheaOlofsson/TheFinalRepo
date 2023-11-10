@@ -106,6 +106,11 @@ public void setExperience(int experience) {
     this.experience = experience;
 }
 
+public boolean IsAlive() {
+    if (currentHp > 0) return true;
+    else return false;
+}
+
 public void levelUp() {
     if (experience == 10) {
         level++;
