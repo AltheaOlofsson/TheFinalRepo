@@ -33,7 +33,7 @@ public class Battle {
     }
 
     public Monster getCurrentMonsterHP(ArrayList<Monster> monsterList) {
-        return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()))
+        return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()));
     }
 
     public battle() {

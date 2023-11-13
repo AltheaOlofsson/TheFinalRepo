@@ -1,6 +1,8 @@
 public class RootEvent extends Events {
-public int eventLevel = 1;
-public RootEvent (Player p) {
+
+
+public RootEvent (Player p, int eventLevel) {
+
         System.out.println("You trip over a tree root and land on your face.");
         p.decreaseCurrentHp(5);
         System.out.println("HP: - 5");
@@ -10,8 +12,12 @@ public RootEvent (Player p) {
         System.out.println("Apples: " + p.getApple());
         }
 
-        public int getEventLevel() {
-                return eventLevel;
-            }
+@Override
+public int getEventLevel() {
+        return eventLevel;
+
+}
+
+ 
     
 }
