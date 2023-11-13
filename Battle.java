@@ -44,7 +44,7 @@ public class Battle {
         
             ArrayList<Monster> monsters = createMonsterList(currentRoom + 1, currentRoom + 1);
             Monster currentMonster = getMonster(monsters);
-
+            System.out.println("You are attacked by a " + currentMonster.getName());
                 while (currentMonster.getHitPoints() > 0 && player.IsAlive() == true) {
                     if (player.getSpeed() >= currentMonster.getSpeed()) {
                         System.out.println("Do you want to attack? [Y] [N]");

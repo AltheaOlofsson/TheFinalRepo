@@ -36,7 +36,7 @@ public class Monster {
         int attackDmg = ThreadLocalRandom.current().nextInt(minAttack, maxAttack + 1);
         player.decreaseCurrentHp(attackDmg);
 
-        System.out.println("The monster attakcs you for " + attackDmg);
+        System.out.println("The monster attacks you for " + attackDmg);
     }
 
     public void monsterDeath() {
