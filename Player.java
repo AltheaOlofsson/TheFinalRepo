@@ -106,6 +106,11 @@ public void setExperience(int experience) {
     this.experience = experience;
 }
 
+public boolean IsAlive() {
+    if (currentHp > 0) return true;
+    else return false;
+}
+
 public void levelUp() {
     if (experience == 10) {
         level++;
@@ -145,7 +150,23 @@ public int swingWeapon() {
     double calculateDamage = ThreadLocalRandom.current().nextDouble(attack, maxDamage);
     long roundedResult = Math.round(calculateDamage);
     int outgoingDmg = (int) roundedResult;
+
+    System.out.println("You swing your weapon for " + outgoingDmg);
+
     return outgoingDmg;
+}
+
+public void attack(Monster currentMonster) {
+
+    double maxDamage = (attack*1.5);
+
+    double calculateDamage = ThreadLocalRandom.current().nextDouble(attack, maxDamage);
+    long roundedResult = Math.round(calculateDamage);
+    int outgoingDmg = (int) roundedResult;
+
+    currentMonster.decreaseHitPoints(outgoingDmg);
+
+    System.out.println("You swing your weapon for " + outgoingDmg);
 }
 
 
