@@ -16,7 +16,7 @@ public class Battle {
     Monster troll = new Monster("Troll", 55, 2, 15, 4, 8);
     Monster ogre = new Monster("Ogre", 45, 10, 15, 4, 25);
     Monster wurm = new Monster("Wurm", 35, 12, 14, 4, 20);
-    Monster vampire = new Monster("Vampire", 35, 8, 10, 5, 35);
+    Monster vampire = new Monster("Vampire", 30, 8, 12, 5, 350);
     Monster werewolf = new Monster("Werewolf", 50, 10, 20, 5, 55);
 
     Monster[] monsterEncounters = {wolf,goblin,orc,direWolf,elf,troll,ogre,wurm,vampire,werewolf};
@@ -44,7 +44,7 @@ public class Battle {
         
             ArrayList<Monster> monsters = createMonsterList(currentRoom + 1, currentRoom + 1);
             Monster currentMonster = getMonster(monsters);
-            System.out.println("You are attacked by a " + currentMonster.getName());
+            System.out.println("You are attacked by a vicious " + currentMonster.getName());
             if (currentMonster.getName().equals("Vampire")) {Monster.lifeSteal = true;} else {Monster.lifeSteal = false;}
                 while (currentMonster.getHitPoints() > 0 && player.IsAlive() == true) {
                     if (player.getSpeed() >= currentMonster.getSpeed()) {
@@ -52,17 +52,18 @@ public class Battle {
                         String attackChoice = scanner.nextLine();
                         System.out.println(attackChoice);
                         if (attackChoice.equals("y")) {player.attack(currentMonster);}
+                        System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
                         currentMonster.attack(player, currentMonster);
+                        System.out.println("player:" + player.currentHp);
                     } else {
                         currentMonster.attack(player, currentMonster);
+                        System.out.println("player:" + player.currentHp);
                         System.out.println("Do you want to attack? [Y] [N]");
                         String attackChoice = scanner.nextLine();
                         System.out.println(attackChoice);
                         if (attackChoice.equals("y")) {player.attack(currentMonster);}
+                        System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
                     }
-                    System.out.println("player:" + player.currentHp);
-                    System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
-
                 }
             }
     

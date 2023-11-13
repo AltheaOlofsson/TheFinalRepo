@@ -36,9 +36,11 @@ public class Monster {
     public void attack(Player player, Monster currentMonster) {
         int attackDmg = ThreadLocalRandom.current().nextInt(minAttack, maxAttack + 1);
         player.decreaseCurrentHp(attackDmg);
-        if (lifeSteal == true) {currentMonster.hitPoints += (attackDmg/2);}
-
         System.out.println("The " + currentMonster.getName() + " attacks you for " + attackDmg);
+        if (lifeSteal == true) {
+            currentMonster.hitPoints += (attackDmg/2);
+            System.out.println("It heals from your blood.");
+        }
     }
 
     public void monsterDeath() {
