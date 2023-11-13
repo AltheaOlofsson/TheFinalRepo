@@ -107,10 +107,33 @@ public void occurance4(Player p, Scanner s){
                 System.out.println("As you move to step away you step on a twig. The snap results in a deafening silence.");
             }
     } else {
-        System.out.println("You continue down the road, the beautiful singing hauting you for a long time.");
+        System.out.println("You continue down the road, the beautiful singing haunting you for a long time.");
 
     }
 
 }
 
+public void occurance5(Player p, Scanner s) {
+
+    System.out.println("When you are about to tuck in for the night you witness a meteor shower and have the opportunity to wish upon a falling star");
+    System.out.println("Do you make a wish? (y/n)");
+    String choice = s.nextLine();
+        if(choice.equalsIgnoreCase("y")) {
+            System.out.println("You decide to wish for:\n\nGreat health (1)\nFenomenal strenght (2)\nExceptional speed (3)\n");
+            String wish = s.nextLine();
+                if(wish.equals("1")) {
+                   p.addMaxHp(20);
+                   System.out.println("You has good health my friend");
+                } else if (wish.equals("2")) {
+                    
+                }
+
+        } else {
+            System.out.println("You decide to just admire the beautiful natural occurance of possible impending doom " +
+            "and suddenly can't seem to get the 'impending doom'-part out of your mind.\nYou have trouble falling asleep.\nHP: - 5");
+            p.decreaseCurrentHp(5);
+            System.out.println("You wake up at dawn of the next day and feel like shit. Despite that you know you have to " + 
+            "continue your journey.");
+}           }
+    
 }

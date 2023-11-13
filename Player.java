@@ -162,7 +162,7 @@ public static void main(String[] args) throws InterruptedException {
     System.out.println(List);
 
     // player.setApple(0);
-    // event.occurance2(player,s);
+    event.occurance5(player,s);
     // System.out.println(player.swingWeapon());
 
     
