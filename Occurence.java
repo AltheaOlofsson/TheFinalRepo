@@ -8,6 +8,9 @@ public void occurrencemall(Player p) {
     System.out.println(p.getAttack());
 }
 
+public class RootEvent extends Events { }
+public class TravelerEvent extends Occurence { }
+
 public void occurance1(Player p) {
     System.out.println("You trip over a tree root and land on your face.");
     p.decreaseCurrentHp(5);
@@ -23,7 +26,7 @@ public void occurance2(Player p, Scanner s) {
     String choice = s.nextLine();
 
     if(choice.equalsIgnoreCase("y")){
-        System.out.println("As you converse he tells you of his quest for a Golden Apple. You remember seeing some apples in your bag earlier and says as much.");
+    System.out.println("As you converse he tells you of his quest for a Golden Apple. You remember seeing some apples in your bag earlier and says as much.");
     System.out.println("His face lights up and he offers to trade his dagger for a Golden Apple.");
     System.out.println("Do you accept? (Y/N)");
         String secondChoice = s.nextLine();
@@ -60,13 +63,7 @@ public void occurance2(Player p, Scanner s) {
                     p.addSpeed(3);
                     p.addAttack(3);
                     p.decreseApple(1);
-                    System.out.println();
-                    System.out.println("Max HP: + 10");
-                    System.out.println("Attack: + 3");
-                    System.out.println("Speed: + 2");
-                    System.out.println();
-                    System.out.println("Apple: - 1");
-                    System.out.println();
+                    System.out.println("\nMax HP: + 10 \nAttack: + 3 \nSpeed: + 2\n\nApple: - 1\n");
                     System.out.println("The traveler thanks you profously and rushes down the road with his precious apple.");
                     System.out.println("You feel pretty good about the trade even though you lost an apple. You continue down the road.");
                     System.out.println();
@@ -102,11 +99,11 @@ public void occurance3(Player p) {
 public void occurance4(Player p, Scanner s){
     System.out.println("You hear a singing voice coming from deep within the forest. Do you check it out?");
     String check = s.nextLine();
-    if (check.equalsIgnoreCase("Yes")){
+    if (check.equalsIgnoreCase("y")){
         System.out.println("You follow the beautiful voice until the dark trees give way to a silver pool.");
         System.out.println("Above the glittering water you see a beautiful lady dancing in the air. You get the feeling that you should not be here. Leave?");
         String leave = s.nextLine();
-            if(leave.equalsIgnoreCase("Yes")){
+            if(leave.equalsIgnoreCase("y")){
                 System.out.println("As you move to step away you step on a twig. The snap results in a deafening silence.");
             }
     } else {
