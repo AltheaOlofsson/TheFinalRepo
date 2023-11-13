@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Battle {
     Player player;
+    Scanner scanner = new Scanner(System.in);
 
     Monster slime = new Monster("Slime", 20, 2, 2, 1, 2);
     Monster wolf = new Monster("Wolf", 25, 2, 4, 2, 15);
@@ -37,15 +38,7 @@ public class Battle {
     public Monster getCurrentMonsterHP(ArrayList<Monster> monsterList) {
         return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()));
     }
-    public int playerFirst() {
-        if (attackNow == true) {
-            int monsterDmgTaken = player.swingWeapon();
 
-            System.out.println("You swing your weapon for " + player.swingWeapon());
-            return monsterDmgTaken;
-        } return player.swingWeapon(); // OBS Temporär implementering
-    }
-    public Boolean attackNow = false;
     
     public void battle(int currentRoom) {
         
@@ -54,34 +47,24 @@ public class Battle {
 
                 while (currentMonster.getHitPoints() > 0 && player.IsAlive() == true) {
                     if (player.getSpeed() >= currentMonster.getSpeed()) {
-                        Scanner attackMonster = new Scanner(System.in);
                         System.out.println("Do you want to attack? [Y] [N]");
-                        String attackChoice = attackMonster.nextLine();
-                        int monsterDmgTaken = playerFirst();
-                        currentMonster.decreaseHitPoints(monsterDmgTaken);
-                        int currentAttack = currentMonster.attack();
-                        System.out.println(currentMonster.getName() + " attacks you for " + currentAttack);
-                        player.decreaseCurrentHp(currentAttack);
-                        attackNow = false;
+                        String attackChoice = scanner.nextLine();
+                        System.out.println(attackChoice);
+                        if (attackChoice.equals("y")) {player.attack(currentMonster);}
+                        currentMonster.attack(player);
                     } else {
-                        int currentAttack = currentMonster.attack();
-                        System.out.println(currentMonster.getName() + " attacks you for " + currentAttack);
-                        player.decreaseCurrentHp(currentAttack);
-                        Scanner attackMonster = new Scanner(System.in);
+                        currentMonster.attack(player);
                         System.out.println("Do you want to attack? [Y] [N]");
-                        String attackChoice = attackMonster.nextLine();
-                        int monsterDmgTaken = playerFirst();
-                        currentMonster.decreaseHitPoints(monsterDmgTaken);
-                        attackNow = false;
+                        String attackChoice = scanner.nextLine();
+                        System.out.println(attackChoice);
+                        if (attackChoice.equals("y")) {player.attack(currentMonster);}
                     }
-                    System.out.println(player.currentHp);
+                    System.out.println("player:" + player.currentHp);
+                    System.out.println("monster: " + currentMonster.getHitPoints());
+
                 }
             }
-    // Player player = new Player("Brian");
-
     
-    
-
     public Battle(Player player) {
         this.player = player;
     }
@@ -89,14 +72,6 @@ public class Battle {
     public static void main(String[] args) {
         Player player = new Player("Brian");
         Battle b = new Battle(player);
-        Scanner attackMonster = new Scanner(System.in);
-        System.out.println("Do you want to attack? [Y] [N]");
-        String attackChoice = attackMonster.nextLine();
-        if (attackChoice == "y") {
-            b.attackNow = true;
-        }
-        // player.setAttack(10);
-        // player.setSpeed(15);
         player.setSpeed(20);
         player.setMaxHp(50);
         player.setCurrentHp(50);

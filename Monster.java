@@ -32,9 +32,11 @@ public class Monster {
     public void decreaseHitPoints(int hitPoints) {
         this.hitPoints -= hitPoints;
     }
-    public int attack() {
+    public void attack(Player player) {
         int attackDmg = ThreadLocalRandom.current().nextInt(minAttack, maxAttack + 1);
-        return attackDmg;
+        player.decreaseCurrentHp(attackDmg);
+
+        System.out.println("The monster attakcs you for " + attackDmg);
     }
 
     public void monsterDeath() {
