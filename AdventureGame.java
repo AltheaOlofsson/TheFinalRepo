@@ -15,14 +15,14 @@ public class AdventureGame {
         while (!quit) {
             if(menuChoice.equalsIgnoreCase("Help") || menuChoice.equalsIgnoreCase("2"))
             {
-                System.out.println("\nIn this game you will go through a series of \"rooms\" where the goal of the game is to reach the end.");
-                System.out.println("each \"room\" will prompt you with a path of either left or right and present an encounter.");
-                System.out.println("These encounters could either be combat or an event that will further prompt you to make a decision.");
+                System.out.println("\nIn this game you will go through a series of \"encounters\" where the goal of the game is to reach the end.");
+                System.out.println("each \"room\" will prompt you with a path of either left or right and present an event.");
+                System.out.println("These events could either be in the form combat against monsters or an event that will further prompt you to make a decision.");
                 System.out.println("These events can either reward or punish the player.");
                 
-                System.out.println("\nThe player character has a set of stats, those being: \n- HP\n- Attack\n- Speed");
-                System.out.println("");
-                System.out.println("\n\n[1]Start\n[2]Help\n[3]Quit");
+                System.out.println("\nThe player character and monsters has a set of stats, those being: \n- HP : How much health the player/monster has.\n- Attack : How much damage they deal.\n- Speed : How dexterous either one is, the one that has more than the other fights first.");
+                System.out.println("\n");
+                System.out.println("\n[1]Start\n[2]Help\n[3]Quit");
             }
             else if((menuChoice.equalsIgnoreCase("Start") || menuChoice.equalsIgnoreCase("1")))
             {
