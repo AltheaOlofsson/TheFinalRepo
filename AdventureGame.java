@@ -15,7 +15,14 @@ public class AdventureGame {
         while (!quit) {
             if(menuChoice.equalsIgnoreCase("Help") || menuChoice.equalsIgnoreCase("2"))
             {
-                System.out.println("This is the instruction text, have I instructed you?");
+                System.out.println("\nIn this game you will go through a series of \"rooms\" where the goal of the game is to reach the end.");
+                System.out.println("each \"room\" will prompt you with a path of either left or right and present an encounter.");
+                System.out.println("These encounters could either be combat or an event that will further prompt you to make a decision.");
+                System.out.println("These events can either reward or punish the player.");
+                
+                System.out.println("\nThe player character has a set of stats, those being: \n- HP\n- Attack\n- Speed");
+                System.out.println("");
+                System.out.println("\n\n[1]Start\n[2]Help\n[3]Quit");
             }
             else if((menuChoice.equalsIgnoreCase("Start") || menuChoice.equalsIgnoreCase("1")))
             {
@@ -56,7 +63,7 @@ public class AdventureGame {
             }
             else
             {
-                System.out.println("Oops! Please type in a name.");
+                System.out.println("Incorrect input, empty! Please type in a name.");
             }
         }
         return name;
@@ -150,19 +157,19 @@ public class AdventureGame {
     public static void Title() throws InterruptedException
     {
         System.out.print("PERFECTLY ");
-        Thread.sleep(800);
+        Thread.sleep(200);
         System.out.print("ACCEPTABLE ");
-        Thread.sleep(800);
+        Thread.sleep(200);
         System.out.print("ADVENTURE ");
-        Thread.sleep(800);
+        Thread.sleep(200);
         System.out.print("OF ");
-        Thread.sleep(800);
+        Thread.sleep(200);
         System.out.print("A ");
-        Thread.sleep(1000);
+        Thread.sleep(250);
         System.out.print("MUNDANE ");
-        Thread.sleep(800);
+        Thread.sleep(200);
         System.out.print("SOMEBODY");
-        Thread.sleep(800);
+        Thread.sleep(200);
         System.out.print("\n                      2023 EDITION");
         clearScreen();
 
