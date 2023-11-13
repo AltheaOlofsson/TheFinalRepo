@@ -45,22 +45,23 @@ public class Battle {
             ArrayList<Monster> monsters = createMonsterList(currentRoom + 1, currentRoom + 1);
             Monster currentMonster = getMonster(monsters);
             System.out.println("You are attacked by a " + currentMonster.getName());
+            if (currentMonster.getName().equals("Vampire")) {Monster.lifeSteal = true;} else {Monster.lifeSteal = false;}
                 while (currentMonster.getHitPoints() > 0 && player.IsAlive() == true) {
                     if (player.getSpeed() >= currentMonster.getSpeed()) {
                         System.out.println("Do you want to attack? [Y] [N]");
                         String attackChoice = scanner.nextLine();
                         System.out.println(attackChoice);
                         if (attackChoice.equals("y")) {player.attack(currentMonster);}
-                        currentMonster.attack(player);
+                        currentMonster.attack(player, currentMonster);
                     } else {
-                        currentMonster.attack(player);
+                        currentMonster.attack(player, currentMonster);
                         System.out.println("Do you want to attack? [Y] [N]");
                         String attackChoice = scanner.nextLine();
                         System.out.println(attackChoice);
                         if (attackChoice.equals("y")) {player.attack(currentMonster);}
                     }
                     System.out.println("player:" + player.currentHp);
-                    System.out.println("monster: " + currentMonster.getHitPoints());
+                    System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
 
                 }
             }
@@ -74,8 +75,8 @@ public class Battle {
         Battle b = new Battle(player);
         player.setSpeed(20);
         player.setMaxHp(50);
-        player.setCurrentHp(50);
-        player.setAttack(12);
+        player.setCurrentHp(500);
+        player.setAttack(2);
         
         b.createMonsterList(0, 2);
         b.battle(4);

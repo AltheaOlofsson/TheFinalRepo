@@ -7,6 +7,7 @@ public class Monster {
     private int maxAttack;
     private int level;
     private int speed;
+    static Boolean lifeSteal = false;
     
     Monster(String name, int hitPoints, int minAttack, int maxAttack, int level, int speed) {
         this.name = name;
@@ -32,11 +33,12 @@ public class Monster {
     public void decreaseHitPoints(int hitPoints) {
         this.hitPoints -= hitPoints;
     }
-    public void attack(Player player) {
+    public void attack(Player player, Monster currentMonster) {
         int attackDmg = ThreadLocalRandom.current().nextInt(minAttack, maxAttack + 1);
         player.decreaseCurrentHp(attackDmg);
+        if (lifeSteal == true) {currentMonster.hitPoints += (attackDmg/2);}
 
-        System.out.println("The monster attacks you for " + attackDmg);
+        System.out.println("The " + currentMonster.getName() + " attacks you for " + attackDmg);
     }
 
     public void monsterDeath() {
