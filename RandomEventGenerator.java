@@ -12,7 +12,6 @@ public class RandomEventGenerator {
 
     public void generateRandomEvent() {
         Scanner userInput = new Scanner(System.in);
-        String eventInput;
         int eventNumber = random.nextInt(4) + 1;
         switch (eventNumber) {
             case 1:
@@ -28,7 +27,7 @@ public class RandomEventGenerator {
                 event.occurance4(player, userInput);
                 break;
             default:
-                System.out.println("Something went wrong...");
+                System.out.println("Something went wrong... Scream and run if you see this.");
         }
     }
 }
