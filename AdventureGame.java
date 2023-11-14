@@ -10,19 +10,27 @@ public class AdventureGame {
         
         clearScreen();
         Title();
+        mainMenu();
         String menuChoice = userInput.nextLine();
         
         while (!quit) {
             if(menuChoice.equalsIgnoreCase("Help") || menuChoice.equalsIgnoreCase("2"))
             {
+                clearScreen();
                 System.out.println("\nIn this game you will go through a series of \"encounters\" where the goal of the game is to reach the end.");
                 System.out.println("each \"room\" will prompt you with a path of either left or right and present an event.");
                 System.out.println("These events could either be in the form combat against monsters or an event that will further prompt you to make a decision.");
                 System.out.println("These events can either reward or punish the player.");
                 
-                System.out.println("\nThe player character and monsters has a set of stats, those being: \n- HP : How much health the player/monster has.\n- Attack : How much damage they deal.\n- Speed : How dexterous either one is, the one that has more than the other fights first.");
+                System.out.println("\nThe player character and monsters has a set of stats, those being:");
+                System.out.println("\n- HP : How much health the player/monster has.");
+                System.out.println("\n- Attack : How much damage they deal.");
+                System.out.println("\n- Speed : How dexterous either one is, the one that has more than the other fights first.");
                 System.out.println("\n");
-                System.out.println("\n[1]Start\n[2]Help\n[3]Quit");
+                System.out.println("\n\nPress ENTER to return to menu.");
+                userInput.nextLine();
+                clearScreen();
+                mainMenu();
             }
             else if((menuChoice.equalsIgnoreCase("Start") || menuChoice.equalsIgnoreCase("1")))
             {
@@ -74,7 +82,7 @@ public class AdventureGame {
         Scanner userInput = new Scanner(System.in);
         boolean gameOver = false;
         int rooms = 5; //How many rooms or a.k.a event choice will happen.
-        int apple = 3;
+        player.setApple(3);
         String roomChoice;
         RandomEventGenerator Event = new RandomEventGenerator();
         Battle battle = new Battle(player);
@@ -82,7 +90,7 @@ public class AdventureGame {
         
         for (int i = 1; i <= rooms; i++) 
         {
-                System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? This path is blocked by a monster but you cant tell what exactly. \n[3]Eat Apple? " + apple + "/3");
+                System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? This path is blocked by a monster but you cant tell what exactly. \n[3]Eat Apple? " + player.getApple() + "/4");
                 roomChoice = userInput.nextLine();
                 if (roomChoice.equalsIgnoreCase("Left") || roomChoice.equalsIgnoreCase("1")) 
                 {
@@ -96,21 +104,30 @@ public class AdventureGame {
                 } 
                 else if (roomChoice.equalsIgnoreCase("Eat Apple") || roomChoice.equalsIgnoreCase("3")) 
                 {
-                    if (apple > 0) {
+                    if (player.getApple() > 0) {
                         clearScreen();
-                        apple--;
-                        System.out.println("You ate an apple.");
+                        player.eatApple();
+                        System.out.println("You consumed an apple and feel rejuvenated, any damage was now undone by t.");
                         i--;
                     } else {
                         clearScreen();
-                        System.out.println("You're out of apples.");
+                        System.out.println(" out of apples.");
                         i--;
                     }
                 } 
+                else if (roomChoice.equalsIgnoreCase("/stats"))
+                {
+                    clearScreen();
+                    player.displayPlayerStats();
+                    System.out.println("\nPress ENTER to continue.");
+                    userInput.nextLine();
+                    clearScreen();
+                    i--;
+                }
                 else 
                 {
                     clearScreen();
-                    System.out.println("Incorrect Input! Please try again.");
+                    System.out.println("Incorrect Input! Please try again. /stats to check your stats, /help for instructions.");
                     i--;
                 }
         }
@@ -136,14 +153,19 @@ public class AdventureGame {
         System.out.print("\n                      2023 EDITION");
         clearScreen();
 
-        for(int i = 0; i < 10; i++)
+        for(int i = 0; i < 20; i++)
         {
             Thread.sleep(50);
             System.out.println("PERFECTLY ACCEPTABLE ADVENTURE OF A MUNDANE SOMEBODY\n                      2023 EDITION");
             clearScreen();
         }
+
+    }
+    
+    public static void mainMenu() throws InterruptedException
+    {
         System.out.println("PERFECTLY ACCEPTABLE ADVENTURE OF A MUNDANE SOMEBODY\n                      2023 EDITION");
-        Thread.sleep(1200);
+        Thread.sleep(600);
         System.out.println("\nPlease type the number or write one of the choices below.");
         Thread.sleep(200);
         System.out.println("[1]Start");
@@ -152,7 +174,7 @@ public class AdventureGame {
         Thread.sleep(200);
         System.out.println("[3]Quit");
     }
-    
+
     public static void Story() throws InterruptedException
     {
         System.out.println(">|GAME START<|");
