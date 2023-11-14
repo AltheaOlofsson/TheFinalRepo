@@ -48,21 +48,23 @@ public class Battle {
             if (currentMonster.getName().equals("Vampire")) {Monster.lifeSteal = true;} else {Monster.lifeSteal = false;}
                 while (currentMonster.getHitPoints() > 0 && player.IsAlive() == true) {
                     if (player.getSpeed() >= currentMonster.getSpeed()) {
-                        System.out.println("Do you want to attack? [Y] [N]");
-                        String attackChoice = scanner.nextLine();
+                        System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Display stats.");
+                        int attackChoice = scanner.nextInt();
                         System.out.println(attackChoice);
-                        if (attackChoice.equals("y")) {player.attack(currentMonster);}
+                        if (attackChoice == 1) {player.attack(currentMonster);}
                         System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
                         currentMonster.attack(player, currentMonster);
                         System.out.println("player:" + player.currentHp);
+                        if (attackChoice == 2) {player.displayPlayerStats();}
                     } else {
                         currentMonster.attack(player, currentMonster);
                         System.out.println("player:" + player.currentHp);
-                        System.out.println("Do you want to attack? [Y] [N]");
-                        String attackChoice = scanner.nextLine();
+                        System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Display stats.");
+                        int attackChoice = scanner.nextInt();
                         System.out.println(attackChoice);
-                        if (attackChoice.equals("y")) {player.attack(currentMonster);}
+                        if (attackChoice == 1) {player.attack(currentMonster);}
                         System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
+                        if (attackChoice == 2) {player.displayPlayerStats();}
                     }
                 }
             }
