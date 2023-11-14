@@ -39,7 +39,6 @@ public void displayPlayerStats(Scanner s) {
             if(userChoice.equalsIgnoreCase("y")) {
                 eatApple();
                 System.out.println("You consumed a Golden Apple and restored your HP to max! HP: " + getCurrentHp() +"/" + getMaxHp());
-                setMaxHp(maxHp);
             } else {
                 System.out.println("You save your Golden Apples for a rainy day");
             }
