@@ -105,6 +105,12 @@ public int getExperience() {
 public void setExperience(int experience) {
     this.experience = experience;
 }
+public void addExperience(int experience){
+    this.experience = experience;
+    if(experience>= 100){
+        levelUp();
+    }
+}
 
 public void levelUp() {
     if (experience == 10) {
