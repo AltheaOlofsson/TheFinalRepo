@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class TravelerEvent extends Events {
-    public int eventLevel = 2;
 
-    public TravelerEvent (Player p, Scanner s) {
+
+    public TravelerEvent (Player p, Scanner s,int eventLevel) {
     System.out.println("You meet a traveler on the road. Do you stop and chat? (Y/N)");
     String choice = s.nextLine();
 
@@ -68,8 +68,10 @@ public class TravelerEvent extends Events {
         }
 }
 
-public int getEventLevel() {
+    @Override
+    public int getEventLevel() {
     return eventLevel;
-}
+    }
+
     
 }

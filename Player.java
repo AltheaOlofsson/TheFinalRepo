@@ -1,5 +1,4 @@
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.Scanner;
 import java.util.*;
 public class Player {
 
@@ -154,15 +153,19 @@ public static void main(String[] args) throws InterruptedException {
     
     Player player = new Player("Jimmy");
     Scanner s = new Scanner (System.in);
-    Events event = new Events();
+    eventabstract event = new eventabstract();
     // RootEvent root = new RootEvent(player);
     // TravelerEvent traveler = new TravelerEvent(player, s);
 
-    ArrayList<Events> List = event.createEventList(1, 2);
-    System.out.println(List);
+    ArrayList<Events> List = event.createEventList(1, 1);
+    // // System.out.println(event.createEventList(1, 1));
+    // System.out.println(List.size());
+                     System.out.println(eventabstract.EventsList);
+
+  
 
     // player.setApple(0);
-    event.occurance5(player,s);
+    // event.occurance5(player,s);
     // System.out.println(player.swingWeapon());
 
     
