@@ -26,13 +26,27 @@ this.apple = 3;
 this.fairy = 0;
 }
 
-public void displayPlayerStats() {
+public void displayPlayerStats(Scanner s) {
     System.out.println("HP: " + currentHp + "/" + maxHp);
     System.out.println("Attack: " + attack);
     System.out.println("Speed: " + speed);
     System.out.println("Level: " + level);
     System.out.println("Current EXP: " + getExperience());
     System.out.println("Amount of Golden Apples: " + getApple() + "/4");
+        if(currentHp < maxHp && getApple() > 0) {
+            System.out.println("Eat Golden Apple to restore HP? (y/n)");
+            String userChoice = s.nextLine();
+            if(userChoice.equalsIgnoreCase("y")) {
+                eatApple();
+                System.out.println("You consumed a Golden Apple and restored your HP to max! HP: " + getCurrentHp() +"/" + getMaxHp());
+            } else {
+                System.out.println("You save your Golden Apples for a rainy day");
+            }
+        } else if (getApple() == 0) {
+            System.out.println("You are out of Golden Apples!");
+        } else {
+            return;
+        }
 }
 
 public String getName() {
@@ -176,10 +190,12 @@ public static void main(String[] args) throws InterruptedException {
     Scanner s = new Scanner (System.in);
     Occurence event = new Occurence();
 
-    // player.setApple(0);
-    event.occurance2(player,s);
+    player.setApple(1);
+    // event.occurance2(player,s);
     // System.out.println(player.swingWeapon());
-
+    player.setCurrentHp(15);
+    player.displayPlayerStats(s);
+    player.displayPlayerStats(s);
     
 }
 
