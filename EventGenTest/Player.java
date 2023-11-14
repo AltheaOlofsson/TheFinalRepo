@@ -1,3 +1,5 @@
+package EventGenTest;
+
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.*;
 public class Player {
@@ -153,14 +155,17 @@ public static void main(String[] args) throws InterruptedException {
     
     Player player = new Player("Jimmy");
     Scanner s = new Scanner (System.in);
-    eventMod event = new eventMod();
+    EventModifier event = new EventModifier();
+
+    System.out.println();
+
     // RootEvent root = new RootEvent(player);
     // TravelerEvent traveler = new TravelerEvent(player, s);
     
 
-    ArrayList<Events> List = event.createEventList(1, 1);
+    // ArrayList<Events> List = event.createEventList(1, 1);
     System.out.println(event.createEventList(1, 1));
-    // System.out.println(List.size());
+    // // System.out.println(List.size());
 
   
 
