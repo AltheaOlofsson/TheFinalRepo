@@ -125,7 +125,11 @@ public void occurance5(Player p, Scanner s) {
                    p.addMaxHp(20);
                    System.out.println("You has good health my friend");
                 } else if (wish.equals("2")) {
-                    
+                  p.addAttack(10);
+                   System.out.println("You can feel the power surging inside!");
+                } else if (wish.equals("3")) {
+                  p.addSpeed(20);
+                   System.out.println();
                 }
 
         } else {
