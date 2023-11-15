@@ -1,5 +1,6 @@
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.Scanner;
+
 public class Player {
 
 String name;
@@ -112,6 +113,14 @@ public int getLevel() {
 public void setLevel(int level) {
     this.level = level;
 }
+public void levelUp() {
+    level++;
+    maxHp += 5;
+    attack += 1;
+    speed += 1;
+    System.out.println("Congratulations! You leveled up to level " + getLevel() + "!");
+    setExperience(0);
+}
 
 public int getExperience() {
     return experience;
@@ -119,20 +128,11 @@ public int getExperience() {
 public void setExperience(int experience) {
     this.experience = experience;
 }
-
-public boolean IsAlive() {
-    if (currentHp > 0) return true;
-    else return false;
-}
-
-public void levelUp() {
-    if (experience == 10) {
-        level++;
-        maxHp += 5;
-        attack += 1;
-        speed += 1;
-        setExperience(0);
-    }
+public void addExperience(int experience) {
+    this.experience += experience;
+    if(experience >= 100){
+        levelUp();
+    }  
 }
 
 public int getApple() {
@@ -151,13 +151,17 @@ public void addApple(int apple) {
 public void decreseApple(int apple){
     this.apple -= apple;
 }
-
 public void eatApple() {
     currentHp = maxHp;
     apple--;
 }
 
-public int swingWeapon() {
+public boolean IsAlive() {
+    if (currentHp > 0) return true;
+    else return false;
+}
+
+public void swingWeapon() {
 
     double maxDamage = (attack*1.5);
 
@@ -165,9 +169,7 @@ public int swingWeapon() {
     long roundedResult = Math.round(calculateDamage);
     int outgoingDmg = (int) roundedResult;
 
-    System.out.println("You swing your weapon for " + outgoingDmg);
-
-    return outgoingDmg;
+    System.out.println("You swing your weapon for " + outgoingDmg + " damage!");
 }
 
 public void attack(Monster currentMonster) {
@@ -180,7 +182,7 @@ public void attack(Monster currentMonster) {
 
     currentMonster.decreaseHitPoints(outgoingDmg);
 
-    System.out.println("You swing your weapon for " + outgoingDmg);
+    System.out.println("You swing your weapon for " + outgoingDmg + " damage!");
 }
 
 
@@ -190,11 +192,12 @@ public static void main(String[] args) throws InterruptedException {
     Scanner s = new Scanner (System.in);
     Occurence event = new Occurence();
 
-    player.setApple(1);
+    // player.setApple(1);
     // event.occurance2(player,s);
-    // System.out.println(player.swingWeapon());
+    // player.swingWeapon();
     player.setCurrentHp(15);
-    player.displayPlayerStats(s);
+    // player.displayPlayerStats(s);
+    // player.addExperience(100);
     player.displayPlayerStats(s);
     
 }
