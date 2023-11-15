@@ -26,7 +26,7 @@ public class AdventureGame {
                 System.out.println("\n- HP : How much health the player/monster has.");
                 System.out.println("\n- Attack : How much damage they deal.");
                 System.out.println("\n- Speed : How dexterous either one is, the one that has more than the other fights first.");
-                System.out.println("\n");
+                System.out.println("\nYou as the player also has a");
                 System.out.println("\n\nPress ENTER to return to menu.");
                 userInput.nextLine();
                 clearScreen();
@@ -77,7 +77,7 @@ public class AdventureGame {
         return name;
     }
     
-    private static void Game(Player player) //Main Code Here
+    private static void Game(Player player) throws InterruptedException //Main Code Here
     {
         Scanner userInput = new Scanner(System.in);
         boolean gameOver = false;
@@ -87,42 +87,41 @@ public class AdventureGame {
         RandomEventGenerator Event = new RandomEventGenerator();
         Battle battle = new Battle(player);
         
-        
+        while (!gameOver)
+        {
         for (int i = 1; i <= rooms; i++) 
         {
-                System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? This path is blocked by a monster but you cant tell what exactly. \n[3]Eat Apple? " + player.getApple() + "/4");
-                roomChoice = userInput.nextLine();
+            System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? This path is blocked by a monster but you cant tell what exactly. \n[3]Eat a Holy Golden Apple (" + player.getApple() + "/4)");
+            roomChoice = userInput.nextLine();
                 if (roomChoice.equalsIgnoreCase("Left") || roomChoice.equalsIgnoreCase("1")) 
                 {
                     clearScreen();
-                    Event.generateRandomEvent();
+                    Event.generateRandomEvent(player);
                 } 
                 else if (roomChoice.equalsIgnoreCase("Right") || roomChoice.equalsIgnoreCase("2")) 
                 {
                     clearScreen();
                     battle.battle(i);
                 } 
-                else if (roomChoice.equalsIgnoreCase("Eat Apple") || roomChoice.equalsIgnoreCase("3")) 
+                else if (roomChoice.equalsIgnoreCase("Eat apple") || roomChoice.equalsIgnoreCase("3")) 
                 {
-                    if (player.getApple() > 0) {
+                    if (player.getApple() > 0) 
+                    {
                         clearScreen();
                         player.eatApple();
-                        System.out.println("You consumed an apple and feel rejuvenated, any damage was now undone by t.");
+                        System.out.println("\nPress ENTER to continue.");
+                        userInput.nextLine();
                         i--;
-                    } else {
                         clearScreen();
-                        System.out.println(" out of apples.");
-                        i--;
                     }
-                } 
+                }
                 else if (roomChoice.equalsIgnoreCase("/stats"))
                 {
-                    clearScreen();
-                    player.displayPlayerStats();
-                    System.out.println("\nPress ENTER to continue.");
-                    userInput.nextLine();
-                    clearScreen();
-                    i--;
+                    player.displayPlayerStats(userInput);
+                }
+                else if (roomChoice.equalsIgnoreCase("/help"))
+                {
+
                 }
                 else 
                 {
@@ -130,8 +129,26 @@ public class AdventureGame {
                     System.out.println("Incorrect Input! Please try again. /stats to check your stats, /help for instructions.");
                     i--;
                 }
-        }
 
+                if (player.getCurrentHp() <= 0) 
+                {
+                    System.out.println("\nYou've died!");
+                    Thread.sleep(3000);
+                    clearScreen();
+                    System.out.println("This poor soul has perished, may darkness overtake them and drift away to the afterlife.");
+                    System.out.println("\nDo you want to retry? Press ENTER to retry, type \"No\" to quit.");
+                    String playAgain = userInput.nextLine().toLowerCase();
+
+                    if (playAgain.equals("no") || playAgain.equals("n")) 
+                    {
+                        gameOver = true;
+                        clearScreen();
+                        System.out.println("|GAME OVER|");
+                    }
+                    i = 1;
+                }
+            }
+        }
     }
 
     public static void Title() throws InterruptedException
@@ -274,3 +291,11 @@ public class AdventureGame {
         System.out.flush();  
     }
 }
+
+
+
+
+
+
+
+

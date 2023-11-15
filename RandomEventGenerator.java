@@ -3,15 +3,15 @@ import java.util.Scanner;
 
 public class RandomEventGenerator {
     private Random random;
-    Occurence event = new Occurence();
-    Player player = new Player("Erik");
+    Player player;
     Battle battle = new Battle(player);
+    Occurence event = new Occurence(player);
 
     public RandomEventGenerator() {
         random = new Random();
     }
 
-    public void generateRandomEvent() {
+    public void generateRandomEvent(Player player) {
         Scanner userInput = new Scanner(System.in);
         int eventNumber = random.nextInt(5) + 1;
         switch (eventNumber) {
