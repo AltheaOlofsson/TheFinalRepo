@@ -118,6 +118,7 @@ public void levelUp() {
     maxHp += 5;
     attack += 1;
     speed += 1;
+    setCurrentHp(maxHp);
     System.out.println("Congratulations! You leveled up to level " + getLevel() + "!");
     reduceExperience(100);
 }
@@ -196,9 +197,11 @@ public static void main(String[] args) throws InterruptedException {
     Occurence event = new Occurence();
 
     // player.setApple(1);
+    player.displayPlayerStats(s);
     // event.occurance2(player,s);
     // player.swingWeapon();
-    player.setCurrentHp(15);
+    player.setExperience(50);
+    player.addExperience(100);
     // player.displayPlayerStats(s);
     // player.addExperience(100);
     player.displayPlayerStats(s);
