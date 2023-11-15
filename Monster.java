@@ -45,10 +45,10 @@ public class Monster {
         }
     }
 
-    public void monsterDeath() {
-       // if (Monster.decreaseHitPoints() <= 0) {
-
-        }
+    public static void monsterDeath(Player player, Monster currentMonster) {
+        player.addExperience(currentMonster.expGiven);
+        System.out.println("You killed: " + currentMonster.getName() + " and got " + currentMonster.expGiven + " experience.");
+    }
 }
 /* public static void main(String[] args) {
     Monsters ghoul = new Monsters("Ghoul", 2, 4, 8, 1, 3);
