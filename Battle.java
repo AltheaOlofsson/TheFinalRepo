@@ -67,15 +67,15 @@ public class Battle {
                         System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Display stats.");
                         int attackChoice = scanner.nextInt();
                         System.out.println(attackChoice);
-                        while (attackChoice != 1) {
-                            if (attackChoice == 2) {
-                                player.displayPlayerStats();
-                            } else {System.out.println("Incorrect input.");}
-                            if (attackChoice == 1) {
-                                player.attack(currentMonster);
-                                System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
-                                break;
-                            }                                                       
+                        if (attackChoice == 1) {
+                            player.attack(currentMonster);
+                            System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
+                        } else if (attackChoice == 2) {
+                            player.displayPlayerStats();
+                        } else {System.out.println("Incorrect input.");}
+                            
+                            
+                                                                                   
                         } 
                         
                         
