@@ -35,8 +35,9 @@ public void displayPlayerStats(Scanner s) {
     System.out.println("Current EXP: " + getExperience());
     System.out.println("Amount of Golden Apples: " + getApple() + "/4");
         if(currentHp < maxHp && getApple() > 0) {
+            Scanner sc = new Scanner (System.in);
             System.out.println("Eat Golden Apple to restore HP? (y/n)");
-            String userChoice = s.nextLine();
+            String userChoice = sc.nextLine();
             if(userChoice.equalsIgnoreCase("y")) {
                 eatApple();
                 System.out.println("You consumed a Golden Apple and restored your HP to max! HP: " + getCurrentHp() +"/" + getMaxHp());
@@ -118,6 +119,7 @@ public void levelUp() {
     maxHp += 5;
     attack += 1;
     speed += 1;
+    setCurrentHp(maxHp);
     System.out.println("Congratulations! You leveled up to level " + getLevel() + "!");
     reduceExperience(100);
 }
@@ -164,16 +166,16 @@ public boolean IsAlive() {
     else return false;
 }
 
-public void swingWeapon() {
+// public void swingWeapon() {
 
-    double maxDamage = (attack*1.5);
+//     double maxDamage = (attack*1.5);
 
-    double calculateDamage = ThreadLocalRandom.current().nextDouble(attack, maxDamage);
-    long roundedResult = Math.round(calculateDamage);
-    int outgoingDmg = (int) roundedResult;
+//     double calculateDamage = ThreadLocalRandom.current().nextDouble(attack, maxDamage);
+//     long roundedResult = Math.round(calculateDamage);
+//     int outgoingDmg = (int) roundedResult;
 
-    System.out.println("You swing your weapon for " + outgoingDmg + " damage!");
-}
+//     System.out.println("You swing your weapon for " + outgoingDmg + " damage!");
+// }
 
 public void attack(Monster currentMonster) {
 
@@ -196,9 +198,12 @@ public static void main(String[] args) throws InterruptedException {
     Occurence event = new Occurence();
 
     // player.setApple(1);
+    // player.displayPlayerStats(s);
+    player.setCurrentHp(10);
     // event.occurance2(player,s);
     // player.swingWeapon();
-    player.setCurrentHp(15);
+    // player.setExperience(50);
+    // player.addExperience(100);
     // player.displayPlayerStats(s);
     // player.addExperience(100);
     player.displayPlayerStats(s);

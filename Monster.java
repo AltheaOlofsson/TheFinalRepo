@@ -7,15 +7,17 @@ public class Monster {
     private int maxAttack;
     private int level;
     private int speed;
+    private int expGiven;
     static Boolean lifeSteal = false;
     
-    Monster(String name, int hitPoints, int minAttack, int maxAttack, int level, int speed) {
+    Monster(String name, int hitPoints, int minAttack, int maxAttack, int level, int speed, int expGiven) {
         this.name = name;
         this.hitPoints = hitPoints;
         this.minAttack = minAttack;
         this.maxAttack = maxAttack;
         this.level = level;
         this.speed = speed;
+        this.expGiven = expGiven;
     }
 
     public int getHitPoints() {
@@ -43,10 +45,10 @@ public class Monster {
         }
     }
 
-    public void monsterDeath() {
-       // if (Monster.decreaseHitPoints() <= 0) {
-
-        }
+    public static void monsterDeath(Player player, Monster currentMonster) {
+        player.addExperience(currentMonster.expGiven);
+        System.out.println("You killed: " + currentMonster.getName() + " and got " + currentMonster.expGiven + " experience.");
+    }
 }
 /* public static void main(String[] args) {
     Monsters ghoul = new Monsters("Ghoul", 2, 4, 8, 1, 3);
