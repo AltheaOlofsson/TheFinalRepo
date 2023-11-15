@@ -166,16 +166,16 @@ public boolean IsAlive() {
     else return false;
 }
 
-public void swingWeapon() {
+// public void swingWeapon() {
 
-    double maxDamage = (attack*1.5);
+//     double maxDamage = (attack*1.5);
 
-    double calculateDamage = ThreadLocalRandom.current().nextDouble(attack, maxDamage);
-    long roundedResult = Math.round(calculateDamage);
-    int outgoingDmg = (int) roundedResult;
+//     double calculateDamage = ThreadLocalRandom.current().nextDouble(attack, maxDamage);
+//     long roundedResult = Math.round(calculateDamage);
+//     int outgoingDmg = (int) roundedResult;
 
-    System.out.println("You swing your weapon for " + outgoingDmg + " damage!");
-}
+//     System.out.println("You swing your weapon for " + outgoingDmg + " damage!");
+// }
 
 public void attack(Monster currentMonster) {
 

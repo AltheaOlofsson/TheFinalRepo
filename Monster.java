@@ -7,15 +7,17 @@ public class Monster {
     private int maxAttack;
     private int level;
     private int speed;
+    private int expGiven;
     static Boolean lifeSteal = false;
     
-    Monster(String name, int hitPoints, int minAttack, int maxAttack, int level, int speed) {
+    Monster(String name, int hitPoints, int minAttack, int maxAttack, int level, int speed, int expGiven) {
         this.name = name;
         this.hitPoints = hitPoints;
         this.minAttack = minAttack;
         this.maxAttack = maxAttack;
         this.level = level;
         this.speed = speed;
+        this.expGiven = expGiven;
     }
 
     public int getHitPoints() {
