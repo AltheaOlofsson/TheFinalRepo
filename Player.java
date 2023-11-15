@@ -119,7 +119,7 @@ public void levelUp() {
     attack += 1;
     speed += 1;
     System.out.println("Congratulations! You leveled up to level " + getLevel() + "!");
-    setExperience(0);
+    reduceExperience(100);
 }
 
 public int getExperience() {
@@ -133,6 +133,9 @@ public void addExperience(int experience) {
     if(experience >= 100){
         levelUp();
     }  
+}
+public void reduceExperience(int experience){
+    this.experience -= experience;
 }
 
 public int getApple() {
