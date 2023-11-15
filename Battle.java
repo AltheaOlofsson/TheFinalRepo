@@ -46,42 +46,34 @@ public class Battle {
             Monster currentMonster = getMonster(monsters);
             System.out.println("You are attacked by a vicious " + currentMonster.getName());
             if (currentMonster.getName().equals("Vampire")) {Monster.lifeSteal = true;} else {Monster.lifeSteal = false;}
-                while (currentMonster.getHitPoints() > 0 && player.IsAlive() == true) {
-                    if (player.getSpeed() >= currentMonster.getSpeed()) {
-                        System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Display stats.");
-                        int attackChoice = scanner.nextInt();
-                        System.out.println(attackChoice);
-                        if (attackChoice == 1) {
-                            player.attack(currentMonster);
-                            System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
-                        } else if (attackChoice == 2) {
-                            player.displayPlayerStats();
-                        } else {System.out.println("Incorrect input.");}
-                        
-                        currentMonster.attack(player, currentMonster);
-                        System.out.println("player:" + player.currentHp);
-                        
-                    } else {
-                        currentMonster.attack(player, currentMonster);
-                        System.out.println("player:" + player.currentHp);
-                        System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Display stats.");
-                        int attackChoice = scanner.nextInt();
-                        System.out.println(attackChoice);
-                        if (attackChoice == 1) {
-                            player.attack(currentMonster);
-                            System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
-                        } else if (attackChoice == 2) {
-                            player.displayPlayerStats();
-                        } else {System.out.println("Incorrect input.");}
-                            
-                            
-                                                                                   
-                        } 
-                        
-                        
-                    }
-                }
+            while (currentMonster.getHitPoints() > 0 && player.IsAlive() == true) {
+                if (player.getSpeed() >= currentMonster.getSpeed()) {
+                    System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Display stats.");
+                    int attackChoice = scanner.nextInt();
+                    System.out.println(attackChoice);
+                    if (attackChoice == 1) {
+                        player.attack(currentMonster);
+                        System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
+                    } else if (attackChoice == 2) {
+                        player.displayPlayerStats(scanner);
+                    } else {System.out.println("Incorrect input.");}
+                    currentMonster.attack(player, currentMonster);
+                    System.out.println("player:" + player.currentHp);    
+                } else {
+                    currentMonster.attack(player, currentMonster);
+                    System.out.println("player:" + player.currentHp);
+                    System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Display stats.");
+                    int attackChoice = scanner.nextInt();
+                    System.out.println(attackChoice);
+                    if (attackChoice == 1) {
+                        player.attack(currentMonster);
+                        System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
+                    } else if (attackChoice == 2) {
+                        player.displayPlayerStats(scanner);
+                    } else {System.out.println("Incorrect input.");}                                                           
+                }         
             }
+    }
     
     public Battle(Player player) {
         this.player = player;
@@ -93,7 +85,7 @@ public class Battle {
         player.setSpeed(20);
         player.setMaxHp(50);
         player.setCurrentHp(500);
-        player.setAttack(2);
+        player.setAttack(15);
         
         b.createMonsterList(0, 2);
         b.battle(4);
