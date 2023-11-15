@@ -70,7 +70,9 @@ public class Battle {
                         System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
                     } else if (attackChoice == 2) {
                         player.displayPlayerStats(scanner);
-                    } else {System.out.println("Incorrect input.");}                                                           
+                    } else {
+                        System.out.println("Incorrect input.");
+                    }                                                           
                 }
                 if (player.IsAlive() == false) {
                     //placeHolderGameOver();
