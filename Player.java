@@ -35,8 +35,9 @@ public void displayPlayerStats(Scanner s) {
     System.out.println("Current EXP: " + getExperience());
     System.out.println("Amount of Golden Apples: " + getApple() + "/4");
         if(currentHp < maxHp && getApple() > 0) {
+            Scanner sc = new Scanner (System.in);
             System.out.println("Eat Golden Apple to restore HP? (y/n)");
-            String userChoice = s.nextLine();
+            String userChoice = sc.nextLine();
             if(userChoice.equalsIgnoreCase("y")) {
                 eatApple();
                 System.out.println("You consumed a Golden Apple and restored your HP to max! HP: " + getCurrentHp() +"/" + getMaxHp());
@@ -197,11 +198,12 @@ public static void main(String[] args) throws InterruptedException {
     Occurence event = new Occurence();
 
     // player.setApple(1);
-    player.displayPlayerStats(s);
+    // player.displayPlayerStats(s);
+    player.setCurrentHp(10);
     // event.occurance2(player,s);
     // player.swingWeapon();
-    player.setExperience(50);
-    player.addExperience(100);
+    // player.setExperience(50);
+    // player.addExperience(100);
     // player.displayPlayerStats(s);
     // player.addExperience(100);
     player.displayPlayerStats(s);
