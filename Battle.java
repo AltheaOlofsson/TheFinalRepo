@@ -56,7 +56,11 @@ public class Battle {
                         System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
                     } else if (attackChoice == 2) {
                         player.displayPlayerStats(scanner);
-                    } else {System.out.println("Incorrect input.");}
+                        attackChoice = scanner.nextInt();
+                    } else {
+                        System.out.println("Incorrect input.");
+                        attackChoice = scanner.nextInt();
+                    }
                     currentMonster.attack(player, currentMonster);
                     System.out.println("player:" + player.currentHp);    
                 } else {
@@ -70,8 +74,10 @@ public class Battle {
                         System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
                     } else if (attackChoice == 2) {
                         player.displayPlayerStats(scanner);
+                        attackChoice = scanner.nextInt();
                     } else {
                         System.out.println("Incorrect input.");
+                        attackChoice = scanner.nextInt();
                     }                                                           
                 }
                 if (player.IsAlive() == false) {
