@@ -39,9 +39,7 @@ public class Battle {
         return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()));
     }
 
-    
     public void battle(int currentRoom) {
-        
             ArrayList<Monster> monsters = createMonsterList(currentRoom + 1, currentRoom + 1);
             Monster currentMonster = getMonster(monsters);
             System.out.println("You are attacked by a vicious " + currentMonster.getName());
