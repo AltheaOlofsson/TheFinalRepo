@@ -89,7 +89,7 @@ public class AdventureGame {
         player.setApple(3);
         String roomChoice;
         RandomEventGenerator Event = new RandomEventGenerator();
-        BattleCopy battle = new BattleCopy(player);
+        Battle battle = new Battle(player);
 
         while (!gameOver)
         {
