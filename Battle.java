@@ -50,7 +50,6 @@ public class Battle {
                 if (player.getSpeed() >= currentMonster.getSpeed()) {
                     System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Display stats.");
                     int attackChoice = scanner.nextInt();
-                    System.out.println(attackChoice);
                     if (attackChoice == 1) {
                         player.attack(currentMonster);
                         System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
@@ -68,7 +67,6 @@ public class Battle {
                     System.out.println("player:" + player.currentHp);
                     System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Display stats.");
                     int attackChoice = scanner.nextInt();
-                    System.out.println(attackChoice);
                     if (attackChoice == 1) {
                         player.attack(currentMonster);
                         System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
