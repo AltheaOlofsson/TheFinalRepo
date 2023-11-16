@@ -41,6 +41,7 @@ public class AdventureGame {
                 clearScreen();
                 // midStory(name);
                 Game(player);
+                quit = true;
             }
             else
             {
@@ -121,12 +122,20 @@ public class AdventureGame {
                 }
                 else if (roomChoice.equalsIgnoreCase("/help"))
                 {
-
+                    clearScreen();
+                    System.out.println("You ");
+                }
+                else if (roomChoice.equalsIgnoreCase("/exit"))
+                {
+                    clearScreen();
+                    System.out.println("Game Shutting down...");
+                    gameOver = true;
+                    System.exit(0);
                 }
                 else 
                 {
                     clearScreen();
-                    System.out.println("Incorrect Input! Please try again. /stats to check your stats, /help for instructions.");
+                    System.out.println("Incorrect Input! Please try again. /stats to check your stats, /help for instructions, /exit to quit.");
                     i--;
                 }
 
@@ -141,10 +150,13 @@ public class AdventureGame {
 
                     if (playAgain.equals("no") || playAgain.equals("n")) 
                     {
-                        gameOver = true;
                         clearScreen();
                         System.out.println("|GAME OVER|");
+                        System.out.println("Game Shutting down...");
+                        gameOver = true;
+                        System.exit(0);
                     }
+                    clearScreen();
                     i = 1;
                 }
             }
@@ -275,8 +287,12 @@ public class AdventureGame {
     public static void endStory() throws InterruptedException 
     {
         System.out.print("As you keep pacing towards the ruined catacombs... ");
+        Thread.sleep(3000);
         System.out.print("you start to feel immense dread as you get closer and closer.");
+        Thread.sleep(3000);
         System.out.print("\nThe despair you're feeling grows intensely, your legs shakes in fear.");
+        System.out.println("As you approach the last room of the catacombs, the remains of an ancient altar.");
+        System.out.println("");
         System.out.println("\nYou are not the hero, what did you expect?");
     }
 
