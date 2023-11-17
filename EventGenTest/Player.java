@@ -22,7 +22,7 @@ this.maxHp = 20;
 this.attack = 10;
 this.speed = 15;
 // this.dodge = 0;
-this.level = 0;
+this.level = 2;
 this.experience = 0;
 this.apple = 3;
 this.fairy = 0;
@@ -152,22 +152,17 @@ public int swingWeapon() {
 
 
 public static void main(String[] args) throws InterruptedException {
-    
+    Random randomgen = new Random();
     Player player = new Player("Jimmy");
-    Scanner s = new Scanner (System.in);
-    EventModifier event = new EventModifier();
-
-    System.out.println();
+    Scanner scanner = new Scanner (System.in);
+    // EventModifier event = new EventModifier();
 
     // RootEvent root = new RootEvent(player);
     // TravelerEvent traveler = new TravelerEvent(player, s);
     
-
+    Events e = EventModifier.generateEvent(player);
+    e.execute(player, scanner);
     // ArrayList<Events> List = event.createEventList(1, 1);
-    System.out.println(event.createEventList(1, 1));
-    // // System.out.println(List.size());
-
-  
 
     // player.setApple(0);
     // event.occurance5(player,s);

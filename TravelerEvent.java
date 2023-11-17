@@ -66,12 +66,8 @@ public class TravelerEvent extends Events {
         System.out.println("You ingore the travaler and continue down the road.");
         System.out.println("Nothing happens.");
         }
+        p.addExperience(25);
 }
-
-    @Override
-    public int getEventLevel() {
-    return eventLevel;
-    }
 
     
 }

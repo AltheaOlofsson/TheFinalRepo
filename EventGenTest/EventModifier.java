@@ -3,24 +3,24 @@ import java.util.*;
 
 
 public class EventModifier {
-    Player p = new Player("jimmy");
-    Scanner s = new Scanner(System.in);
+    static Random randomgen = new Random();
 
-
-
-Events root = new RootEvent(p,1);
-Events trav = new TravelerEvent(p, s ,2);
-
-Events[] eventEncounters = {root,trav};
-
-public ArrayList<Events> createEventList(int lower, int upper) {
+    static ArrayList<Events> createEventList(int lower, int upper) {
+        Events[] eventEncounters = {new RootEvent(), new TravelerEvent()};
+        
         ArrayList<Events> events = new ArrayList<>(); 
         for (Events e : eventEncounters) {
-            if (e.getLevel() >= lower && e.getLevel() <= upper) {
+            if (e.getEventLevel() >= lower && e.getEventLevel() <= upper) {
                 events.add(e);
             }
         }
         return events;
+    }
+
+    static public Events generateEvent(Player player) {
+
+        List<Events> eventList = EventModifier.createEventList(1, player.getLevel());
+        return eventList.get(randomgen.nextInt(eventList.size()));
     }
 
 
