@@ -21,7 +21,7 @@ this.maxHp = 20;
 this.attack = 10;
 this.speed = 15;
 // this.dodge = 0;
-this.level = 0;
+this.level = 2;
 this.experience = 0;
 this.apple = 3;
 this.fairy = 0;
@@ -195,19 +195,27 @@ public static void main(String[] args) throws InterruptedException {
     
     Player player = new Player("Jimmy");
     Scanner s = new Scanner (System.in);
-    Occurence event = new Occurence();
+    EventController ec = new EventController();
+
+    player.setLevel(3);
 
     // player.setApple(1);
+    // // player.displayPlayerStats(s);
+    // player.setCurrentHp(10);
+    // // event.occurance2(player,s);
+    // // player.swingWeapon();
+    // // player.setExperience(50);
+    // // player.addExperience(100);
+    // // player.displayPlayerStats(s);
+    // // player.addExperience(100);
     // player.displayPlayerStats(s);
-    player.setCurrentHp(10);
-    // event.occurance2(player,s);
-    // player.swingWeapon();
-    // player.setExperience(50);
-    // player.addExperience(100);
-    // player.displayPlayerStats(s);
-    // player.addExperience(100);
-    player.displayPlayerStats(s);
-    
+    for (int i = 1; i <= player.getLevel(); i++) {
+    Event e = ec.generateEvent(player);
+    e.execute(player, s);
+    for (Event foo : ec.eventList) {
+        System.out.println(foo);
+    }
+    }
 }
 
 // public void rest()
