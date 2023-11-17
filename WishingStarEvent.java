@@ -14,7 +14,7 @@ public void execute(Player player, Scanner scanner){
     System.out.println("Do you make a wish? (y/n)");
     String choice = scanner.nextLine();
         if(choice.equalsIgnoreCase("y")) {
-            System.out.println("You decide to wish for:\n\nGreat health (1)\nFenomenal strenght (2)\nExceptional speed (3)\n");
+            System.out.println("You decide to wish for:\n\nGreat health (1)\nMonstrous strenght (2)\nExceptional speed (3)\n");
             String wish = scanner.nextLine();
                 if(wish.equals("1")) {
                    player.addMaxHp(20);
