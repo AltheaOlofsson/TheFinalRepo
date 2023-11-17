@@ -4,6 +4,7 @@ public class Event {
     int eventLevel;
     Player player;
     Scanner scanner;
+    Random randomgen;
 
     public Event() { }
 
