@@ -44,38 +44,17 @@ public class Battle {
             Monster currentMonster = getMonster(monsters);
             System.out.println("You are attacked by a vicious " + currentMonster.getName());
             if (currentMonster.getName().equals("Vampire")) {Monster.lifeSteal = true;} else {Monster.lifeSteal = false;}
-            while (currentMonster.getHitPoints() > 0 && player.IsAlive() == true) {
+            while (currentMonster.getHitPoints() > 0 && player.IsAlive() == true) {            
                 if (player.getSpeed() >= currentMonster.getSpeed()) {
-                    System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Display stats.");
-                    int attackChoice = scanner.nextInt();
-                    if (attackChoice == 1) {
-                        player.attack(currentMonster);
-                        System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
-                    } else if (attackChoice == 2) {
-                        player.displayPlayerStats(scanner);
-                        attackChoice = scanner.nextInt();
-                    } else {
-                        System.out.println("Incorrect input.");
-                        attackChoice = scanner.nextInt();
-                    }
+                    choosesAttackOrStats(currentMonster);
                     currentMonster.attack(player, currentMonster);
                     System.out.println("player:" + player.currentHp);    
                 } else {
                     currentMonster.attack(player, currentMonster);
                     System.out.println("player:" + player.currentHp);
-                    System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Display stats.");
-                    int attackChoice = scanner.nextInt();
-                    if (attackChoice == 1) {
-                        player.attack(currentMonster);
-                        System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
-                    } else if (attackChoice == 2) {
-                        player.displayPlayerStats(scanner);
-                        attackChoice = scanner.nextInt();
-                    } else {
-                        System.out.println("Incorrect input.");
-                        attackChoice = scanner.nextInt();
-                    }                                                           
+                    choosesAttackOrStats(currentMonster);                                                                               
                 }
+                
                 if (player.IsAlive() == false) {
                     //placeHolderGameOver();
                     break;
@@ -89,6 +68,24 @@ public class Battle {
     
     public Battle(Player player) {
         this.player = player;
+    }
+
+    void choosesAttackOrStats(Monster currentMonster) {
+        int attackChoice = 0;
+        while (attackChoice != 1 || attackChoice != 2) {
+            System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Display stats.");
+            attackChoice = scanner.nextInt();
+            if (attackChoice == 1) {
+                player.attack(currentMonster);
+                System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
+                break;
+            } else if (attackChoice == 2) {
+                player.displayPlayerStats(scanner);
+                break;
+            } else {
+                System.out.println("Incorrect input.");
+            }
+        }
     }
 
     public static void main(String[] args) {
