@@ -197,7 +197,7 @@ public static void main(String[] args) throws InterruptedException {
     Scanner s = new Scanner (System.in);
     EventController ec = new EventController();
 
-    player.setLevel(3);
+    player.setLevel(4);
 
     // player.setApple(1);
     // // player.displayPlayerStats(s);
