@@ -19,9 +19,9 @@ this.name = name;
 this.currentHp = 20;
 this.maxHp = 20;
 this.attack = 10;
-this.speed = 15;
+this.speed = 10;
 // this.dodge = 0;
-this.level = 2;
+this.level = 1;
 this.experience = 0;
 this.apple = 3;
 this.fairy = 0;
@@ -122,9 +122,9 @@ public void setLevel(int level) {
 }
 public void levelUp() {
     level++;
-    maxHp += 5;
-    attack += 1;
-    speed += 1;
+    maxHp += 10;
+    attack += 3;
+    speed += 5;
     setCurrentHp(maxHp);
     System.out.println("Congratulations! You leveled up to level " + getLevel() + "!");
     reduceExperience(100);
@@ -138,7 +138,7 @@ public void setExperience(int experience) {
 }
 public void addExperience(int experience) {
     this.experience += experience;
-    if(experience >= 100){
+    if(this.experience >= 100){
         levelUp();
     }  
 }
@@ -203,25 +203,21 @@ public static void main(String[] args) throws InterruptedException {
     Scanner s = new Scanner (System.in);
     EventController ec = new EventController();
 
-    player.setLevel(3);
+    // WishingStarEvent aM = new WishingStarEvent();
+    // aM.execute(player, s);
 
-    // player.setApple(1);
-    // // player.displayPlayerStats(s);
-    // player.setCurrentHp(10);
-    // // event.occurance2(player,s);
-    // // player.swingWeapon();
-    // // player.setExperience(50);
-    // // player.addExperience(100);
-    // // player.displayPlayerStats(s);
-    // // player.addExperience(100);
-    // player.displayPlayerStats(s);
-    for (int i = 1; i <= 5; i++) {
-    Event e = ec.generateEvent(player);
-    e.execute(player, s);
-    for (Event foo : ec.eventList) {
-        System.out.println(foo);
-    }
-    }
+    player.addExperience(50);
+    player.addExperience(70);
+    player.addExperience(50);
+    player.displayPlayerStats(s);
+
+    // for (int i = 1; i <= 5; i++) {
+    // Event e = ec.generateEvent(player);
+    // e.execute(player, s);
+    // for (Event foo : ec.eventList) {
+    //     System.out.println(foo);
+    // }
+    // }
 }
 
 // public void rest()
