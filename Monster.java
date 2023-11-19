@@ -49,6 +49,13 @@ public class Monster {
        System.out.println("You killed: " + currentMonster.getName() + " and got " + currentMonster.expGiven + " experience."); 
        player.addExperience(currentMonster.expGiven); 
     } //när monstret dör ger det spelaren exp
+
+    public static void checkMonsterLife(Monster currentMonster, Player player){
+        if (currentMonster.getHitPoints() <= 0) {
+            Monster.monsterDeath(player, currentMonster);
+        }
+    }
+
 }
 /* public static void main(String[] args) {
     Monsters ghoul = new Monsters("Ghoul", 2, 4, 8, 1, 3);
