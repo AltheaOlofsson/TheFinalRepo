@@ -22,7 +22,7 @@ public void execute(Player player, Scanner scanner) {
                 } else if (outcome == 1) {
                     System.out.println("The ancient spirits are angered!");
                     System.out.println("You take an arrow to the knee, lose some HP and your speed is reduced!");
-                        player.decreseSpeed(10);
+                        player.decreaseSpeed(10);
                         player.decreaseCurrentHp(5);
                 } else {
                     System.out.println("The altar seems dormant, but you hear a faint voice echo: 'Do a barrel roll!'");
