@@ -18,6 +18,7 @@ public class Battle {
     Monster wurm = new Monster("Wurm", 35, 12, 14, 4, 20, 70);
     Monster vampire = new Monster("Vampire", 30, 8, 12, 5, 350, 100);
     Monster werewolf = new Monster("Werewolf", 50, 10, 20, 5, 55, 100);
+    Monster bossDragon = new Monster("Dragonlord Silumgar", 40000, 500, 1000, 20, 200, 300);
 
     Monster[] monsterEncounters = {wolf,goblin,orc,direWolf,elf,troll,ogre,wurm,vampire,werewolf};
 
@@ -39,24 +40,25 @@ public class Battle {
         return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()));
     }
 
-    public void battle(int currentRoom) {
-            ArrayList<Monster> monsters = createMonsterList(currentRoom + 1, currentRoom + 1);
+    public void battle() {
+            ArrayList<Monster> monsters = createMonsterList(player.getLevel(), player.getLevel() + 1);
             Monster currentMonster = getMonster(monsters);
             System.out.println("You are attacked by a vicious " + currentMonster.getName());
             if (currentMonster.getName().equals("Vampire")) {Monster.lifeSteal = true;} else {Monster.lifeSteal = false;}
             while (currentMonster.getHitPoints() > 0 && player.IsAlive() == true) {            
                 if (player.getSpeed() >= currentMonster.getSpeed()) {
+                    
+                    
+                    Monster.checkMonsterLife(currentMonster, player);
                     choosesAttackOrStats(currentMonster);
                     currentMonster.attack(player, currentMonster);
-                    System.out.println("player:" + player.currentHp);    
+                    System.out.println(player.getName() + " " + player.currentHp + "/" + player.getMaxHp());    
                 } else {
                     currentMonster.attack(player, currentMonster);
-                    System.out.println("player:" + player.currentHp);
+                    System.out.println(player.getName() + " " + player.currentHp + "/" + player.getMaxHp());
                     choosesAttackOrStats(currentMonster);                                                                               
                 }
-                
                 if (player.IsAlive() == false) {
-                    //placeHolderGameOver();
                     break;
                 }
                 if (currentMonster.getHitPoints() <= 0) {
@@ -71,15 +73,15 @@ public class Battle {
     }
 
     void choosesAttackOrStats(Monster currentMonster) {
-        int attackChoice = 0;
-        while (attackChoice != 1 || attackChoice != 2) {
+        String attackChoice= "";
+        while (attackChoice != "1" || attackChoice != "2") {
             System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Display stats.");
-            attackChoice = scanner.nextInt();
-            if (attackChoice == 1) {
+            attackChoice = scanner.nextLine();
+            if (attackChoice.equals("1")) {
                 player.attack(currentMonster);
-                System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
+                System.out.println(currentMonster.getName() + ":  HP: " + currentMonster.getHitPoints());
                 break;
-            } else if (attackChoice == 2) {
+            } else if (attackChoice.equals("2")) {
                 player.displayPlayerStats(scanner);
                 break;
             } else {
@@ -87,16 +89,23 @@ public class Battle {
             }
         }
     }
-
+    
     public static void main(String[] args) {
         Player player = new Player("Brian");
         Battle b = new Battle(player);
+        player.addExperience(100);
         player.setSpeed(20);
-        player.setMaxHp(500);
-        player.setCurrentHp(450);
+        player.setMaxHp(50);
+        player.setCurrentHp(40);
         player.setAttack(15);
         
-        b.createMonsterList(0, 2);
-        b.battle(4);
+        b.createMonsterList(player.getLevel(), (player.getLevel()+1));
+        b.battle();
+
+        player.addExperience(50);
+
+              b.createMonsterList(player.getLevel(), (player.getLevel()+1));
+        b.battle();
+
     }
 }
