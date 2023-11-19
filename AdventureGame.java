@@ -8,6 +8,25 @@ public class AdventureGame {
         boolean quit = false;
         Scanner userInput = new Scanner(System.in);
         String name;
+        String instructions =
+        "In this game you will go through a series of encounters where the goal of the game is to reach the end." +
+        "\nEach room will prompt you with a path of either left or right and present an event." +
+        "\nThese events could either be in the form combat against monsters or an event that will further prompt you to make a decision." +
+        "\nThese events can either reward or punish the player." +
+        "\n\nThe player character and monsters has a set of stats, these are:" +
+        "\n- Level : What level the player is and determines their overall prowess." +
+        "\n- HP : How much health the player/monster has." +
+        "\n- Attack : How much damage they deal." +
+        "\n- Speed : How dexterous either one is, the one that has more than the other fights first." +
+        "\n- Experience : This is received whenever a task is completed or after defeating a monster. Accumulate enough and you rise in level." +
+        "\nYou as the player also has a set of apples that whenever eaten will fully rejuvenate you." +
+        "\nUseful if you've taken a large amount of damage." +
+        "\n\n Whenever in-game you can also type the following commands:" +
+        "\n- /help : Will give you instructions how to play the game." +
+        "\n- /stats : Displays the current stats of the player." +
+        "\n- /quit : Quits the game." +
+        "\n\nGood luck \"mundane somebody\"!" +
+        "\n\nPress ENTER to return to menu.";
 
         clearScreen();
         Title();
@@ -20,22 +39,7 @@ public class AdventureGame {
             if (menuChoice.equalsIgnoreCase("Help") || menuChoice.equalsIgnoreCase("2"))
             {
                 clearScreen();
-                System.out.println(
-                        "\nIn this game you will go through a series of \"encounters\" where the goal of the game is to reach the end.");
-                System.out.println(
-                        "each \"room\" will prompt you with a path of either left or right and present an event.");
-                System.out.println(
-                        "These events could either be in the form combat against monsters or an event that will further prompt you to make a decision.");
-                System.out.println("These events can either reward or punish the player.");
-
-                System.out.println(
-                        "\nThe player character and monsters has a set of stats, those being:");
-                System.out.println("\n- HP : How much health the player/monster has.");
-                System.out.println("\n- Attack : How much damage they deal.");
-                System.out.println(
-                        "\n- Speed : How dexterous either one is, the one that has more than the other fights first.");
-                System.out.println("\nYou as the player also has a");
-                System.out.println("\n\nPress ENTER to return to menu.");
+                System.out.println(instructions);
                 userInput.nextLine();
                 clearScreen();
                 mainMenu();
@@ -46,6 +50,7 @@ public class AdventureGame {
                 // Story();
                 name = inputName(userInput);
                 Player player = new Player(name);
+
                 clearScreen();
                 // midStory(name);
                 Game(player);
@@ -98,6 +103,7 @@ public class AdventureGame {
         while (!gameOver)
         {
             resetPlayer(player);
+            
             for (int i = 1; i <= rooms; i++)
             {
                 System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? This path is blocked by a monster but you cant tell what exactly. \n[3]Eat a Holy Golden Apple ("+ player.getApple() + "/4)");
@@ -146,12 +152,11 @@ public class AdventureGame {
                 else
                 {
                     clearScreen();
-                    System.out.println(
-                            "Incorrect Input! Please try again. /stats to check your stats, /help for instructions, /exit to quit.");
+                    System.out.println("Incorrect Input! Please try again. /stats to check your stats, /help for instructions, /exit to quit.");
                     i--;
                 }
 
-                if (player.getCurrentHp() <= 0)
+                if (player.IsAlive() != true)
                 {
                     clearScreen();
                     System.out.println("You've died!");
@@ -169,6 +174,7 @@ public class AdventureGame {
                         break;
                     }
                     clearScreen();
+                    break;
                 }
             }
         }
@@ -196,8 +202,7 @@ public class AdventureGame {
         for (int i = 0; i < 20; i++)
         {
             Thread.sleep(50);
-            System.out.println(
-                    "PERFECTLY ACCEPTABLE ADVENTURE OF A MUNDANE SOMEBODY\n                      2023 EDITION");
+            System.out.println("PERFECTLY ACCEPTABLE ADVENTURE OF A MUNDANE SOMEBODY\n                      2023 EDITION");
             clearScreen();
         }
 
@@ -315,8 +320,7 @@ public class AdventureGame {
         System.out.print("you start to feel immense dread as you get closer and closer.");
         Thread.sleep(3000);
         System.out.print("\nThe despair you're feeling grows intensely, your legs shakes in fear.");
-        System.out.println(
-                "As you approach the last room of the catacombs, the remains of an ancient altar.");
+        System.out.println("As you approach the last room of the catacombs, the remains of an ancient altar.");
         System.out.println("");
         System.out.println("\nYou are not the hero, what did you expect?");
     }
