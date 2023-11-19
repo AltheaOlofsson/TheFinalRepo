@@ -43,6 +43,7 @@ public class AdventureGame {
                 // Story();
                 name = inputName(userInput);
                 Player player = new Player(name);
+
                 clearScreen();
                 // midStory(name);
                 Game(player);
@@ -88,7 +89,7 @@ public class AdventureGame {
         int rooms = 5; // How many rooms or a.k.a event choice will happen.
         player.setApple(3);
         String roomChoice;
-        RandomEventGenerator Event = new RandomEventGenerator();
+        EventController ec = new EventController();
         Battle battle = new Battle(player);
 
         while (!gameOver)
@@ -101,12 +102,15 @@ public class AdventureGame {
                 if (roomChoice.equalsIgnoreCase("Left") || roomChoice.equalsIgnoreCase("1"))
                 {
                     clearScreen();
-                    Event.generateRandomEvent(player);
+
+                    Event e = ec.generateEvent(player);
+                    e.execute(player, userInput);
+                    player.addExperience(50);
                 }
                 else if (roomChoice.equalsIgnoreCase("Right") || roomChoice.equalsIgnoreCase("2"))
                 {
                     clearScreen();
-                    battle.battle(i);
+                    battle.battle();
                 }
                 else if (roomChoice.equalsIgnoreCase("Eat apple") || roomChoice.equalsIgnoreCase("3"))
                 {
