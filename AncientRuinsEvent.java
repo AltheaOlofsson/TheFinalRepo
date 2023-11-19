@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.Random;
 public class AncientRuinsEvent extends Event {
 
 AncientRuinsEvent() {
@@ -10,8 +10,9 @@ AncientRuinsEvent() {
 @Override
 public void execute(Player player, Scanner scanner) {
 
+    Random randomgen = new Random();
     System.out.println("You enter the ruins and find a mysterious altar.");
-        System.out.println("Do you want to approach the altar? (yes/no)");
+        System.out.println("Do you want to approach the altar? (y/n)");
         String altarChoice = scanner.nextLine();
             if (altarChoice.equalsIgnoreCase("y")) {
                 int outcome = randomgen.nextInt(3);
@@ -22,7 +23,7 @@ public void execute(Player player, Scanner scanner) {
                 } else if (outcome == 1) {
                     System.out.println("The ancient spirits are angered!");
                     System.out.println("You take an arrow to the knee, lose some HP and your speed is reduced!");
-                        player.decreseSpeed(10);
+                        player.decreaseSpeed(10);
                         player.decreaseCurrentHp(5);
                 } else {
                     System.out.println("The altar seems dormant, but you hear a faint voice echo: 'Do a barrel roll!'");
