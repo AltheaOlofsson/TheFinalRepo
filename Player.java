@@ -84,6 +84,9 @@ public void setMaxHp(int maxHp) {
 public void addMaxHp(int maxHp) {
     this.maxHp += maxHp;
 }
+public void decreaseMaxHp(int maxHp) {
+    this.maxHp -= maxHp;
+}
 
 public int getAttack() {
     return attack;
@@ -93,6 +96,9 @@ public void setAttack(int attack) {
 }
 public void addAttack(int attack) {
     this.attack += attack; 
+}
+public void decreaseAttack(int attack) {
+    this.attack -= attack;
 }
 
 public int getSpeed() {
@@ -104,7 +110,7 @@ public void setSpeed(int speed) {
 public void addSpeed(int speed) {
     this.speed += speed;
 }
-public void decreseSpeed(int speed) {
+public void decreaseSpeed(int speed) {
     this.speed -= speed;
 }
     
@@ -197,7 +203,7 @@ public static void main(String[] args) throws InterruptedException {
     Scanner s = new Scanner (System.in);
     EventController ec = new EventController();
 
-    player.setLevel(4);
+    player.setLevel(3);
 
     // player.setApple(1);
     // // player.displayPlayerStats(s);
@@ -209,7 +215,7 @@ public static void main(String[] args) throws InterruptedException {
     // // player.displayPlayerStats(s);
     // // player.addExperience(100);
     // player.displayPlayerStats(s);
-    for (int i = 1; i <= player.getLevel(); i++) {
+    for (int i = 1; i <= 5; i++) {
     Event e = ec.generateEvent(player);
     e.execute(player, s);
     for (Event foo : ec.eventList) {
