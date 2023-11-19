@@ -14,19 +14,13 @@ public void execute(Player player, Scanner scanner){
     System.out.println("Do you make a wish? (y/n)");
     String choice = scanner.nextLine();
         if(choice.equalsIgnoreCase("y")) {
-            System.out.println("You decide to wish for:\n\nGreat health (1)\nMonstrous strenght (2)\nExceptional speed (3)\n");
-            String wish = scanner.nextLine();
-                if(wish.equals("1")) {
-                   player.addMaxHp(20);
-                   System.out.println("You has good health my friend");
-                } else if (wish.equals("2")) {
-                  player.addAttack(10);
-                   System.out.println("You can feel the power surging inside!");
-                } else if (wish.equals("3")) {
-                  player.addSpeed(20);
-                   System.out.println();
-                }
-
+            Wish(player, scanner);
+        } else if (choice.equalsIgnoreCase("n")) {
+            System.out.println("Are you sure? Opportunities like this don't come often!\nMake a wish?");
+                choice = scanner.nextLine();
+                    if(choice.equalsIgnoreCase("y")) {
+                        Wish(player, scanner);
+                    }
         } else {
             System.out.println("You decide to just admire the beautiful natural occurance of possible impending doom " +
             "and suddenly can't seem to get the 'impending doom'-part out of your mind.\nYou have trouble falling asleep.\nHP: - 5");
@@ -35,8 +29,25 @@ public void execute(Player player, Scanner scanner){
             "continue your journey.");
 }           }
 
+private void Wish(Player player, Scanner scanner) {
 
 
+    System.out.println("You decide to wish for:\n\nGreat health (1)\nMonstrous strenght (2)\nExceptional speed (3)\n");
+    String wish = scanner.nextLine();
+        if(wish.equals("1")) {
+            player.addMaxHp(20);
+            System.out.println("You feel revitalized!\nHP: + 15");
+            System.out.println("You sleep like a baby and wake up the next day feeling rejuvenated and ready to set out.");
+        } else if (wish.equals("2")) {
+            player.addAttack(10);
+            System.out.println("You can feel the power surging inside!\nAttack: + 5");
+            System.out.println("You eventually fall asleep. You wake up well rested and ready to set out.");
+        } else if (wish.equals("3")) {
+            player.addSpeed(20);
+                System.out.println("You feel light on your feet!\nSpeed: + 10");
+                System.out.println("At the break of dawn you waste no time and set out immediately."); 
+}
 
+}
 
 }
