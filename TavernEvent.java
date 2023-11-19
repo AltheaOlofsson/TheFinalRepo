@@ -32,7 +32,7 @@ public class TavernEvent extends Event {
             player.addAttack(3);
         }
 
-        System.out.println("When you set out again you realised you ate way too much. You are sure you gained some weight because you feel slower than before.");
+        System.out.println("When you set out again you realised you ate way too much. You are sure you've gained some weight, you feel slower than before.");
         player.decreaseSpeed(1);
         System.out.println("Speed: - 1");
         }
