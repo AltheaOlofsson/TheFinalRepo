@@ -15,6 +15,7 @@ public class RootEvent extends Event {
                 System.out.println("What a lucky accident!");
                 player.setApple(4);
                 System.out.println("Apples: " + player.getApple());
+                player.addExperience(50);
                 }
         
         }
