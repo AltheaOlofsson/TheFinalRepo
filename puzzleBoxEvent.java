@@ -18,7 +18,7 @@ public class puzzleBoxEvent extends Event {
         String correctAnswer = "river";
         int attempts = 0;
 
-        System.out.println("\nRiddle: What runs but never walks, murmurs but never talks, has a bed but never and sleeps and has a mouth but never eats?");
+        System.out.println("\nRiddle: What runs but never walks, murmurs but never talks, has a bed but never sleeps and has a mouth but never eats?");
 
         while (attempts < 10) {
             // System.out.println("\nRiddle: What runs but never walks, murmurs but never talks, has a bed but never and sleeps and has a mouth but never eats?");
@@ -46,7 +46,7 @@ public class puzzleBoxEvent extends Event {
             
         }
             if (attempts >= 10) {
-            System.out.println("Unfortunately, you give up and were not able to solve the riddle and handed back the box to the merchant. Disappointing.");
+            System.out.println("Unfortunately, you give up and were not able to solve the riddle, so you handed back the box to the merchant. Disappointing.");
             player.addExperience(70);
             }
     }
