@@ -46,7 +46,7 @@ public class puzzleBoxEvent extends Event {
         }
             if (attempts >= 10) {
             System.out.println("Unfortunately, you give up and were not able to solve the riddle, so you handed back the box to the merchant. Disappointing.");
-            player.addExperience(70);
+            player.addExperience(50);
             }
     }
     
