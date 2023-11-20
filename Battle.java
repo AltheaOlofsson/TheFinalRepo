@@ -93,7 +93,7 @@ public class Battle {
         }
     }
 
-    public void dragonFight(Dragons) {
+    public void dragonFight(Dragons Dragons) {
         if (dragonKillsPlayer() == true) {
             System.out.println("");
         }
