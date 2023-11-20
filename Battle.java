@@ -49,9 +49,9 @@ public class Battle {
             Monster currentMonster = getMonster(monsters);
             System.out.println("You are attacked by a vicious " + currentMonster.getName());
 
-            while (player.IsAlive()) {            
+            while (player.IsAlive(player.currentHp)) {            
                 if (player.getSpeed() >= currentMonster.getSpeed()) {
-                    choosesAttackOrStats(currentMonster);
+                    choosesAttackOrStats(currentMonster,player);
                     if (currentMonster.isAlive() == true) {
                         currentMonster.attack(player);
                     } else {
@@ -60,7 +60,9 @@ public class Battle {
                     }
                 } else {
                     currentMonster.attack(player);
-                    choosesAttackOrStats(currentMonster);
+                    if(player.IsAlive(player.currentHp)==true){
+                    choosesAttackOrStats(currentMonster, player);
+                    }
                     if (!currentMonster.isAlive()) {
                         currentMonster.monsterDeath(player);
                         break;
@@ -73,7 +75,7 @@ public class Battle {
         this.player = player;
     }
 
-    void choosesAttackOrStats(Monster currentMonster) {
+    void choosesAttackOrStats(Monster currentMonster, Player player) {
         String attackChoice= "";
         while (attackChoice != "1" || attackChoice != "2") {
             System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Display stats.");

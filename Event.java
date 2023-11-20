@@ -1,10 +1,14 @@
 import java.util.*;
 
 public class Event {
+
     int eventLevel;
     Player player;
     Scanner scanner;
-    Random randomgen;
+
+    public Battle battle = new Battle(player);
+    
+    static Random randomgen = new Random();
 
     public Event() { }
 
@@ -20,4 +24,12 @@ public class Event {
         System.out.println("You gained experience.");
         player.addExperience(50);
     }
+
+    protected void pressEnterToContinue() {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nPress ENTER to continue");
+        scanner.nextLine();
+    }
+
 }
