@@ -25,7 +25,7 @@ public class Event {
         player.addExperience(50);
     }
 
-    private void pressEnterToContinue() {
+    protected void pressEnterToContinue() {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nPress ENTER to continue");

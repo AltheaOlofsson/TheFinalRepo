@@ -158,11 +158,11 @@ private void reflect() {
     System.out.println("\nYou sit down and take a moment to reflect on how you even ended up here. After a while you stand up and continue deeper into the mine.");
 }
 
-private void pressEnterToContinue() {
+// private void pressEnterToContinue() {
 
-    Scanner scanner = new Scanner(System.in);
-    System.out.println("\nPress ENTER to continue");
-    scanner.nextLine();
-}
+//     Scanner scanner = new Scanner(System.in);
+//     System.out.println("\nPress ENTER to continue");
+//     scanner.nextLine();
+// }
 
 }
