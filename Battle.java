@@ -47,7 +47,7 @@ Monster bossDragon = new Monster("Dragonlord Silumgar", 40000, 500, 1000, 20, 20
 
             while (player.IsAlive()) {            
                 if (player.getSpeed() >= currentMonster.getSpeed()) {
-                    choosesAttackOrStats(currentMonster);
+                    choosesAttackOrStats(currentMonster,player);
                     if (currentMonster.isAlive() == true) {
                         currentMonster.attack(player);
                     } else {
@@ -56,7 +56,7 @@ Monster bossDragon = new Monster("Dragonlord Silumgar", 40000, 500, 1000, 20, 20
                     }
                 } else {
                     currentMonster.attack(player);
-                    choosesAttackOrStats(currentMonster);
+                    choosesAttackOrStats(currentMonster, player);
                     if (!currentMonster.isAlive()) {
                         currentMonster.monsterDeath(player);
                         break;
@@ -69,7 +69,7 @@ Monster bossDragon = new Monster("Dragonlord Silumgar", 40000, 500, 1000, 20, 20
         this.player = player;
     }
 
-    void choosesAttackOrStats(Monster currentMonster) {
+    void choosesAttackOrStats(Monster currentMonster, Player player) {
         String attackChoice= "";
         while (attackChoice != "1" || attackChoice != "2") {
             System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Display stats.");
