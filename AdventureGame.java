@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import org.w3c.dom.UserDataHandler;
+
 public class AdventureGame {
 
     public static void main(String[] args) throws InterruptedException {
@@ -29,10 +31,11 @@ public class AdventureGame {
         clearScreen();
         title();
         mainMenu();
-        
+        // String menuChoice = userInput.nextLine();
+
         while (!quit)
-        {
-            String menuChoice = userInput.nextLine();
+        {           String menuChoice = userInput.nextLine();
+
             if (menuChoice.equalsIgnoreCase("Help") || menuChoice.equalsIgnoreCase("2"))
             {
                 clearScreen();
@@ -47,6 +50,7 @@ public class AdventureGame {
                 // beginStory();
                 name = inputName(userInput);
                 Player player = new Player(name);
+
                 clearScreen();
                 // midStory(name);
                 Game(player);
@@ -91,8 +95,11 @@ public class AdventureGame {
         boolean gameOver = false;
         int rooms = 5; // How many rooms or a.k.a event choice will happen.
         player.setApple(3);
+        player.setMaxHp(500);
+        player.setCurrentHp(500);
         String roomChoice;
-        RandomEventGenerator Event = new RandomEventGenerator();
+        EventController ec = new EventController();
+        // RandomEventGenerator Event = new RandomEventGenerator();
         Battle battle = new Battle(player);
 
         
@@ -101,7 +108,7 @@ public class AdventureGame {
 
         while (!gameOver)
         {
-            resetPlayer(player);
+            // resetPlayer(player);
             
             for (int i = 1; i <= rooms; i++)
             {
@@ -110,12 +117,14 @@ public class AdventureGame {
                 if (roomChoice.equalsIgnoreCase("Left") || roomChoice.equalsIgnoreCase("1"))
                 {
                     clearScreen();
-                    Event.generateRandomEvent(player);
+                    Event e = ec.generateEvent(player);
+                    e.execute(player, userInput);
+                    // Event.generateRandomEvent(player);
                 }
                 else if (roomChoice.equalsIgnoreCase("Right") || roomChoice.equalsIgnoreCase("2"))
                 {
                     clearScreen();
-                    battle.battle(i);
+                    battle.battle(player);
                 }
                 else if (roomChoice.equalsIgnoreCase("Eat apple") || roomChoice.equalsIgnoreCase("3"))
                 {

@@ -18,7 +18,7 @@ public class Battle {
     Monster wurm = new Monster("Wurm", 35, 12, 14, 4, 20, 70);
     Monster vampire = new Vampire("Vampire", 30, 8, 12, 5, 350, 100);
     Monster werewolf = new Monster("Werewolf", 50, 10, 20, 5, 55, 100);
-    Monster bossDragon = new Monster("Dragonlord Silumgar", 40000, 500, 1000, 20, 200, 300);
+Monster bossDragon = new Monster("Dragonlord Silumgar", 40000, 500, 1000, 20, 200, 300);
 
     Monster[] monsterEncounters = {wolf,goblin,orc,direWolf,elf,troll,ogre,wurm,vampire,werewolf};
 
@@ -40,8 +40,8 @@ public class Battle {
         return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()));
     }
 
-    public void battle(int currentRoom) {
-            ArrayList<Monster> monsters = createMonsterList(currentRoom + 1, currentRoom + 1);
+    public void battle(Player player) {
+            ArrayList<Monster> monsters = createMonsterList((player.getLevel()-1), (player.getLevel()+1));
             Monster currentMonster = getMonster(monsters);
             System.out.println("You are attacked by a vicious " + currentMonster.getName());
 
@@ -76,7 +76,7 @@ public class Battle {
             attackChoice = scanner.nextLine();
             if (attackChoice.equals("1")) {
                 player.attack(currentMonster);
-                System.out.println(currentMonster.getName() + ": " + currentMonster.getHitPoints());
+                System.out.println(currentMonster.getName() + ":  HP: " + currentMonster.getHitPoints());
                 break;
             } else if (attackChoice.equals("2")) {
                 player.displayPlayerStats(scanner);
@@ -86,16 +86,17 @@ public class Battle {
             }
         }
     }
-    
+
     public static void main(String[] args) {
         Player player = new Player("Brian");
         Battle b = new Battle(player);
-        player.setSpeed(20);
-        player.setMaxHp(500);
-        player.setCurrentHp(450);
+        player.setSpeed(1);
+        player.setMaxHp(1);
+        player.setCurrentHp(1);
         player.setAttack(15);
         
-        b.createMonsterList(0, 2);
-        b.battle(4);
+        // b.createMonsterList(0, 2);
+        b.battle(player);
+        // b.battle(4);
     }
 }
