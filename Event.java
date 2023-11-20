@@ -24,4 +24,12 @@ public class Event {
         System.out.println("You gained experience.");
         player.addExperience(50);
     }
+
+    private void pressEnterToContinue() {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nPress ENTER to continue");
+        scanner.nextLine();
+    }
+
 }
