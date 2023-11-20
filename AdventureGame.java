@@ -7,7 +7,7 @@ public class AdventureGame {
 
     public static void main(String[] args) throws InterruptedException {
         // AdventureGame game = new AdventureGame();
-        
+        MenuController menu = new MenuController();
         Scanner userInput = new Scanner(System.in);
         String name;
 
@@ -17,7 +17,7 @@ public class AdventureGame {
         
         while (true)
         {
-            
+            menu.selectOption();
         }
     }
 
@@ -65,7 +65,6 @@ public class AdventureGame {
             System.out.println("PERFECTLY ACCEPTABLE ADVENTURE OF A MUNDANE SOMEBODY\n                      2023 EDITION");
             clearScreen();
         }
-
     }
 
     public static void midStory(String name) throws InterruptedException 
@@ -171,23 +170,4 @@ public class AdventureGame {
         Thread.sleep(200);
         System.out.println("[3]Quit");
     }
-
-//     public void gameOver(Scanner userInput) throws InterruptedException
-//         {
-//         clearScreen();
-//         System.out.println("You've died!");
-//         Thread.sleep(3000);
-//         System.out.println("\nThis poor soul has perished, may darkness overtake them and drift away to the afterlife.");
-//         System.out.println("\nDo you want to retry? Press ENTER to retry, type \"No\" to quit.");
-//         String playAgain = userInput.nextLine().toLowerCase()
-
-//         if (playAgain.equals("no") || playAgain.equals("n"))
-//         {
-//             clearScreen();
-//             System.out.println("|GAME OVER|");
-//             System.out.println("Game Shutting down...");
-//             gameOver = true;
-//         }
-//         clearScreen();
-//     }
 }

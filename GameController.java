@@ -37,9 +37,7 @@ public class GameController {
 
     public void selectPath() {
 
-        System.out.println(
-                "\nWhich path do you want to take?\n[1]Left?\n[2]Right? This path is blocked by a monster but you cant tell what exactly. \n[3]Eat a Holy Golden Apple ("
-                        + player.getApple() + "/4)");
+        System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? This path is blocked by a monster but you cant tell what exactly. \n[3]Eat a Holy Golden Apple (" + player.getApple() + "/4)");
         roomChoice = userInput.nextLine().toLowerCase();
 
         switch (roomChoice) {
@@ -54,7 +52,7 @@ public class GameController {
             case "2":
                 AdventureGame.clearScreen();
                 Battle battle = new Battle(player);
-                battle.battle(player.getLevel());
+                battle.battle(player);
                 advanceRoom();
                 break;
 
