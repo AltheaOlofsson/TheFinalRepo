@@ -1,10 +1,12 @@
 import java.util.*;
 
 public class Event {
+
     int eventLevel;
     Player player;
     Scanner scanner;
-    Random randomgen;
+    
+    static Random randomgen = new Random();
 
     public Event() { }
 
