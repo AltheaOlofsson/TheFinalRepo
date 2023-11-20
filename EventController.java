@@ -4,8 +4,6 @@ import java.util.stream.Collectors;
 
     public class EventController {
 
-        static Random randomgen = new Random();
-
         public Event[] eventEncounters = {new RootEvent(), new TravelerEvent(), new WishingStarEvent(), new FairyEvent(), new LulEvent(), new AbandonedMinesEvent(), new TavernEvent()};
 
         ArrayList<Event> eventList = new ArrayList<>(Arrays.asList(eventEncounters)); 
