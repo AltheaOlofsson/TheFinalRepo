@@ -75,7 +75,7 @@ public class AdventureGame {
         String name = "";
         while (nameEmpty)
         {
-            System.out.println("\n\n What is your name? ");
+            System.out.println("\n\nWhat is your name? ");
             name = userInput.nextLine();
             if (name.length() != 0)
             {
@@ -95,8 +95,8 @@ public class AdventureGame {
         boolean gameOver = false;
         int rooms = 5; // How many rooms or a.k.a event choice will happen.
         player.setApple(3);
-        player.setMaxHp(500);
-        player.setCurrentHp(500);
+        // player.setMaxHp(500);
+        // player.setCurrentHp(500);
         String roomChoice;
         EventController ec = new EventController();
         // RandomEventGenerator Event = new RandomEventGenerator();
@@ -162,7 +162,7 @@ public class AdventureGame {
                     i--;
                 }
 
-                if (player.IsAlive() != true)
+                if (player.IsAlive(player.getCurrentHp()) != true)
                 {
                     clearScreen();
                     System.out.println("You've died!");
