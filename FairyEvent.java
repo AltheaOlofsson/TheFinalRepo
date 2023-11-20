@@ -18,10 +18,10 @@ public void execute(Player player, Scanner scanner){
                 System.out.println("You decide to try to sneak back the way you came but find that your legs won't obey your wishes. Try again?(Y/N)");
                 String try2 = scanner.nextLine();
                 if(try2.equalsIgnoreCase("y")){
-                    System.out.println("Your feet are firmly planted to the ground like they have taken root. What will you do? \n (1) Lift your left leg with your hands. \n (2) Lift your right leg with your hands. \n (3) Lay down and try to crawl away.");
+                    System.out.println("Your feet are firmly planted on the ground like they have taken root. What will you do? \n (1) Lift your left leg with your hands. \n (2) Lift your right leg with your hands. \n (3) Lay down and try to crawl away.");
                     String choice = scanner.nextLine();
                     if(choice.equalsIgnoreCase("1")){
-                        System.out.println("placeholder small buff");
+                        System.out.println("Your struggle is drawing the attention of the beautiful lady and before you can take even one step she appears in front of you.");
                         gainEXP(player);
                     }
                     else if (choice.equalsIgnoreCase("2")){
@@ -45,22 +45,23 @@ public void execute(Player player, Scanner scanner){
                 System.out.println("You find it hard to move, the beautiful voice seem to draw you in and you are tempted to stay. What do you do? \n(1) Stay and watch a few more minutes. \n(2) It is time to leave.");
                 String hardChoice = scanner.nextLine();
                 if(hardChoice.equalsIgnoreCase("1")){
-                    System.out.println("You keep watching the beautiful fairy singing and dancing long into the night. When you finally come to your senses the forest is dark and you fell severely weakened.");
+                    System.out.println("You keep watching the beautiful fairy singing and dancing long into the night. When you finally come to your senses the forest is dark and still.");
                     player.decreaseCurrentHp(15);
                     player.decreaseMaxHp(5);
                     player.decreaseAttack(5);
                     player.decreaseSpeed(4);
-                    System.out.println("A fairy's fair form is not for a mortals fragile mind to behold.");
+                    System.out.println("The experience leave you feeling severely weakened. A fairy's fair form is not for a mortals fragile mind to behold.");
                     gainEXP(player);
                 } else if (hardChoice.equalsIgnoreCase("2")){
                     System.out.println("You fight free and back away, slowly making your way back through the trees. The experience leave you feeling weaker than before.");
-                    gainEXP(player);                }
+                    gainEXP(player);                
+                }
 
             }
     } else {
         System.out.println("You continue down the road, the beautiful singing hauting you for a long time.");
         System.out.println("Your resolve was strengthend, you gain experience.");
-        player.addExperience(50);
+        player.addExperience(80);
 
     }
 
