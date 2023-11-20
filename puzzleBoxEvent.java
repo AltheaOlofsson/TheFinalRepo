@@ -21,7 +21,6 @@ public class puzzleBoxEvent extends Event {
         System.out.println("\nRiddle: What runs but never walks, murmurs but never talks, has a bed but never sleeps and has a mouth but never eats?");
 
         while (attempts < 10) {
-            // System.out.println("\nRiddle: What runs but never walks, murmurs but never talks, has a bed but never and sleeps and has a mouth but never eats?");
             String userGuess = scanner.nextLine().toLowerCase();
 
             if (checkGuess(userGuess, correctAnswer)) {
