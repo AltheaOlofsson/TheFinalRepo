@@ -177,7 +177,7 @@ public class AdventureGame {
 //         Thread.sleep(3000);
 //         System.out.println("\nThis poor soul has perished, may darkness overtake them and drift away to the afterlife.");
 //         System.out.println("\nDo you want to retry? Press ENTER to retry, type \"No\" to quit.");
-//         String playAgain = userInput.nextLine().toLowerCase();
+//         String playAgain = userInput.nextLine().toLowerCase()
 
 //         if (playAgain.equals("no") || playAgain.equals("n"))
 //         {

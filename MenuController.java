@@ -38,7 +38,7 @@ public class MenuController {
                 userInput.nextLine();
                 clearScreen();
                 try {
-                    mainMenu();
+                    mainMenu(;
                 }
                 catch (InterruptedException e) {
                 }
