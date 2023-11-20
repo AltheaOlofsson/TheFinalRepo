@@ -3,6 +3,7 @@ import java.util.stream.Collectors;
 
 
     public class EventController {
+
         static Random randomgen = new Random();
 
         public Event[] eventEncounters = {new RootEvent(), new TravelerEvent(), new WishingStarEvent(), new FairyEvent(), new LulEvent(), new AbandonedMinesEvent(), new TavernEvent()};
@@ -26,5 +27,12 @@ import java.util.stream.Collectors;
     
         
     }
-    
+
+
+    // Level 1: WishingStarEvent, TavernEvent
+    // Level 2: TravelerEvent
+    // Level 3: RootEvent, FairyEvent
+    // Level 4: AbandonedMinesEvent
+    // Level 5:
+    // Level 12: LulEvent
 
