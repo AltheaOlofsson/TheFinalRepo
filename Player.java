@@ -205,8 +205,9 @@ public static void main(String[] args) throws InterruptedException {
 
     player.addExperience(100);
     
-    TravelerEvent aM = new TravelerEvent();
-    aM.execute(player, s);
+    // TravelerEvent aM = new TravelerEvent();
+    AbandonedMinesEvent AM = new AbandonedMinesEvent();
+    AM.execute(player, s);
 
 
 
