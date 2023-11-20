@@ -9,27 +9,27 @@ public class AdventureGame {
         Scanner userInput = new Scanner(System.in);
         String name;
         String instructions =
-        "In this game you will go through a series of encounters where the goal of the game is to reach the end." +
-        "\nEach room will prompt you with a path of either left or right and present an event." +
-        "\nThese events could either be in the form combat against monsters or an event that will further prompt you to make a decision." +
-        "\nThese events can either reward or punish the player." +
-        "\n\nThe player character and monsters has a set of stats, these are:" +
-        "\n- Level : What level the player is and determines their overall prowess." +
-        "\n- HP : How much health the player/monster has." +
-        "\n- Attack : How much damage they deal." +
-        "\n- Speed : How dexterous either one is, the one that has more than the other fights first." +
-        "\n- Experience : This is received whenever a task is completed or after defeating a monster. Accumulate enough and you rise in level." +
-        "\nYou as the player also has a set of apples that whenever eaten will fully rejuvenate you." +
-        "\nUseful if you've taken a large amount of damage." +
-        "\n\n Whenever in-game you can also type the following commands:" +
-        "\n- /help : Will give you instructions how to play the game." +
-        "\n- /stats : Displays the current stats of the player." +
-        "\n- /quit : Quits the game." +
-        "\n\nGood luck \"mundane somebody\"!" +
-        "\n\nPress ENTER to return to menu.";
+        "In this game you will go through a series of encounters where the goal of the game is to reach the end." 
+        +"\nEach room will prompt you with a path of either left or right and present an event." 
+        +"\nThese events could either be in the form combat against monsters or an event that will further prompt you to make a decision." 
+        +"\nThese events can either reward or punish the player." 
+        +"\n\nThe player character and monsters has a set of stats, these are:" 
+        +"\n- Level : What level the player is and determines their overall prowess." 
+        +"\n- HP : How much health the player/monster has." 
+        +"\n- Attack : How much damage they deal." 
+        +"\n- Speed : How dexterous either one is, the one that has more than the other fights first." 
+        +"\n- Experience : This is received whenever a task is completed or after defeating a monster. Accumulate enough and you rise in level." 
+        +"\nYou as the player also has a set of apples that whenever eaten will fully rejuvenate you." 
+        +"\nUseful if you've taken a large amount of damage." 
+        +"\n\n Whenever in-game you can also type the following commands:" 
+        +"\n- /help : Will give you instructions how to play the game." 
+        +"\n- /stats : Displays the current stats of the player." 
+        +"\n- /quit : Quits the game." 
+        +"\n\nGood luck \"mundane somebody\"!" 
+        +"\n\nPress ENTER to return to menu.";
 
         clearScreen();
-        Title();
+        title();
         mainMenu();
         // String menuChoice = userInput.nextLine();
 
@@ -47,7 +47,7 @@ public class AdventureGame {
             else if ((menuChoice.equalsIgnoreCase("Start") || menuChoice.equalsIgnoreCase("1")))
             {
                 clearScreen();
-                // Story();
+                // beginStory();
                 name = inputName(userInput);
                 Player player = new Player(name);
 
@@ -102,6 +102,10 @@ public class AdventureGame {
         // RandomEventGenerator Event = new RandomEventGenerator();
         Battle battle = new Battle(player);
 
+        
+        String midInstructions =
+        "You ";
+
         while (!gameOver)
         {
             // resetPlayer(player);
@@ -142,7 +146,7 @@ public class AdventureGame {
                 else if (roomChoice.equalsIgnoreCase("/help"))
                 {
                     clearScreen();
-                    System.out.println("You ");
+                    System.out.println(midInstructions);
                 }
                 else if (roomChoice.equalsIgnoreCase("/exit"))
                 {
@@ -182,7 +186,7 @@ public class AdventureGame {
         }
     }
 
-    public static void Title() throws InterruptedException 
+    public static void title() throws InterruptedException 
     {
         System.out.print("PERFECTLY ");
         Thread.sleep(200);
@@ -224,7 +228,7 @@ public class AdventureGame {
         System.out.println("[3]Quit");
     }
 
-    public static void Story() throws InterruptedException 
+    public static void beginStory() throws InterruptedException 
     {
         System.out.println(">|GAME START<|");
         Thread.sleep(1500);
