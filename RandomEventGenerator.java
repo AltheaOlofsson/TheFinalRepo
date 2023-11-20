@@ -5,13 +5,13 @@ public class RandomEventGenerator {
     private Random random;
     Player player;
     Battle battle = new Battle(player);
-    Occurence event = new Occurence(player);
-
+    
     public RandomEventGenerator() {
         random = new Random();
     }
-
+    
     public void generateRandomEvent(Player player) {
+        Occurence event = new Occurence();
         Scanner userInput = new Scanner(System.in);
         int eventNumber = random.nextInt(5) + 1;
         switch (eventNumber) {
