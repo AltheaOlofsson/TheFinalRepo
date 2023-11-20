@@ -4,7 +4,7 @@ public class WishingStarEvent extends Event {
     
 WishingStarEvent(){
     super();
-    this.eventLevel = 3;
+    this.eventLevel = 1;
 }
 
 @Override
@@ -15,16 +15,20 @@ public void execute(Player player, Scanner scanner){
     String choice = scanner.nextLine();
         if(choice.equalsIgnoreCase("y")) {
             Wish(player, scanner);
+            player.addExperience(50);
         } else if (choice.equalsIgnoreCase("n")) {
             System.out.println("Are you sure? Opportunities like this don't come often!\nMake a wish?");
                 choice = scanner.nextLine();
                     if(choice.equalsIgnoreCase("y")) {
                         Wish(player, scanner);
+                        player.addExperience(50);
                     } else {
                         noWish(player);
+                        player.addExperience(50);
                     }
         } else {
             noWish(player);
+            player.addExperience(50);
         }          
 }
 

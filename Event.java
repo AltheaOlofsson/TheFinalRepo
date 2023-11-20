@@ -15,4 +15,9 @@ public class Event {
     public void execute(Player player, Scanner scanner) {
         // Override this method.
     }   
+
+    public void gainEXP(Player player){
+        System.out.println("You gained experience.");
+        player.addExperience(50);
+    }
 }
