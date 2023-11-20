@@ -34,15 +34,14 @@ public class Monster {
     public void decreaseHitPoints(int hitPoints) {
         this.hitPoints -= hitPoints;
     }
-    public void attack(Player player) {
+    public void attack(Player player) { //Metod som utför attacken från monstret
         int attackDmg = ThreadLocalRandom.current().nextInt(minAttack, maxAttack + 1);
-        player.decreaseCurrentHp(attackDmg);
         System.out.println("The " + name + " attacks you for " + attackDmg);
-        System.out.println(player.getName() + " " + player.currentHp + "/" + player.getMaxHp());
+        player.decreaseCurrentHp(attackDmg);
     }
 
     public void monsterDeath(Player player) {
-       System.out.println("You killed: " + name + " and got " + expGiven + " experience."); 
+       System.out.println("You killed the " + name + " and got " + expGiven + " experience."); 
        player.addExperience(expGiven); 
     } //när monstret dör ger det spelaren exp
 

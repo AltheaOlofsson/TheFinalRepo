@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import org.w3c.dom.UserDataHandler;
+
 public class AdventureGame {
     boolean gameOver = false;
 
@@ -24,7 +26,7 @@ public class AdventureGame {
         String name = "";
         while (nameEmpty)
         {
-            System.out.println("\n\n What is your name? ");
+            System.out.println("\n\nWhat is your name? ");
             name = userInput.nextLine();
             if (name.length() != 0)
             {
