@@ -4,4 +4,8 @@ public class Dragons extends Monster{
     }
 
     
+
+    public void introduce(getCurrentBoss) {
+
+    }
 }
