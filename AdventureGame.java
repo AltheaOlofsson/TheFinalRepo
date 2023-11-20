@@ -162,7 +162,7 @@ public class AdventureGame {
                     i--;
                 }
 
-                if (player.IsAlive() != true)
+                if (player.IsAlive(player.getCurrentHp()) != true)
                 {
                     clearScreen();
                     System.out.println("You've died!");
