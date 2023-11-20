@@ -40,8 +40,8 @@ Monster bossDragon = new Monster("Dragonlord Silumgar", 40000, 500, 1000, 20, 20
         return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()));
     }
 
-    public void battle(int currentRoom) {
-            ArrayList<Monster> monsters = createMonsterList(currentRoom + 1, currentRoom + 1);
+    public void battle(Player player) {
+            ArrayList<Monster> monsters = createMonsterList((player.getLevel()-1), (player.getLevel()+1));
             Monster currentMonster = getMonster(monsters);
             System.out.println("You are attacked by a vicious " + currentMonster.getName());
             if (currentMonster.getName().equals("Vampire")) {Monster.lifeSteal = true;} else {Monster.lifeSteal = false;}
@@ -98,7 +98,7 @@ Monster bossDragon = new Monster("Dragonlord Silumgar", 40000, 500, 1000, 20, 20
         player.setAttack(15);
         
         // b.createMonsterList(0, 2);
-        b.battle(4);
+        b.battle(player);
         // b.battle(4);
     }
 }
