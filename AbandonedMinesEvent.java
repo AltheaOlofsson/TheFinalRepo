@@ -133,6 +133,8 @@ public void execute(Player player, Scanner scanner) {
                 "\nCrossing the bridge might be risky due to unseen dangers.");
                 break;
 
+            default:
+                    System.out.println("Invalid input. Please try again");
 
         }
     }
@@ -147,22 +149,14 @@ public void execute(Player player, Scanner scanner) {
 
     battle.battle(player);
 
-    System.out.println("\nYOU WIN! GRATZ!");
+    System.out.println("\nYou defeat");
 
 }
-
-
 
 
 private void reflect() {
     System.out.println("\nYou sit down and take a moment to reflect on how you even ended up here. After a while you stand up and continue deeper into the mine.");
 }
 
-private void pressEnterToContinue() {
-
-    Scanner scanner = new Scanner(System.in);
-    System.out.println("\nPress ENTER to continue");
-    scanner.nextLine();
-}
 
 }
