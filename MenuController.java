@@ -26,6 +26,7 @@ public class MenuController {
         String menuChoice = userInput.nextLine().toLowerCase();
         String name;
         Player player = null;
+        boolean quit = false;
 
         switch (menuChoice) {
             case "start":
@@ -39,6 +40,7 @@ public class MenuController {
                 name = inputName(userInput);
                 player = new Player(name);
                 GameController game = new GameController(player);
+                game.selectPath();
                 return player;
 
             case "help":
@@ -58,6 +60,7 @@ public class MenuController {
             case "3":
                 System.out.println("Game Shutting down...");
                 userInput.close();
+                quit = true;
                 break;
 
             default:
