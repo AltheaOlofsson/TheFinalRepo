@@ -56,32 +56,3 @@ public class puzzleBoxEvent extends Event {
     }
     
 }
-
-    
-    
-    //    String correctAnswer = "key";
-    //    int attempts = 0;
-       
-    //     System.out.println("I am a three-letter word. What am I?");
-    //     String userGuess = scanner.nextLine().toLowerCase();
-
-    //     while(!checkGuess(scanner.nextLine().toLowerCase(), correctAnswer) && attempts < 10) {
-
-    //     System.out.println("I am a three-letter word. What am I?");
-    //     String userGuess = scanner.nextLine().toLowerCase();
-
-    //         System.out.println("Nothing happens. Try again.");
-    //         attempts++;
-
-    //             if (attempts < 10) {
-    //                 System.out.println("Congratulations, you solved the puzzle and obtained something amazing!");
-    //                     // add stats
-    //             } else {
-    //                 System.out.println("Unfortunately you were not able to solve the puzzle and handed it back to the merchant. Disappointing.");
-    //                 }  
-    //     }
-    //     private static boolean checkGuess(String userGuess, String correctAnswer) {
-    //         return userGuess.equals("key")
-    //     }
-
-
