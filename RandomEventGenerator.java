@@ -13,7 +13,7 @@ public class RandomEventGenerator {
     public void generateRandomEvent(Player player) {
         Occurence event = new Occurence();
         Scanner userInput = new Scanner(System.in);
-        int eventNumber = random.nextInt(5) + 1;
+        int eventNumber = random.nextInt(4) + 1;
         switch (eventNumber) {
             case 1:
                 event.occurance1(player);
@@ -27,8 +27,8 @@ public class RandomEventGenerator {
             case 4:
                 event.occurance4(player, userInput);
                 break;
-            case 5:
-                battle.battle(eventNumber - 2);
+            // case 5:
+            //     battle.battle(player.getLevel());
             default:
                 System.out.println("Something went wrong... Scream and run if you see this.");
         }
