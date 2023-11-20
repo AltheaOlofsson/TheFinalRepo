@@ -16,7 +16,7 @@ public class Battle {
     Monster troll = new Monster("Troll", 55, 2, 15, 4, 8, 60);
     Monster ogre = new Monster("Ogre", 45, 10, 15, 4, 25, 80);
     Monster wurm = new Monster("Wurm", 35, 12, 14, 4, 20, 70);
-    Monster vampire = new Monster("Vampire", 30, 8, 12, 5, 350, 100);
+    Monster vampire = new Vampire("Vampire", 30, 8, 12, 5, 350, 100);
     Monster werewolf = new Monster("Werewolf", 50, 10, 20, 5, 55, 100);
     Monster bossDragon = new Monster("Dragonlord Silumgar", 40000, 500, 1000, 20, 200, 300);
 
@@ -44,23 +44,23 @@ public class Battle {
             ArrayList<Monster> monsters = createMonsterList(currentRoom + 1, currentRoom + 1);
             Monster currentMonster = getMonster(monsters);
             System.out.println("You are attacked by a vicious " + currentMonster.getName());
-            if (currentMonster.getName().equals("Vampire")) {Monster.lifeSteal = true;} else {Monster.lifeSteal = false;}
-            while (currentMonster.getHitPoints() > 0 && player.IsAlive() == true) {            
+
+            while (player.IsAlive()) {            
                 if (player.getSpeed() >= currentMonster.getSpeed()) {
                     choosesAttackOrStats(currentMonster);
-                    currentMonster.attack(player, currentMonster);
-                    System.out.println(player.getName() + " " + player.currentHp + "/" + player.getMaxHp());    
+                    if (currentMonster.isAlive() == true) {
+                        currentMonster.attack(player);
+                    } else {
+                        currentMonster.monsterDeath(player);
+                        break;
+                    }
                 } else {
-                    currentMonster.attack(player, currentMonster);
-                    System.out.println(player.getName() + " " + player.currentHp + "/" + player.getMaxHp());
-                    choosesAttackOrStats(currentMonster);                                                                               
-                }
-                if (player.IsAlive() == false) {
-                    break;
-                }
-                if (currentMonster.getHitPoints() <= 0) {
-                    Monster.monsterDeath(player, currentMonster);
-                    break;
+                    currentMonster.attack(player);
+                    choosesAttackOrStats(currentMonster);
+                    if (!currentMonster.isAlive()) {
+                        currentMonster.monsterDeath(player);
+                        break;
+                    }                                                                          
                 }
             }
     }

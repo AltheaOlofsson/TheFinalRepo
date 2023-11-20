@@ -1,14 +1,13 @@
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Monster {
-    private String name;
-    private int hitPoints;
-    private int minAttack;
-    private int maxAttack;
-    private int level;
-    private int speed;
-    private int expGiven;
-    static Boolean lifeSteal = false;
+    protected String name;
+    protected int hitPoints;
+    protected int minAttack;
+    protected int maxAttack;
+    protected int level;
+    protected int speed;
+    protected int expGiven;
     
     Monster(String name, int hitPoints, int minAttack, int maxAttack, int level, int speed, int expGiven) {
         this.name = name;
@@ -35,25 +34,26 @@ public class Monster {
     public void decreaseHitPoints(int hitPoints) {
         this.hitPoints -= hitPoints;
     }
-    public void attack(Player player, Monster currentMonster) {
+    public void attack(Player player) {
         int attackDmg = ThreadLocalRandom.current().nextInt(minAttack, maxAttack + 1);
         player.decreaseCurrentHp(attackDmg);
-        System.out.println("The " + currentMonster.getName() + " attacks you for " + attackDmg);
-        if (lifeSteal == true) {
-            currentMonster.hitPoints += (attackDmg/2);
-            System.out.println("It heals from your blood.");
-        }
+        System.out.println("The " + name + " attacks you for " + attackDmg);
+        System.out.println(player.getName() + " " + player.currentHp + "/" + player.getMaxHp());
     }
 
-    public static void monsterDeath(Player player, Monster currentMonster) {
-       System.out.println("You killed: " + currentMonster.getName() + " and got " + currentMonster.expGiven + " experience."); 
-       player.addExperience(currentMonster.expGiven); 
+    public void monsterDeath(Player player) {
+       System.out.println("You killed: " + name + " and got " + expGiven + " experience."); 
+       player.addExperience(expGiven); 
     } //när monstret dör ger det spelaren exp
+
+    public boolean isAlive() {
+        if (hitPoints > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
-/* public static void main(String[] args) {
-    Monsters ghoul = new Monsters("Ghoul", 2, 4, 8, 1, 3);
-    int damageDone = ghoul.attack();
-    System.out.println(damageDone); 
-} */
+
 
 
