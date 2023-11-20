@@ -73,6 +73,7 @@ public void addCurrenHp(int currentHp) {
 }
 public void decreaseCurrentHp(int currentHp) {
     this.currentHp -= currentHp;
+    System.out.println(getName() + " HP :" + this.currentHp + "/" + this.maxHp);
 }
 
 public int getMaxHp() {
@@ -167,8 +168,8 @@ public void eatApple() {
     apple--;
 }
 
-public boolean IsAlive() {
-    if (currentHp > 0) return true;
+public boolean IsAlive(int currentHp) {
+    if (this.currentHp > 0) return true;
     else return false;
 }
 
@@ -204,6 +205,11 @@ public static void main(String[] args) throws InterruptedException {
     EventController ec = new EventController();
 
     player.addExperience(100);
+    player.addExperience(100);
+    player.addExperience(100);
+    player.setSpeed(15);
+    player.setCurrentHp(25);
+    
     
     // TravelerEvent aM = new TravelerEvent();
     AbandonedMinesEvent AM = new AbandonedMinesEvent();

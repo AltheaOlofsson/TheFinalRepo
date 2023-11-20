@@ -45,7 +45,7 @@ Monster bossDragon = new Monster("Dragonlord Silumgar", 40000, 500, 1000, 20, 20
             Monster currentMonster = getMonster(monsters);
             System.out.println("You are attacked by a vicious " + currentMonster.getName());
 
-            while (player.IsAlive()) {            
+            while (player.IsAlive(player.currentHp)) {            
                 if (player.getSpeed() >= currentMonster.getSpeed()) {
                     choosesAttackOrStats(currentMonster,player);
                     if (currentMonster.isAlive() == true) {
@@ -56,7 +56,9 @@ Monster bossDragon = new Monster("Dragonlord Silumgar", 40000, 500, 1000, 20, 20
                     }
                 } else {
                     currentMonster.attack(player);
+                    if(player.IsAlive(player.currentHp)==true){
                     choosesAttackOrStats(currentMonster, player);
+                    }
                     if (!currentMonster.isAlive()) {
                         currentMonster.monsterDeath(player);
                         break;

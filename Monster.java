@@ -36,9 +36,8 @@ public class Monster {
     }
     public void attack(Player player) { //Metod som utför attacken från monstret
         int attackDmg = ThreadLocalRandom.current().nextInt(minAttack, maxAttack + 1);
-        player.decreaseCurrentHp(attackDmg);
         System.out.println("The " + name + " attacks you for " + attackDmg);
-        System.out.println(player.getName() + " " + player.currentHp + "/" + player.getMaxHp());
+        player.decreaseCurrentHp(attackDmg);
     }
 
     public void monsterDeath(Player player) {
