@@ -203,13 +203,13 @@ public static void main(String[] args) throws InterruptedException {
     Scanner s = new Scanner (System.in);
     EventController ec = new EventController();
 
-    // WishingStarEvent aM = new WishingStarEvent();
-    // aM.execute(player, s);
+    player.addExperience(100);
+    
+    // TravelerEvent aM = new TravelerEvent();
+    AbandonedMinesEvent AM = new AbandonedMinesEvent();
+    AM.execute(player, s);
 
-    player.addExperience(50);
-    player.addExperience(70);
-    player.addExperience(50);
-    player.displayPlayerStats(s);
+
 
     // for (int i = 1; i <= 5; i++) {
     // Event e = ec.generateEvent(player);

@@ -22,12 +22,15 @@ public void execute(Player player, Scanner scanner){
                     String choice = scanner.nextLine();
                     if(choice.equalsIgnoreCase("1")){
                         System.out.println("placeholder small buff");
+                        gainEXP(player);
                     }
                     else if (choice.equalsIgnoreCase("2")){
                         System.out.println("placeholder small buff");
+                        gainEXP(player);
                     }
                     else if (choice.equalsIgnoreCase("3")){
                         System.out.println("the fairy blesses you with a second chance of life.");
+                        gainEXP(player);
                     }
                 
                 }
@@ -48,13 +51,16 @@ public void execute(Player player, Scanner scanner){
                     player.decreaseAttack(5);
                     player.decreaseSpeed(4);
                     System.out.println("A fairy's fair form is not for a mortals fragile mind to behold.");
+                    gainEXP(player);
                 } else if (hardChoice.equalsIgnoreCase("2")){
                     System.out.println("You fight free and back away, slowly making your way back through the trees. The experience leave you feeling weaker than before.");
-                }
+                    gainEXP(player);                }
 
             }
     } else {
         System.out.println("You continue down the road, the beautiful singing hauting you for a long time.");
+        System.out.println("Your resolve was strengthend, you gain experience.");
+        player.addExperience(50);
 
     }
 

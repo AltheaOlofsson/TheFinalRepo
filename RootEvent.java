@@ -4,7 +4,7 @@ public class RootEvent extends Event {
        
         RootEvent() {
                 super();
-                this.eventLevel = 1;
+                this.eventLevel = 3;
 }     
         @Override
         public void execute(Player player, Scanner scanner) {
@@ -15,7 +15,7 @@ public class RootEvent extends Event {
                 System.out.println("What a lucky accident!");
                 player.setApple(4);
                 System.out.println("Apples: " + player.getApple());
-                player.addExperience(50);
+                gainEXP(player);
                 }
         
         }

@@ -4,7 +4,7 @@ public class WishingStarEvent extends Event {
     
 WishingStarEvent(){
     super();
-    this.eventLevel = 3;
+    this.eventLevel = 1;
 }
 
 @Override
@@ -15,22 +15,24 @@ public void execute(Player player, Scanner scanner){
     String choice = scanner.nextLine();
         if(choice.equalsIgnoreCase("y")) {
             Wish(player, scanner);
+            player.addExperience(50);
         } else if (choice.equalsIgnoreCase("n")) {
             System.out.println("Are you sure? Opportunities like this don't come often!\nMake a wish?");
                 choice = scanner.nextLine();
                     if(choice.equalsIgnoreCase("y")) {
                         Wish(player, scanner);
+                        player.addExperience(50);
+                    } else {
+                        noWish(player);
+                        player.addExperience(50);
                     }
         } else {
-            System.out.println("You decide to just admire the beautiful natural occurance of possible impending doom " +
-            "and suddenly can't seem to get the 'impending doom'-part out of your mind.\nYou have trouble falling asleep.\nHP: - 5");
-            player.decreaseCurrentHp(5);
-            System.out.println("You wake up at dawn of the next day and feel like shit. Despite that you know you have to " + 
-            "continue your journey.");
-}           }
+            noWish(player);
+            player.addExperience(50);
+        }          
+}
 
 private void Wish(Player player, Scanner scanner) {
-
 
     System.out.println("You decide to wish for:\n\nGreat health (1)\nMonstrous strenght (2)\nExceptional speed (3)\n");
     String wish = scanner.nextLine();
@@ -46,7 +48,17 @@ private void Wish(Player player, Scanner scanner) {
             player.addSpeed(20);
                 System.out.println("You feel light on your feet!\nSpeed: + 10");
                 System.out.println("At the break of dawn you waste no time and set out immediately."); 
-}
+        }
+}        
+
+private void noWish(Player player) {
+            
+    System.out.println("You decide to just admire the beautiful natural occurance of possible impending doom " +
+    "and suddenly can't seem to get the 'impending doom'-part out of your mind.\nYou have trouble falling asleep.\nHP: - 5");
+        player.decreaseCurrentHp(5);
+    System.out.println("You wake up at dawn of the next day and feel like shit. Despite that you know you have to " + 
+    "continue your journey.");
+
 
 }
 
