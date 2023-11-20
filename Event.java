@@ -5,6 +5,8 @@ public class Event {
     int eventLevel;
     Player player;
     Scanner scanner;
+
+    public Battle battle = new Battle(player);
     
     static Random randomgen = new Random();
 
