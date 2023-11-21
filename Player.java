@@ -224,7 +224,7 @@ public static void main(String[] args) throws InterruptedException {
     // player.displayPlayerStats(s);
     
     // TravelerEvent aM = new TravelerEvent();
-    FairyEvent AM = new FairyEvent();
+    RootEvent AM = new RootEvent();
     AM.execute(player, s);
 
 
