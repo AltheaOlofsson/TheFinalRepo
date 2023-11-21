@@ -128,7 +128,7 @@ public void levelUp() {
     attack += 3;
     speed += 5;
     setCurrentHp(maxHp);
-    System.out.println("\nCongratulations! You leveled up to level " + getLevel() + "!");
+    System.out.println("\nCongratulations! You leveled up to level " + getLevel() + "!\n");
     reduceExperience(100);
 }
 
@@ -215,7 +215,7 @@ public static void main(String[] args) throws InterruptedException {
     Scanner s = new Scanner (System.in);
     EventController ec = new EventController();
 
-    player.addExperience(100);
+    // player.addExperience(100);
     player.addExperience(100);
     // player.displayPlayerStats(s);
     // player.decreaseCurrentHp(15);
@@ -224,7 +224,7 @@ public static void main(String[] args) throws InterruptedException {
     // player.displayPlayerStats(s);
     
     // TravelerEvent aM = new TravelerEvent();
-    RootEvent AM = new RootEvent();
+    TravelerEvent AM = new TravelerEvent();
     AM.execute(player, s);
 
 
