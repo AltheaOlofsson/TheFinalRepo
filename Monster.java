@@ -52,6 +52,8 @@ public class Monster {
             return false;
         }
     }
+
+    public void introduce() {}
 }
 
 

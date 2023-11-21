@@ -24,6 +24,7 @@ public class Battle {
     Monster bossDragon4 = new PokeDragon("Charizarl", 8000, 80, 150, 20, 5000, 300);
 
     Monster[] monsterEncounters = {wolf,goblin,orc,direWolf,elf,troll,ogre,wurm,vampire,werewolf, bossDragon, bossDragon2, bossDragon3, bossDragon4};
+    ArrayList<Monster>
 
     public ArrayList<Monster> createMonsterList(int lower, int upper) {
         ArrayList<Monster> monsters = new ArrayList<Monster>(); 
@@ -95,7 +96,8 @@ public class Battle {
     }
 
     public void dragonFight(Dragons Dragons) {
-        getCurrentBoss().
+        Monster currentBoss = getCurrentBoss();
+        currentBoss.introduce();
         if (dragonKillsPlayer() == true) {
             System.out.println("");
         }
