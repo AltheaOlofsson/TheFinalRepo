@@ -71,7 +71,7 @@ public class RandomChestEvent extends Event {
             default:
         }
 
-        System.out.println("You leave the merchant feeling like luck is smiling at you today. When you reach the end of the street you turn back and notices the strange man and his chest is nowhere to be seen. " + 
+        System.out.println("You leave the merchant feeling like luck is smiling at you today. \nWhen you reach the end of the street you turn back and notices the strange man and his chests is nowhere to be seen. " + 
         "\nIn the spot where you just won your prize is only an empty space between some stalls and you rub your eyes and blink in confusion. Looking at your newly aquired prize you shake your head in disbelief. " + 
         "\nSome mysteries are not meant to be understood but maybe playing games with shady merchants is a lesson to be learned another day.");
         System.out.println();
