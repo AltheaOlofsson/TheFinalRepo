@@ -26,17 +26,16 @@ public class MenuController {
         String menuChoice = userInput.nextLine().toLowerCase();
         String name;
         Player player = null;
-        boolean quit = false;
 
         switch (menuChoice) {
             case "start":
             case "1":
-                clearScreen();
-                try 
-                {
-                    beginStory();
-                }
-                catch (InterruptedException e) {/* IGNORE */}
+                // clearScreen();
+                // try 
+                // {
+                //     beginStory();
+                // }
+                // catch (InterruptedException e) {/* IGNORE */}
                 name = inputName(userInput);
                 player = new Player(name);
                 GameController game = new GameController(player);
@@ -60,7 +59,7 @@ public class MenuController {
             case "3":
                 System.out.println("Game Shutting down...");
                 userInput.close();
-                quit = true;
+                System.exit(0);
                 break;
 
             default:
@@ -69,7 +68,9 @@ public class MenuController {
         }
         return player;
     }
-
+    
+    boolean quit = false;
+    
     public String inputName(Scanner userInput) {
         boolean nameEmpty = true;
         String name = "";
