@@ -30,12 +30,12 @@ public class MenuController {
         switch (menuChoice) {
             case "start":
             case "1":
-                // clearScreen();
-                // try 
-                // {
-                //     beginStory();
-                // }
-                // catch (InterruptedException e) {/* IGNORE */}
+                clearScreen();
+                try 
+                {
+                    beginStory();
+                }
+                catch (InterruptedException e) {/* IGNORE */}
                 name = inputName(userInput);
                 player = new Player(name);
                 GameController game = new GameController(player);
