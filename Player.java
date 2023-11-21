@@ -74,7 +74,7 @@ public void addCurrenHp(int currentHp) {
 }
 public void decreaseCurrentHp(int currentHp) {
     this.currentHp -= currentHp;
-    System.out.println(getName() + " HP: " + this.currentHp + "/" + this.maxHp);
+    System.out.println(getName() + " HP: " + this.currentHp + "/" + this.maxHp + "\n");
 }
 
 public int getMaxHp() {
@@ -169,6 +169,12 @@ public void eatApple() {
     apple--;
 }
 
+public int getFairy() {
+    return fairy;
+}
+public void setFairy(int fairy) {
+    this.fairy = fairy;
+}
 public void addFairy(int fairy) {
     this.fairy += fairy;
 }
@@ -209,7 +215,8 @@ public static void main(String[] args) throws InterruptedException {
     Scanner s = new Scanner (System.in);
     EventController ec = new EventController();
 
-    // player.addExperience(100);
+    player.addExperience(100);
+    player.addExperience(100);
     // player.displayPlayerStats(s);
     // player.decreaseCurrentHp(15);
     // player.displayPlayerStats(s);
@@ -217,7 +224,7 @@ public static void main(String[] args) throws InterruptedException {
     // player.displayPlayerStats(s);
     
     // TravelerEvent aM = new TravelerEvent();
-    AbandonedMinesEvent AM = new AbandonedMinesEvent();
+    RootEvent AM = new RootEvent();
     AM.execute(player, s);
 
 
