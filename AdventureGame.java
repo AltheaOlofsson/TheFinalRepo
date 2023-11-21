@@ -95,8 +95,8 @@ public class AdventureGame {
         boolean gameOver = false;
         int rooms = 5; // How many rooms or a.k.a event choice will happen.
         player.setApple(3);
-        player.setMaxHp(500);
-        player.setCurrentHp(500);
+        // player.setMaxHp(500);
+        // player.setCurrentHp(500);
         String roomChoice;
         EventController ec = new EventController();
         // RandomEventGenerator Event = new RandomEventGenerator();
