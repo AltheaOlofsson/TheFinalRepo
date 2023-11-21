@@ -8,9 +8,9 @@ public class GameController {
     int totalRooms = 5; // How many rooms or a.k.a event choice will happen.
     int currentRoom = 1;
     String roomChoice;
-    RandomEventGenerator event = new RandomEventGenerator();
+    //RandomEventGenerator event = new RandomEventGenerator();
 
-    String midInstructions = "You ";
+    String midInstructions = "You have the choices of going left";
 
     public GameController(Player player) {
         this.player = player;
@@ -22,35 +22,41 @@ public class GameController {
 
     public void eatApple() {
         if (player.getApple() > 0) {
-            AdventureGame.clearScreen();
+            clearScreen();
             player.eatApple();
+            System.out.println("You consume the apple and feel rejuvenated from it, any previous wounds you had have been fully restored.");
             System.out.println("\nPress ENTER to continue.");
             userInput.nextLine();
-            AdventureGame.clearScreen();
+            clearScreen();
         }
         else {
-            AdventureGame.clearScreen();
+            clearScreen();
             System.out.println("You're out of apples!");
         }
     }
 
 
-    public void selectPath() {
+    public void selectPath() 
+    {
         clearScreen();
-        System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? This path is blocked by a monster but you cant tell what exactly. \n[3]Eat a Holy Golden Apple (" + player.getApple() + "/4)");
-        roomChoice = userInput.nextLine().toLowerCase();
-
+        while (player.IsAlive(player.currentHp)) 
+        {
+            System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? This path is blocked by a monster but you cant tell what exactly. \n[3]Eat a Holy Golden Apple (" + player.getApple() + "/4)");
+            roomChoice = userInput.nextLine().toLowerCase();
+            
         switch (roomChoice) {
             case "left":
             case "1":
-                AdventureGame.clearScreen();
-                event.generateRandomEvent(player);
+                clearScreen();
+                //event.generateRandomEvent(player);
+                EventController event = new EventController();
+                event.generateEvent(player);
                 advanceRoom();
                 break;
 
             case "right":
             case "2":
-                AdventureGame.clearScreen();
+                clearScreen();
                 Battle battle = new Battle(player);
                 battle.battle(player);
                 advanceRoom();
@@ -58,37 +64,40 @@ public class GameController {
 
             case "eat apple":
             case "3":
+                clearScreen();
                 eatApple();
                 break;
 
             case "/stats":
+                clearScreen();
                 player.displayPlayerStats(userInput);
                 break;
-
+                
             case "/help":
-                AdventureGame.clearScreen();
+                clearScreen();
                 System.out.println(midInstructions);
                 break;
 
             case "/exit":
-                AdventureGame.clearScreen();
+                clearScreen();
                 System.out.println("Game Shutting down...");
-                gameOver = true;
+                System.exit(0);
                 break;
 
             default:
-                AdventureGame.clearScreen();
+                clearScreen();
                 System.out.println("Incorrect Input! Please try again. /stats to check your stats, /help for instructions, /exit to quit.");
                 break;
+            }
         }
     }
-
+    
     public void gameOver() throws InterruptedException {
         AdventureGame.clearScreen();
         System.out.println("You've died!");
         Thread.sleep(3000);
         System.out
-                .println("\nThis poor soul has perished, may darkness overtake them and drift away to the afterlife.");
+        .println("\nThis poor soul has perished, may darkness overtake them and drift away to the afterlife.");
         System.out.println("\nDo you want to retry? Press ENTER to retry, type \"No\" to quit.");
         String playAgain = userInput.nextLine().toLowerCase();
 
