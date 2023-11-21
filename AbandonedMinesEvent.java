@@ -157,7 +157,7 @@ public void execute(Player player, Scanner scanner) {
     System.out.println("You're exhausted and sit down against the wall but notice a light break through a crack behind the boulder." + 
     "\nYou muster your last strength and successfully move the boulder just enough for you to slip through. Home free at last.");
 
-    player.addExperience(50);
+    gainEXP(player);
 }
 
 private void reflect() {
