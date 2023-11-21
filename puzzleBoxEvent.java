@@ -26,7 +26,7 @@ public class puzzleBoxEvent extends Event {
             if (checkGuess(userGuess, correctAnswer)) {
                 System.out.println("\nCongratulations! You've successfully solved the riddle and obtained a locket with an old picture of a unknow lady from the box." + 
                 "\nIt turns out to be the merchant's grandmother, and he offers to trade it for anything in his shop. Since it's worthless to you, you accept." + 
-                "\n\nYou pick out a few items to aid you on your journey.\nHP: + 10\nAttack: + 2\nSpeed: + 3");
+                "\n\nYou pick out a few items to aid you on your journey.\nMax HP: + 10\nAttack: + 2\nSpeed: + 3");
                 player.addMaxHp(10);
                 player.addCurrenHp(10);
                 player.addAttack(2);

@@ -78,7 +78,7 @@ Monster bossDragon = new Monster("Dragonlord Silumgar", 40000, 500, 1000, 20, 20
             attackChoice = scanner.nextLine();
             if (attackChoice.equals("1")) {
                 player.attack(currentMonster);
-                System.out.println(currentMonster.getName() + ":  HP: " + currentMonster.getHitPoints());
+                System.out.println(currentMonster.getName() + " HP: " + currentMonster.getHitPoints());
                 break;
             } else if (attackChoice.equals("2")) {
                 player.displayPlayerStats(scanner);
