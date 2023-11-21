@@ -27,8 +27,12 @@ public class TravelerEvent extends Event{
                     System.out.println("Attack: + 3\nSpeed: + 2\n\nYou give up one Apple.\nApple: - 1\n");
                     System.out.println("The traveler seems so happy about his new apple that you start to wonder if you might have gotten the short straw.");
                     System.out.println("Oh well, at least someone got the winning hand.");
+                    System.out.println();
+                    gainEXP(player);
             }   else {
                         System.out.println("You look through your bag but it seems you don't have any apples to trade. The traveler sighs disappointedly and continues his hunt for a Golden apple.");
+                        System.out.println();
+                        gainEXP(player);
                 } 
 
         } else if(secondChoice.equalsIgnoreCase("n"))   {
@@ -49,22 +53,29 @@ public class TravelerEvent extends Event{
                     player.addSpeed(3);
                     player.addAttack(3);
                     player.decreseApple(1);
-                    System.out.println("\nMax HP: + 10 \nAttack: + 3 \nSpeed: + 2\n\nApple: - 1\n");
+                    System.out.println("Max HP: + 10 \nAttack: + 3 \nSpeed: + 2\n\nApple: - 1\n");
                     System.out.println("The traveler thanks you profously and rushes down the road with his precious apple.");
                     System.out.println("You feel pretty good about the trade even though you lost an apple. You continue down the road.");
                     System.out.println();
+                    gainEXP(player);
                     }  else  {
                         System.out.println("You look through your bag but it seams you don't have any apples to trade. The traveler sighs disappointedly and continues his hunt for a Golden apple.");
+                        System.out.println();
+                        gainEXP(player);
                         }
                         
                 } else {    
                 System.out.println("You still dont want to trade your apples. The traveler stalks off in anger.");
                 System.out.println("You shrug and continue on your way.");
+                System.out.println();
+                gainEXP(player);
                 }
                 
         }  else {    
                 System.out.println("You still dont want to trade your apples. The traveler stalks off in anger.");
                 System.out.println("You shrug and continue on your way.");
+                System.out.println();
+                gainEXP(player);
                 }             
     } else {
         System.out.println("You ingore the travaler and continue down the road.");
