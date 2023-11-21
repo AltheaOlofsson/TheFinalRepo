@@ -18,10 +18,10 @@ public class Battle {
     Monster wurm = new Monster("Wurm", 35, 12, 14, 4, 20, 70);
     Monster vampire = new Vampire("Vampire", 30, 8, 12, 5, 350, 100);
     Monster werewolf = new Monster("Werewolf", 50, 10, 20, 5, 55, 100);
-    Monster bossDragon = new Dragons("Dragonlord Silumgar", 40000, 500, 1000, 20, 200, 300);
-    Monster bossDragon2 = new Dragons("Smugg", 80000, 30, 800, 20, 300, 300);
-    Monster bossDragon3 = new Dragons("DeafWing", 60000, 200, 400, 20, 200, 300);
-    Monster bossDragon4 = new Dragons("Charizarl", 8000, 80, 150, 20, 5000, 300);
+    Monster bossDragon = new MTGDragon("Dragonlord Silumgar", 40000, 500, 1000, 20, 200, 300);
+    Monster bossDragon2 = new TolkienDragon("Smugg", 80000, 30, 800, 20, 300, 300);
+    Monster bossDragon3 = new WowDragon("DeafWing", 60000, 200, 400, 20, 200, 300);
+    Monster bossDragon4 = new PokeDragon("Charizarl", 8000, 80, 150, 20, 5000, 300);
 
     Monster[] monsterEncounters = {wolf,goblin,orc,direWolf,elf,troll,ogre,wurm,vampire,werewolf, bossDragon, bossDragon2, bossDragon3, bossDragon4};
 
@@ -95,6 +95,7 @@ public class Battle {
     }
 
     public void dragonFight(Dragons Dragons) {
+        getCurrentBoss().
         if (dragonKillsPlayer() == true) {
             System.out.println("");
         }
