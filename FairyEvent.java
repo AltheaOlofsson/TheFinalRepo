@@ -25,7 +25,7 @@ public void execute(Player player, Scanner scanner){
                         "\nWhen she speaks you feel your soul tremble but you are in luck, she is flattered that you liked her song and blesses you with a strand of her hair before she sends you on your way.");
                         player.addMaxHp(5);
                         player.addAttack(3);
-                        System.out.println("Max Hp: + 5 \nAttack: + 3");
+                        System.out.println("Max HP: + 5 \nAttack: + 3");
                         gainEXP(player);
                     }
                     else if (choice.equalsIgnoreCase("2")){
@@ -33,7 +33,7 @@ public void execute(Player player, Scanner scanner){
                         "\nWhen she speaks you feel your soul tremble but you are in luck, she is flattered that you liked her song and blesses you with a flower from her dress before she sends you on your way.");
                         player.addMaxHp(5);
                         player.addSpeed(5);
-                        System.out.println("Max Hp: + 5 \nSpeed: + 5");
+                        System.out.println("Max HP: + 5 \nSpeed: + 5");
                         gainEXP(player);
                     }
                     else if (choice.equalsIgnoreCase("3")){
@@ -44,27 +44,29 @@ public void execute(Player player, Scanner scanner){
                         player.addExperience(90);
                         System.out.println("You now have a Fairy's blessing, When in dire need your life might be saved. \nExperience: + 90");
                     }
-                
                 }
             } else {
                 System.out.println("You are enthranced by the ethereal beauty before you and fail to notice your strenght slowly draining.");
-                player.decreaseCurrentHp(5);
                 player.decreaseMaxHp(5);
                 player.decreaseAttack(2);
                 player.decreaseSpeed(1);
-                System.out.println("Hp: - 5 \nMax Hp: - 5 \nAttack: - 2 \nSpeed: - 1");
+                System.out.println("Max HP: - 5 ");
+                System.out.println("HP: - 5");
+                System.out.println("Attack: - 2 \nSpeed: - 1");
+                player.decreaseCurrentHp(10);
                 System.out.println("You probably should leave. Will you walk away? (Y/N)");
                 String uselessChoice = scanner.nextLine();
                 System.out.println("You find it hard to move, the beautiful voice seem to draw you in and you are tempted to stay. What do you do? \n(1) Stay and watch a few more minutes. \n(2) It is time to leave.");
                 String hardChoice = scanner.nextLine();
                 if(hardChoice.equalsIgnoreCase("1")){
                     System.out.println("You keep watching the beautiful fairy singing and dancing long into the night. When you finally come to your senses the forest is dark and still.");
-                    player.decreaseCurrentHp(15);
+                    System.out.println("The experience leave you feeling severely weakened. A fairy's fair form is not for a mortals fragile mind to behold.");
                     player.decreaseMaxHp(5);
                     player.decreaseAttack(5);
                     player.decreaseSpeed(4);
-                    System.out.println("The experience leave you feeling severely weakened. A fairy's fair form is not for a mortals fragile mind to behold.");
-                    System.out.println("Hp: - 15 \nMax Hp: - 5 \nAttack: - 5 \nSpeed: - 4");
+                    System.out.println("Max HP: - 5 \nHP: - 15 ");
+                    System.out.println("Attack: - 5 \nSpeed: - 4");
+                    player.decreaseCurrentHp(15);
                     gainEXP(player);
                 } else if (hardChoice.equalsIgnoreCase("2")){
                     System.out.println("You fight free and back away, slowly making your way back through the trees. The experience leave you feeling weaker than before.");
