@@ -49,7 +49,7 @@ public void execute(Player player, Scanner scanner) {
             case "1":
                 if (!mineCartLooted) {
                     System.out.println("\nYou examine the mining cart and find a pair of heavy-duty gloves and a sharp mining pick." + 
-                    "\nHP: + 10" + 
+                    "\nMax HP: + 10" + 
                     "\nAttack: + 3");
                     player.addMaxHp(10);
                     player.addCurrenHp(10);
@@ -62,7 +62,7 @@ public void execute(Player player, Scanner scanner) {
 
             case "2":
                 System.out.println("\nYou pull the lever but it's stuck. You're not one to be outsmarted by a lever so you summon the strength of an ox!" +
-                "\n'HHNNNNNNNGG-' and the lever suddenly gives way, you faceplant the ground and lose 3 HP. Ouch.");
+                "\n'HHNNNNNNNGG-' and the lever suddenly gives way, you faceplant the ground and lose some HP. Ouch. \nHP: - 3.");
                 player.decreaseCurrentHp(3);
                 System.out.println("\nThe collapsed entrance starts to shift as a result and a narrow passage opens. You proceed down the passage.");
                 isLeverPulled = true;
@@ -105,7 +105,7 @@ public void execute(Player player, Scanner scanner) {
                             reflect();
                         } else if (outcome == 2) {
                             System.out.println("\nAs you push away with your feet to make the jump a plank breaks." + 
-                            "\nFortunately it was only the one plank and you recover, making it to the other side with minor injuries. HP: - 5");
+                            "\nFortunately it was only the one plank and you recover, making it to the other side with minor injuries.\nHP: - 5");
                             player.decreaseCurrentHp(5);
                             reflect();
                         } else {
@@ -114,10 +114,11 @@ public void execute(Player player, Scanner scanner) {
                             "\nWith sheer determination you manage to grab hold of the rope, fighting against the strong current." +
                             "\nStruggling against the pain, you pull yourself up, hand over hand, until you finally reach safety." + 
                             "\n\nGasping for air, you collapse onto safe terrain. You narrowly escaped a perilous fall." + 
-                            "\nThe whole ordeal has taken a toll on your body. HP: - 20");
+                            "\nThe whole ordeal has taken a toll on your body.\nHP: - 20");
                             player.decreaseCurrentHp(20);
                             reflect();
-                            System.out.println("You are still shaken from the previous experience: Speed -2");
+                            System.out.println("You are still shaken from the previous experience.\nSpeed: -2");
+                            player.decreaseSpeed(2);
                         }
                     }
                 bridgeCrossed = true;
@@ -156,8 +157,8 @@ public void execute(Player player, Scanner scanner) {
 
     System.out.println("You're exhausted and sit down against the wall but notice a light break through a crack behind the boulder." + 
     "\nYou muster your last strength and successfully move the boulder just enough for you to slip through. Home free at last.");
+    gainEXP(player);
 
-    player.addExperience(50);
 }
 
 private void reflect() {
