@@ -4,10 +4,10 @@ public class GameController {
     Player player;
 
     Scanner userInput = new Scanner(System.in);
-    boolean gameOver = false;
     int totalRooms = 5; // How many rooms or a.k.a event choice will happen.
     int currentRoom = 1;
     String roomChoice;
+    EventController ec = new EventController();
     //RandomEventGenerator event = new RandomEventGenerator();
 
     String midInstructions = "You have the choices of going left";
@@ -48,9 +48,9 @@ public class GameController {
             case "left":
             case "1":
                 clearScreen();
+                Event e = ec.generateEvent(player);
+                e.execute(player, userInput);
                 //event.generateRandomEvent(player);
-                EventController event = new EventController();
-                event.generateEvent(player);
                 advanceRoom();
                 break;
 
@@ -89,6 +89,15 @@ public class GameController {
                 System.out.println("Incorrect Input! Please try again. /stats to check your stats, /help for instructions, /exit to quit.");
                 break;
             }
+            if (!player.IsAlive(player.getCurrentHp()))
+            {
+                try
+                {
+                    gameOver();
+                }
+                catch (InterruptedException e) {/* IGNORE */}
+                return;
+            }
         }
     }
     
@@ -98,14 +107,14 @@ public class GameController {
         Thread.sleep(3000);
         System.out
         .println("\nThis poor soul has perished, may darkness overtake them and drift away to the afterlife.");
-        System.out.println("\nDo you want to retry? Press ENTER to retry, type \"No\" to quit.");
+        System.out.println("\nDo you want to retry? Press ENTER to exit to menu, type \"No\" to quit.");
         String playAgain = userInput.nextLine().toLowerCase();
 
         if (playAgain.equals("no") || playAgain.equals("n")) {
             AdventureGame.clearScreen();
             System.out.println("|GAME OVER|");
             System.out.println("Game Shutting down...");
-            gameOver = true;
+            System.exit(0);
         }
         AdventureGame.clearScreen();
     }
