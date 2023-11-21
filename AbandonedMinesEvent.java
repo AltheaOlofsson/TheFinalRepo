@@ -21,7 +21,7 @@ public void execute(Player player, Scanner scanner) {
 
     pressEnterToContinue();
 
-    System.out.println("You slowly pace yourself down the narrow tunnel with your every footstep reverberating off the worn stone walls." + 
+    System.out.println("You slowly pace yourself down the narrow tunnel with the sound of your every footstep reverberating off the worn stone walls." + 
     "\nDim light from the entrance soon reveals a room filled with old mining equipment and abandoned tools. As you step into the room" + 
     "\nyou can feel the ground start shaking, collapsing stones and rocks seals of the entrance behind you!");
 
@@ -51,8 +51,8 @@ public void execute(Player player, Scanner scanner) {
                     System.out.println("\nYou examine the mining cart and find a pair of heavy-duty gloves and a sharp mining pick." + 
                     "\nHP: + 10" + 
                     "\nAttack: + 3");
-                    player.addCurrenHp(10);
                     player.addMaxHp(10);
+                    player.addCurrenHp(10);
                     player.addAttack(3);
                     mineCartLooted = true;
                 } else {
@@ -117,7 +117,7 @@ public void execute(Player player, Scanner scanner) {
                             "\nThe whole ordeal has taken a toll on your body. HP: - 20");
                             player.decreaseCurrentHp(20);
                             reflect();
-                            System.out.println("You are still shaken from the previous experience: Speed -5");
+                            System.out.println("You are still shaken from the previous experience: Speed -2");
                         }
                     }
                 bridgeCrossed = true;
@@ -133,6 +133,8 @@ public void execute(Player player, Scanner scanner) {
                 "\nCrossing the bridge might be risky due to unseen dangers.");
                 break;
 
+            default:
+                    System.out.println("Invalid input. Please try again");
 
         }
     }
@@ -147,22 +149,18 @@ public void execute(Player player, Scanner scanner) {
 
     battle.battle(player);
 
-    System.out.println("\nYOU WIN! GRATZ!");
+    System.out.println("\nYou defeat the monster and claim the treasure! The chest contained 'Winged Boots'! Speed: + 10.");
+    player.addSpeed(10);
 
+    pressEnterToContinue();
+
+    System.out.println("You're exhausted and sit down against the wall but notice a light break through a crack behind the boulder." + 
+    "\nYou muster your last strength and successfully move the boulder just enough for you to slip through. Home free at last.");
+
+    player.addExperience(50);
 }
-
-
-
 
 private void reflect() {
     System.out.println("\nYou sit down and take a moment to reflect on how you even ended up here. After a while you stand up and continue deeper into the mine.");
 }
-
-// private void pressEnterToContinue() {
-
-//     Scanner scanner = new Scanner(System.in);
-//     System.out.println("\nPress ENTER to continue");
-//     scanner.nextLine();
-// }
-
 }
