@@ -81,8 +81,8 @@ public void execute(Player player, Scanner scanner){
             }
     } else {
         System.out.println("You continue down the road, the beautiful singing hauting you for a long time.");
-        player.addExperience(80);
         System.out.println("Your resolve was strengthend, you gain experience.\nExperience: + 80");
+        player.addExperience(80);
 
 
     }
