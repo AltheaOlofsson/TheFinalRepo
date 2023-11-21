@@ -168,6 +168,16 @@ public void eatApple() {
     apple--;
 }
 
+public int getFairy() {
+    return fairy;
+}
+public void setFairy(int fairy) {
+    this.fairy = fairy;
+}
+public void addFairy(int fairy) {
+    this.fairy += fairy;
+}
+
 public boolean IsAlive(int currentHp) {
     if (this.currentHp > 0) return true;
     else return false;

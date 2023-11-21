@@ -2,10 +2,7 @@ import java.util.Scanner;
 
 public class GameController {
     Player player;
-
     Scanner userInput = new Scanner(System.in);
-    int totalRooms = 8; // How many rooms or a.k.a event choice will happen.
-    int currentRoom = 1;
     String roomChoice;
     EventController ec = new EventController();
     //RandomEventGenerator event = new RandomEventGenerator();
@@ -27,14 +24,10 @@ public class GameController {
     
     +"\n\nYour goal is to reach a certain level, when you do you are granted to fight the final boss."
     +"\nBe careful now! For if you ever reach your health down to 0, you are dead and have to restart all the way from the beginning."
-    +"\nThere are no continues.";
+    +"\nThere is only one way to cheat death and that is the usage of a fairy that you can only obtain from one event.";
 
     public GameController(Player player) {
         this.player = player;
-    }
-
-    public void advanceRoom() {
-        currentRoom++;
     }
 
     public void eatApple() {
@@ -52,6 +45,7 @@ public class GameController {
         }
     }
 
+    
 
     public void selectPath() 
     {
@@ -68,7 +62,6 @@ public class GameController {
                 Event e = ec.generateEvent(player);
                 e.execute(player, userInput);
                 //event.generateRandomEvent(player);
-                advanceRoom();
                 break;
 
             case "right":
@@ -76,7 +69,6 @@ public class GameController {
                 clearScreen();
                 Battle battle = new Battle(player);
                 battle.battle(player);
-                advanceRoom();
                 break;
 
             case "eat apple":
@@ -107,38 +99,48 @@ public class GameController {
                 break;
             }
 
-            if (player.getLevel() == 10)
+            if (player.getLevel() == 10) //This player level was just an example.
             {
-                Battle battle = new Battle(player);
-                battle.dragonFight(null);
+                //Battle battle = new Battle(player);
+                System.out.println("{THE END}");
+                System.exit(0);
             }
 
             if (!player.IsAlive(player.getCurrentHp()))
             {
-                try
+                if (player.getFairy() > 0) 
                 {
-                    gameOver();
+                    clearScreen();
+                    System.out.println("You died! But the fairy that you hold realises this and restores you to maximum.");
+                    player.addCurrenHp(10000);
                 }
+                else
+                {
+                    try
+                    {
+                        gameOver();
+                    }
                 catch (InterruptedException e) {/* IGNORE */}
                 return;
+                }
             }
         }
     }
     
     public void gameOver() throws InterruptedException {
-        AdventureGame.clearScreen();
+        clearScreen();
         System.out.println("You've died!");
         System.out.println("\nThis poor soul has perished, may darkness overtake them and drift away to the afterlife.");
         System.out.println("\nDo you want to retry? Press ENTER to exit to menu, type \"No\" to quit.");
         String playAgain = userInput.nextLine().toLowerCase();
 
         if (playAgain.equals("no") || playAgain.equals("n")) {
-            AdventureGame.clearScreen();
+            clearScreen();
             System.out.println("|GAME OVER|");
             System.out.println("Game Shutting down...");
             System.exit(0);
         }
-        AdventureGame.clearScreen();
+        clearScreen();
     }
 
     public void clearScreen() {
