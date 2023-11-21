@@ -104,9 +104,7 @@ public class GameController {
     public void gameOver() throws InterruptedException {
         AdventureGame.clearScreen();
         System.out.println("You've died!");
-        Thread.sleep(3000);
-        System.out
-        .println("\nThis poor soul has perished, may darkness overtake them and drift away to the afterlife.");
+        System.out.println("\nThis poor soul has perished, may darkness overtake them and drift away to the afterlife.");
         System.out.println("\nDo you want to retry? Press ENTER to exit to menu, type \"No\" to quit.");
         String playAgain = userInput.nextLine().toLowerCase();
 
