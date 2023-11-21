@@ -4,13 +4,30 @@ public class GameController {
     Player player;
 
     Scanner userInput = new Scanner(System.in);
-    int totalRooms = 5; // How many rooms or a.k.a event choice will happen.
+    int totalRooms = 8; // How many rooms or a.k.a event choice will happen.
     int currentRoom = 1;
     String roomChoice;
     EventController ec = new EventController();
     //RandomEventGenerator event = new RandomEventGenerator();
 
-    String midInstructions = "You have the choices of going left";
+    String midInstructions = "You have the choices of going left or right, you also have the option to consume an apple in these sections."
+    +"\nThese choices dictate whichever encounter you as the player chooses."
+    +"\nFor instance; the right path is combat focused and will always lead to a monster of similar level to the player."
+    +"\nWhilst the left path will lead to events/encounters that could benefit or harm you."
+    
+    +"\n\nYou have the following options and their meaning:"
+    +"\n- [1]Left (Go the left path for encounters.)"
+    +"\n- [2]Right (Go the right path for combat.)"
+    +"\n- [3]Eat Apple (Regenerate your health, it will consume one of your apples.)"
+    
+    +"\n\nYou also have the follow unlisted commands"
+    +"\n- /help (For instructions, Duh! You're already here.)"
+    +"\n- /stats (To display your current stats and decide whether you also want to consume an apple if you're wounded)"
+    +"\n- /exit (To quit the game)"
+    
+    +"\n\nYour goal is to reach a certain level, when you do you are granted to fight the final boss."
+    +"\nBe careful now! For if you ever reach your health down to 0, you are dead and have to restart all the way from the beginning."
+    +"\nThere are no continues.";
 
     public GameController(Player player) {
         this.player = player;
@@ -89,6 +106,13 @@ public class GameController {
                 System.out.println("Incorrect Input! Please try again. /stats to check your stats, /help for instructions, /exit to quit.");
                 break;
             }
+
+            if (player.getLevel() == 10)
+            {
+                Battle battle = new Battle(player);
+                battle.dragonFight(null);
+            }
+
             if (!player.IsAlive(player.getCurrentHp()))
             {
                 try

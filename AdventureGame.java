@@ -8,8 +8,6 @@ public class AdventureGame {
     public static void main(String[] args) throws InterruptedException {
         // AdventureGame game = new AdventureGame();
         MenuController menu = new MenuController();
-        Scanner userInput = new Scanner(System.in);
-        String name;
 
         clearScreen();
         title();
