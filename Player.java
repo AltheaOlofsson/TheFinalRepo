@@ -74,7 +74,7 @@ public void addCurrenHp(int currentHp) {
 }
 public void decreaseCurrentHp(int currentHp) {
     this.currentHp -= currentHp;
-    System.out.println(getName() + " HP: " + this.currentHp + "/" + this.maxHp);
+    System.out.println(getName() + " HP: " + this.currentHp + "/" + this.maxHp + "\n");
 }
 
 public int getMaxHp() {
