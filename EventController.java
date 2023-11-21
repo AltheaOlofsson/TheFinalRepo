@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
         Random randomgen = new Random();
 
-        public Event[] eventEncounters = {new RootEvent(), new TravelerEvent(), new WishingStarEvent(), new FairyEvent(), new LulEvent(), new AbandonedMinesEvent(), new TavernEvent(), new RandomChestEvent()};
+        public Event[] eventEncounters = {new RootEvent(), new TravelerEvent(), new WishingStarEvent(), new FairyEvent(), new LulEvent(), new AbandonedMinesEvent(), new TavernEvent(), new RandomChestEvent(), new puzzleBoxEvent()};
 
         ArrayList<Event> eventList = new ArrayList<>(Arrays.asList(eventEncounters)); 
 
@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
 
 
     // Level 1: WishingStarEvent, TavernEvent
-    // Level 2: TravelerEvent
+    // Level 2: TravelerEvent, RandomChestEvent, puzzleBoxEvent
     // Level 3: RootEvent, FairyEvent
     // Level 4: AbandonedMinesEvent
     // Level 5:
