@@ -18,9 +18,16 @@ public class Battle {
     Monster wurm = new Monster("Wurm", 35, 12, 14, 4, 20, 70);
     Monster vampire = new Vampire("Vampire", 30, 8, 12, 5, 350, 100);
     Monster werewolf = new Monster("Werewolf", 50, 10, 20, 5, 55, 100);
-Monster bossDragon = new Monster("Dragonlord Silumgar", 40000, 500, 1000, 20, 200, 300);
+    Monster bandit = new Monster("Bandit", 50, 15,20, 6, 35, 50);
+    Monster spider = new Monster("Stygian Spider", 45,20,30,6,50,65);
+    Monster wyvern = new Monster("Wyvern", 55, 25, 30, 7, 70, 80);
+    Monster hydra = new Monster("Hydra", 55, 30, 45, 8, 45, 90);
+    Monster imp = new Monster("Fire Imp", 50, 25, 35, 8, 55, 70);
+    Monster mage = new Monster("Ice Mage", 45, 15, 30, 9, 40, 65);
+    Monster demon = new Monster("Demon", 65, 20, 35, 9, 70, 90);
+    Monster bossDragon = new Monster("Dragonlord Silumgar", 40000, 500, 1000, 20, 200, 300);
 
-    Monster[] monsterEncounters = {wolf,goblin,orc,direWolf,elf,troll,ogre,wurm,vampire,werewolf};
+    Monster[] monsterEncounters = {wolf,goblin,orc,direWolf,elf,troll,ogre,wurm,vampire,werewolf,bandit,spider,wyvern,hydra,imp,mage,demon};
 
     public ArrayList<Monster> createMonsterList(int lower, int upper) {
         ArrayList<Monster> monsters = new ArrayList<Monster>(); 
