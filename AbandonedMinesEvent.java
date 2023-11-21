@@ -11,19 +11,19 @@ public class AbandonedMinesEvent extends Event {
 public void execute(Player player, Scanner scanner) {
 
     System.out.println("While foraging through the forest a glint of sunlight reflecting from an unusual object catches your attention. " + 
-    "\nIntrigued, you decide to investigate and discover an old, weathered compass half-buried in the ground. " + 
-    "\nWith a newfound sense of direction, you follow the needle and end up at the edge of a swamp." +
-    "\nYou begin to trudge through the challenging terrain, mud grabbing at every step. " + 
-    "\nThe swamp has an eerie stillness over it and the heavy fog is limiting your vision." + 
-    "\nAt the heart of the swamp a silhouette emerges from the mist, reavealing the entrance to an abandoned mine. " + 
-    "\nGlancing at the compass, you notice it spinning uncontrollably. " + 
-    "\nThe mystery has piqued your interest, you put away the compass and venture into the depths of the mine.");
+    "Intrigued, you decide to investigate and discover an old, weathered compass half-buried in the ground. " + 
+    "With a newfound sense of direction, you follow the needle and end up at the edge of a swamp. " +
+    "You begin to trudge through the challenging terrain, mud grabbing at every step. " + 
+    "The swamp has an eerie stillness over it and the heavy fog is limiting your vision. " + 
+    "At the heart of the swamp a silhouette emerges from the mist, reavealing the entrance to an abandoned mine. " + 
+    "Glancing at the compass, you notice it spinning uncontrollably. " + 
+    "The mystery has piqued your interest, you put away the compass and venture into the depths of the mine.");
 
     pressEnterToContinue();
 
-    System.out.println("You slowly pace yourself down the narrow tunnel with the sound of your every footstep reverberating off the worn stone walls." + 
-    "\nDim light from the entrance soon reveals a room filled with old mining equipment and abandoned tools. As you step into the room" + 
-    "\nyou can feel the ground start shaking, collapsing stones and rocks seals of the entrance behind you!");
+    System.out.println("You slowly pace yourself down the narrow tunnel with the sound of your every footstep reverberating off the worn stone walls. " + 
+    "Dim light from the entrance soon reveals a room filled with old mining equipment and abandoned tools. As you step into the room " + 
+    "you can feel the ground start shaking, collapsing stones and rocks seals of the entrance behind you!");
 
     System.out.println("\nYou take a minute to catch your breath and assess the situation.");
 
@@ -62,9 +62,9 @@ public void execute(Player player, Scanner scanner) {
 
             case "2":
                 System.out.println("\nYou pull the lever but it's stuck. You're not one to be outsmarted by a lever so you summon the strength of an ox!" +
-                "\n'HHNNNNNNNGG-' and the lever suddenly gives way, you faceplant the ground and lose some HP. Ouch. \nHP: - 3.");
+                "\n'HHNNNNNNNGG-' and the lever suddenly gives way, you faceplant the ground and lose some HP. Ouch. \nHP: - 3");
                 player.decreaseCurrentHp(3);
-                System.out.println("\nThe collapsed entrance starts to shift as a result and a narrow passage opens. You proceed down the passage.");
+                System.out.println("The collapsed entrance starts to shift as a result and a narrow passage opens. You proceed down the passage.");
                 isLeverPulled = true;
                 break;
             
@@ -101,20 +101,20 @@ public void execute(Player player, Scanner scanner) {
                 "\nHalfway over the bridge you hear something snap and in a heartbeat you decide to make a leap of faith."); 
                     int outcome = randomgen.nextInt(3); {
                         if (outcome == 1) {
-                            System.out.println("\nYou make the jump on time and successfully land on solid ground. That was close!");
+                            System.out.println("You make the jump on time and successfully land on solid ground. That was close!");
                             reflect();
                         } else if (outcome == 2) {
-                            System.out.println("\nAs you push away with your feet to make the jump a plank breaks." + 
+                            System.out.println("As you push away with your feet to make the jump a plank breaks." + 
                             "\nFortunately it was only the one plank and you recover, making it to the other side with minor injuries.\nHP: - 5");
                             player.decreaseCurrentHp(5);
                             reflect();
                         } else {
-                            System.out.println("\nAs you make the jump, the bridge collapses underneath your feet. \nYou realize you will come up short " + 
-                            "but notice a frayed rope still tied to the base of the bridge that's mounted on solid ground." + 
-                            "\nWith sheer determination you manage to grab hold of the rope, fighting against the strong current." +
-                            "\nStruggling against the pain, you pull yourself up, hand over hand, until you finally reach safety." + 
+                            System.out.println("As you make the jump, the bridge collapses underneath your feet. \nYou realize you will come up short " + 
+                            "but notice a frayed rope still tied to the base of the bridge that's mounted on solid ground. " + 
+                            "With sheer determination you manage to grab hold of the rope, fighting against the strong current." +
+                            "Struggling against the pain, you pull yourself up, hand over hand, until you finally reach safety." + 
                             "\n\nGasping for air, you collapse onto safe terrain. You narrowly escaped a perilous fall." + 
-                            "\nThe whole ordeal has taken a toll on your body.\nHP: - 20");
+                            "The whole ordeal has taken a toll on your body.\nHP: - 20");
                             player.decreaseCurrentHp(20);
                             reflect();
                             System.out.println("You are still shaken from the previous experience.\nSpeed: -2");
@@ -142,8 +142,8 @@ public void execute(Player player, Scanner scanner) {
 
     pressEnterToContinue();
 
-    System.out.println("You come to a seemingly dead end. There are torches lit on the walls and a single large boulder in the far end of the chamber." + 
-    "\nYou also notice a treasure chest sitting infront of the boulder. You approach the chest cautiously, as it might be a trap." + 
+    System.out.println("\nYou come to a seemingly dead end. There are torches lit on the walls and a single large boulder in the far end of the chamber. " + 
+    "You also notice a treasure chest sitting infront of the boulder. You approach the chest cautiously, as it might be a trap." + 
     "\n\nSomething leaps out of from behind the boulder!");
 
     pressEnterToContinue();
