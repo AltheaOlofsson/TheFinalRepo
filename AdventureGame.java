@@ -13,10 +13,10 @@ public class AdventureGame {
 
         clearScreen();
         title();
-        mainMenu();
         
         while (true)
         {
+            mainMenu();
             menu.selectOption();
         }
     }
