@@ -68,7 +68,8 @@ public class TravelerEvent extends Event{
                 }             
     } else {
         System.out.println("You ingore the travaler and continue down the road.");
-        System.out.println("Nothing happens.");
+        battle.battle(player);
+        // System.out.println("Nothing happens.");
         }
     }
 } 
