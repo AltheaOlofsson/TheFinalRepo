@@ -14,6 +14,7 @@ int experience;
 int apple;
 int fairy;
 
+
 Player(String name) {
 this.name = name;
 this.currentHp = 20;
@@ -166,6 +167,10 @@ public void decreseApple(int apple){
 public void eatApple() {
     currentHp = maxHp;
     apple--;
+}
+
+public void addFairy(int fairy) {
+    this.fairy += fairy;
 }
 
 public boolean IsAlive(int currentHp) {
