@@ -21,7 +21,7 @@ public class Event {
     }   
 
     public void gainEXP(Player player){
-        System.out.println("You gained experience.");
+        System.out.println("You gained experience. \n Experience: + 50");
         player.addExperience(50);
     }
 
