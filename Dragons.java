@@ -8,6 +8,6 @@ public class Dragons extends Monster{
     
 
     public void introduce(Monster getCurrentBoss) {
-
+        if (getCurrentBoss = bossDragon)
     }
 }

@@ -21,10 +21,9 @@ public class Battle {
     Monster bossDragon = new Dragons("Dragonlord Silumgar", 40000, 500, 1000, 20, 200, 300);
     Monster bossDragon2 = new Dragons("Smugg", 80000, 30, 800, 20, 300, 300);
     Monster bossDragon3 = new Dragons("DeafWing", 60000, 200, 400, 20, 200, 300);
-    Monster bossDragon4 = new Dragons("Charizarl", 8000, 80, 150, 150, 5000, 300);
+    Monster bossDragon4 = new Dragons("Charizarl", 8000, 80, 150, 20, 5000, 300);
 
-    Monster[] monsterEncounters = {wolf,goblin,orc,direWolf,elf,troll,ogre,wurm,vampire,werewolf};
-    Monster[] bossList = {bossDragon, bossDragon2, bossDragon3, bossDragon4};
+    Monster[] monsterEncounters = {wolf,goblin,orc,direWolf,elf,troll,ogre,wurm,vampire,werewolf, bossDragon, bossDragon2, bossDragon3, bossDragon4};
 
     public ArrayList<Monster> createMonsterList(int lower, int upper) {
         ArrayList<Monster> monsters = new ArrayList<Monster>(); 
@@ -40,8 +39,10 @@ public class Battle {
         return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()));
     }
 
-    public Monster getCurrentBoss(ArrayList<Monster> bossList) {
-        return bossList.get(ThreadLocalRandom.current().nextInt(bossList.size()));
+    public Monster getCurrentBoss() {
+        ArrayList<Monster> bosses = createMonsterList(20, 20);
+        Monster randomBoss = getMonster(bosses);
+        return randomBoss;
     }
 
     public void battle(Player player) {
@@ -60,8 +61,8 @@ public class Battle {
                     }
                 } else {
                     currentMonster.attack(player);
-                    if(player.IsAlive(player.currentHp)==true){
-                    choosesAttackOrStats(currentMonster, player);
+                    if(player.IsAlive(player.currentHp)==true) {
+                        choosesAttackOrStats(currentMonster, player);
                     }
                     if (!currentMonster.isAlive()) {
                         currentMonster.monsterDeath(player);
