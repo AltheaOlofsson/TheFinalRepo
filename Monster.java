@@ -41,7 +41,7 @@ public class Monster {
     }
 
     public void monsterDeath(Player player) {
-       System.out.println("You killed the " + name + " and got " + expGiven + " experience."); 
+       System.out.println("\nYou killed the " + name + " and gained experience.\nExperience: " + expGiven); 
        player.addExperience(expGiven); 
     } //när monstret dör ger det spelaren exp
 
