@@ -26,6 +26,7 @@ public void execute(Player player, Scanner scanner){
                         player.addMaxHp(5);
                         player.addAttack(3);
                         System.out.println("Max HP: + 5 \nAttack: + 3");
+                        System.out.println();
                         gainEXP(player);
                     }
                     else if (choice.equalsIgnoreCase("2")){
@@ -34,6 +35,7 @@ public void execute(Player player, Scanner scanner){
                         player.addMaxHp(5);
                         player.addSpeed(5);
                         System.out.println("Max HP: + 5 \nSpeed: + 5");
+                        System.out.println();
                         gainEXP(player);
                     }
                     else if (choice.equalsIgnoreCase("3")){
@@ -53,6 +55,7 @@ public void execute(Player player, Scanner scanner){
                 System.out.println("Max HP: - 5 ");
                 System.out.println("HP: - 5");
                 System.out.println("Attack: - 2 \nSpeed: - 1");
+                System.out.println();
                 player.decreaseCurrentHp(10);
                 System.out.println("You probably should leave. Will you walk away? (Y/N)");
                 String uselessChoice = scanner.nextLine();
@@ -66,8 +69,10 @@ public void execute(Player player, Scanner scanner){
                     player.decreaseSpeed(4);
                     System.out.println("Max HP: - 5 \nHP: - 15 ");
                     System.out.println("Attack: - 5 \nSpeed: - 4");
+                    System.out.println();
                     player.decreaseCurrentHp(15);
                     gainEXP(player);
+                    System.out.println();
                 } else if (hardChoice.equalsIgnoreCase("2")){
                     System.out.println("You fight free and back away, slowly making your way back through the trees. The experience leave you feeling weaker than before.");
                     gainEXP(player);                
