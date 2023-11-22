@@ -99,11 +99,14 @@ public class GameController {
                 break;
             }
 
-            if (player.getLevel() == 10) //This player level was just an example.
+            if (player.getLevel() >= 5) //This player level was just an example.
             {
-                //Battle battle = new Battle(player);
+                player.setFairy(0);
+                clearScreen();
+                // Battle battle;
+                // battle.dragonFight();
                 System.out.println("{THE END}");
-                System.exit(0);
+                userInput.nextLine();
             }
 
             if (!player.IsAlive(player.getCurrentHp()))
@@ -131,6 +134,22 @@ public class GameController {
         clearScreen();
         System.out.println("You've died!");
         System.out.println("\nThis poor soul has perished, may darkness overtake them and drift away to the afterlife.");
+        System.out.println("\nDo you want to retry? Press ENTER to exit to menu, type \"No\" to quit.");
+        String playAgain = userInput.nextLine().toLowerCase();
+
+        if (playAgain.equals("no") || playAgain.equals("n")) {
+            clearScreen();
+            System.out.println("|GAME OVER|");
+            System.out.println("Game Shutting down...");
+            System.exit(0);
+        }
+        clearScreen();
+    }
+
+    public void theEnd() throws InterruptedException
+    {
+        clearScreen();
+        System.out.println("You've Reached the end!");
         System.out.println("\nDo you want to retry? Press ENTER to exit to menu, type \"No\" to quit.");
         String playAgain = userInput.nextLine().toLowerCase();
 

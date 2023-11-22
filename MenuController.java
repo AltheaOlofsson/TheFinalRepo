@@ -70,7 +70,7 @@ public class MenuController {
         boolean nameEmpty = true;
         String name = "";
         while (nameEmpty) {
-            System.out.println("\n\n What is your name? ");
+            System.out.println("\n\nWhat is your name? ");
             name = userInput.nextLine();
             if (name.length() != 0) {
                 nameEmpty = false;
@@ -83,7 +83,7 @@ public class MenuController {
     }
 
     public void beginStory() throws InterruptedException {
-        System.out.println(">|GAME START<|");
+        System.out.println(">|GAME START|<");
         Thread.sleep(1500);
         clearScreen();
         Thread.sleep(1000);
@@ -109,7 +109,7 @@ public class MenuController {
         Thread.sleep(2000);
         System.out.println("You ready up, equip whatever you have in your possession.");
         Thread.sleep(2000);
-        System.out.println("And you also grab your grandfathers rare \"Holy Golden Apples\", said to have the ability to heal any wound.");
+        System.out.println("You also grab your grandfathers rare \"Holy Golden Apples\", said to have the ability to heal any wound.");
         Thread.sleep(2000);
         System.out.println("You leave and never look behind back at your old life...");
         Thread.sleep(2000);
