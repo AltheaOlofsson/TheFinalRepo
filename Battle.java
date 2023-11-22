@@ -98,7 +98,9 @@ public class Battle {
         Monster currentBoss = bossDragon; //getCurrentBoss();
         currentBoss.introduce();
         if (dragonKillsPlayer() == true) {
-            killsPlayer()
+            MTGDragon.killsPlayer();
+        } else {
+            MTGDragon.killsDragon();
         }
     }
 
