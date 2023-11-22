@@ -43,8 +43,8 @@ public void execute(Player player, Scanner scanner){
                         "She wishes to converse with you so you anser her questions about the world and your travels until dusk falls and she sends you on your way with the blessing of the Fairies." + 
                         "You do not know what this means but are just happy to have survived the fantasical encounter.");
                         player.addFairy(1);
-                        player.addExperience(90);
-                        System.out.println("You now have a Fairy's blessing, When in dire need your life might be saved. \nExperience: + 90");
+                        System.out.println("You now have a Fairy's blessing, When in dire need your life might be saved. \nExperience: + 80");
+                         player.addExperience(80);
                     }
                 }
             } else {

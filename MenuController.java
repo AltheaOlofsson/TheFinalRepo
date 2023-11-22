@@ -31,11 +31,11 @@ public class MenuController {
             case "start":
             case "1":
                 clearScreen();
-                try 
-                {
-                    beginStory();
-                }
-                catch (InterruptedException e) {/* IGNORE */}
+                // try 
+                // {
+                //     beginStory();
+                // }
+                // catch (InterruptedException e) {/* IGNORE */}
                 name = inputName(userInput);
                 player = new Player(name);
                 GameController game = new GameController(player);
