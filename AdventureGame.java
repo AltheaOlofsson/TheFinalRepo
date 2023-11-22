@@ -146,17 +146,6 @@ public class AdventureGame {
         System.out.flush();
     }
 
-    public static void resetPlayer(Player player)
-    {
-        player.setApple(3);
-        player.setExperience(0);
-        player.setLevel(1);
-        player.setMaxHp(20);
-        player.setCurrentHp(20);
-        player.setAttack(10);
-        player.setSpeed(15);
-    }
-
     public static void mainMenu() throws InterruptedException {
         System.out.println("PERFECTLY ACCEPTABLE ADVENTURE OF A MUNDANE SOMEBODY\n                      2023 EDITION");
         Thread.sleep(600);
