@@ -18,7 +18,7 @@ public class Event {
         return eventLevel;
     }
 
-    public void execute(Player player, InputHandler InputHandler) {
+    public void execute(Player player, InputHandler InputHandler) throws InterruptedException {
         // Override this method.
     }   
 

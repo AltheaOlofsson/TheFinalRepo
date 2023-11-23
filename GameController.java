@@ -21,6 +21,11 @@ public class GameController {
     +"\n\nYou also have the follow unlisted commands"
     +"\n- /help (For instructions, Duh! You're already here.)"
     +"\n- /stats (To display your current stats and decide whether you also want to consume an apple if you're wounded)"
+    +"\n      HP : How much health the player/monster has."
+    +"\n      Attack : How much minimum damage the player and the monster can output, the maximum output is randomized."
+    +"\n      Speed : How dexterous the player/monster is, the one that has more than the other fights first."
+    +"\n      Level : What level the player is and determines their overall prowess."
+    +"\n      Experience : The amount of exp the player has accumelated, if the player reaches."
     +"\n- /exit (To quit the game)"
     
     +"\n\nYour goal is to reach a certain level, when you do you are granted to fight the final boss."
@@ -100,10 +105,16 @@ public class GameController {
                 break;
             }
 
-            if (player.getLevel() == 10) //This player level was just an example.
+            if (player.getLevel() >= 7) //This player level was just an example.
             {
-                //Battle battle = new Battle(player);
-                System.out.println("{THE END}");
+                player.setFairy(0);
+                clearScreen();
+                try {endStory();}
+                catch (InterruptedException e) { }
+                Battle b = new Battle(player);
+                b.dragonFight(Battle.bossDragon, player);
+                System.out.println("{THE END} \nPress ENTER to exit.");
+                userInput.nextLine();
                 System.exit(0);
             }
 
@@ -121,8 +132,8 @@ public class GameController {
                     {
                         gameOver();
                     }
-                catch (InterruptedException e) {/* IGNORE */}
-                return;
+                    catch (InterruptedException e) {/* IGNORE */}
+                    return;
                 }
             }
         }
@@ -142,6 +153,45 @@ public class GameController {
             System.exit(0);
         }
         clearScreen();
+    }
+
+    public void theEnd() throws InterruptedException
+    {
+        clearScreen();
+        System.out.println("You've Reached the end!");
+        System.out.println("\nDo you want to retry? Press ENTER to exit to menu, type \"No\" to quit.");
+        String playAgain = userInput.nextLine().toLowerCase();
+
+        if (playAgain.equals("no") || playAgain.equals("n")) {
+            clearScreen();
+            System.out.println("|GAME OVER|");
+            System.out.println("Game Shutting down...");
+            System.exit(0);
+        }
+        clearScreen();
+    }
+
+    public void endStory() throws InterruptedException 
+    {
+        System.out.print("As you keep pacing towards the ruined catacombs... ");
+        Thread.sleep(2500);
+        System.out.print("you start to feel immense dread as you get closer and closer.");
+        Thread.sleep(1500);
+        System.out.print("\nThe despair you're feeling grows intensely, your legs shakes in fear.");
+        Thread.sleep(2500);
+        System.out.println("As you approach the last room of the catacombs, the remains of an ancient altar.");
+        Thread.sleep(2500);
+        System.out.print("\nYou hear the foreboding bellows from the monster.");
+        Thread.sleep(1500);
+        System.out.print(" The horror of it is immense, you stand hopeless.");
+        Thread.sleep(2500);
+        System.out.println("You make a feeble attempt to regain control of yourself.");
+        Thread.sleep(2500);
+        System.out.print("\nDrawing your weapon and readying yourself for the beasts incoming attack.");
+        Thread.sleep(1500);
+        System.out.print(".");
+        Thread.sleep(1500);
+        System.out.print(".");
     }
 
     public void clearScreen() {

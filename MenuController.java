@@ -3,25 +3,8 @@ import java.util.Scanner;
 public class MenuController {
     // Scanner userInput = new Scanner(System.in);
     InputHandler input = new InputHandler();
-    String instructions =
-            "In this game you will go through a series of encounters where the goal of the game is to reach the end."
-            + "\nEach room will prompt you with a path of either left or right and present an event."
-            + "\nThese events could either be in the form combat against monsters or an event that will further prompt you to make a decision."
-            + "\nThese events can either reward or punish the player."
-            
-            + "\n\nThe player character and monsters has a set of stats, these are:"
-            + "\n- Level : What level the player is and determines their overall prowess."
-            + "\n- HP : How much health the player/monster has." + "\n- Attack : How much damage they deal."
-            + "\n- Speed : How dexterous either one is, the one that has more than the other fights first."
-            + "\n- Experience : This is received whenever a task is completed or after defeating a monster. Accumulate enough and you rise in level."
-            + "\nYou as the player also has a set of apples that whenever eaten will fully rejuvenate you."
-            + "\nUseful if you've taken a large amount of damage."
-            
-            + "\n\n Whenever in-game you can also type the following commands:"
-            + "\n- /help : Will give you instructions how to play the game."
-            + "\n- /stats : Displays the current stats of the player." + "\n- /quit : Quits the game."
-            
-            + "\n\nGood luck \"mundane somebody\"!" + "\n\nPress ENTER to return to menu.";
+    boolean storyOnce = false;
+    boolean introStoryOnce = false;
 
     public Player selectOption() {
         String menuChoice = input.readInput(null);
@@ -32,13 +15,31 @@ public class MenuController {
             case "start":
             case "1":
                 clearScreen();
-                // try 
-                // {
-                //     beginStory();
-                // }
-                // catch (InterruptedException e) {/* IGNORE */}
+                while(!storyOnce)
+                {
+                    // try 
+                    // {
+                    //     beginStory();
+                    // }
+                    // catch (InterruptedException e) {/* IGNORE */}
+                    storyOnce = true;
+                }
                 name = inputName(input);
                 player = new Player(name);
+                clearScreen();
+                while(!introStoryOnce)
+                {
+                    try
+                    {
+                        introStory();
+                    }
+                    catch (InterruptedException e) {/* IGNORE */}
+                    introStoryOnce = true;
+                }
+                IntroductionBattle introBattle = new IntroductionBattle(player);
+                introBattle.introBattle(player);
+                System.out.println(midStory);
+                userInput.nextLine();
                 GameController game = new GameController(player);
                 game.selectPath();
                 return player;
@@ -71,7 +72,7 @@ public class MenuController {
         boolean nameEmpty = true;
         String name = "";
         while (nameEmpty) {
-            System.out.println("\n\n What is your name? ");
+            System.out.println("\n\nWhat is your name? ");
             name = input2.readInput(null);
             if (name.length() != 0) {
                 nameEmpty = false;
@@ -84,7 +85,7 @@ public class MenuController {
     }
 
     public void beginStory() throws InterruptedException {
-        System.out.println(">|GAME START<|");
+        System.out.println(">|GAME START|<");
         Thread.sleep(1500);
         clearScreen();
         Thread.sleep(1000);
@@ -110,10 +111,56 @@ public class MenuController {
         Thread.sleep(2000);
         System.out.println("You ready up, equip whatever you have in your possession.");
         Thread.sleep(2000);
-        System.out.println("And you also grab your grandfathers rare \"Holy Golden Apples\", said to have the ability to heal any wound.");
+        System.out.println("You also grab your grandfathers rare \"Holy Golden Apples\", said to have the ability to heal any wound.");
         Thread.sleep(2000);
         System.out.println("You leave and never look behind back at your old life...");
         Thread.sleep(2000);
+    }
+
+    public static void introStory() throws InterruptedException 
+    {
+        System.out.println("After hearing a commotion of a giant beast among nearby ruined catacombs, you ask the men if you could hear more about this. One of them tells you:");
+        Thread.sleep(3000);
+        System.out.print("\n -That damned bleeding monstrosity is holding us at standstill!");
+        Thread.sleep(3000);
+        System.out.print(" I've needed to deliver this shipment for the past 2 weeks!");
+        Thread.sleep(3000);
+        System.out.println("\n Matter of fact, everyone in this village here has some deliveries to be made but can't, in fear of the beast.");
+        Thread.sleep(3000);
+        System.out.println("\nYou then tell the man that you think you could handle the monster.");
+        Thread.sleep(3000);
+        System.out.print("\n -You?");
+        Thread.sleep(1500);
+        System.out.print(" You want to take care of it?");
+        Thread.sleep(2500);
+        System.out.print(" You look like nuthin' but a milksop!");
+        Thread.sleep(3000);
+        System.out.print(" A run-of-the-mill farmer!");
+        Thread.sleep(3000);
+        System.out.println("\n What could you possibly offer rather than what hero or knight could?");
+        Thread.sleep(3000);
+        System.out.println("\nYou blankly stare at the man and simply tell them: \"I'll do it for free.\"");
+        Thread.sleep(3000);
+        System.out.println("The man raises one eyebrow, visibly confused by your words but simply shrugs and says: ");
+        Thread.sleep(3000);
+        System.out.print("\n -well if it is a deathwish you want then so be it.");
+        Thread.sleep(3000);
+        System.out.print(" At least we won't have to pay for your failures.");
+        Thread.sleep(3000);
+        System.out.print("\n Alright if you want to take this one then I'll at the very least guide you to the path.");
+        Thread.sleep(3000);
+        System.out.print("\n\nThe man shows you to the path and lets you off,");
+        Thread.sleep(3000);
+        System.out.print(" you venture forth the path leading towards the catacombs.");
+        Thread.sleep(3000);
+        System.out.print("\nYou've tread for some time now and suddenly hear something.");
+        Thread.sleep(1500);
+        System.out.print(".");
+        Thread.sleep(1500);
+        System.out.print(".");
+        Thread.sleep(2000);
+        System.out.print(" Tis a slime that appears! Draw your weapon and ready yourself for battle!\n");
+        Thread.sleep(3000);
     }
 
     public void clearScreen() {
