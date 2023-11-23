@@ -18,12 +18,12 @@ public class Battle {
     Monster wurm = new Monster("Wurm", 35, 12, 14, 4, 20, 70);
     Monster vampire = new Vampire("Vampire", 30, 8, 12, 5, 350, 100);
     Monster werewolf = new Monster("Werewolf", 50, 10, 20, 5, 55, 100);
-    Monster bossDragon = new MTGDragon("Dragonlord Silumgar", 40000, 500, 1000, 20, 200, 300);
-    Monster bossDragon2 = new TolkienDragon("Smugg", 80000, 30, 800, 20, 300, 300);
-    Monster bossDragon3 = new WowDragon("DeafWing", 60000, 200, 400, 20, 200, 300);
-    Monster bossDragon4 = new PokeDragon("Charizarl", 8000, 80, 150, 20, 5000, 300);
+    static Dragons bossDragon = new Dragons("Dragonlord Silumgar");
+    // Monster bossDragon2 = new TolkienDragon("Smugg", 80000, 30, 800, 20, 300, 300);
+    // Monster bossDragon3 = new WowDragon("DeafWing", 60000, 200, 400, 20, 200, 300);
+    // Monster bossDragon4 = new PokeDragon("Charizarl", 8000, 80, 150, 20, 5000, 300);
 
-    Monster[] monsterEncounters = {wolf,goblin,orc,direWolf,elf,troll,ogre,wurm,vampire,werewolf, bossDragon, bossDragon2, bossDragon3, bossDragon4};
+    Monster[] monsterEncounters = {wolf,goblin,orc,direWolf,elf,troll,ogre,wurm,vampire,werewolf};
 
     public ArrayList<Monster> createMonsterList(int lower, int upper) {
         ArrayList<Monster> monsters = new ArrayList<Monster>(); 
@@ -61,7 +61,7 @@ public class Battle {
                     }
                 } else {
                     currentMonster.attack(player);
-                    if(player.IsAlive(player.currentHp)==true) {
+                    if(player.IsAlive(player.currentHp) == true) {
                         choosesAttackOrStats(currentMonster, player);
                     }
                     if (!currentMonster.isAlive()) {
@@ -94,23 +94,29 @@ public class Battle {
         }
     }
 
-    public void dragonFight(MTGDragon bossDragon) {
-        Monster currentBoss = bossDragon; //getCurrentBoss();
-        currentBoss.introduce();
+    public void dragonFight(Dragons bossDragon, Player player) {
+        Dragons currentBoss = bossDragon; //getCurrentBoss();
+        try {currentBoss.introduce();}
+        catch (InterruptedException e) {/*Ignore this*/}
+        
         if (dragonKillsPlayer() == true) {
-            MTGDragon.killsPlayer();
+            try {MTGDragon.killsPlayer();}
+            catch (InterruptedException e) {/*Ignore this*/}
         } else {
-            MTGDragon.killsDragon();
+            try {MTGDragon.killsDragon();}
+            catch (InterruptedException e) {/*Ignore this*/}
         }
     }
 
     public boolean dragonKillsPlayer() {
-        if (hasExcalibre() == true) {
+        if (hasExcalibre == true) {
             return false;
         } else {
             return true;
         }
     }
+
+    public boolean hasExcalibre;
     
     public static void main(String[] args) {
         Player player = new Player("Brian");
@@ -121,7 +127,7 @@ public class Battle {
         player.setAttack(15);
         
         // b.createMonsterList(0, 2);
-        b.battle(player);
+        b.dragonFight(bossDragon, player);
         // b.battle(4);
     }
 }
