@@ -16,7 +16,7 @@ public class Event {
         return eventLevel;
     }
 
-    public void execute(Player player, Scanner scanner) {
+    public void execute(Player player, Scanner scanner) throws InterruptedException {
         // Override this method.
     }   
 
