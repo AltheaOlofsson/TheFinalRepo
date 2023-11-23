@@ -13,6 +13,7 @@ int level;
 int experience;
 int apple;
 int fairy;
+public int hasExcalibre = 0;
 
 Player(String name) {
 this.name = name;
