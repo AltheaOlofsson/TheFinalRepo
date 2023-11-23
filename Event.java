@@ -4,7 +4,7 @@ public class Event {
 
     int eventLevel;
     Player player;
-    Scanner scanner;
+    InputHandler inputHandler;
 
     public Battle battle = new Battle(player);
     
@@ -16,7 +16,7 @@ public class Event {
         return eventLevel;
     }
 
-    public void execute(Player player, Scanner scanner) {
+    public void execute(Player player, InputHandler InputHandler) {
         // Override this method.
     }   
 
@@ -25,11 +25,12 @@ public class Event {
         player.addExperience(35);
     }
 
-    protected void pressEnterToContinue() {
+    protected void pressEnterToContinue(Player player) {
 
-        Scanner scanner = new Scanner(System.in);
+        InputHandler input = new InputHandler();
         System.out.println("\nPress ENTER to continue");
-        scanner.nextLine();
+        input.readInput(player);
+    
     }
 
 }

@@ -8,7 +8,7 @@ public class AbandonedMinesEvent extends Event {
 }
 
 @Override
-public void execute(Player player, Scanner scanner) {
+public void execute(Player player, InputHandler inputHandler) {
 
     System.out.println("While foraging through the forest a glint of sunlight reflecting from an unusual object catches your attention. " + 
     "\nIntrigued, you decide to investigate and discover an old, weathered compass half-buried in the ground. " + 
@@ -19,7 +19,7 @@ public void execute(Player player, Scanner scanner) {
     "\nGlancing at the compass, you notice it spinning uncontrollably. " + 
     "\nThe mystery has piqued your interest, you put away the compass and venture into the depths of the mine.");
 
-    pressEnterToContinue();
+    pressEnterToContinue(player);
 
     System.out.println("You slowly pace yourself down the narrow tunnel with the sound of your every footstep reverberating off the worn stone walls." + 
     "\nDim light from the entrance soon reveals a room filled with old mining equipment and abandoned tools. As you step into the room" + 
@@ -28,7 +28,7 @@ public void execute(Player player, Scanner scanner) {
     System.out.println("\nYou take a minute to catch your breath and assess the situation.");
 
     System.out.println("\nPress ENTER to continue");
-    scanner.nextLine();
+    inputHandler.readInput(player);
 
     System.out.println("You light a torch and take a look around. You notice a dusty mining cart and a lever on the wall in the corner of the room.");
 
@@ -42,7 +42,7 @@ public void execute(Player player, Scanner scanner) {
         "\n2. Pull the lever." + 
         "\n3. Search for another way out.");
 
-        String choice = scanner.nextLine();
+        String choice = inputHandler.readInput(player);
 
         switch (choice) {
 
@@ -74,11 +74,10 @@ public void execute(Player player, Scanner scanner) {
                 break;
 
                 default:
-                    System.out.println("Invalid choice, please try again");
         }
     }
     
-    pressEnterToContinue();
+    pressEnterToContinue(player);
 
     System.out.println("You follow the newly opened passage and reach a chamber partially flooded with stagnant water." + 
     "\nThere's a decaying wooden bridge spanning before you.");
@@ -92,7 +91,7 @@ public void execute(Player player, Scanner scanner) {
         "\n2. Look for another route around the water." + 
         "\n3. Assess the water for any potential hazards.");
 
-        String choice = scanner.nextLine();
+        String choice = inputHandler.readInput(player);
 
         switch(choice) {
 
@@ -134,25 +133,23 @@ public void execute(Player player, Scanner scanner) {
                 break;
 
             default:
-                    System.out.println("Invalid input. Please try again");
-
         }
     }
 
-    pressEnterToContinue();
+    pressEnterToContinue(player);
 
     System.out.println("You come to a seemingly dead end. There are torches lit on the walls and a single large boulder in the far end of the chamber." + 
     "\nYou also notice a treasure chest sitting infront of the boulder. You approach the chest cautiously, as it might be a trap." + 
     "\n\nSomething leaps out of from behind the boulder!");
 
-    pressEnterToContinue();
+    pressEnterToContinue(player);
 
     battle.battle(player);
 
     System.out.println("\nYou defeat the monster and claim the treasure! The chest contained 'Winged Boots'! Speed: + 10.");
     player.addSpeed(10);
 
-    pressEnterToContinue();
+    pressEnterToContinue(player);
 
     System.out.println("You're exhausted and sit down against the wall but notice a light break through a crack behind the boulder." + 
     "\nYou muster your last strength and successfully move the boulder just enough for you to slip through. Home free at last.");

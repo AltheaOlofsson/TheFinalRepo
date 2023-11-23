@@ -34,6 +34,7 @@ public void displayPlayerStats(Scanner s) {
     System.out.println("Level: " + level);
     System.out.println("Current EXP: " + getExperience());
     System.out.println("Amount of Golden Apples: " + getApple() + "/4");
+    System.out.println();
         if(currentHp < maxHp && getApple() > 0) {
             Scanner sc = new Scanner (System.in);
             System.out.println("Eat Golden Apple to restore HP? (y/n)");
@@ -196,7 +197,7 @@ public boolean IsAlive(int currentHp) {
 
 public void attack(Monster currentMonster) {
 
-    double maxDamage = (attack*1.5);
+    double maxDamage = (attack*1.2);
 
     double calculateDamage = ThreadLocalRandom.current().nextDouble(attack, maxDamage);
     long roundedResult = Math.round(calculateDamage);
@@ -213,17 +214,18 @@ public static void main(String[] args) throws InterruptedException {
     Player player = new Player("Jimmy");
     Scanner s = new Scanner (System.in);
     EventController ec = new EventController();
+    InputHandler input = new InputHandler();
 
-    player.addExperience(100);
-    player.addExperience(100);
-    player.addExperience(100);
-    player.setSpeed(15);
-    player.setCurrentHp(25);
+    // player.addExperience(100);
+    // player.addExperience(100);
+    // player.addExperience(100);
+    // player.setSpeed(15);
+    // player.setCurrentHp(25);
     
     
     // TravelerEvent aM = new TravelerEvent();
     AbandonedMinesEvent AM = new AbandonedMinesEvent();
-    AM.execute(player, s);
+    AM.execute(player, input);
 
 
 
@@ -238,6 +240,22 @@ public static void main(String[] args) throws InterruptedException {
 
 // public void rest()
 // public boolean isAlive()
+
+// if(currentHp < maxHp && getApple() > 0) {
+//             Scanner sc = new Scanner (System.in);
+//             System.out.println("Eat Golden Apple to restore HP? (y/n)");
+//             String userChoice = sc.nextLine();
+//             if(userChoice.equalsIgnoreCase("y")) {
+//                 eatApple();
+//                 System.out.println("You consumed a Golden Apple and restored your HP to max! HP: " + getCurrentHp() +"/" + getMaxHp());
+//             } else {
+//                 System.out.println("You save your Golden Apples for a rainy day");
+//             }
+//         } else if (getApple() == 0) {
+//             System.out.println("You are out of Golden Apples!");
+//         } else {
+//             return;
+//         }
 
 
 }
