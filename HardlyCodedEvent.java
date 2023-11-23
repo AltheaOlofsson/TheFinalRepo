@@ -27,13 +27,19 @@ public class HardlyCodedEvent extends Event {
 
                         Random random = new Random();
                         int randomLoot = random.nextInt(100) + 1;
-                        switch (randomLoot) {
-                                case 100:
-                                        Battle.dragonKillsPlayer()
-                                        break;
-                        
-                                default:
-                                        break;
+                        if (randomLoot == 100) {
+                                System.out.println(" ");
+                                player.hasExcalibre = 1;
+                                player.addAttack(100);
+                                player.addSpeed(100);
+                                player.addMaxHp(300);
+                                player.addCurrenHp(200);
+                        } else if (randomLoot < 99 && randomLoot > 90) {
+                                System.out.println(" vapen av något slag");
+                                player.addAttack(20);
+                                player.addSpeed(20);
+                        } else if (randomLoot < 89 && randomLoot > 70) {
+
                         }
                 } else if (giveHelpingHand.equals("2")) {
                         AdventureGame.clearScreen();
