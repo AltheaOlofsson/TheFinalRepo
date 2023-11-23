@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Battle {
     Player player;
     Scanner scanner = new Scanner(System.in);
-    public boolean hasExcalibre;
 
     Monster slime = new Monster("Slime", 20, 2, 2, 1, 2, 100);
     Monster wolf = new Monster("Wolf", 25, 2, 4, 2, 15, 70);
@@ -109,7 +108,7 @@ public class Battle {
     }
 
     public boolean dragonKillsPlayer() {
-        if (hasExcalibre == true) {
+        if (player.hasExcalibre == 1) {
             return false;
         } else {
             return true;
