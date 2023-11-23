@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 public class MenuController {
-    Scanner userInput = new Scanner(System.in);
+    // Scanner userInput = new Scanner(System.in);
+    InputHandler input = new InputHandler();
     String instructions =
             "In this game you will go through a series of encounters where the goal of the game is to reach the end."
             + "\nEach room will prompt you with a path of either left or right and present an event."
@@ -23,7 +24,7 @@ public class MenuController {
             + "\n\nGood luck \"mundane somebody\"!" + "\n\nPress ENTER to return to menu.";
 
     public Player selectOption() {
-        String menuChoice = userInput.nextLine().toLowerCase();
+        String menuChoice = input.readInput(null);
         String name;
         Player player = null;
 
@@ -36,7 +37,7 @@ public class MenuController {
                 //     beginStory();
                 // }
                 // catch (InterruptedException e) {/* IGNORE */}
-                name = inputName(userInput);
+                name = inputName(input);
                 player = new Player(name);
                 GameController game = new GameController(player);
                 game.selectPath();
@@ -46,14 +47,14 @@ public class MenuController {
             case "2":
                 clearScreen();
                 System.out.println(instructions);
-                userInput.nextLine();
+                input.readInput(player);
                 clearScreen();
                 break;
 
             case "quit":
             case "3":
                 System.out.println("Game Shutting down...");
-                userInput.close();
+                // input.close();
                 System.exit(0);
                 break;
 
@@ -66,12 +67,12 @@ public class MenuController {
     
     boolean quit = false;
     
-    public String inputName(Scanner userInput) {
+    public String inputName(InputHandler input2) {
         boolean nameEmpty = true;
         String name = "";
         while (nameEmpty) {
             System.out.println("\n\n What is your name? ");
-            name = userInput.nextLine();
+            name = input2.readInput(null);
             if (name.length() != 0) {
                 nameEmpty = false;
             }

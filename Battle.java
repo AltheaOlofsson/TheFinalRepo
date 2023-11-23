@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Battle {
     Player player;
     Scanner scanner = new Scanner(System.in);
+    InputHandler input = new InputHandler();
 
     Monster slime = new Monster("Slime", 20, 2, 2, 1, 2, 100);
     Monster wolf = new Monster("Wolf", 25, 2, 4, 2, 15, 50);
@@ -86,36 +87,35 @@ public class Battle {
     void choosesAttackOrStats(Monster currentMonster, Player player) {
         String attackChoice= "";
         while (attackChoice != "1" || attackChoice != "2") {
-            System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Display stats.");
-            attackChoice = scanner.nextLine();
+            System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Heal.");
+            attackChoice = input.readInput(player);
             if (attackChoice.equals("1")) {
                 player.attack(currentMonster);
                 System.out.println(currentMonster.getName() + " Current HP: " + currentMonster.getHitPoints());
                 break;
             } else if (attackChoice.equals("2")) {
-                player.displayPlayerStats(scanner);
+                player.heal(player);
                 break;
             } else {
-                System.out.println("Incorrect input.");
             }
         }
     }
 
-    public void dragonFight(Dragons Dragons) {
-        Monster currentBoss = getCurrentBoss();
-        currentBoss.introduce();
-        if (dragonKillsPlayer() == true) {
-            System.out.println("");
-        }
-    }
+    // public void dragonFight(Dragons Dragons) {
+    //     Monster currentBoss = getCurrentBoss();
+    //     currentBoss.introduce();
+    //     if (dragonKillsPlayer() == true) {
+    //         System.out.println("");
+    //     }
+    // }
 
-    public boolean dragonKillsPlayer() {
-        if (hasExcalibre() == true) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+    // public boolean dragonKillsPlayer() {
+    //     if (hasExcalibre() == true) {
+    //         return false;
+    //     } else {
+    //         return true;
+    //     }
+    // }
     
     public static void main(String[] args) {
         Player player = new Player("Brian");

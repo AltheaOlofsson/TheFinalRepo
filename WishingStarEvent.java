@@ -8,44 +8,58 @@ WishingStarEvent(){
 }
 
 @Override
-public void execute(Player player, Scanner scanner){
+public void execute(Player player, InputHandler inputHandler){
 
     System.out.println("When you are about to tuck in for the night you witness a meteor shower and have the opportunity to wish upon a falling star");
     System.out.println("Do you make a wish? (y/n)");
-    String choice = scanner.nextLine();
+    boolean wishChoice = true;
+    while (wishChoice){
+    String choice = input.readInput(player);
         if(choice.equalsIgnoreCase("y")) {
-            Wish(player, scanner);
+            Wish(player, input);
+             wishChoice=false;
         } else if (choice.equalsIgnoreCase("n")) {
             System.out.println("Are you sure? Opportunities like this don't come often!\nMake a wish?");
-                choice = scanner.nextLine();
+                choice = input.readInput(player);
                     if(choice.equalsIgnoreCase("y")) {
-                        Wish(player, scanner);
+                        Wish(player, input);
+                         wishChoice=false;
                     } else {
                         noWish(player);
+                         wishChoice=false;
                     }
-        } else {
+        } else if (choice.equalsIgnoreCase("no")) {
             noWish(player);
-            }          
+             wishChoice=false;
+        } else {
+        }
+    }      
 }
 
-private void Wish(Player player, Scanner scanner) {
+private void Wish(Player player, InputHandler inputHandler) {
 
-    System.out.println("\nYou clasp you hands and turn your gaze towards the stars and decide to wish for:" + 
-    "\n\n1. Vigorous health\n2. Incredible power\n3. Exceptional speed");
-    String wish = scanner.nextLine();
+    boolean wishChoice = true;
+    System.out.println("\nYou clasp you hands and turn your gaze towards the stars and decide to wish for:"); 
+    while (wishChoice){
+    System.out.println("1. Vigorous health\n2. Incredible power\n3. Exceptional speed");
+    String wish = input.readInput(player);
         if(wish.equals("1")) {
             player.addMaxHp(20);
             System.out.println("\nA wave of vitality washes over your body, enhancing your resilience!\nMax HP: + 15\n");
             // System.out.println("You sleep like a baby and wake up the next day feeling rejuvenated and ready to set out.");
+            wishChoice=false;
         } else if (wish.equals("2")) {
             player.addAttack(10);
             System.out.println("\nYou can feel the power surging inside!\nAttack: + 5\n");
             // System.out.println("You eventually fall asleep. You wake up well rested and ready to set out.");
+            wishChoice=false;
         } else if (wish.equals("3")) {
             player.addSpeed(20);
                 System.out.println("\nYou experience a burst of energy, feeling light on your feet!\nSpeed: + 10\n");
                 // System.out.println("At the break of dawn you waste no time and set out immediately."); 
+                wishChoice=false;
         }
+    }
 
     gainEXP(player);
 }        

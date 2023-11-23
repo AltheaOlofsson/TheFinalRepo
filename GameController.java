@@ -2,7 +2,8 @@ import java.util.Scanner;
 
 public class GameController {
     Player player;
-    Scanner userInput = new Scanner(System.in);
+    // Scanner userInput = new Scanner(System.in);
+    InputHandler input = new InputHandler();
     String roomChoice;
     EventController ec = new EventController();
     //RandomEventGenerator event = new RandomEventGenerator();
@@ -36,7 +37,7 @@ public class GameController {
             player.eatApple();
             System.out.println("You consume the apple and feel rejuvenated from it, any previous wounds you had have been fully restored.");
             System.out.println("\nPress ENTER to continue.");
-            userInput.nextLine();
+            input.readInput(player);
             clearScreen();
         }
         else {
@@ -53,14 +54,14 @@ public class GameController {
         while (player.IsAlive(player.currentHp)) 
         {
             System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? This path is blocked by a monster but you cant tell what exactly. \n[3]Eat a Holy Golden Apple (" + player.getApple() + "/4)");
-            roomChoice = userInput.nextLine().toLowerCase();
+            roomChoice = input.readInput(player);
             
         switch (roomChoice) {
             case "left":
             case "1":
                 clearScreen();
                 Event e = ec.generateEvent(player);
-                e.execute(player, userInput);
+                e.execute(player, input);
                 //event.generateRandomEvent(player);
                 break;
 
@@ -79,7 +80,7 @@ public class GameController {
 
             case "/stats":
                 clearScreen();
-                player.displayPlayerStats(userInput);
+                player.displayPlayerStats();
                 break;
                 
             case "/help":
@@ -132,7 +133,7 @@ public class GameController {
         System.out.println("You've died!");
         System.out.println("\nThis poor soul has perished, may darkness overtake them and drift away to the afterlife.");
         System.out.println("\nDo you want to retry? Press ENTER to exit to menu, type \"No\" to quit.");
-        String playAgain = userInput.nextLine().toLowerCase();
+        String playAgain = input.readInput(player);
 
         if (playAgain.equals("no") || playAgain.equals("n")) {
             clearScreen();

@@ -27,7 +27,7 @@ this.apple = 3;
 this.fairy = 0;
 }
 
-public void displayPlayerStats(Scanner s) {
+public void displayPlayerStats() {
     System.out.println("HP: " + currentHp + "/" + maxHp);
     System.out.println("Attack: " + attack);
     System.out.println("Speed: " + speed);
@@ -35,21 +35,7 @@ public void displayPlayerStats(Scanner s) {
     System.out.println("Current EXP: " + getExperience());
     System.out.println("Amount of Golden Apples: " + getApple() + "/4");
     System.out.println();
-        if(currentHp < maxHp && getApple() > 0) {
-            Scanner sc = new Scanner (System.in);
-            System.out.println("Eat Golden Apple to restore HP? (y/n)");
-            String userChoice = sc.nextLine();
-            if(userChoice.equalsIgnoreCase("y")) {
-                eatApple();
-                System.out.println("You consumed a Golden Apple and restored your HP to max! HP: " + getCurrentHp() +"/" + getMaxHp());
-            } else {
-                System.out.println("You save your Golden Apples for a rainy day");
-            }
-        } else if (getApple() == 0) {
-            System.out.println("You are out of Golden Apples!");
-        } else {
-            return;
-        }
+
 }
 
 public String getName() {
@@ -208,6 +194,24 @@ public void attack(Monster currentMonster) {
     System.out.println("You swing your weapon for " + outgoingDmg + " damage!");
 }
 
+public void heal(Player player){
+    if(currentHp < maxHp && getApple() > 0) {
+            InputHandler input = new InputHandler();
+            System.out.println("Eat Golden Apple to restore HP? (y/n)");
+            String userChoice = input.readInput(player);
+            if(userChoice.equalsIgnoreCase("y")) {
+                eatApple();
+                System.out.println("You consumed a Golden Apple and restored your HP to max! HP: " + getCurrentHp() +"/" + getMaxHp());
+            } else {
+                System.out.println("You save your Golden Apples for a rainy day");
+            }
+        } else if (getApple() == 0) {
+            System.out.println("You are out of Golden Apples!");
+        } else {
+            return;
+        }
+}
+
 
 public static void main(String[] args) throws InterruptedException {
     
@@ -224,7 +228,7 @@ public static void main(String[] args) throws InterruptedException {
     
     
     // TravelerEvent aM = new TravelerEvent();
-    AbandonedMinesEvent AM = new AbandonedMinesEvent();
+    Event AM = new TravelerEvent();
     AM.execute(player, input);
 
 

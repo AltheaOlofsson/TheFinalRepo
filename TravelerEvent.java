@@ -7,15 +7,36 @@ public class TravelerEvent extends Event{
         this.eventLevel = 2;
     }
     @Override
-    public void execute(Player player, Scanner scanner) {
-        System.out.println("You meet a traveler on the road. Do you stop and chat? (Y/N)");
-    String choice = scanner.nextLine();
+    public void execute(Player player, InputHandler inputHandler) {
+
+
+    boolean traveler = true;
+    while(traveler){
+    System.out.println("You meet a traveler on the road. Do you stop and chat? (Y/N)");
+    String choice = input.readInput(player);
 
     if(choice.equalsIgnoreCase("y")){
+        chat(player);
+        traveler=false;
+      
+    } else if (choice.equalsIgnoreCase("n")) {
+        System.out.println("You ingore the travaler and continue down the road.");
+        battle.battle(player);
+        // System.out.println("Nothing happens.");
+        traveler = false;
+        }
+    }
+}
+
+
+public void chat(Player player){
+    
+    boolean chat = true;
+    while (chat){
     System.out.println("As you converse he tells you of his quest for a Golden Apple. You remember seeing some apples in your bag earlier and says as much.");
     System.out.println("His face lights up and he offers to trade his dagger for a Golden Apple.");
     System.out.println("Do you accept? (Y/N)");
-        String secondChoice = scanner.nextLine();
+        String secondChoice = input.readInput(player);
 
         if(secondChoice.equalsIgnoreCase("y")) {
                 
@@ -29,58 +50,72 @@ public class TravelerEvent extends Event{
                     System.out.println("Oh well, at least someone got the winning hand.");
                     System.out.println();
                     gainEXP(player);
-            }   else {
+                    chat = false;
+            }   else if (player.getApple() == 0) {
                         System.out.println("You look through your bag but it seems you don't have any apples to trade. The traveler sighs disappointedly and continues his hunt for a Golden apple.");
                         System.out.println();
                         gainEXP(player);
+                        chat = false;
                 } 
 
         } else if(secondChoice.equalsIgnoreCase("n"))   {
-            System.out.println("You want to keep your apples and politely decline.");
-            System.out.println("The travaler looks disappointed before rummaging through his backpack but finds nothing.");
-            System.out.println("He looks at you desperately before frantically stripping himself of his cloak and offers it to you.");
-            System.out.println("'If I give you this aswell, would you please reconsider?' he pleads desperately.");
-            System.out.println("Do you accept? (Y/N)");
-                String thirdChoice = scanner.nextLine();
+            uppedTrade(player);
+            chat = false;
+                
+    }  else if (secondChoice.equalsIgnoreCase("n")) {    
+            noTrade(player);
+            chat = false;
+        }   
+    }
+}
 
-                if(thirdChoice.equalsIgnoreCase("y")) {
+
+public void noTrade(Player player){
+        System.out.println("You still dont want to trade your apples. The traveler stalks off in anger.");
+        System.out.println("You shrug and continue on your way.");
+        System.out.println();
+        gainEXP(player);
+}
+
+
+public void uppedTrade(Player player){
+    boolean cloak = true;
+    while (cloak){
+        System.out.println("You want to keep your apples and politely decline.");
+        System.out.println("The travaler looks disappointed before rummaging through his backpack but finds nothing.");
+        System.out.println("He looks at you desperately before frantically stripping himself of his cloak and offers it to you.");
+        System.out.println("'If I give you this aswell, would you please reconsider?' he pleads desperately.");
+        System.out.println("Do you accept? (Y/N)");
+            String thirdChoice = input.readInput(player);
+
+            if(thirdChoice.equalsIgnoreCase("y")) {
                     
-                    if ( player.getApple() != 0){
-                    System.out.println("You take pity on him and accept. You could always use a new cloak anyway.");
-                    System.out.println("You hand over the apple as he throws the dagger and cloak into your hands.");
-                    player.addMaxHp(10);
-                    player.addCurrenHp(10);
-                    player.addSpeed(3);
-                    player.addAttack(3);
-                    player.decreseApple(1);
-                    System.out.println("Max HP: + 10 \nAttack: + 3 \nSpeed: + 2\n\nApple: - 1\n");
-                    System.out.println("The traveler thanks you profously and rushes down the road with his precious apple.");
-                    System.out.println("You feel pretty good about the trade even though you lost an apple. You continue down the road.");
+                if ( player.getApple() != 0){
+                System.out.println("You take pity on him and accept. You could always use a new cloak anyway.");
+                System.out.println("You hand over the apple as he throws the dagger and cloak into your hands.");
+                player.addMaxHp(10);
+                player.addCurrenHp(10);
+                player.addSpeed(3);
+                player.addAttack(3);
+                player.decreseApple(1);
+                System.out.println("Max HP: + 10 \nAttack: + 3 \nSpeed: + 2\n\nApple: - 1\n");
+                System.out.println("The traveler thanks you profously and rushes down the road with his precious apple.");
+                System.out.println("You feel pretty good about the trade even though you lost an apple. You continue down the road.");
+                System.out.println();                    gainEXP(player);
+                cloak = false;
+                }  else  {
+                    System.out.println("You look through your bag but it seams you don't have any apples to trade. The traveler sighs disappointedly and continues his hunt for a Golden apple.");
                     System.out.println();
                     gainEXP(player);
-                    }  else  {
-                        System.out.println("You look through your bag but it seams you don't have any apples to trade. The traveler sighs disappointedly and continues his hunt for a Golden apple.");
-                        System.out.println();
-                        gainEXP(player);
-                        }
+                    cloak = false;
+                    }
                         
-                } else {    
-                System.out.println("You still dont want to trade your apples. The traveler stalks off in anger.");
-                System.out.println("You shrug and continue on your way.");
-                System.out.println();
-                gainEXP(player);
+                } else if (thirdChoice.equalsIgnoreCase("n")) {    
+                noTrade(player);
+                cloak = false;
                 }
-                
-        }  else {    
-                System.out.println("You still dont want to trade your apples. The traveler stalks off in anger.");
-                System.out.println("You shrug and continue on your way.");
-                System.out.println();
-                gainEXP(player);
-                }             
-    } else {
-        System.out.println("You ingore the travaler and continue down the road.");
-        battle.battle(player);
-        // System.out.println("Nothing happens.");
-        }
     }
+
+}
+
 } 
