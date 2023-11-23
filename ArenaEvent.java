@@ -6,7 +6,7 @@ public class ArenaEvent extends Event {
                 this.eventLevel = 12;
 }     
         @Override
-        public void execute(Player player, Scanner scanner) {
+        public void execute(Player player, InputHandler inputHandler) {
                 System.out.println("Arena Event");
                 gainEXP(player);
                 }

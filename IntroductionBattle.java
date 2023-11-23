@@ -62,7 +62,7 @@ public class IntroductionBattle
             } 
             else if (attackChoice.equals("2")) 
             {
-                player.displayPlayerStats(userInput);
+                player.displayPlayerStats();
                 break;
             } 
             else 

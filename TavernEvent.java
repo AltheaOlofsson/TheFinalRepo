@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.util.Random;
 
 public class TavernEvent extends Event {
@@ -9,8 +8,7 @@ public class TavernEvent extends Event {
     }
     
     @Override
-    public void execute(Player player,Scanner scanner) {
-
+    public void execute(Player player,InputHandler inputHandler) {
         Random random = new Random();
 
         System.out.println("You come to an Inn by the road. You decide to take a rest.");

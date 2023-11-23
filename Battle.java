@@ -115,13 +115,13 @@ public class Battle {
         }
     }
 
-    // public boolean dragonKillsPlayer() {
-    //     if (hasExcalibre == true) {
-    //         return false;
-    //     } else {
-    //         return true;
-    //     }
-    // }
+    public boolean dragonKillsPlayer() {
+        if (hasExcalibre == true) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
 
     

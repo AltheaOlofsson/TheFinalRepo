@@ -7,7 +7,7 @@ public class PotionsEvent extends Event {
                 this.eventLevel = 5;
 }     
         @Override
-        public void execute(Player player, Scanner scanner) {
+        public void execute(Player player, InputHandler inputHandler) {
         System.out.println("placeholder");
         gainEXP(player);
 

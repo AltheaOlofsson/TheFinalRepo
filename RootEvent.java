@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class RootEvent extends Event {
        
@@ -7,7 +6,7 @@ public class RootEvent extends Event {
                 this.eventLevel = 3;
 }     
         @Override
-        public void execute(Player player, Scanner scanner) {
+        public void execute(Player player, InputHandler inputHandler) {
                 System.out.println("You trip over a tree root and land on your face.");
                 System.out.println("HP: - 5");
                 player.decreaseCurrentHp(5);

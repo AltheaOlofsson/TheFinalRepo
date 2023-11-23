@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class RandomChestEvent extends Event {
 
@@ -8,7 +7,7 @@ public class RandomChestEvent extends Event {
     }
 
  @Override
-    public void execute(Player player, Scanner scanner) {
+    public void execute(Player player, InputHandler inputHandler) {
 
         System.out.println("While stopping by in a small town one day you wander through the market on a busy street when a peculiarly dressed man catches your eye. " +
          "Your feet seem to live their own life and before you know it you find yourself in front of his stand, curiousity piqued. " + 

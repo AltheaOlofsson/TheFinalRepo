@@ -8,7 +8,7 @@ public class puzzleBoxEvent extends Event {
     }
     
     @Override
-    public void execute(Player player, Scanner scanner) {
+    public void execute(Player player, InputHandler inputHandler) {
         
     System.out.println("While exploring the outskirts of a smaller town of god knows where, the local merchant notices your curiousity as you inspect his wares" + 
     "\nWith a discerning smile, he approaches and says 'Ah, I see you have an eye for the peculiar. It's this puzzle box i presume?'" + 
@@ -21,7 +21,7 @@ public class puzzleBoxEvent extends Event {
         System.out.println("\nRiddle: What runs but never walks, murmurs but never talks, has a bed but never sleeps and has a mouth but never eats?");
 
         while (attempts < 10) {
-            String userGuess = scanner.nextLine().toLowerCase();
+            String userGuess = input.readInput(player);
 
             if (checkGuess(userGuess, correctAnswer)) {
                 System.out.println("\nCongratulations! You've successfully solved the riddle and obtained a locket with an old picture of a unknow lady from the box." + 

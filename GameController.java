@@ -114,7 +114,7 @@ public class GameController {
                 Battle b = new Battle(player);
                 b.dragonFight(Battle.bossDragon, player);
                 System.out.println("{THE END} \nPress ENTER to exit.");
-                userInput.nextLine();
+                input.readInput(player);
                 System.exit(0);
             }
 
@@ -160,7 +160,7 @@ public class GameController {
         clearScreen();
         System.out.println("You've Reached the end!");
         System.out.println("\nDo you want to retry? Press ENTER to exit to menu, type \"No\" to quit.");
-        String playAgain = userInput.nextLine().toLowerCase();
+        String playAgain = input.readInput(player);
 
         if (playAgain.equals("no") || playAgain.equals("n")) {
             clearScreen();
