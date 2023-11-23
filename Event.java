@@ -30,6 +30,7 @@ public class Event {
     protected void pressEnterToContinue(Player player) {
 
         InputHandler input = new InputHandler();
+
         System.out.println("\nPress ENTER to continue");
         input.readInput(player);
     

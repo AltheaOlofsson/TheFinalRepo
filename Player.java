@@ -225,10 +225,11 @@ public static void main(String[] args) throws InterruptedException {
     // player.addExperience(100);
     // player.setSpeed(15);
     // player.setCurrentHp(25);
+
     
     
     // TravelerEvent aM = new TravelerEvent();
-    Event AM = new TravelerEvent();
+    Event AM = new AbandonedMinesEvent();
     AM.execute(player, input);
 
 

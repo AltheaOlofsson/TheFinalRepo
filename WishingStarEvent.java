@@ -9,11 +9,10 @@ WishingStarEvent(){
 
 @Override
 public void execute(Player player, InputHandler inputHandler){
-
+    boolean wishChoice = true;
+    while(wishChoice){
     System.out.println("When you are about to tuck in for the night you witness a meteor shower and have the opportunity to wish upon a falling star");
     System.out.println("Do you make a wish? (y/n)");
-    boolean wishChoice = true;
-    while (wishChoice){
     String choice = input.readInput(player);
         if(choice.equalsIgnoreCase("y")) {
             Wish(player, input);

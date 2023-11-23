@@ -17,7 +17,7 @@ public class InputHandler {
         }
         else if ("/stats".equals(input.toLowerCase())) {
             displayPlayerStats(player);
-            System.out.println("Press ENTER to continue.");
+            System.out.println("Press ENTER to close.");
             scanner.nextLine();
         }
 

@@ -10,6 +10,9 @@ public class AbandonedMinesEvent extends Event {
 @Override
 public void execute(Player player, InputHandler inputHandler) {
 
+    boolean swamp = true;
+    while (swamp){
+
     System.out.println("While foraging through the forest a glint of sunlight reflecting from an unusual object catches your attention. " + 
     "\nIntrigued, you decide to investigate and discover an old, weathered compass half-buried in the ground. " + 
     "\nWith a newfound sense of direction, you follow the needle and end up at the edge of a swamp." +
@@ -20,7 +23,7 @@ public void execute(Player player, InputHandler inputHandler) {
     "\nThe mystery has piqued your interest, you put away the compass and venture into the depths of the mine.");
 
     pressEnterToContinue(player);
-
+    
     System.out.println("You slowly pace yourself down the narrow tunnel with the sound of your every footstep reverberating off the worn stone walls." + 
     "\nDim light from the entrance soon reveals a room filled with old mining equipment and abandoned tools. As you step into the room" + 
     "\nyou can feel the ground start shaking, collapsing stones and rocks seals of the entrance behind you!");
@@ -31,6 +34,8 @@ public void execute(Player player, InputHandler inputHandler) {
     inputHandler.readInput(player);
 
     System.out.println("You light a torch and take a look around. You notice a dusty mining cart and a lever on the wall in the corner of the room.");
+swamp = false;    
+}
 
     boolean isLeverPulled = false;
     boolean mineCartLooted = false;

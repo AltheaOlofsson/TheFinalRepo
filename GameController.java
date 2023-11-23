@@ -75,7 +75,7 @@ public class GameController {
             case "eat apple":
             case "3":
                 clearScreen();
-                eatApple();
+                player.heal(player);
                 break;
 
             case "/stats":
