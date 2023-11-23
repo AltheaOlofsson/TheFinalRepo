@@ -1,7 +1,9 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class GameController {
     Player player;
+    Random random = new Random();
     // Scanner userInput = new Scanner(System.in);
     InputHandler input = new InputHandler();
     String roomChoice;
@@ -58,23 +60,27 @@ public class GameController {
         clearScreen();
         while (player.IsAlive(player.currentHp)) 
         {
-            System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? This path is blocked by a monster but you cant tell what exactly. \n[3]Eat a Holy Golden Apple (" + player.getApple() + "/4)");
+            System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? \n[3]Eat a Golden Apple (" + player.getApple() + "/4)");
             roomChoice = input.readInput(player);
             
         switch (roomChoice) {
             case "left":
             case "1":
-                clearScreen();
-                Event e = ec.generateEvent(player);
-                e.execute(player, input);
+
+                crossroads();
+                // clearScreen();
+                // Event e = ec.generateEvent(player);
+                // e.execute(player, input);
                 //event.generateRandomEvent(player);
                 break;
 
             case "right":
             case "2":
-                clearScreen();
-                Battle battle = new Battle(player);
-                battle.battle(player);
+
+                crossroads();
+                // clearScreen();
+                // Battle battle = new Battle(player);
+                // battle.battle(player);
                 break;
 
             case "eat apple":
@@ -105,7 +111,7 @@ public class GameController {
                 break;
             }
 
-            if (player.getLevel() >= 7) //This player level was just an example.
+            if (player.getLevel() >= 10) //This player level was just an example.
             {
                 player.setFairy(0);
                 clearScreen();
@@ -137,6 +143,20 @@ public class GameController {
                 }
             }
         }
+    }
+    
+    public void crossroads(){
+        int randompath = random.nextInt(2);
+        if(randompath == 1){
+                clearScreen();
+                Event e = ec.generateEvent(player);
+                e.execute(player, input);
+        }
+        else {
+                clearScreen();
+                Battle battle = new Battle(player);
+                battle.battle(player);
+        } 
     }
     
     public void gameOver() throws InterruptedException {

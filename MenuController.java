@@ -29,11 +29,11 @@ public class MenuController {
                 clearScreen();
                 while(!introStoryOnce)
                 {
-                    try
-                    {
-                        introStory();
-                    }
-                    catch (InterruptedException e) {/* IGNORE */}
+                    // try
+                    // {
+                    //     introStory();
+                    // }
+                    // catch (InterruptedException e) {/* IGNORE */}
                     introStoryOnce = true;
                 }
                 IntroductionBattle introBattle = new IntroductionBattle(player);
