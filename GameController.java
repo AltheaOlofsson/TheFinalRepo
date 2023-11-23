@@ -111,6 +111,13 @@ public class GameController {
                 break;
             }
 
+            if (player.getLevel() == 5){
+                clearScreen();
+                pressEnterToContinue(player);
+                Event e = ec.Level5(player);
+                e.execute(player, input);
+            }
+
             if (player.getLevel() >= 10) //This player level was just an example.
             {
                 player.setFairy(0);
@@ -146,7 +153,7 @@ public class GameController {
     }
     
     public void crossroads(){
-        int randompath = random.nextInt(2);
+        int randompath = random.nextInt(3);
         if(randompath == 1){
                 clearScreen();
                 Event e = ec.generateEvent(player);
@@ -217,5 +224,14 @@ public class GameController {
     public void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+    }
+
+    protected void pressEnterToContinue(Player player) {
+
+        InputHandler input = new InputHandler();
+
+        System.out.println("\nPress ENTER to continue");
+        input.readInput(player);
+    
     }
 }

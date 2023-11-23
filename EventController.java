@@ -20,6 +20,14 @@ import java.util.stream.Collectors;
 
             return selectedEvent;
         }
+        
+        Event Level5 = new HardlyCodedEvent();
+
+        public Event Level5(Player player){
+            Event Level5 = new HardlyCodedEvent();
+            return Level5;
+
+        }
     
     
     

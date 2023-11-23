@@ -13,6 +13,9 @@ int level;
 int experience;
 int apple;
 int fairy;
+int excalibre;
+
+
 
 Player(String name) {
 this.name = name;
@@ -25,6 +28,7 @@ this.level = 1;
 this.experience = 0;
 this.apple = 3;
 this.fairy = 0;
+this.excalibre = 0;
 }
 
 public void displayPlayerStats() {
@@ -165,6 +169,13 @@ public void addFairy(int fairy) {
     this.fairy += fairy;
 }
 
+public int getExcalibre() {
+    return excalibre;
+}
+public void setExcalibre(int excalibre) {
+    this.excalibre = excalibre;
+}
+
 public boolean IsAlive(int currentHp) {
     if (this.currentHp > 0) return true;
     else return false;
@@ -196,20 +207,15 @@ public void attack(Monster currentMonster) {
 
 public void heal(Player player){
     if(currentHp < maxHp && getApple() > 0) {
-            InputHandler input = new InputHandler();
-            System.out.println("Eat Golden Apple to restore HP? (y/n)");
-            String userChoice = input.readInput(player);
-            if(userChoice.equalsIgnoreCase("y")) {
                 eatApple();
                 System.out.println("You consumed a Golden Apple and restored your HP to max! HP: " + getCurrentHp() +"/" + getMaxHp());
-            } else {
-                System.out.println("You save your Golden Apples for a rainy day");
-            }
-        } else if (getApple() == 0) {
+    } else if (currentHp == maxHp){
+        System.out.println("You are already at max health.");
+    } else if (getApple() == 0) {
             System.out.println("You are out of Golden Apples!");
-        } else {
-            return;
-        }
+    } else {
+        return;
+    }
 }
 
 
