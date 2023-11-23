@@ -53,7 +53,7 @@ public class Monster {
         }
     }
 
-    public void introduce() {}
+    public void introduce()  throws InterruptedException {}
 }
 
 
