@@ -20,6 +20,11 @@ public class GameController {
     +"\n\nYou also have the follow unlisted commands"
     +"\n- /help (For instructions, Duh! You're already here.)"
     +"\n- /stats (To display your current stats and decide whether you also want to consume an apple if you're wounded)"
+    +"\n      HP : How much health the player/monster has."
+    +"\n      Attack : How much minimum damage the player and the monster can output, the maximum output is randomized."
+    +"\n      Speed : How dexterous the player/monster is, the one that has more than the other fights first."
+    +"\n      Level : What level the player is and determines their overall prowess."
+    +"\n      Experience : The amount of exp the player has accumelated, if the player reaches."
     +"\n- /exit (To quit the game)"
     
     +"\n\nYour goal is to reach a certain level, when you do you are granted to fight the final boss."
@@ -99,7 +104,7 @@ public class GameController {
                 break;
             }
 
-            if (player.getLevel() >= 5) //This player level was just an example.
+            if (player.getLevel() >= 7) //This player level was just an example.
             {
                 player.setFairy(0);
                 clearScreen();
