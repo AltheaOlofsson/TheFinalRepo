@@ -31,7 +31,7 @@ class MTGDragon extends Dragons {
     }
     public static void killsDragon() throws InterruptedException {
         System.out.println("You brandish your magnificent sword and with a powerfull swing, creating a beautiful arc. \nThe air warps and shoots out from where your sword swung. \nThe dragon's head slides of it's neck from a cut so clean that it was impossible to see.");
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         System.out.println("You have slain the mighty Dragonlord Silamgar and freed the area of it's taint");
         Thread.sleep(1600);
         System.out.println("Who would have known... you were a hero after all.");
