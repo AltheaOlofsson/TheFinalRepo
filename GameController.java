@@ -108,10 +108,13 @@ public class GameController {
             {
                 player.setFairy(0);
                 clearScreen();
-                // Battle battle;
-                // battle.dragonFight();
-                System.out.println("{THE END}");
+                try {endStory();}
+                catch (InterruptedException e) { }
+                Battle b = new Battle(player);
+                b.dragonFight(Battle.bossDragon, player);
+                System.out.println("{THE END} \nPress ENTER to exit.");
                 userInput.nextLine();
+                System.exit(0);
             }
 
             if (!player.IsAlive(player.getCurrentHp()))
@@ -128,8 +131,8 @@ public class GameController {
                     {
                         gameOver();
                     }
-                catch (InterruptedException e) {/* IGNORE */}
-                return;
+                    catch (InterruptedException e) {/* IGNORE */}
+                    return;
                 }
             }
         }
@@ -165,6 +168,29 @@ public class GameController {
             System.exit(0);
         }
         clearScreen();
+    }
+
+    public void endStory() throws InterruptedException 
+    {
+        System.out.print("As you keep pacing towards the ruined catacombs... ");
+        Thread.sleep(2500);
+        System.out.print("you start to feel immense dread as you get closer and closer.");
+        Thread.sleep(1500);
+        System.out.print("\nThe despair you're feeling grows intensely, your legs shakes in fear.");
+        Thread.sleep(2500);
+        System.out.println("As you approach the last room of the catacombs, the remains of an ancient altar.");
+        Thread.sleep(2500);
+        System.out.print("\nYou hear the foreboding bellows from the monster.");
+        Thread.sleep(1500);
+        System.out.print(" The horror of it is immense, you stand hopeless.");
+        Thread.sleep(2500);
+        System.out.println("You make a feeble attempt to regain control of yourself.");
+        Thread.sleep(2500);
+        System.out.print("\nDrawing your weapon and readying yourself for the beasts incoming attack.");
+        Thread.sleep(1500);
+        System.out.print(".");
+        Thread.sleep(1500);
+        System.out.print(".");
     }
 
     public void clearScreen() {

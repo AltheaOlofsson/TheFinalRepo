@@ -52,7 +52,7 @@ public class IntroductionBattle
         String attackChoice= "";
         while (attackChoice != "1" || attackChoice != "2") 
         {
-            System.out.println("\nWhat do you want to do? \n[1] Attack the thing! \n[2] Display stats & Eat Apple.");
+            System.out.println("\nWhat do you want to do? \n[1] Attack! \n[2] Eat Apple.");
             attackChoice = userInput.nextLine();
             if (attackChoice.equals("1")) 
             {
