@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Battle {
     Player player;
     Scanner scanner = new Scanner(System.in);
+    public boolean hasExcalibre;
 
     Monster slime = new Monster("Slime", 20, 2, 2, 1, 2, 100);
     Monster wolf = new Monster("Wolf", 25, 2, 4, 2, 15, 70);
@@ -49,7 +50,6 @@ public class Battle {
             ArrayList<Monster> monsters = createMonsterList((player.getLevel()-1), (player.getLevel()+1));
             Monster currentMonster = getMonster(monsters);
             System.out.println("You are attacked by a vicious " + currentMonster.getName());
-
             while (player.IsAlive(player.currentHp)) {            
                 if (player.getSpeed() >= currentMonster.getSpeed()) {
                     choosesAttackOrStats(currentMonster,player);
@@ -116,7 +116,7 @@ public class Battle {
         }
     }
 
-    public boolean hasExcalibre;
+
     
     public static void main(String[] args) {
         Player player = new Player("Brian");
