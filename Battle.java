@@ -18,12 +18,12 @@ public class Battle {
     Monster wurm = new Monster("Wurm", 35, 12, 14, 4, 20, 70);
     Monster vampire = new Vampire("Vampire", 30, 8, 12, 5, 350, 100);
     Monster werewolf = new Monster("Werewolf", 50, 10, 20, 5, 55, 100);
-    static Dragons bossDragon = new Dragons("Dragonlord Silamgar");
-    // Monster bossDragon2 = new TolkienDragon("Smugg", 80000, 30, 800, 20, 300, 300);
-    // Monster bossDragon3 = new WowDragon("DeafWing", 60000, 200, 400, 20, 200, 300);
-    // Monster bossDragon4 = new PokeDragon("Charizarl", 8000, 80, 150, 20, 5000, 300);
+    Monster bossDragon = new Dragons("Dragonlord Silamgar");
+    Monster bossDragon2 = new TolkienDragon("Smugg");
+    Monster bossDragon3 = new WowDragon("DeafWing");
+    Monster bossDragon4 = new PokeDragon("Charizarl");
 
-    Monster[] monsterEncounters = {wolf,goblin,orc,direWolf,elf,troll,ogre,wurm,vampire,werewolf};
+    Monster[] monsterEncounters = {wolf,goblin,orc,direWolf,elf,troll,ogre,wurm,vampire,werewolf, bossDragon, bossDragon2, bossDragon3, bossDragon4};
 
     public ArrayList<Monster> createMonsterList(int lower, int upper) {
         ArrayList<Monster> monsters = new ArrayList<Monster>(); 
@@ -39,11 +39,11 @@ public class Battle {
         return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()));
     }
 
-    // public Monster getCurrentBoss() {
-    //     ArrayList<Monster> bosses = createMonsterList(20, 20);
-    //     Monster randomBoss = getMonster(bosses);
-    //     return randomBoss;
-    // }
+    public Monster getRandomBoss() {
+        ArrayList<Monster> bosses = createMonsterList(20, 20);
+        Monster randomBoss = getMonster(bosses);
+        return randomBoss;
+    }
 
     public void battle(Player player) {
             ArrayList<Monster> monsters = createMonsterList((player.getLevel()-1), (player.getLevel()+1));
@@ -94,15 +94,15 @@ public class Battle {
     }
 
     public void dragonFight(Dragons bossDragon, Player player) {
-        Dragons currentBoss = bossDragon; //getCurrentBoss();
+        Dragons currentBoss = (Dragons) getRandomBoss();
         try {currentBoss.introduce();}
         catch (InterruptedException e) {/*Ignore this*/}
         
         if (dragonKillsPlayer() == true) {
-            try {Dragons.killsPlayer();}
+            try {currentBoss.killsPlayer();}
             catch (InterruptedException e) {/*Ignore this*/}
         } else {
-            try {Dragons.killsDragon();}
+            try {currentBoss.killsDragon();}
             catch (InterruptedException e) {/*Ignore this*/}
         }
     }

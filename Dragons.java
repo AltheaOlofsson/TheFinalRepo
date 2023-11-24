@@ -1,6 +1,7 @@
-public class Dragons{
+public class Dragons extends Monster{
     String name;
     Dragons(String name) {
+        super(name, 0, 0, 0, 20, 0, 0);
         this.name = name;
     }
 
@@ -26,7 +27,7 @@ public class Dragons{
         System.out.println("What's left of your body will serve me eternally");
         Thread.sleep(4000);
     }
-    public static void killsPlayer() throws InterruptedException {
+    public void killsPlayer() throws InterruptedException {
         System.out.println("The dragon rears its neck and shoots out a spray of dark green fluid.");
         Thread.sleep(5000);
         System.out.println("As it hits you your flesh begins to boil, your skin falls to the ground in big patches");
@@ -38,8 +39,9 @@ public class Dragons{
         System.out.println("I told you in the beginning... you are not the hero.");
         Thread.sleep(4500);
         AdventureGame.clearScreen();
+
     }
-    public static void killsDragon() throws InterruptedException {
+    public void killsDragon() throws InterruptedException {
         System.out.println("You brandish your magnificent sword and with a powerfull swing, creating a beautiful arc.");
         Thread.sleep(5500);
         System.out.println("The air warps and shoots out from where your sword swung.");
@@ -56,28 +58,28 @@ public class Dragons{
 }
 
 class MTGDragon extends Dragons {
-    public MTGDragon(String name, int hitPoints, int minAttack, int maxAttack, int level, int speed, int expGiven) {
-        super(name, hitPoints, minAttack, maxAttack, level, speed, expGiven);
+    public MTGDragon(String name) {
+        super(name);
     }
     
     
 }
 
 class TolkienDragon extends Dragons {
-    public TolkienDragon(String name, int hitPoints, int minAttack, int maxAttack, int level, int speed, int expGiven) {
-        super(name, hitPoints, minAttack, maxAttack, level, speed, expGiven);
+    public TolkienDragon(String name) {
+        super(name);
     }
 }
 
 class WowDragon extends Dragons {
-    public WowDragon(String name, int hitPoints, int minAttack, int maxAttack, int level, int speed, int expGiven) {
-        super(name, hitPoints, minAttack, maxAttack, level, speed, expGiven);
+    public WowDragon(String name) {
+        super(name);
     }
 }
 
 class PokeDragon extends Dragons {
-    public PokeDragon(String name, int hitPoints, int minAttack, int maxAttack, int level, int speed, int expGiven) {
-        super(name, hitPoints, minAttack, maxAttack, level, speed, expGiven);
+    public PokeDragon(String name) {
+        super(name);
     }
 }
 
