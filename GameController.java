@@ -4,7 +4,7 @@ public class GameController {
     Player player;
     Scanner userInput = new Scanner(System.in);
     String roomChoice;
-    EventController ec = new EventController();
+    EventController eventControl = new EventController();
     //RandomEventGenerator event = new RandomEventGenerator();
 
     String midInstructions = "You have the choices of going left or right, you also have the option to consume an apple in these sections."
@@ -22,7 +22,7 @@ public class GameController {
     +"\n- /stats (To display your current stats and decide whether you also want to consume an apple if you're wounded)"
     +"\n      HP : How much health the player/monster has."
     +"\n      Attack : How much minimum damage the player and the monster can output, the maximum output is randomized."
-    +"\n      Speed : How dexterous the player/monster is, the one that has more than the other fights first."
+    +"\n      Speed : How dexterous the player/monster is, this determines who fights first."
     +"\n      Level : What level the player is and determines their overall prowess."
     +"\n      Experience : The amount of exp the player has accumelated, if the player reaches."
     +"\n- /exit (To quit the game)"
@@ -64,8 +64,9 @@ public class GameController {
             case "left":
             case "1":
                 clearScreen();
-                Event e = ec.generateEvent(player);
-                e.execute(player, userInput);
+                Event currentEvent = eventControl.generateEvent(player);
+                try {currentEvent.execute(player, userInput);}
+                catch (InterruptedException e) { }
                 //event.generateRandomEvent(player);
                 break;
 
@@ -109,12 +110,11 @@ public class GameController {
                 player.setFairy(0);
                 clearScreen();
                 try {endStory();}
-                catch (InterruptedException e) { }
+                catch (InterruptedException e) {/* IGNORE */}
                 Battle b = new Battle(player);
                 b.dragonFight(Battle.bossDragon, player);
-                System.out.println("{THE END} \nPress ENTER to exit.");
-                userInput.nextLine();
-                System.exit(0);
+                try {theEnd();}
+                catch (InterruptedException e) {/* IGNORE */}
             }
 
             if (!player.IsAlive(player.getCurrentHp()))
