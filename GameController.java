@@ -131,6 +131,7 @@ public class GameController {
                     clearScreen();
                     System.out.println("You died! But the fairy's blessing takes effect and restores you to maximum.");
                     player.setCurrentHp(player.maxHp);
+                    player.setFairy(0);
                 } else {
                     try
                     {
