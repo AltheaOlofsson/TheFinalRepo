@@ -18,7 +18,7 @@ public class Battle {
     Monster wurm = new Monster("Wurm", 35, 12, 14, 4, 20, 70);
     Monster vampire = new Vampire("Vampire", 30, 8, 12, 5, 350, 100);
     Monster werewolf = new Monster("Werewolf", 50, 10, 20, 5, 55, 100);
-    static Dragons bossDragon = new Dragons("Dragonlord Silumgar");
+    static Dragons bossDragon = new Dragons("Dragonlord Silamgar");
     // Monster bossDragon2 = new TolkienDragon("Smugg", 80000, 30, 800, 20, 300, 300);
     // Monster bossDragon3 = new WowDragon("DeafWing", 60000, 200, 400, 20, 200, 300);
     // Monster bossDragon4 = new PokeDragon("Charizarl", 8000, 80, 150, 20, 5000, 300);
@@ -49,7 +49,7 @@ public class Battle {
             ArrayList<Monster> monsters = createMonsterList((player.getLevel()-1), (player.getLevel()+1));
             Monster currentMonster = getMonster(monsters);
             System.out.println("You are attacked by a vicious " + currentMonster.getName());
-            while (player.IsAlive(player.currentHp)) {            
+            while (player.IsAlive()) {            
                 if (player.getSpeed() >= currentMonster.getSpeed()) {
                     choosesAttackOrStats(currentMonster,player);
                     if (currentMonster.isAlive() == true) {
@@ -60,7 +60,7 @@ public class Battle {
                     }
                 } else {
                     currentMonster.attack(player);
-                    if(player.IsAlive(player.currentHp) == true) {
+                    if(player.IsAlive() == true) {
                         choosesAttackOrStats(currentMonster, player);
                     }
                     if (!currentMonster.isAlive()) {
@@ -99,10 +99,10 @@ public class Battle {
         catch (InterruptedException e) {/*Ignore this*/}
         
         if (dragonKillsPlayer() == true) {
-            try {MTGDragon.killsPlayer();}
+            try {Dragons.killsPlayer();}
             catch (InterruptedException e) {/*Ignore this*/}
         } else {
-            try {MTGDragon.killsDragon();}
+            try {Dragons.killsDragon();}
             catch (InterruptedException e) {/*Ignore this*/}
         }
     }
