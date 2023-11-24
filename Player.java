@@ -176,7 +176,7 @@ public void setExcalibre(int excalibre) {
     this.excalibre = excalibre;
 }
 
-public boolean IsAlive(int currentHp) {
+public boolean IsAlive() {
     if (this.currentHp > 0) return true;
     else return false;
 }
