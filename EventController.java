@@ -2,32 +2,29 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
-    public class EventController {
+public class EventController {
+    
+    Random randomgen = new Random();
 
-        Random randomgen = new Random();
+    public Event[] eventEncounters = {new RootEvent(), new TravelerEvent(), new WishingStarEvent(), new FairyEvent(), new LulEvent(), new AbandonedMinesEvent(), new TavernEvent(), new RandomChestEvent(), new puzzleBoxEvent(),new PotionEvent(),new ArenaEvent()};
 
-        public Event[] eventEncounters = {new RootEvent(), new TravelerEvent(), new WishingStarEvent(), new FairyEvent(), new LulEvent(), new AbandonedMinesEvent(), new TavernEvent(), new RandomChestEvent(), new puzzleBoxEvent(),new PotionEvent(),new ArenaEvent()};
+    ArrayList<Event> eventList = new ArrayList<>(Arrays.asList(eventEncounters)); 
 
-        ArrayList<Event> eventList = new ArrayList<>(Arrays.asList(eventEncounters)); 
+    public Event generateEvent(Player player) {
+        List<Event> filteredEventList = eventList.stream()
+        .filter(e -> (e.eventLevel <= player.getLevel()))
+        .collect(Collectors.toList());
 
-        public Event generateEvent(Player player) {
-            List<Event> filteredEventList = eventList.stream()
-            .filter(e -> (e.eventLevel <= player.getLevel()))
-            .collect(Collectors.toList());
+        Event selectedEvent = filteredEventList.get(randomgen.nextInt(filteredEventList.size()));
+        eventList.remove(selectedEvent);
 
-            Event selectedEvent = filteredEventList.get(randomgen.nextInt(filteredEventList.size()));
-            eventList.remove(selectedEvent);
+        return selectedEvent;
+    }
 
-            return selectedEvent;
-        }
-        
+    public Event Level5(Player player){
         Event Level5 = new HardlyCodedEvent();
-
-        public Event Level5(Player player){
-            Event Level5 = new HardlyCodedEvent();
-            return Level5;
-
-        }
+        return Level5;
+    }
     
     
     

@@ -3,11 +3,9 @@ import java.util.Random;
 public class GameController {
     Player player;
     Random random = new Random();
-    // Scanner userInput = new Scanner(System.in);
     InputHandler input = new InputHandler();
     String roomChoice;
     EventController ec = new EventController();
-    //RandomEventGenerator event = new RandomEventGenerator();
 
     String midInstructions = "You have the choices of going left or right, you also have the option to consume an apple in these sections."
     +"\nThese choices dictate whichever encounter you as the player chooses."
@@ -37,6 +35,7 @@ public class GameController {
         this.player = player;
     }
 
+    // We have two eatApple methods an a heal method that is similar. Can we clean it up?
     public void eatApple() {
         if (player.getApple() > 0) {
             clearScreen();
@@ -52,7 +51,6 @@ public class GameController {
     }
 
     
-
     public void selectPath() {
         clearScreen();
         while (player.isAlive()) {
@@ -65,7 +63,7 @@ public class GameController {
             case "1":
 
                 crossroads();
-                // clearScreen();
+                // clearScreen();                       // For testing. Remove before release.
                 // Event e = ec.generateEvent(player);
                 // e.execute(player, input);
                 break;
@@ -74,7 +72,7 @@ public class GameController {
             case "2":
 
                 crossroads();
-                // clearScreen();
+                // clearScreen();                       // For testing. Remove before release.
                 // Battle battle = new Battle(player);
                 // battle.battle(player);
                 break;
@@ -107,7 +105,7 @@ public class GameController {
                 break;
             }
 
-            if (player.getLevel() == 5){
+            if (player.getLevel() == 5) {
                 clearScreen();
                 pressEnterToContinue(player);
                 Event e = ec.Level5(player);
@@ -131,8 +129,8 @@ public class GameController {
                 if (player.getFairy() > 0) 
                 {
                     clearScreen();
-                    System.out.println("You died! But the fairy that you hold realises this and restores you to maximum.");
-                    player.addCurrenHp(10000);
+                    System.out.println("You died! But the fairy's blessing takes effect and restores you to maximum.");
+                    player.setCurrentHp(player.maxHp);
                 } else {
                     try
                     {

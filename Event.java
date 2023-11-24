@@ -7,11 +7,8 @@ public class Event {
     InputHandler inputHandler;
 
     public Battle battle = new Battle(player);
-
     public InputHandler input = new InputHandler();
-    
     static Random randomgen = new Random();
-
     public Event() { }
 
     public int getEventLevel() {
@@ -28,12 +25,10 @@ public class Event {
     }
 
     protected void pressEnterToContinue(Player player) {
-
         InputHandler input = new InputHandler();
 
         System.out.println("\nPress ENTER to continue");
         input.readInput(player);
-    
     }
 
 }

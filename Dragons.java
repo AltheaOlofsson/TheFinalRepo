@@ -26,6 +26,7 @@ public class Dragons{
         System.out.println("What's left of your body will serve me eternally");
         Thread.sleep(4000);
     }
+
     public static void killsPlayer() throws InterruptedException {
         System.out.println("The dragon rears its neck and shoots out a spray of dark green fluid.");
         Thread.sleep(5000);
@@ -39,6 +40,7 @@ public class Dragons{
         Thread.sleep(4500);
         AdventureGame.clearScreen();
     }
+
     public static void killsDragon() throws InterruptedException {
         System.out.println("You brandish your magnificent sword and with a powerfull swing, creating a beautiful arc.");
         Thread.sleep(5500);
@@ -51,7 +53,6 @@ public class Dragons{
         System.out.println("Who would have known... you were a hero after all.");
         Thread.sleep(3500);
         AdventureGame.clearScreen();
-
     }
 }
 

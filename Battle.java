@@ -80,7 +80,8 @@ public class Battle {
             }
     }
     
-    public Battle(Player player) {
+    // What is this? Do we need this? Am I dumb?
+    public Battle(Player player) {  
         this.player = player;
     }
 
@@ -126,6 +127,8 @@ public class Battle {
 
     
     public static void main(String[] args) {
+        // Main for testing. Remove before release.
+        
         Player player = new Player("Brian");
         Battle b = new Battle(player);
         player.setSpeed(1);
