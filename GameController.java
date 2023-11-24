@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.util.Random;
 
 public class GameController {
@@ -46,8 +45,7 @@ public class GameController {
             System.out.println("\nPress ENTER to continue.");
             input.readInput(player);
             clearScreen();
-        }
-        else {
+        } else {
             clearScreen();
             System.out.println("You're out of apples!");
         }
@@ -55,11 +53,10 @@ public class GameController {
 
     
 
-    public void selectPath() 
-    {
+    public void selectPath() {
         clearScreen();
-        while (player.isAlive())
-        {
+        while (player.isAlive()) {
+
             System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? \n[3]Eat a Golden Apple (" + player.getApple() + "/4)");
             roomChoice = input.readInput(player);
             
@@ -67,10 +64,10 @@ public class GameController {
             case "left":
             case "1":
 
-                // crossroads();
-                clearScreen();
-                Event e = ec.generateEvent(player);
-                e.execute(player, input);
+                crossroads();
+                // clearScreen();
+                // Event e = ec.generateEvent(player);
+                // e.execute(player, input);
                 break;
 
             case "right":
@@ -117,8 +114,8 @@ public class GameController {
                 e.execute(player, input);
             }
 
-            if (player.getLevel() >= 10) //This player level was just an example.
-            {
+            if (player.getLevel() >= 10) { //This player level was just an example.
+            
                 player.setFairy(0);
                 clearScreen();
                 try {endStory();}
@@ -130,16 +127,13 @@ public class GameController {
                 System.exit(0);
             }
 
-            if (!player.isAlive())
-            {
+            if (!player.isAlive()) {
                 if (player.getFairy() > 0) 
                 {
                     clearScreen();
                     System.out.println("You died! But the fairy that you hold realises this and restores you to maximum.");
                     player.addCurrenHp(10000);
-                }
-                else
-                {
+                } else {
                     try
                     {
                         gameOver();
@@ -157,8 +151,7 @@ public class GameController {
                 clearScreen();
                 Event e = ec.generateEvent(player);
                 e.execute(player, input);
-        }
-        else {
+        } else {
                 clearScreen();
                 Battle battle = new Battle(player);
                 battle.battle(player);
@@ -180,10 +173,9 @@ public class GameController {
         }
         clearScreen();
         }
-    }
+    
 
-    public void theEnd() throws InterruptedException
-    {
+    public void theEnd() throws InterruptedException {
         clearScreen();
         System.out.println("You've Reached the end!");
         System.out.println("\nDo you want to retry? Press ENTER to exit to menu, type \"No\" to quit.");
@@ -198,8 +190,7 @@ public class GameController {
         clearScreen();
     }
 
-    public void endStory() throws InterruptedException 
-    {
+    public void endStory() throws InterruptedException {
         System.out.print("As you keep pacing towards the ruined catacombs... ");
         Thread.sleep(2500);
         System.out.print("you start to feel immense dread as you get closer and closer.");
