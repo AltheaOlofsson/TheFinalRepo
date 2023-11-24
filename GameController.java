@@ -4,11 +4,10 @@ import java.util.Random;
 public class GameController {
     Player player;
     Random random = new Random();
-    // Scanner userInput = new Scanner(System.in);
     InputHandler input = new InputHandler();
     String roomChoice;
     EventController ec = new EventController();
-    //RandomEventGenerator event = new RandomEventGenerator();
+
 
     String midInstructions = "You have the choices of going left or right, you also have the option to consume an apple in these sections."
     +"\nThese choices dictate whichever encounter you as the player chooses."
@@ -58,7 +57,7 @@ public class GameController {
     public void selectPath() 
     {
         clearScreen();
-        while (player.IsAlive(player.currentHp)) 
+        while (player.isAlive()) 
         {
             System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? \n[3]Eat a Golden Apple (" + player.getApple() + "/4)");
             roomChoice = input.readInput(player);
@@ -131,7 +130,7 @@ public class GameController {
                 System.exit(0);
             }
 
-            if (!player.IsAlive(player.getCurrentHp()))
+            if (!player.isAlive())
             {
                 if (player.getFairy() > 0) 
                 {
