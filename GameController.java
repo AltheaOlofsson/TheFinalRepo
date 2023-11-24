@@ -58,7 +58,7 @@ public class GameController {
     public void selectPath() 
     {
         clearScreen();
-        while (player.IsAlive(player.currentHp)) 
+        while (player.isAlive())
         {
             System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? \n[3]Eat a Golden Apple (" + player.getApple() + "/4)");
             roomChoice = input.readInput(player);
@@ -67,11 +67,10 @@ public class GameController {
             case "left":
             case "1":
 
-                crossroads();
-                // clearScreen();
-                // Event e = ec.generateEvent(player);
-                // e.execute(player, input);
-                //event.generateRandomEvent(player);
+                // crossroads();
+                clearScreen();
+                Event e = ec.generateEvent(player);
+                e.execute(player, input);
                 break;
 
             case "right":
@@ -131,7 +130,7 @@ public class GameController {
                 System.exit(0);
             }
 
-            if (!player.IsAlive(player.getCurrentHp()))
+            if (!player.isAlive())
             {
                 if (player.getFairy() > 0) 
                 {
@@ -172,7 +171,7 @@ public class GameController {
         System.out.println("\nThis poor soul has perished, may darkness overtake them and drift away to the afterlife.");
         System.out.println("\nDo you want to retry? Press ENTER to exit to menu, type \"No\" to quit.");
         String playAgain = input.readInput(player);
-
+        
         if (playAgain.equals("no") || playAgain.equals("n")) {
             clearScreen();
             System.out.println("|GAME OVER|");
@@ -180,6 +179,7 @@ public class GameController {
             System.exit(0);
         }
         clearScreen();
+        }
     }
 
     public void theEnd() throws InterruptedException

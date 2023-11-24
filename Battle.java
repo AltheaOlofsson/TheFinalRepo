@@ -58,7 +58,7 @@ public class Battle {
             ArrayList<Monster> monsters = createMonsterList((player.getLevel()-1), (player.getLevel()+1));
             Monster currentMonster = getMonster(monsters);
             System.out.println("You are attacked by a vicious " + currentMonster.getName());
-            while (player.IsAlive(player.currentHp)) {            
+            while (player.isAlive()) {            
                 if (player.getSpeed() >= currentMonster.getSpeed()) {
                     choosesAttackOrStats(currentMonster,player);
                     if (currentMonster.isAlive() == true) {
@@ -69,7 +69,7 @@ public class Battle {
                     }
                 } else {
                     currentMonster.attack(player);
-                    if(player.IsAlive(player.currentHp) == true) {
+                    if(player.isAlive() == true) {
                         choosesAttackOrStats(currentMonster, player);
                     }
                     if (!currentMonster.isAlive()) {

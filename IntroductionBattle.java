@@ -16,7 +16,7 @@ public class IntroductionBattle
         Monster currentMonster = slime;
         System.out.println("The slime sludges towards you.");
 
-        while (player.IsAlive(player.currentHp)) 
+        while (player.isAlive()) 
         {
             if (player.getSpeed() >= currentMonster.getSpeed()) 
             {
@@ -34,7 +34,7 @@ public class IntroductionBattle
             else 
             {
                 currentMonster.attack(player);
-                if (player.IsAlive(player.currentHp) == true) 
+                if (player.isAlive()) 
                 {
                     choosesAttackOrStats(currentMonster, player);
                 }
