@@ -6,28 +6,40 @@ public class EventController {
     
     Random randomgen = new Random();
 
-    public Event[] eventEncounters = {new RootEvent(), new TravelerEvent(), new WishingStarEvent(), new FairyEvent(), new LulEvent(), new AbandonedMinesEvent(), new TavernEvent(), new RandomChestEvent(), new puzzleBoxEvent(),new PotionEvent(),new ArenaEvent()};
+    public Event[] eventEncounters = {
+    //level 1
+    new TavernEvent(),
+    new WishingStarEvent(),
+    //level 2
+    new TravelerEvent(), 
+    new RandomChestEvent(),
+    new PotionEvent(),
+    //level 3
+    new puzzleBoxEvent(),
+     //level 4
+    new RootEvent(), 
+    new AbandonedMinesEvent(), 
+    new FairyEvent(),
+    //Level 5?
+     
+    // Level 12
+    new LulEvent()};
 
     ArrayList<Event> eventList = new ArrayList<>(Arrays.asList(eventEncounters)); 
 
     public Event generateEvent(Player player) {
-        Battle b = new Battle(player);
 
         List<Event> filteredEventList = eventList.stream()
         .filter(e -> (e.eventLevel <= player.getLevel()))
         .collect(Collectors.toList());
 
-        Event selectedEvent;
-        if(filteredEventList.isEmpty()){
-             selectedEvent = new noEventsLeft();   
-        } else {
-            selectedEvent = filteredEventList.get(randomgen.nextInt(filteredEventList.size()));
-            eventList.remove(selectedEvent);
-        }
-
-        // Event selectedEvent = filteredEventList.get(randomgen.nextInt(filteredEventList.size()));
-        // eventList.remove(selectedEvent);
-        
+            Event selectedEvent;
+            if(filteredEventList.isEmpty()){
+                 selectedEvent = new NoEventsLeft();   
+            } else {
+                selectedEvent = filteredEventList.get(randomgen.nextInt(filteredEventList.size()));
+                eventList.remove(selectedEvent);
+            }
 
         return selectedEvent;
     }
