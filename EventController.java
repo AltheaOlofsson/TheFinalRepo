@@ -11,12 +11,23 @@ public class EventController {
     ArrayList<Event> eventList = new ArrayList<>(Arrays.asList(eventEncounters)); 
 
     public Event generateEvent(Player player) {
+        Battle b = new Battle(player);
+
         List<Event> filteredEventList = eventList.stream()
         .filter(e -> (e.eventLevel <= player.getLevel()))
         .collect(Collectors.toList());
 
-        Event selectedEvent = filteredEventList.get(randomgen.nextInt(filteredEventList.size()));
-        eventList.remove(selectedEvent);
+        Event selectedEvent;
+        if(filteredEventList.isEmpty()){
+             selectedEvent = new noEventsLeft();   
+        } else {
+            selectedEvent = filteredEventList.get(randomgen.nextInt(filteredEventList.size()));
+            eventList.remove(selectedEvent);
+        }
+
+        // Event selectedEvent = filteredEventList.get(randomgen.nextInt(filteredEventList.size()));
+        // eventList.remove(selectedEvent);
+        
 
         return selectedEvent;
     }
