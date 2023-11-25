@@ -7,7 +7,7 @@ public class GameController {
     String roomChoice;
     EventController ec = new EventController();
 
-    String midInstructions = "You have the choices of going left or right, you also have the option to consume an apple in these sections."
+    public String midInstructions = "You have the choices of going left or right, you also have the option to consume an apple in these sections."
     +"\nThese choices dictate whichever encounter you as the player chooses."
     +"\nFor instance; the right path is combat focused and will always lead to a monster of similar level to the player."
     +"\nWhilst the left path will lead to events/encounters that could benefit or harm you."
@@ -62,10 +62,10 @@ public class GameController {
             case "left":
             case "1":
 
-                crossroads();
-                // clearScreen();                       // For testing. Remove before release.
-                // Event e = ec.generateEvent(player);
-                // e.execute(player, input);
+                // crossroads();
+                clearScreen();                       // For testing. Remove before release.
+                Event e = ec.generateEvent(player);
+                e.execute(player, input);
                 break;
 
             case "right":
@@ -158,7 +158,7 @@ public class GameController {
     }
     
     public void gameOver() throws InterruptedException {
-        clearScreen();
+        // clearScreen();  this messed up some events. i think we can do without it.
         System.out.println("You've died!");
         System.out.println("\nThis poor soul has perished, may darkness overtake them and drift away to the afterlife.");
         System.out.println("\nDo you want to retry? Press ENTER to exit to menu, type \"No\" to quit.");
