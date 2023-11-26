@@ -8,8 +8,9 @@ public class InputHandler {
     }
 
     public String readInput(Player player) {
-        // System.out.print("Enter command: ");
         String input = scanner.nextLine();
+        GameController gc = new GameController(player);
+
 
         if ("/exit".equals(input.toLowerCase())) {
             System.out.println("Exiting the program.");
@@ -19,6 +20,33 @@ public class InputHandler {
             displayPlayerStats(player);
             System.out.println("Press ENTER to close.");
             scanner.nextLine();
+        }
+        else if ("/menu".equals(input.toLowerCase())){
+            boolean menu = true;
+            while (menu){
+                System.out.println("Main Menu: \n(1) View Stats. \n(2) Heal.    Apples: " + player.getApple() + "/4. \n(3) View Help instructions. \n(4) Close Menu.");
+                String choice = scanner.nextLine();
+                switch(choice){
+                    case "1":
+                    displayPlayerStats(player);
+                    System.out.println("Press ENTER to close.");
+                    scanner.nextLine();
+                    break;
+                    case "2":
+                    player.heal(player);
+                    break;
+                    case "3":
+                    gc.clearScreen();
+                    System.out.println("\n" + gc.midInstructions + "\n");
+                    System.out.println("Press ENTER to close.");
+                    scanner.nextLine();
+                    break;
+                    case "4":
+                    menu=false;
+                    break;
+                    default:
+                }
+            }
         }
 
         return input.toLowerCase();
