@@ -57,7 +57,7 @@ public class GameController {
     public void selectPath() 
     {
         clearScreen();
-        while (player.isAlive()) 
+        while (player.IsAlive(player.currentHp)) 
         {
             System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? \n[3]Eat a Golden Apple (" + player.getApple() + "/4)");
             roomChoice = input.readInput(player);
@@ -130,7 +130,7 @@ public class GameController {
                 System.exit(0);
             }
 
-            if (!player.isAlive())
+            if (!player.IsAlive(player.currentHp))
             {
                 if (player.getFairy() > 0) 
                 {
