@@ -21,7 +21,7 @@ Player(String name) {
 this.name = name;
 this.currentHp = 20;
 this.maxHp = 20;
-this.attack = 10;
+this.attack = 7;
 this.speed = 10;
 // this.dodge = 0;
 this.level = 1;

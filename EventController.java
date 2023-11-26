@@ -16,12 +16,12 @@ public class EventController {
     new PotionEvent(),
     //level 3
     new puzzleBoxEvent(),
-     //level 4
-    new RootEvent(), 
-    new AbandonedMinesEvent(), 
+    //level 4
+    new RootEvent(),  
     new FairyEvent(),
-    //Level 5?
-     
+    //Level 5
+    new AbandonedMinesEvent(),
+
     // Level 12
     new LulEvent()};
 
@@ -49,21 +49,5 @@ public class EventController {
         return Level5;
     }
     
-    
-    
-    
-    
-        
-    }
-
-
-    // Level 1: WishingStarEvent, TavernEvent
-    // Level 2: TravelerEvent, RandomChestEvent, puzzleBoxEvent
-    // Level 3: RootEvent, FairyEvent, ()
-    // Level 4: AbandonedMinesEvent, (), ()
-    // Level 5: (PotionsEvent), ()
-    // Level 6: (ArenaEvent)
-    // Level 7: ()
-    // Level 8: 
-    // Level 9: 
-    // Level 12: LulEvent
+  
+}

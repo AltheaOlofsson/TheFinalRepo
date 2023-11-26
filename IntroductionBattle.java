@@ -5,7 +5,7 @@ public class IntroductionBattle
     Player player;
     Scanner userInput = new Scanner(System.in);
     
-    Monster slime = new Monster("Slime", 20, 2, 2, 1, 2, 100);
+    Monster slime = new Monster("Slime", 20, 6, 9, 1, 20, 100);
 
     public IntroductionBattle(Player player)
     {
@@ -24,6 +24,7 @@ public class IntroductionBattle
                 if (currentMonster.isAlive() == true) 
                 {
                     currentMonster.attack(player);
+                    if (!player.isAlive()) {return;}
                 } 
                 else 
                 {
@@ -31,11 +32,16 @@ public class IntroductionBattle
                     break;
                 }
             } 
-            else 
-            {
+            else {
+
+                //The slime can now kill you if you dont heal but the text that comes up is one of victory. I'd want to either force the player to heal or make the screen say someting abot this if you die.
+
                 currentMonster.attack(player);
                 if (player.isAlive()) 
                 {
+                    if(player.getCurrentHp()<10){
+                        System.out.println("The monster hits hard. Eat a Golden apple to Heal.");
+                    }
                     choosesAttackOrStats(currentMonster, player);
                 }
                 if (!currentMonster.isAlive()) 
@@ -62,7 +68,7 @@ public class IntroductionBattle
             } 
             else if (attackChoice.equals("2")) 
             {
-                player.displayPlayerStats();
+                player.heal(player);
                 break;
             } 
             else 
