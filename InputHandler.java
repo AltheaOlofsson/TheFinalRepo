@@ -24,7 +24,7 @@ public class InputHandler {
         else if ("/menu".equals(input.toLowerCase())){
             boolean menu = true;
             while (menu){
-                System.out.println("Main Menu: \n(1) View Stats. \n(2) Heal.    Apples: " + player.getApple() + "/4. \n(3) View Help instructions. \n(4) Close Menu.");
+                System.out.println("Main Menu: \n(1) View Stats. \n(2) Heal.    Apples: " + player.getApple() + "/4. \n(3) View Help instructions. \n(4) Close Menu. \n(5) Exit Game.");
                 String choice = scanner.nextLine();
                 switch(choice){
                     case "1":
@@ -44,6 +44,9 @@ public class InputHandler {
                     case "4":
                     menu=false;
                     break;
+                    case "5":
+                    System.out.println("Exiting the program.");
+                    System.exit(0);
                     default:
                 }
             }
