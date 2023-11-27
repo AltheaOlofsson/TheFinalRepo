@@ -107,14 +107,28 @@ public class GameController {
 
             if (player.getLevel() >= 7) //This player level was just an example.
             {
-                player.setFairy(0);
-                clearScreen();
-                try {endStory();}
-                catch (InterruptedException e) {/* IGNORE */}
-                Battle b = new Battle(player);
-                b.dragonFight(Battle.bossDragon, player);
-                try {theEnd();}
-                catch (InterruptedException e) {/* IGNORE */}
+                if (player.getFairy() > 0)
+                {
+                    clearScreen();
+                    player.setFairy(0);
+                    System.out.println("The fairy you hold feels a terrible darkness ahead and runs off in fear.\n\n");
+                    try {endStory();}
+                    catch (InterruptedException e) {/* IGNORE */}
+                    Battle b = new Battle(player);
+                    b.dragonFight(Battle.bossDragon, player);
+                    try {theEnd();}
+                    catch (InterruptedException e) {/* IGNORE */}
+                }
+                else
+                {
+                    clearScreen();
+                    try {endStory();}
+                    catch (InterruptedException e) {/* IGNORE */}
+                    Battle b = new Battle(player);
+                    b.dragonFight(Battle.bossDragon, player);
+                    try {theEnd();}
+                    catch (InterruptedException e) {/* IGNORE */}
+                }
             }
 
             if (!player.IsAlive(player.getCurrentHp()))
