@@ -7,7 +7,6 @@ public class Battle {
     Player player;
     Scanner scanner = new Scanner(System.in);
     InputHandler input = new InputHandler();
-    public boolean hasExcalibre;
 
     Monster slime = new Monster("Slime", 20, 2, 2, 1, 2, 100);
     Monster wolf = new Monster("Wolf", 25, 2, 4, 2, 15, 50);
@@ -27,12 +26,12 @@ public class Battle {
     Monster imp = new Monster("Fire Imp", 70, 25, 35, 8, 55, 50);
     Monster mage = new Monster("Ice Mage", 70, 15, 30, 9, 40, 45);
     Monster demon = new Monster("Demon", 75, 20, 35, 9, 70, 60);
-    static Dragons bossDragon = new Dragons("Dragonlord Silumgar");
-    // Monster bossDragon2 = new TolkienDragon("Smugg", 80000, 30, 800, 20, 300, 300);
-    // Monster bossDragon3 = new WowDragon("DeafWing", 60000, 200, 400, 20, 200, 300);
-    // Monster bossDragon4 = new PokeDragon("Charizarl", 8000, 80, 150, 20, 5000, 300);
+    Monster bossDragon = new Dragons("Dragonlord Silamgar");
+    Monster bossDragon2 = new TolkienDragon("Smugg");
+    Monster bossDragon3 = new WowDragon("DeafWing");
+    Monster bossDragon4 = new PokeDragon("Charizarl");
 
-    Monster[] monsterEncounters = {wolf,goblin,orc,direWolf,elf,troll,ogre,wurm,vampire,werewolf,bandit,spider,wyvern,hydra,imp,mage,demon};
+    Monster[] monsterEncounters = {wolf,goblin,orc,direWolf,elf,troll,ogre,wurm,vampire,werewolf,bandit,spider,wyvern,hydra,imp,mage,demon, bossDragon, bossDragon2, bossDragon3, bossDragon4};
 
     public ArrayList<Monster> createMonsterList(int lower, int upper) {
         ArrayList<Monster> monsters = new ArrayList<Monster>(); 
@@ -48,11 +47,11 @@ public class Battle {
         return monsterList.get(ThreadLocalRandom.current().nextInt(monsterList.size()));
     }
 
-    // public Monster getCurrentBoss() {
-    //     ArrayList<Monster> bosses = createMonsterList(20, 20);
-    //     Monster randomBoss = getMonster(bosses);
-    //     return randomBoss;
-    // }
+    public Monster getRandomBoss() {
+        ArrayList<Monster> bosses = createMonsterList(20, 20);
+        Monster randomBoss = getMonster(bosses);
+        return randomBoss;
+    }
 
     public void battle(Player player) {
             ArrayList<Monster> monsters = createMonsterList((player.getLevel()-1), (player.getLevel()+1));
@@ -103,21 +102,21 @@ public class Battle {
     }
 
     public void dragonFight(Dragons bossDragon, Player player) {
-        Dragons currentBoss = bossDragon; //getCurrentBoss();
+        Dragons currentBoss = (Dragons) getRandomBoss();
         try {currentBoss.introduce();}
         catch (InterruptedException e) {/*Ignore this*/}
         
         if (dragonKillsPlayer() == true) {
-            try {MTGDragon.killsPlayer();}
+            try {currentBoss.killsPlayer();}
             catch (InterruptedException e) {/*Ignore this*/}
         } else {
-            try {MTGDragon.killsDragon();}
+            try {currentBoss.killsDragon();}
             catch (InterruptedException e) {/*Ignore this*/}
         }
     }
 
     public boolean dragonKillsPlayer() {
-        if (hasExcalibre == true) {
+        if (player.hasExcalibre == 1) {
             return false;
         } else {
             return true;
