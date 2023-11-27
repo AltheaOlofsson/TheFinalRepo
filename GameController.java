@@ -49,7 +49,7 @@ public class GameController {
 
                 // crossroads();
                 clearScreen();                       // For testing. Remove before release.
-                Event e = ec.generateEvent(player);
+                Event e = eventControl.generateEvent(player);
                 e.execute(player, input);
                 break;
 
@@ -93,7 +93,7 @@ public class GameController {
             if (player.getLevel() == 5) {
                 clearScreen();
                 pressEnterToContinue(player);
-                Event e = ec.Level5(player);
+                Event e = eventControl.Level5(player);
                 e.execute(player, input);
             }
 
@@ -133,7 +133,7 @@ public class GameController {
         int randompath = random.nextInt(3);
         if(randompath == 1){
                 clearScreen();
-                Event e = ec.generateEvent(player);
+                Event e = eventControl.generateEvent(player);
                 e.execute(player, input);
         } else {
                 clearScreen();
