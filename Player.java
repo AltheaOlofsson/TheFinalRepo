@@ -1,5 +1,5 @@
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.Scanner;
+
 
 public class Player {
 
@@ -8,7 +8,6 @@ int currentHp;
 int maxHp;
 int attack;
 int speed;
-// int Dodge;
 int level;
 int experience;
 int apple;
@@ -23,7 +22,6 @@ this.currentHp = 20;
 this.maxHp = 20;
 this.attack = 7;
 this.speed = 10;
-// this.dodge = 0;
 this.level = 1;
 this.experience = 0;
 this.apple = 3;
@@ -47,7 +45,7 @@ public void displayPlayerStats() {
     System.out.println();
 }
 
-public void attack(Monster currentMonster) {
+public void attack(Enemy currentMonster) {
 
     double maxDamage = (attack*1.2);
 
@@ -215,8 +213,8 @@ public static void main(String[] args) throws InterruptedException {
     //Main method for testing. Remove before release.
     
     Player player = new Player("Jimmy");
-    Scanner s = new Scanner (System.in);
-    EventController ec = new EventController();
+    // Scanner s = new Scanner (System.in);
+    // EventController ec = new EventController();
     InputHandler input = new InputHandler();
 
     // player.addExperience(100);

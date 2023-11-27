@@ -1,7 +1,5 @@
 
 
-import java.util.*;
-
 public class puzzleBoxEvent extends Event {
     
     public puzzleBoxEvent() {

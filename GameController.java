@@ -104,7 +104,7 @@ public class GameController {
                 try {endStory();}
                 catch (InterruptedException e) {/* IGNORE */}
                 Battle b = new Battle(player);
-                b.dragonFight(new Dragons("TestDragon"), player);
+                b.dragonFight(new Dragon("TestDragon"), player);
                 System.out.println("{THE END} \nPress ENTER to exit.");
                 input.readInput(player);
                 System.exit(0);
@@ -176,20 +176,17 @@ public class GameController {
 
     public void endStory() throws InterruptedException {
         System.out.print("As you keep pacing towards the ruined catacombs... ");
-        Thread.sleep(2500);
         System.out.print("you start to feel immense dread as you get closer and closer.");
-        Thread.sleep(1500);
         System.out.print("\nThe despair you're feeling grows intensely, your legs shakes in fear.");
-        Thread.sleep(2500);
+        System.out.println("\nPress Enter to Continue");
+        userInput.nextLine();
         System.out.println("As you approach the last room of the catacombs, the remains of an ancient altar.");
-        Thread.sleep(2500);
-        System.out.print("\nYou hear the foreboding bellows from the monster.");
-        Thread.sleep(1500);
+        System.out.print("You hear the foreboding bellows from the monster.");
         System.out.print(" The horror of it is immense, you stand hopeless.");
-        Thread.sleep(2500);
+        System.out.println("\nPress Enter to Continue");
+        userInput.nextLine();
         System.out.println("You make a feeble attempt to regain control of yourself.");
-        Thread.sleep(2500);
-        System.out.print("\nDrawing your weapon and readying yourself for the beasts incoming attack.");
+        System.out.print("Drawing your weapon and readying yourself for the beasts incoming attack.\n");
         Thread.sleep(1500);
         System.out.print(".");
         Thread.sleep(1500);

@@ -1,7 +1,5 @@
 
 
-import java.util.Scanner;
-
 public class PotionEvent extends Event {
     
     PotionEvent() {
