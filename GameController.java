@@ -104,7 +104,7 @@ public class GameController {
                 try {endStory();}
                 catch (InterruptedException e) {/* IGNORE */}
                 Battle b = new Battle(player);
-                b.dragonFight(Battle.bossDragon, player);
+                b.dragonFight(new Dragons("TestDragon"), player);
                 System.out.println("{THE END} \nPress ENTER to exit.");
                 input.readInput(player);
                 System.exit(0);
