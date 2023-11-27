@@ -10,7 +10,7 @@ public class HardlyCodedEvent extends Event {
                 this.eventLevel = 20;
         }     
         @Override
-        public void execute(Player player, Scanner scanner) throws InterruptedException{
+        public void execute(Player player, Scanner scanner) throws InterruptedException {
                 System.out.println("At eavening you walk along the path and come across an old man with a cart laden with sacks and boxes. \nThe carts axle is broken and the man looks feeble and distraught.");
                 Thread.sleep(17000);
                 System.out.println("He sees you and his face brightens.");

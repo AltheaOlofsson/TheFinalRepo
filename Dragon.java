@@ -1,7 +1,6 @@
-public class Dragons extends Monster{
+public class Dragon {
     String name;
-    Dragons(String name) {
-        super(name, 0, 0, 0, 20, 0, 0);
+    Dragon(String name) {
         this.name = name;
     }
 
@@ -57,7 +56,7 @@ public class Dragons extends Monster{
     }
 }
 
-class MTGDragon extends Dragons {
+class MTGDragon extends Dragon {
     public MTGDragon(String name) {
         super(name);
     }
@@ -65,19 +64,19 @@ class MTGDragon extends Dragons {
     
 }
 
-class TolkienDragon extends Dragons {
+class TolkienDragon extends Dragon {
     public TolkienDragon(String name) {
         super(name);
     }
 }
 
-class WowDragon extends Dragons {
+class WowDragon extends Dragon {
     public WowDragon(String name) {
         super(name);
     }
 }
 
-class PokeDragon extends Dragons {
+class PokeDragon extends Dragon {
     public PokeDragon(String name) {
         super(name);
     }
