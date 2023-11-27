@@ -62,8 +62,8 @@ public void attack(Monster currentMonster) {
 
 public void heal(Player player){
     if(currentHp < maxHp && getApple() > 0) {
-                eatApple();
-                System.out.println("\nYou consumed a Golden Apple and restored your HP to max! HP: " + getCurrentHp() +"/" + getMaxHp() + "\n");
+        eatApple();
+        System.out.println("\nYou consumed a Golden Apple and restored your HP to max! HP: " + getCurrentHp() +"/" + getMaxHp() + "\n");
     } else if (currentHp == maxHp){
         System.out.println("\nYou are already at max health.\n");
     } else if (getApple() == 0) {

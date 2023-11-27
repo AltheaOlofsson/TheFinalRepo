@@ -35,21 +35,6 @@ public class GameController {
         this.player = player;
     }
 
-    // We have two eatApple methods an a heal method that is similar. Can we clean it up?
-    public void eatApple() {
-        if (player.getApple() > 0) {
-            clearScreen();
-            player.eatApple();
-            System.out.println("You consume the apple and feel rejuvenated from it, any previous wounds you had have been fully restored.");
-            System.out.println("\nPress ENTER to continue.");
-            input.readInput(player);
-            clearScreen();
-        } else {
-            clearScreen();
-            System.out.println("You're out of apples!");
-        }
-    }
-
     
     public void selectPath() {
         clearScreen();
