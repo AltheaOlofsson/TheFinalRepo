@@ -216,7 +216,7 @@ public static void main(String[] args) throws InterruptedException {
     EventController ec = new EventController();
 
     // player.addExperience(100);
-    player.addExperience(100);
+    // player.addExperience(100);
     // player.displayPlayerStats(s);
     // player.decreaseCurrentHp(15);
     // player.displayPlayerStats(s);
@@ -224,7 +224,7 @@ public static void main(String[] args) throws InterruptedException {
     // player.displayPlayerStats(s);
     
     // TravelerEvent aM = new TravelerEvent();
-    TravelerEvent AM = new TravelerEvent();
+    TempleEvent AM = new TempleEvent();
     AM.execute(player, s);
 
 
