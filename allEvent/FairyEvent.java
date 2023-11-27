@@ -125,8 +125,8 @@ public void execute(Player player, InputHandler inputHandler){
         System.out.println();
         player.decreaseCurrentHp(10);
         if (!player.isAlive()) {b=false; return;}
-        System.out.println("You probably should leave. Will you walk away? (Y/N)");
-        String uselessChoice = input.readInput(player);
+        System.out.println("You should probaly leave. Will you walk away? (Y/N)");
+        input.readInput(player);
     }
 
     public void stay(Player player){

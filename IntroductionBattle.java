@@ -5,7 +5,7 @@ public class IntroductionBattle
     Player player;
     Scanner userInput = new Scanner(System.in);
     
-    Enemy slime = new Enemy("Slime", 50, 2, 6, 1, 2, 100);
+    Enemy slime = new Enemy("Slime", 50, 2, 6, 1, 2, 100,false);
 
     public IntroductionBattle(Player player)
     {

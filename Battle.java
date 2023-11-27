@@ -1,5 +1,3 @@
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.ArrayList;
 import java.util.Random;
 //import java.util.Collection;
 import java.util.Scanner;
@@ -83,7 +81,7 @@ public class Battle {
     }
 
     public boolean dragonKillsPlayer() {
-        if (player.hasExcalibre == 1) {
+        if (player.excalibre == 1) {
             return false;
         } else {
             return true;
