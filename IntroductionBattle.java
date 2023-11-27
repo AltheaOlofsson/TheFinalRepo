@@ -5,7 +5,7 @@ public class IntroductionBattle
     Player player;
     Scanner userInput = new Scanner(System.in);
     
-    Monster slime = new Monster("Slime", 50, 2, 6, 1, 2, 100);
+    Enemy slime = new Enemy("Slime", 50, 2, 6, 1, 2, 100);
 
     public IntroductionBattle(Player player)
     {
@@ -13,10 +13,10 @@ public class IntroductionBattle
     }
 
     public void introBattle(Player player) {
-        Monster currentMonster = slime;
+        Enemy currentMonster = slime;
         System.out.println("The slime sludges towards you.");
 
-        while (player.IsAlive(player.currentHp)) 
+        while (player.IsAlive()) 
         {
             if (player.getSpeed() >= currentMonster.getSpeed()) 
             {
@@ -34,7 +34,7 @@ public class IntroductionBattle
             else 
             {
                 currentMonster.attack(player);
-                if (player.IsAlive(player.currentHp) == true) 
+                if (player.IsAlive() == true) 
                 {
                     choosesAttackOrStats(currentMonster, player);
                 }
@@ -47,7 +47,7 @@ public class IntroductionBattle
         }
     }
 
-    void choosesAttackOrStats(Monster currentMonster, Player player) 
+    void choosesAttackOrStats(Enemy currentMonster, Player player) 
     {
         String attackChoice= "";
         while (attackChoice != "1" || attackChoice != "2") 

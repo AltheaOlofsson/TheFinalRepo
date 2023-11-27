@@ -179,8 +179,8 @@ public void addFairy(int fairy) {
     this.fairy += fairy;
 }
 
-public boolean IsAlive(int currentHp) {
-    if (this.currentHp > 0) return true;
+public boolean IsAlive() {
+    if (currentHp > 0) return true;
     else return false;
 }
 
@@ -195,7 +195,7 @@ public boolean IsAlive(int currentHp) {
 //     System.out.println("You swing your weapon for " + outgoingDmg + " damage!");
 // }
 
-public void attack(Monster currentMonster) {
+public void attack(Enemy currentMonster) {
 
     double maxDamage = (attack*1.5);
 

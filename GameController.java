@@ -55,7 +55,7 @@ public class GameController {
     public void selectPath() 
     {
         clearScreen();
-        while (player.IsAlive(player.currentHp)) 
+        while (player.IsAlive()) 
         {
             System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? This path is blocked by a monster but you cant tell what exactly. \n[3]Eat a Holy Golden Apple (" + player.getApple() + "/4)");
             roomChoice = userInput.nextLine().toLowerCase();
