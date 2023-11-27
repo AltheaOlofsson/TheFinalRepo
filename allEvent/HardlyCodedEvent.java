@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.util.Random;
 
@@ -45,7 +46,7 @@ public class HardlyCodedEvent extends Event {
                                 System.out.println("But by my honour I'll stand by my word");
                                 userInput.nextLine();
                                 System.out.println("You've gain the legendary sword Excalibre");
-                                player.hasExcalibre = 1;
+                                player.excalibre = 1;
                                 player.addAttack(100);
                                 player.addSpeed(100);
                                 player.addMaxHp(300);

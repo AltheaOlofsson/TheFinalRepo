@@ -1,4 +1,4 @@
-import java.util.Scanner;
+
 import java.util.Random;
 public class AncientRuinsEvent extends Event {
 
@@ -8,12 +8,12 @@ AncientRuinsEvent() {
 }
 
 @Override
-public void execute(Player player, Scanner scanner) {
+public void execute(Player player, InputHandler inputHandler) {
 
     Random randomgen = new Random();
     System.out.println("You enter the ruins and find a mysterious altar.");
         System.out.println("Do you want to approach the altar? (y/n)");
-        String altarChoice = scanner.nextLine();
+        String altarChoice = input.readInput(player);
             if (altarChoice.equalsIgnoreCase("y")) {
                 int outcome = randomgen.nextInt(3);
                 if (outcome == 0) {
@@ -28,7 +28,7 @@ public void execute(Player player, Scanner scanner) {
                 } else {
                     System.out.println("The altar seems dormant, but you hear a faint voice echo: 'Do a barrel roll!'");
                     System.out.println("Do a barrel roll?");
-                    String userChoice = scanner.nextLine();
+                    String userChoice = input.readInput(player);
                         if(userChoice.equalsIgnoreCase("y")) {
                             System.out.println("Understanding and paying homage to a classic gaming advice you perform an amazing barrel roll, successfully dodging a poisonous arrow fired at you from behind!");
                             System.out.println("You gain some (50) experience points!");

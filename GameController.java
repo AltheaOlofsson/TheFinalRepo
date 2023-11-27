@@ -1,13 +1,13 @@
-import java.util.Scanner;
+import java.util.Random;
 
 public class GameController {
     Player player;
-    Scanner userInput = new Scanner(System.in);
+    Random random = new Random();
+    InputHandler input = new InputHandler();
     String roomChoice;
     EventController eventControl = new EventController();
-    //RandomEventGenerator event = new RandomEventGenerator();
 
-    String midInstructions = "You have the choices of going left or right, you also have the option to consume an apple in these sections."
+    public String midInstructions = "You have the choices of going left or right, you also have the option to consume an apple in these sections."
     +"\nThese choices dictate whichever encounter you as the player chooses."
     +"\nFor instance; the right path is combat focused and will always lead to a monster of similar level to the player."
     +"\nWhilst the left path will lead to events/encounters that could benefit or harm you."
@@ -35,57 +35,42 @@ public class GameController {
         this.player = player;
     }
 
-    public void eatApple() {
-        if (player.getApple() > 0) {
-            clearScreen();
-            player.eatApple();
-            System.out.println("You consume the apple and feel rejuvenated from it, any previous wounds you had have been fully restored.");
-            System.out.println("\nPress ENTER to continue.");
-            userInput.nextLine();
-            clearScreen();
-        }
-        else {
-            clearScreen();
-            System.out.println("You're out of apples!");
-        }
-    }
-
     
-
-    public void selectPath() 
-    {
+    public void selectPath() {
         clearScreen();
-        while (player.IsAlive()) 
-        {
-            System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? This path is blocked by a monster but you cant tell what exactly. \n[3]Eat a Holy Golden Apple (" + player.getApple() + "/4)");
-            roomChoice = userInput.nextLine().toLowerCase();
+        while (player.isAlive()) {
+
+            System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? \n[3]Eat a Golden Apple (" + player.getApple() + "/4)");
+            roomChoice = input.readInput(player);
             
         switch (roomChoice) {
             case "left":
             case "1":
-                clearScreen();
-                Event currentEvent = eventControl.generateEvent(player);
-                try {currentEvent.execute(player, userInput);}
-                catch (InterruptedException e) { }
-                //event.generateRandomEvent(player);
+
+                // crossroads();
+                clearScreen();                       // For testing. Remove before release.
+                Event e = eventControl.generateEvent(player);
+                e.execute(player, input);
                 break;
 
             case "right":
             case "2":
-                clearScreen();
-                Battle battle = new Battle(player);
-                battle.battle(player);
+
+                crossroads();
+                // clearScreen();                       // For testing. Remove before release.
+                // Battle battle = new Battle(player);
+                // battle.battle(player);
                 break;
 
             case "eat apple":
             case "3":
                 clearScreen();
-                eatApple();
+                player.heal(player);
                 break;
 
             case "/stats":
                 clearScreen();
-                player.displayPlayerStats(userInput);
+                player.displayPlayerStats();
                 break;
                 
             case "/help":
@@ -105,28 +90,34 @@ public class GameController {
                 break;
             }
 
-            if (player.getLevel() >= 7) //This player level was just an example.
-            {
+            if (player.getLevel() == 5) {
+                clearScreen();
+                pressEnterToContinue(player);
+                Event e = eventControl.Level5(player);
+                e.execute(player, input);
+            }
+
+            if (player.getLevel() >= 10) { //This player level was just an example.
+            
                 player.setFairy(0);
                 clearScreen();
                 try {endStory();}
                 catch (InterruptedException e) {/* IGNORE */}
                 Battle b = new Battle(player);
-                b.dragonFight(Battle.bossDragon, player);
-                try {theEnd();}
-                catch (InterruptedException e) {/* IGNORE */}
+                b.dragonFight(new Dragon("TestDragon"), player);
+                System.out.println("{THE END} \nPress ENTER to exit.");
+                input.readInput(player);
+                System.exit(0);
             }
 
-            if (!player.IsAlive(player.getCurrentHp()))
-            {
+            if (!player.isAlive()) {
                 if (player.getFairy() > 0) 
                 {
                     clearScreen();
-                    System.out.println("You died! But the fairy that you hold realises this and restores you to maximum.");
-                    player.addCurrenHp(10000);
-                }
-                else
-                {
+                    System.out.println("You died! But the fairy's blessing takes effect and restores you to maximum.");
+                    player.setCurrentHp(player.maxHp);
+                    player.setFairy(0);
+                } else {
                     try
                     {
                         gameOver();
@@ -138,13 +129,26 @@ public class GameController {
         }
     }
     
+    public void crossroads(){
+        int randompath = random.nextInt(3);
+        if(randompath == 1){
+                clearScreen();
+                Event e = eventControl.generateEvent(player);
+                e.execute(player, input);
+        } else {
+                clearScreen();
+                Battle battle = new Battle(player);
+                battle.battle(player);
+        } 
+    }
+    
     public void gameOver() throws InterruptedException {
-        clearScreen();
+        // clearScreen();  this messed up some events. i think we can do without it.
         System.out.println("You've died!");
         System.out.println("\nThis poor soul has perished, may darkness overtake them and drift away to the afterlife.");
         System.out.println("\nDo you want to retry? Press ENTER to exit to menu, type \"No\" to quit.");
-        String playAgain = userInput.nextLine().toLowerCase();
-
+        String playAgain = input.readInput(player);
+        
         if (playAgain.equals("no") || playAgain.equals("n")) {
             clearScreen();
             System.out.println("|GAME OVER|");
@@ -152,14 +156,14 @@ public class GameController {
             System.exit(0);
         }
         clearScreen();
-    }
+        }
+    
 
-    public void theEnd() throws InterruptedException
-    {
+    public void theEnd() throws InterruptedException {
         clearScreen();
         System.out.println("You've Reached the end!");
         System.out.println("\nDo you want to retry? Press ENTER to exit to menu, type \"No\" to quit.");
-        String playAgain = userInput.nextLine().toLowerCase();
+        String playAgain = input.readInput(player);
 
         if (playAgain.equals("no") || playAgain.equals("n")) {
             clearScreen();
@@ -170,23 +174,19 @@ public class GameController {
         clearScreen();
     }
 
-    public void endStory() throws InterruptedException 
-    {
+    public void endStory() throws InterruptedException {
         System.out.print("As you keep pacing towards the ruined catacombs... ");
-        Thread.sleep(2500);
         System.out.print("you start to feel immense dread as you get closer and closer.");
-        Thread.sleep(1500);
         System.out.print("\nThe despair you're feeling grows intensely, your legs shakes in fear.");
-        Thread.sleep(2500);
+        System.out.println("\nPress Enter to Continue");
+        userInput.nextLine();
         System.out.println("As you approach the last room of the catacombs, the remains of an ancient altar.");
-        Thread.sleep(2500);
-        System.out.print("\nYou hear the foreboding bellows from the monster.");
-        Thread.sleep(1500);
+        System.out.print("You hear the foreboding bellows from the monster.");
         System.out.print(" The horror of it is immense, you stand hopeless.");
-        Thread.sleep(2500);
+        System.out.println("\nPress Enter to Continue");
+        userInput.nextLine();
         System.out.println("You make a feeble attempt to regain control of yourself.");
-        Thread.sleep(2500);
-        System.out.print("\nDrawing your weapon and readying yourself for the beasts incoming attack.");
+        System.out.print("Drawing your weapon and readying yourself for the beasts incoming attack.\n");
         Thread.sleep(1500);
         System.out.print(".");
         Thread.sleep(1500);
@@ -196,5 +196,14 @@ public class GameController {
     public void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
+    }
+
+    protected void pressEnterToContinue(Player player) {
+
+        InputHandler input = new InputHandler();
+
+        System.out.println("\nPress ENTER to continue");
+        input.readInput(player);
+    
     }
 }

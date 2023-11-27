@@ -57,6 +57,7 @@ public enum Monster {
         return lifesteal;
     }
 
+
     Monster(String name, int hp, int minAttack, int maxAttack, int level, int speed, int expGiven, boolean lifesteal) {
         this.name = name;
         this.hp = hp;

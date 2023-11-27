@@ -1,5 +1,5 @@
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.Scanner;
+
 
 public class Player {
 
@@ -8,49 +8,80 @@ int currentHp;
 int maxHp;
 int attack;
 int speed;
-// int Dodge;
 int level;
 int experience;
 int apple;
 int fairy;
-public int hasExcalibre = 0;
+int excalibre;
+
+
 
 Player(String name) {
 this.name = name;
 this.currentHp = 20;
 this.maxHp = 20;
-this.attack = 10;
+this.attack = 7;
 this.speed = 10;
-// this.dodge = 0;
 this.level = 1;
 this.experience = 0;
 this.apple = 3;
 this.fairy = 0;
+this.excalibre = 0;
 }
 
-public void displayPlayerStats(Scanner s) {
-    System.out.println("HP: " + currentHp + "/" + maxHp);
+
+public boolean isAlive() {
+    if (this.currentHp > 0) return true;
+    else return false;
+}
+
+public void displayPlayerStats() {
+    System.out.println("\nHP: " + currentHp + "/" + maxHp);
     System.out.println("Attack: " + attack);
     System.out.println("Speed: " + speed);
     System.out.println("Level: " + level);
     System.out.println("Current EXP: " + getExperience());
     System.out.println("Amount of Golden Apples: " + getApple() + "/4");
-        if(currentHp < maxHp && getApple() > 0) {
-            Scanner sc = new Scanner (System.in);
-            System.out.println("Eat Golden Apple to restore HP? (y/n)");
-            String userChoice = sc.nextLine();
-            if(userChoice.equalsIgnoreCase("y")) {
-                eatApple();
-                System.out.println("You consumed a Golden Apple and restored your HP to max! HP: " + getCurrentHp() +"/" + getMaxHp());
-            } else {
-                System.out.println("You save your Golden Apples for a rainy day");
-            }
-        } else if (getApple() == 0) {
-            System.out.println("You are out of Golden Apples!");
-        } else {
-            return;
-        }
+    System.out.println();
 }
+
+public void attack(Enemy currentMonster) {
+
+    double maxDamage = (attack*1.2);
+
+    double calculateDamage = ThreadLocalRandom.current().nextDouble(attack, maxDamage);
+    long roundedResult = Math.round(calculateDamage);
+    int outgoingDmg = (int) roundedResult;
+
+    currentMonster.decreaseHitPoints(outgoingDmg);
+
+    System.out.println("You swing your weapon for " + outgoingDmg + " damage!");
+}
+
+public void heal(Player player){
+    if(currentHp < maxHp && getApple() > 0) {
+        eatApple();
+        System.out.println("\nYou consumed a Golden Apple and restored your HP to max! HP: " + getCurrentHp() +"/" + getMaxHp() + "\n");
+    } else if (currentHp == maxHp){
+        System.out.println("\nYou are already at max health.\n");
+    } else if (getApple() == 0) {
+            System.out.println("\nYou are out of Golden Apples!\n");
+    } else {
+        return;
+    }
+}
+
+public void levelUp() {
+    level++;
+    maxHp += 10;
+    attack += 3;
+    speed += 5;
+    setCurrentHp(maxHp);
+    System.out.println("Congratulations! You leveled up to level " + getLevel() + "!");
+    reduceExperience(100);
+}
+
+//Attribute controllers:
 
 public String getName() {
     return name;
@@ -65,7 +96,7 @@ public int getCurrentHp() {
 public void setCurrentHp(int currentHp) {
     this.currentHp = currentHp;
 }
-public void addCurrenHp(int currentHp) {
+public void addCurrentHp(int currentHp) {
     this.currentHp += currentHp;
     if (this.currentHp > maxHp){
         this.currentHp = maxHp;
@@ -74,7 +105,7 @@ public void addCurrenHp(int currentHp) {
 }
 public void decreaseCurrentHp(int currentHp) {
     this.currentHp -= currentHp;
-    System.out.println(getName() + " HP :" + this.currentHp + "/" + this.maxHp);
+    System.out.println(getName() + " HP: " + this.currentHp + "/" + this.maxHp + "\n");
 }
 
 public int getMaxHp() {
@@ -121,15 +152,6 @@ public int getLevel() {
 }
 public void setLevel(int level) {
     this.level = level;
-}
-public void levelUp() {
-    level++;
-    maxHp += 10;
-    attack += 3;
-    speed += 5;
-    setCurrentHp(maxHp);
-    System.out.println("Congratulations! You leveled up to level " + getLevel() + "!");
-    reduceExperience(100);
 }
 
 public int getExperience() {
@@ -179,66 +201,35 @@ public void addFairy(int fairy) {
     this.fairy += fairy;
 }
 
-public boolean IsAlive() {
-    if (currentHp > 0) return true;
-    else return false;
+public int getExcalibre() {
+    return excalibre;
 }
-
-// public void swingWeapon() {
-
-//     double maxDamage = (attack*1.5);
-
-//     double calculateDamage = ThreadLocalRandom.current().nextDouble(attack, maxDamage);
-//     long roundedResult = Math.round(calculateDamage);
-//     int outgoingDmg = (int) roundedResult;
-
-//     System.out.println("You swing your weapon for " + outgoingDmg + " damage!");
-// }
-
-public void attack(Enemy currentMonster) {
-
-    double maxDamage = (attack*1.5);
-
-    double calculateDamage = ThreadLocalRandom.current().nextDouble(attack, maxDamage);
-    long roundedResult = Math.round(calculateDamage);
-    int outgoingDmg = (int) roundedResult;
-
-    currentMonster.decreaseHitPoints(outgoingDmg);
-
-    System.out.println("You swing your weapon for " + outgoingDmg + " damage!");
+public void setExcalibre(int excalibre) {
+    this.excalibre = excalibre;
 }
 
 
 public static void main(String[] args) throws InterruptedException {
+    //Main method for testing. Remove before release.
     
     Player player = new Player("Jimmy");
-    Scanner s = new Scanner (System.in);
-    EventController ec = new EventController();
+    // Scanner s = new Scanner (System.in);
+    // EventController ec = new EventController();
+    InputHandler input = new InputHandler();
 
-    player.addExperience(100);
-    player.addExperience(100);
-    player.addExperience(100);
-    player.setSpeed(15);
-    player.setCurrentHp(25);
-    
+    // player.addExperience(100);
+    // player.addExperience(100);
+    // player.addExperience(100);
+    // player.setSpeed(15);
+    // player.setCurrentHp(25);
+
+    player.setLevel(6);;
     
     // TravelerEvent aM = new TravelerEvent();
-    AbandonedMinesEvent AM = new AbandonedMinesEvent();
-    AM.execute(player, s);
+    Event AM = new puzzleBoxEvent();
+    AM.execute(player, input);
 
-
-
-    // for (int i = 1; i <= 5; i++) {
-    // Event e = ec.generateEvent(player);
-    // e.execute(player, s);
-    // for (Event foo : ec.eventList) {
-    //     System.out.println(foo);
-    // }
-    // }
 }
-
-// public void rest()
-// public boolean isAlive()
 
 
 }

@@ -1,5 +1,3 @@
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.ArrayList;
 import java.util.Random;
 //import java.util.Collection;
 import java.util.Scanner;
@@ -7,6 +5,7 @@ import java.util.Scanner;
 public class Battle {
     Player player;
     Scanner scanner = new Scanner(System.in);
+    InputHandler input = new InputHandler();
 
     Dragon bossDragon = new Dragon("Dragonlord Silamgar");
     Dragon bossDragon2 = new TolkienDragon("Smugg");
@@ -23,7 +22,7 @@ public class Battle {
     public void battle(Player player) {   
             Enemy currentMonster = new Enemy((player.getLevel()-1), (player.getLevel()+1));
             System.out.println("You are attacked by a vicious " + currentMonster.getName());
-            while (player.IsAlive()) {            
+            while (player.isAlive()) {            
                 if (player.getSpeed() >= currentMonster.getSpeed()) {
                     choosesAttackOrStats(currentMonster,player);
                     if (currentMonster.isAlive() == true) {
@@ -34,7 +33,7 @@ public class Battle {
                     }
                 } else {
                     currentMonster.attack(player);
-                    if(player.IsAlive() == true) {
+                    if(player.isAlive() == true) {
                         choosesAttackOrStats(currentMonster, player);
                     }
                     if (!currentMonster.isAlive()) {
@@ -45,24 +44,24 @@ public class Battle {
             }
     }
     
-    public Battle(Player player) {
+    // What is this? Do we need this? Am I dumb?
+    public Battle(Player player) {  
         this.player = player;
     }
 
     void choosesAttackOrStats(Enemy currentMonster, Player player) {
         String attackChoice= "";
         while (attackChoice != "1" || attackChoice != "2") {
-            System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Display stats.");
-            attackChoice = scanner.nextLine();
+            System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Heal.");
+            attackChoice = input.readInput(player);
             if (attackChoice.equals("1")) {
                 player.attack(currentMonster);
-                System.out.println(currentMonster.getName() + ":  HP: " + currentMonster.getHitPoints());
+                System.out.println(currentMonster.getName() + " Current HP: " + currentMonster.getHitPoints());
                 break;
             } else if (attackChoice.equals("2")) {
-                player.displayPlayerStats(scanner);
+                player.heal(player);
                 break;
             } else {
-                System.out.println("Incorrect input.");
             }
         }
     }
@@ -82,7 +81,7 @@ public class Battle {
     }
 
     public boolean dragonKillsPlayer() {
-        if (player.hasExcalibre == 1) {
+        if (player.excalibre == 1) {
             return false;
         } else {
             return true;
@@ -92,6 +91,8 @@ public class Battle {
 
     
     public static void main(String[] args) {
+        // Main for testing. Remove before release.
+        
         Player player = new Player("Brian");
         Battle b = new Battle(player);
         player.setSpeed(1);

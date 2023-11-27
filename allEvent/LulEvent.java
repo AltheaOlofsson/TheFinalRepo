@@ -1,4 +1,4 @@
-import java.util.Scanner;
+
 
 public class LulEvent extends Event {
        
@@ -7,7 +7,7 @@ public class LulEvent extends Event {
                 this.eventLevel = 12;
 }     
         @Override
-        public void execute(Player player, Scanner scanner) {
+        public void execute(Player player, InputHandler inputHandler) {
                 System.out.println("Lul");
                 }
         

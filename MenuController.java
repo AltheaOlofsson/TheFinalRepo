@@ -1,12 +1,13 @@
-import java.util.Scanner;
 
 public class MenuController {
-    Scanner userInput = new Scanner(System.in);
+    // Scanner userInput = new Scanner(System.in);
+    InputHandler input = new InputHandler();
     boolean storyOnce = false;
     boolean introStoryOnce = false;
 
+
     public Player selectOption() {
-        String menuChoice = userInput.nextLine().toLowerCase();
+        String menuChoice = input.readInput(null);
         String name;
         Player player = null;
 
@@ -16,29 +17,29 @@ public class MenuController {
                 clearScreen();
                 while(!storyOnce)
                 {
-                    try 
-                    {
-                        beginStory();
-                    }
-                    catch (InterruptedException e) {/* IGNORE */}
+                    // try 
+                    // {
+                    //     // beginStory();
+                    // }
+                    // catch (InterruptedException e) {/* IGNORE */}
                     storyOnce = true;
                 }
-                name = inputName(userInput);
+                name = inputName(input);
                 player = new Player(name);
                 clearScreen();
                 while(!introStoryOnce)
                 {
-                    try
-                    {
-                        introStory();
-                    }
-                    catch (InterruptedException e) {/* IGNORE */}
+                    // try
+                    // {
+                    //     introStory();
+                    // }
+                    // catch (InterruptedException e) {/* IGNORE */}
                     introStoryOnce = true;
                 }
                 IntroductionBattle introBattle = new IntroductionBattle(player);
                 introBattle.introBattle(player);
                 System.out.println(midStory);
-                userInput.nextLine();
+                input.readInput(player);
                 GameController game = new GameController(player);
                 game.selectPath();
                 return player;
@@ -47,14 +48,14 @@ public class MenuController {
             case "2":
                 clearScreen();
                 System.out.println(instructions);
-                userInput.nextLine();
+                input.readInput(player);
                 clearScreen();
                 break;
 
             case "quit":
             case "3":
                 System.out.println("Game Shutting down...");
-                userInput.close();
+                input.readInput(player);
                 System.exit(0);
                 break;
 
@@ -93,12 +94,13 @@ public class MenuController {
     +"\n\nWhich path do you take?"
     +"\nPress ENTER to continue and choose a path.";
     
-    public String inputName(Scanner userInput) {
+    public String inputName(InputHandler inputHandler) {
         boolean nameEmpty = true;
         String name = "";
         while (nameEmpty) {
             System.out.println("\n\nWhat is your name? ");
-            name = userInput.nextLine();
+            name = input.readInput(null);
+
             if (name.length() != 0) {
                 nameEmpty = false;
             }
