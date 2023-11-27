@@ -1,5 +1,3 @@
-package allEvent;
-
 
 public class RootEvent extends Event {
        

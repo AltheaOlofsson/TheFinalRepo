@@ -1,5 +1,3 @@
-package allEvent;
-
 
 public class ArenaEvent extends Event {
      ArenaEvent() {

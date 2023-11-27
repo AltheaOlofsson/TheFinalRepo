@@ -1,4 +1,3 @@
-package allEvent;
 
 
 public class NoEventsLeft extends Event {

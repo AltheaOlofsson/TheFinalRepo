@@ -1,5 +1,3 @@
-package allEvent;
-
 
 import java.util.Scanner;
 

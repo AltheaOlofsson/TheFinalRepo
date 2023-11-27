@@ -1,4 +1,4 @@
-package allEvent;
+
 
 public class TravelerEvent extends Event{
 

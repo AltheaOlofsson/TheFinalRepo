@@ -1,6 +1,3 @@
-package allEvent;
-
-
 public class AbandonedMinesEvent extends Event {
     
 boolean isAlive;

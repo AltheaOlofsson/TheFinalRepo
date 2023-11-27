@@ -1,4 +1,3 @@
-package allEvent;
 
 
 public class RandomChestEvent extends Event {

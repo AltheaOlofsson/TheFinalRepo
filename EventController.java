@@ -21,6 +21,7 @@ public class EventController {
     new FairyEvent(),
     //Level 5
     new AbandonedMinesEvent(),
+    new TempleEvent(),
 
     // Level 12
     new LulEvent()};
@@ -45,7 +46,7 @@ public class EventController {
     }
 
     public Event Level5(Player player){
-        Event Level5 = new HardlyCodedEvent();
+        Event Level5 = new Event5();
         return Level5;
     }
     
