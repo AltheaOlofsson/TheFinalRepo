@@ -27,6 +27,7 @@ public class InputHandler {
             System.out.println("Press ENTER to close.");
             scanner.nextLine();
         }
+        
 
         return input.toLowerCase();
     }
