@@ -10,19 +10,19 @@ public class PotionEvent extends Event {
 @Override
 public void execute(Player player, InputHandler inputHandler) {
 
-    System.out.println("\nIn the heart of the kingdom, you stumble upon the Grand Apothecary's alchemy shop. " + 
+    System.out.println("In the heart of the kingdom, you stumble upon the Grand Apothecary's alchemy shop. " + 
             "The Grand Apothecary, a wise old man, said he knew about special herbs rumored to be extinct but he was convinced of the opposite. " + 
             "He tells you about a rare herb called Haloe Waera, concealed deep within a cave at the southern edge of the kingdom.");
 
             pressEnterToContinue(player);
             
-            System.out.println("\nThe Grand Apothecary senses your strength and determination and hands you a weathered map, pinpointing the exact location of the cave and asks you to aquire the herb for him. " +
+            System.out.println("The Grand Apothecary senses your strength and determination and hands you a weathered map, pinpointing the exact location of the cave and asks you to aquire the herb for him. " +
             "He said that with this herb, he could make a potion to boost your health. " +
             "You ask if there's any dangers you should be aware of. The old man shrugs but you accept and prapare yourself accordingly before you set out.");
            
             pressEnterToContinue(player);
 
-            System.out.println("\nWith the map in hand you arrive at your destination. Through your efforts you establish that the cave has a labyrinth-like system. " + 
+            System.out.println("With the map in hand you arrive at your destination. Through your efforts you establish that the cave has a labyrinth-like system. " + 
             "You enter and is taken by the illuminated soft glow of phosphorsent moss clinging to the walls. It's as if it's alive, whispering secrets to you. " + 
             "The air has a mysterious stillness to it.. It's almost intoxicating. " + 
             "You navigate through narrow passages and crystal-like chambers until you find something plant-like with luminescent, succulent green leaves arranged in a rosette. " +

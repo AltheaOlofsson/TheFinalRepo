@@ -34,62 +34,9 @@ public class TempleEvent extends Event {
 
     }
 
-    public void randomLiveOrDie(Player player) {
-    System.out.println("\nYou decide to ignore the whispering and proceed cautiously.");
-
-    int randomOutcome = randomgen.nextInt(2);
-
-        switch (randomOutcome) {
-            case 0:
-                System.out.println("\nThe mysterious entity influences the events in your favor!\n" +
-                "You navigate the temple safely and find a hidden exit.\n" +
-                "Congratulations! You survived!");
-                    break;
-            case 1:
-                System.out.println("\nThe mysterious entity influences the events against you!\n" +
-                "A trap is triggered, and you fall into a pit.\n" +
-                "Game Over. You deadge.");
-                player.setCurrentHp(0);
-                if (!player.isAlive()) {return;}
-                    break;
-            default:
-            
-        }
-    }  
-    
-    public void investigateOrNo(Player player, InputHandler inputHandler)  {
-
-        boolean kiana = true;
-
-        while (kiana) {
-         System.out.println("\nYou decide to continue exploring the temple without touching anything.\n" +
-            "As you walk through the corridor, you hear a faint whispering sound.\n" +
-            "What do you want to do?\n\n" +
-            "1. Investigate the source of the whispering.\n" +
-            "2. Ignore the whispering and proceed cautiously.");
-
-            String secondChoiceExplore = inputHandler.readInput(player);
-
-                switch (secondChoiceExplore) {
-                    case "1":
-                        System.out.println("\nYou follow the sound of the whispering and encounter a mysterious figure.\n" +
-                        "The figure reveals itself as a helpful spirit, warning you of dangers.\n" +
-                        "Grateful for your caution, the spirit guides you safely out of the temple.\n" +
-                        "Congratulations! You survived!");
-                            kiana = false;
-                            break;
-                    case "2":
-                        randomLiveOrDie(player);
-                            kiana = false;
-                            break;
-                    default:
-                }
-        }
-    }
-
     public void embraceOrNegotiate(Player player, InputHandler inputHandler) {
-        
-        boolean elysia = true;
+    
+    boolean elysia = true;
 
         while(elysia) {
         System.out.println("\nYou cautiously approach the altar and inspect the glimmering object.\n" +
@@ -98,7 +45,7 @@ public class TempleEvent extends Event {
         "1. Embrace the power and accept the consequences.\n" +
         "2. Try to negotiate with the spirit or find another solution.");
 
-        String secondChoice = inputHandler.readInput(player);
+            String secondChoice = inputHandler.readInput(player);
 
             switch (secondChoice) {
                 case "1":
@@ -123,4 +70,62 @@ public class TempleEvent extends Event {
             }
         }
     }
+    
+    public void investigateOrNo(Player player, InputHandler inputHandler)  {
+
+        boolean kiana = true;
+
+        while (kiana) {
+         System.out.println("\nYou decide to continue exploring the temple without touching anything.\n" +
+            "As you walk through the corridor, you hear a faint whispering sound.\n" +
+            "What do you want to do?\n\n" +
+            "1. Investigate the source of the whispering.\n" +
+            "2. Ignore the whispering and proceed cautiously.");
+
+            String secondChoiceExplore = inputHandler.readInput(player);
+
+                switch (secondChoiceExplore) {
+                    case "1":
+                        System.out.println("\nYou follow the sound of the whispering and encounter a mysterious figure.\n" +
+                        "The figure reveals itself as a helpful spirit, warning you of dangers.\n" +
+                        "Grateful for your caution, the spirit guides you safely out of the temple.\n" +
+                        "Congratulations! You survived!");
+                        gainEXP(player);
+                            kiana = false;
+                            break;
+                    case "2":
+                        randomLiveOrDie(player);
+                            kiana = false;
+                            break;
+                    default:
+                }
+        }
+    }
+
+    public void randomLiveOrDie(Player player) {
+    System.out.println("\nYou decide to ignore the whispering and proceed cautiously.");
+
+    int randomOutcome = randomgen.nextInt(2);
+
+        switch (randomOutcome) {
+            case 0:
+                System.out.println("\nThe mysterious entity influences the events in your favor!\n" +
+                "You navigate the temple safely and find a hidden exit.\n" +
+                "Congratulations! You survived! You gain:\nAttack: + 2\nMax HP: + 5\n");
+                player.addAttack(2);
+                player.addMaxHp(5);
+                player.addCurrentHp(5);
+                gainEXP(player);
+                    break;
+            case 1:
+                System.out.println("\nThe mysterious entity influences the events against you!\n" +
+                "A trap is triggered, and you fall into a pit.\n" +
+                "Game Over. You deadge.");
+                player.setCurrentHp(0);
+                if (!player.isAlive()) {return;}
+                    break;
+            default:
+            
+        }
+    }  
 }
