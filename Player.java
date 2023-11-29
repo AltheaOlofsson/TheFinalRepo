@@ -13,6 +13,7 @@ int experience;
 int apple;
 int fairy;
 int excalibre;
+int branch;
 
 
 
@@ -27,6 +28,7 @@ this.experience = 0;
 this.apple = 3;
 this.fairy = 0;
 this.excalibre = 0;
+this.branch = 0;
 }
 
 

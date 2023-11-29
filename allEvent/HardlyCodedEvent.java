@@ -80,6 +80,7 @@ public class HardlyCodedEvent extends Event {
                                 userInput.nextLine();
                                 if (userInput.equals("1") || userInput.equals("Yes") || userInput.equals("yes") || userInput.equals("y")) {
                                         System.out.println("You keep the branch. Who knows? It could be usefull.");
+                                        player.branch = 1;
                                 } else {
                                         System.out.println("You throw the branch into the ditch.");
                                 }

@@ -52,7 +52,7 @@ public class Dragon {
         System.out.println("You have slain the mighty Dragonlord Silamgar and freed the area of it's taint");
         Thread.sleep(4500);
         System.out.println("Who would have known... you were a hero after all.");
-        Thread.sleep(3500);
+        Thread.sleep(10500);
         AdventureGame.clearScreen();
     }
 }
