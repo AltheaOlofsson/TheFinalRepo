@@ -6,21 +6,21 @@ public class Dragon {
 
     public void introduce() throws InterruptedException {
         System.out.println("A mighty dragon rears up infront of you."); 
-        Thread.sleep(2000);
+        // Thread.sleep(2000);
         System.out.println("With it's huge fangs and golden ornaments it looks absolutely dominant.");
-        Thread.sleep(5000);
+        // Thread.sleep(5000);
         System.out.println("- Who do you think you are to stand before the mighty Dragonlord Silamgar?");
-        Thread.sleep(5000);
+        // Thread.sleep(5000);
         System.out.println("It's hissing voice fills the air like a thousand snakes all at once.");
-        Thread.sleep(5000);
+        // Thread.sleep(5000);
         System.out.println("- I have sneared countless bodies to serve me even after their life have left them!");
-        Thread.sleep(5500);
+        // Thread.sleep(5500);
         System.out.println("- I tricked the fierce Khan Tasigur and made him into a pendant.");
-        Thread.sleep(4500);
+        // Thread.sleep(4500);
         System.out.println("You see that he does have what seems like a withered body hanging around");
-        Thread.sleep(5000); 
+        // Thread.sleep(5000); 
         System.out.println("his neck in a golden chain, with links the size of your shoes.");
-        Thread.sleep(4500);
+        // Thread.sleep(4500);
         System.out.println("- I have even tricked death itself, and you think that YOU can kill me?");
         Thread.sleep(5000);
         System.out.println("What's left of your body will serve me eternally");

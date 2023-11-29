@@ -74,7 +74,7 @@ public void heal(Player player){
 public void levelUp() {
     level++;
     maxHp += 10;
-    attack += 3;
+    attack += 2;
     speed += 5;
     setCurrentHp(maxHp);
     System.out.println("Congratulations! You leveled up to level " + getLevel() + "!");

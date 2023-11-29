@@ -90,13 +90,6 @@ public class GameController {
                 break;
             }
 
-            if (player.getLevel() == 5) {
-                clearScreen();
-                pressEnterToContinue(player);
-                Event e = eventControl.Level5(player);
-                e.execute(player, input);
-            }
-
             if (player.getLevel() >= 10) { //This player level was just an example.
             
                 player.setFairy(0);
@@ -132,18 +125,30 @@ public class GameController {
     public void crossroads(){
         int randompath = random.nextInt(3);
         if(randompath == 1){
+                if (player.getLevel() == 5) {
                 clearScreen();
-                Event e = eventControl.generateEvent(player);
+                Event e = eventControl.Level5(player);
                 e.execute(player, input);
+                } else {
+                    clearScreen();
+                    Event e = eventControl.generateEvent(player);
+                    e.execute(player, input);
+                }
+
         } else {
+                if (player.getLevel() == 5) {
+                clearScreen();
+                Event e = eventControl.Level5(player);
+                e.execute(player, input);
+                } else {
                 clearScreen();
                 Battle battle = new Battle(player);
                 battle.battle(player);
+                }
         } 
     }
     
     public void gameOver() throws InterruptedException {
-        // clearScreen();  this messed up some events. i think we can do without it.
         System.out.println("You've died!");
         System.out.println("\nThis poor soul has perished, may darkness overtake them and drift away to the afterlife.");
         System.out.println("\nDo you want to retry? Press ENTER to exit to menu, type \"No\" to quit.");
@@ -159,10 +164,9 @@ public class GameController {
         }
     
 
-    public void theEnd() throws InterruptedException {
-        clearScreen();
+    public void theEnd() {
         System.out.println("You've Reached the end!");
-        System.out.println("\nDo you want to retry? Press ENTER to exit to menu, type \"No\" to quit.");
+        System.out.println("\nDo you want to play again? Press ENTER to exit to menu, type \"No\" to quit.");
         String playAgain = input.readInput(player);
 
         if (playAgain.equals("no") || playAgain.equals("n")) {

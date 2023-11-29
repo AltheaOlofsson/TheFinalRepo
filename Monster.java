@@ -7,14 +7,14 @@ public enum Monster {
     ORC("Orc", 40, 6, 8, 3, 25, 70, false),
     DIRE_WOLF("Dire wolf", 35, 8, 10, 3, 40, 60, false),
     GIANT_SPIDER("Giant spider", 35, 4, 14, 4, 35, 90, false),
-    BEAR("Bear", 55, 8, 10, 4, 30, 80, false),
+    BEAR("Bear", 55, 8, 12, 4, 30, 80, false),
     OGRE("Ogre", 55, 14, 16, 6, 30, 70, false),
-    TROLL("Troll", 65, 2, 16, 6, 25, 70, false),
-    WURM("Wurm", 60, 6, 12, 6, 45, 60, false),
-    VAMPIRE("Vampire", 60, 10, 12, 7, 250, 100, true),
-    WEREWOLF("Werewolf", 80, 12, 18, 7, 50, 100, false),
-    DEMON("Demon", 90, 15, 20, 8, 80, 100, false),
-    CHIMERA("Chimera", 100, 20, 25, 9, 90, 100, false);
+    TROLL("Troll", 65, 5, 19, 6, 25, 70, false),
+    WURM("Wurm", 60, 10, 15, 6, 45, 60, false),
+    VAMPIRE("Vampire", 60, 10, 12, 7, 250, 90, true),
+    WEREWOLF("Werewolf", 80, 15, 23, 7, 50, 90, false),
+    DEMON("Demon", 90, 15, 25, 8, 80, 90, false),
+    CHIMERA("Chimera", 100, 20, 30, 9, 90, 90, false);
 
     String name;
     int hp;

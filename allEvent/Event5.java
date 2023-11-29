@@ -24,14 +24,14 @@ public class Event5 extends Event {
                                         AdventureGame.clearScreen();
                                         System.out.println("You decide to help");    
                                         int randomLoot = randomgen.nextInt(100) + 1;
-                                        if (randomLoot > 90 && randomLoot <= 100) {
+                                        if (randomLoot > 80 && randomLoot <= 100) {
                                                 player.setExcalibre(1);
                                                 System.out.println("You get the fantastical magic sword.");
                                                 player.addExperience(100);
                                                 help = false;
                                                 break;
                                         }
-                                        else if (randomLoot < 91 && randomLoot > 60){
+                                        else if (randomLoot < 81 && randomLoot > 60){
                                                 player.addAttack(5);
                                                 player.addSpeed(5);
                                                 System.out.println("Amulet of strenght \nAttack: + 5 \nSpeed: + 5");
