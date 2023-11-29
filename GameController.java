@@ -47,10 +47,10 @@ public class GameController {
             case "left":
             case "1":
 
-                // crossroads();
-                clearScreen();                       // For testing. Remove before release.
-                Event e = eventControl.generateEvent(player);
-                e.execute(player, input);
+                crossroads();
+                // clearScreen();                       // For testing. Remove before release.
+                // Event e = eventControl.generateEvent(player);
+                // e.execute(player, input);
                 break;
 
             case "right":
@@ -101,7 +101,7 @@ public class GameController {
             
                 player.setFairy(0);
                 clearScreen();
-                try {endStory();}
+                try {endStory(input);}
                 catch (InterruptedException e) {/* IGNORE */}
                 Battle b = new Battle(player);
                 b.dragonFight(new Dragon("TestDragon"), player);
@@ -174,17 +174,17 @@ public class GameController {
         clearScreen();
     }
 
-    public void endStory() throws InterruptedException {
+    public void endStory(InputHandler inputHandler) throws InterruptedException {
         System.out.print("As you keep pacing towards the ruined catacombs... ");
         System.out.print("you start to feel immense dread as you get closer and closer.");
         System.out.print("\nThe despair you're feeling grows intensely, your legs shakes in fear.");
         System.out.println("\nPress Enter to Continue");
-        userInput.nextLine();
+        input.readInput(player);
         System.out.println("As you approach the last room of the catacombs, the remains of an ancient altar.");
         System.out.print("You hear the foreboding bellows from the monster.");
         System.out.print(" The horror of it is immense, you stand hopeless.");
         System.out.println("\nPress Enter to Continue");
-        userInput.nextLine();
+        input.readInput(player);  
         System.out.println("You make a feeble attempt to regain control of yourself.");
         System.out.print("Drawing your weapon and readying yourself for the beasts incoming attack.\n");
         Thread.sleep(1500);

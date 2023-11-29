@@ -69,6 +69,7 @@ public void execute(Player player, InputHandler inputHandler) {
                 System.out.println("\nYou pull the lever but it's stuck. You're not one to be outsmarted by a lever so you summon the strength of an ox!" +
                 "\n'HHNNNNNNNGG-' and the lever suddenly gives way, you faceplant the ground and lose 3 HP. Ouch.");
                 player.decreaseCurrentHp(3);
+                if (!player.isAlive()) {return;}
                 System.out.println("\nThe collapsed entrance starts to shift as a result and a narrow passage opens. You proceed down the passage.");
                 isLeverPulled = true;
                 break;
