@@ -38,6 +38,7 @@ public class MenuController {
                 }
                 IntroductionBattle introBattle = new IntroductionBattle(player);
                 introBattle.introBattle(player);
+                player.setApple(4);
                 System.out.println(midStory);
                 input.readInput(player);
                 GameController game = new GameController(player);

@@ -21,6 +21,7 @@ public class EventController {
     new FairyEvent(),
     //Level 5
     new AbandonedMinesEvent(),
+    //Level 6
     new TempleEvent(),
 
     // Level 12
