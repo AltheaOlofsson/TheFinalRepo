@@ -117,7 +117,7 @@ public class HardlyCodedEvent extends Event {
                                 System.out.println("He pulls out a beautiful green cloak and hands it to you.");
                                 input.readInput(player);
                                 System.out.println("You've gained: Green cloak.");
-                                pressEnterToContinue(player)
+                                pressEnterToContinue(player);
                         } else {
                                 System.out.println("He pulls out a dirty rag.");
                                 input.readInput(player);
