@@ -17,11 +17,11 @@ public class MenuController {
                 clearScreen();
                 while(!storyOnce)
                 {
-                    // try 
-                    // {
-                    //     // beginStory();
-                    // }
-                    // catch (InterruptedException e) {/* IGNORE */}
+                    try 
+                    {
+                        beginStory(input);
+                    }
+                    catch (InterruptedException e) {/* IGNORE */}
                     storyOnce = true;
                 }
                 name = inputName(input);
@@ -29,11 +29,11 @@ public class MenuController {
                 clearScreen();
                 while(!introStoryOnce)
                 {
-                    // try
-                    // {
-                    //     introStory();
-                    // }
-                    // catch (InterruptedException e) {/* IGNORE */}
+                    try
+                    {
+                        introStory();
+                    }
+                    catch (InterruptedException e) {/* IGNORE */}
                     introStoryOnce = true;
                 }
                 IntroductionBattle introBattle = new IntroductionBattle(player);
@@ -112,7 +112,7 @@ public class MenuController {
         return name;
     }
 
-    public void beginStory() throws InterruptedException {
+    public void beginStory(InputHandler inputHandler) throws InterruptedException {
         System.out.println(">|GAME START|<");
         Thread.sleep(1500);
         clearScreen();
@@ -143,6 +143,9 @@ public class MenuController {
         Thread.sleep(2000);
         System.out.println("You leave and never look behind back at your old life...");
         Thread.sleep(2000);
+        System.out.println("Press ENTER to begin your adventure.");
+        input.readInput(null);
+
     }
 
     public static void introStory() throws InterruptedException 

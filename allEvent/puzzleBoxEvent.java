@@ -34,7 +34,7 @@ public class puzzleBoxEvent extends Event {
                 break;
             } else if (userGuess.equals("/stats")){
                     continue;
-            } else if (userGuess.equals("/help")){
+            } else if (userGuess.equals("/menu")){
                     continue;
             } else {
                 System.out.println("Nothing happens. Try again.");

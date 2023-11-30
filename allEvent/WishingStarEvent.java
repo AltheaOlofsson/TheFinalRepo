@@ -25,10 +25,12 @@ public void execute(Player player, InputHandler inputHandler){
                     } else {
                         noWish(player);
                          wishChoice=false;
+                         if (!player.isAlive()) {return;}
                     }
         } else if (choice.equalsIgnoreCase("no")) {
             noWish(player);
              wishChoice=false;
+             if (!player.isAlive()) {return;}
         } else {
         }
     }      
@@ -67,6 +69,7 @@ private void noWish(Player player) {
     System.out.println("You decide to just admire the beautiful natural occurance of possible impending doom " +
     "and suddenly can't seem to get the 'impending doom'-part out of your mind.\nYou have trouble falling asleep.\nHP: - 5\n");
         player.decreaseCurrentHp(5);
+        if (!player.isAlive()) {return;}
     System.out.println("You wake up at dawn of the next day and feel like shit. Despite that you know you have to " + 
     "continue your journey.");
 

@@ -18,9 +18,9 @@ public class RandomChestEvent extends Event {
          "But beware, only one is a lucky choice, the others only contains missfortune. " + 
          "\nYou cannot resist and against your better judgement you agree to the game. ");
 
-        boolean chestPicked = false;
+        boolean chestPicked = true;
 
-        while(!chestPicked){
+        while(chestPicked){
          int chest = randomgen.nextInt(4);
 
             switch(chest){
@@ -34,7 +34,7 @@ public class RandomChestEvent extends Event {
                 System.out.println("You take the amulet from the chest and put it around your neck. You feel stronger already.");
                 System.out.println("Max HP: + 10 \nAttack: + 5");
                 System.out.println();
-                chestPicked = true;
+                chestPicked = false;
                 pressEnterToContinue(player);
                 break;
             }
@@ -46,7 +46,7 @@ public class RandomChestEvent extends Event {
                 player.addAttack(5);
                 System.out.println("Attack: + 5 \nSpeed: +5");
                 System.out.println();
-                chestPicked = true;
+                chestPicked = false;
                 pressEnterToContinue(player);
                 break;
             }
@@ -57,7 +57,7 @@ public class RandomChestEvent extends Event {
                 player.addAttack(10);
                 System.out.println("Attack: + 10");
                 System.out.println();
-                chestPicked = true;
+                chestPicked = false;
                 pressEnterToContinue(player);
                 break;
             }
@@ -72,7 +72,7 @@ public class RandomChestEvent extends Event {
                 player.addSpeed(10);
                 System.out.println("Speed: + 10");
                 System.out.println();
-                chestPicked = true;
+                chestPicked = false;
                 pressEnterToContinue(player);
                 break;
             }

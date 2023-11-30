@@ -68,7 +68,7 @@ public class Battle {
 
     public void dragonFight(Dragon bossDragon, Player player) {
         Dragon currentBoss = (Dragon) getRandomBoss();
-        try {currentBoss.introduce();}
+        try {currentBoss.introduce(player);}
         catch (InterruptedException e) {/*Ignore this*/}
         
         if (dragonKillsPlayer() == true) {

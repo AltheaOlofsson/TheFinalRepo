@@ -14,7 +14,7 @@ public class IntroductionBattle
 
     public void introBattle(Player player) {
         Enemy currentMonster = slime;
-        System.out.println("The slime sludges towards you.");
+        System.out.println("\nThe slime sludges towards you. It looks just like a blob of goo and you wonder why everyone seems so afraid of such a harmless looking thing. Lost in your thoughts you fail to be vigilant and quickly has to pay the price. ");
 
         while (player.isAlive()) 
         {
