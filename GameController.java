@@ -37,7 +37,7 @@ public class GameController {
 
     
     public void selectPath() {
-        clearScreen();
+        // clearScreen();
         while (player.isAlive()) {
 
             System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? \n[3]Eat a Golden Apple (" + player.getApple() + "/4)");
@@ -48,6 +48,15 @@ public class GameController {
             case "1":
 
                 crossroads();
+            if (player.getLevel() >= 10) { //This player level was just an example.
+            
+                player.setFairy(0);
+                clearScreen();
+                Event e = eventControl.dragonFight(player,input);
+                e.execute(player, input);
+                return;}
+                
+
                 // clearScreen();                       // For testing. Remove before release.
                 // Event e = eventControl.generateEvent(player);
                 // e.execute(player, input);
@@ -57,7 +66,13 @@ public class GameController {
             case "2":
 
                 crossroads();
-                // clearScreen();                       // For testing. Remove before release.
+            if (player.getLevel() >= 10) { //This player level was just an example.
+            
+                player.setFairy(0);
+                clearScreen();
+                Event e = eventControl.dragonFight(player,input);
+                e.execute(player, input);
+                return; }               // clearScreen();                       // For testing. Remove before release.
                 // Battle battle = new Battle(player);
                 // battle.battle(player);
                 break;
@@ -90,21 +105,14 @@ public class GameController {
                 break;
             }
 
-            if (player.getLevel() >= 10) { //This player level was just an example.
+            // if (player.getLevel() >= 10) { //This player level was just an example.
             
-                player.setFairy(0);
-                clearScreen();
-                Event e = eventControl.dragonFight(player,input);
-                e.execute(player, input);
-                // try {endStory(input);}
-                // catch (InterruptedException e) {/* IGNORE */}
-                // Battle b = new Battle(player);
-                // b.dragonFight(new Dragon("TestDragon"), player);
-                // System.out.println("{THE END} \nPress ENTER to exit.");
-                // input.readInput(player);
-                // System.exit(0);
-                return;
-            }
+            //     player.setFairy(0);
+            //     clearScreen();
+            //     Event e = eventControl.dragonFight(player,input);
+            //     e.execute(player, input);
+            //     return;
+            // }
 
             if (!player.isAlive()) {
                 if (player.getFairy() > 0) 
@@ -132,7 +140,14 @@ public class GameController {
                 clearScreen();
                 Event e = eventControl.Level5(player);
                 e.execute(player, input);
-                } else {
+                } else if (player.getLevel() >= 10){
+                    player.setFairy(0);
+                clearScreen();
+                Event e = eventControl.dragonFight(player,input);
+                e.execute(player, input);
+                return;
+                }
+                else {
                     clearScreen();
                     Event e = eventControl.generateEvent(player);
                     e.execute(player, input);
@@ -143,7 +158,14 @@ public class GameController {
                 clearScreen();
                 Event e = eventControl.Level5(player);
                 e.execute(player, input);
-                } else {
+                } else if (player.getLevel() >= 10){
+                    player.setFairy(0);
+                clearScreen();
+                Event e = eventControl.dragonFight(player,input);
+                e.execute(player, input);
+                return;
+                }
+                else {
                 clearScreen();
                 Battle battle = new Battle(player);
                 battle.battle(player);

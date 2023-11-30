@@ -39,8 +39,6 @@ public class MenuController {
                 IntroductionBattle introBattle = new IntroductionBattle(player);
                 introBattle.introBattle(player);
                 player.setApple(4);
-                System.out.println(midStory);
-                input.readInput(player);
                 GameController game = new GameController(player);
                 game.selectPath();
                 return player;
@@ -88,13 +86,6 @@ public class MenuController {
         + "\n- /stats : Displays the current stats of the player." + "\n- /quit : Quits the game."
         
         + "\n\nGood luck \"mundane somebody\"!" + "\n\nPress ENTER to return to menu.";
-
-    String midStory =
-    "\nAfter your valiant victory against the slime you come across two paths."
-    +"\nYou feel confident in your adventure, ready to take on any challenge ahead."
-    +"\nOne path leading to the left, another leading to the right."
-    +"\n\nWhich path do you take?"
-    +"\nPress ENTER to continue and choose a path.";
     
     public String inputName(InputHandler inputHandler) {
         boolean nameEmpty = true;
