@@ -94,13 +94,16 @@ public class GameController {
             
                 player.setFairy(0);
                 clearScreen();
-                try {endStory(input);}
-                catch (InterruptedException e) {/* IGNORE */}
-                Battle b = new Battle(player);
-                b.dragonFight(new Dragon("TestDragon"), player);
-                System.out.println("{THE END} \nPress ENTER to exit.");
-                input.readInput(player);
-                System.exit(0);
+                Event e = eventControl.dragonFight(player,input);
+                e.execute(player, input);
+                // try {endStory(input);}
+                // catch (InterruptedException e) {/* IGNORE */}
+                // Battle b = new Battle(player);
+                // b.dragonFight(new Dragon("TestDragon"), player);
+                // System.out.println("{THE END} \nPress ENTER to exit.");
+                // input.readInput(player);
+                // System.exit(0);
+                return;
             }
 
             if (!player.isAlive()) {
@@ -191,9 +194,9 @@ public class GameController {
         input.readInput(player);  
         System.out.println("You make a feeble attempt to regain control of yourself.");
         System.out.print("Drawing your weapon and readying yourself for the beasts incoming attack.\n");
-        Thread.sleep(1500);
+        // Thread.sleep(1500);
         System.out.print(".");
-        Thread.sleep(1500);
+        // Thread.sleep(1500);
         System.out.print(".");
     }
 

@@ -22,7 +22,7 @@ public class TravelerEvent extends Event{
     } else if (choice.equalsIgnoreCase("n")) {
         System.out.println("You ingore the traveler and continue down the road.");
         battle.battle(player);
-        // System.out.println("Nothing happens.");
+        if (!player.isAlive()) {return;}
         traveler = false;
         }
     }

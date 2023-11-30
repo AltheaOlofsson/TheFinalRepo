@@ -44,6 +44,9 @@ public void displayPlayerStats() {
     System.out.println("Level: " + level);
     System.out.println("Current EXP: " + getExperience());
     System.out.println("Amount of Golden Apples: " + getApple() + "/4");
+    if(excalibre==1){System.out.println("You possess the magical sword Excalibre.");}
+    if (fairy==1){System.out.println("You have recieved the blessing of the Fairy Lady");}
+    if(branch==1){System.out.println("You are carrying a branch, maybe it will come in handy.. Or maybe it wont.");}
     System.out.println();
 }
 
@@ -225,10 +228,11 @@ public static void main(String[] args) throws InterruptedException {
     // player.setSpeed(15);
     // player.setCurrentHp(25);
 
-    player.setLevel(6);;
+    player.setLevel(6);
+    player.setExcalibre(1);
     
     // TravelerEvent aM = new TravelerEvent();
-    Event AM = new puzzleBoxEvent();
+    Event AM = new dragonFight();
     AM.execute(player, input);
 
 }

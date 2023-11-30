@@ -11,9 +11,9 @@ public enum Monster {
     OGRE("Ogre", 55, 14, 16, 6, 30, 70, false),
     TROLL("Troll", 65, 5, 20, 6, 25, 70, false),
     WURM("Wurm", 60, 10, 15, 6, 45, 60, false),
-    VAMPIRE("Vampire", 70, 10, 18, 7, 250, 90, true),
+    VAMPIRE("Vampire", 70, 16, 20, 7, 250, 90, true),
     WEREWOLF("Werewolf", 90, 15, 25, 7, 50, 90, false),
-    DEMON("Demon", 120, 15, 30, 8, 80, 90, false),
+    DEMON("Demon", 120, 20, 30, 8, 80, 90, false),
     CHIMERA("Chimera", 130, 20, 35, 9, 90, 90, false);
 
     String name;

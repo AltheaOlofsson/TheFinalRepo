@@ -50,6 +50,11 @@ public class EventController {
         Event Level5 = new Event5();
         return Level5;
     }
+
+    public Event dragonFight(Player player, InputHandler inputHandler){
+        Event dragonFight = new dragonFight();
+        return dragonFight;
+    }
     
   
 }
