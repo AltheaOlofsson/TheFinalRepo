@@ -47,7 +47,7 @@ public class EventController {
     }
 
     public Event Level5(Player player){
-        Event Level5 = new Event5();
+        Event Level5 = new HardlyCodedEvent();
         return Level5;
     }
 
