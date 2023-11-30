@@ -11,7 +11,7 @@ public void execute(Player player, InputHandler inputHandler){
 
     boolean voice = true;
     while(voice){
-        System.out.println("You hear a singing voice coming from deep within the forest. Do you check it out? (Y/N)");
+        System.out.println("As you walk along the path you hear a singing voice coming from deep within the forest. Do you check it out? (Y/N)");
         String check = input.readInput(player);  
         if(check.equals("y")) {
             dontLeave(player);
@@ -101,8 +101,8 @@ public void execute(Player player, InputHandler inputHandler){
                     break;
                 case "3":
                     System.out.println("The Fair Lady notices you prostrating and appears in your path. You are sure great missfortune will befall you now but she asks you to stand, calling you silly for bowing to her. You are not stupid enough to correct her." + 
-                    "She wishes to converse with you so you anser her questions about the world and your travels until dusk falls and she sends you on your way with the blessing of the Fairies." + 
-                    "You do not know what this means but are just happy to have survived the fantasical encounter.");
+                    " She wishes to converse with you so you answer her questions about the world and of your travels until dusk falls and she sends you on your way with the blessing of the Fairies." + 
+                    " You do not know what this means but are just happy to have survived the fantasical encounter.");
                     player.addFairy(1);
                     System.out.println("You now have a Fairy's blessing, When in dire need your life might be saved. \nExperience: + 80");
                     player.addExperience(80);

@@ -13,7 +13,7 @@ public void execute(Player player, InputHandler inputHandler) {
     boolean swamp = true;
     while (swamp){
 
-    System.out.println("While foraging through the forest a glint of sunlight reflecting from an unusual object catches your attention. " + 
+    System.out.println("The path takes you through a forest and while traversing it a glint of sunlight reflecting from an unusual object catches your attention. " + 
     "\nIntrigued, you decide to investigate and discover an old, weathered compass half-buried in the ground. " + 
     "\nWith a newfound sense of direction, you follow the needle and end up at the edge of a swamp." +
     "\nYou begin to trudge through the challenging terrain, mud grabbing at every step. " + 

@@ -68,7 +68,7 @@ public class RandomChestEvent extends Event {
                 System.out.println("The peculiarly dressed man seems delighted at the sight of the content of the chest." + 
                 "\n'I've been looking everywhere for this! The rules state it's yours now but would you trade your prize for this magical cloak instead?' he says. " + 
                 "\nYou have no reason to refuse the offer. The stinky content in the chest doesn't seem to do you any good. You accept." + 
-                "The cloak feels like water in your hands and the light material is shimmering in the sunlight. You pull it on and your body feel light. ");
+                " The cloak feels like water in your hands and the light material is shimmering in the sunlight. You pull it on and your body feel light. ");
                 player.addSpeed(10);
                 System.out.println("Speed: + 10");
                 System.out.println();

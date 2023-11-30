@@ -10,6 +10,7 @@ WishingStarEvent(){
 public void execute(Player player, InputHandler inputHandler){
     boolean wishChoice = true;
     while(wishChoice){
+    System.out.println("After a few hours of walking the sun rolls down under the horizon and you decide to stop for some rest.");
     System.out.println("When you are about to tuck in for the night you witness a meteor shower and have the opportunity to wish upon a falling star");
     System.out.println("Do you make a wish? (y/n)");
     String choice = input.readInput(player);
