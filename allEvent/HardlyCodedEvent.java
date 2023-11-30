@@ -24,7 +24,7 @@ public class HardlyCodedEvent extends Event {
                 System.out.println("What do you want to do?? \n[1] Help the poor man. \n[2] Rob him blind. \n[3] Leave him on the road. You have important buisness to atend.");
                 Scanner chooseToHelp = new Scanner(System.in);
                 String giveHelpingHand = chooseToHelp.nextLine();
-                
+                for (int wrongInput = 0; wrongInput < 10; wrongInput++) {
                 if (giveHelpingHand.equals("1")) {
                         AdventureGame.clearScreen();
                         System.out.println("Press ENTER to continue");
@@ -124,6 +124,7 @@ public class HardlyCodedEvent extends Event {
                                 System.out.println("You've gained: Dirty rag.");
                         }
                         player.addExperience(100);
+                        break;
                 } else if (giveHelpingHand.equals("2")) {
                         AdventureGame.clearScreen();
                         System.out.println("You pull out your weapon and threaten the old man. He gives you his moneypouch while cursing you.");
@@ -133,16 +134,16 @@ public class HardlyCodedEvent extends Event {
                         player.decreaseCurrentHp(5);
                         player.decreaseMaxHp(5);
                         player.decreaseSpeed(3);
+                        break;
                 } else if (giveHelpingHand.equals("3")) {
                         AdventureGame.clearScreen();
                         System.out.println("You continue past him.");
+                        break;
                 } else {
                         System.out.println("Incorrect input. Please choose: 1, 2 or 3");
                 }
-            
-
+                }
                 
-
                 chooseToHelp.close();
         }
         
