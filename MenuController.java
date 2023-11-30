@@ -34,6 +34,11 @@ public class MenuController {
                         introStory();
                     }
                     catch (InterruptedException e) {/* IGNORE */}
+                    try
+                    {
+                        introStory();
+                    }
+                    catch (InterruptedException e) {/* IGNORE */}
                     introStoryOnce = true;
                 }
                 IntroductionBattle introBattle = new IntroductionBattle(player);
@@ -70,11 +75,11 @@ public class MenuController {
     String instructions =
         "In this game you will go through a series of encounters where the goal of the game is to reach the end."
         + "\nEach room will prompt you with a path of either left or right and present an event."
-        + "\nThese events could either be in the form combat against monsters or an event that will further prompt you to make a decision."
+        + "\nThese events could either be in the form of combat against monsters or an event that will further prompt you to make a decision."
         + "\nThese events can either reward or punish the player."
         
         + "\n\nThe player character and monsters has a set of stats, these are:"
-        + "\n- HP : How much health the player/monster has." + "\n- Attack : How much damage they deal."
+        + "\n- HP : How much health the player/monster has." 
         + "\n- Attack : How much minimum damage the player and the monster can output, the maximum output is randomized."
         + "\n- Level : What level the player is and determines their overall prowess."
         + "\n- Speed : How dexterous either one is, the one that has more than the other fights first."

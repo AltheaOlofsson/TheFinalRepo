@@ -24,6 +24,7 @@ public class HardlyCodedEvent extends Event {
                 System.out.println("What do you want to do?? \n[1] Help the poor man. \n[2] Rob him blind. \n[3] Leave him on the road. You have important buisness to atend.");
                 Scanner chooseToHelp = new Scanner(System.in);
                 String giveHelpingHand = chooseToHelp.nextLine();
+                for (int wrongInput = 0; wrongInput < 10; wrongInput++) {
                 if (giveHelpingHand.equals("1")) {
                         AdventureGame.clearScreen();
                         System.out.println("Press ENTER to continue");
@@ -39,11 +40,11 @@ public class HardlyCodedEvent extends Event {
                         Random random = new Random();
                         int randomLoot = random.nextInt(100) + 1;
                         if (randomLoot == 100) {
-                                System.out.println("He pulls out a beautiful sword and his smile immediately disappears");
+                                System.out.println("He pulls out a beautiful sword and his smile immediately disappears.");
                                 userInput.nextLine();
                                 System.out.println("- Just my luck. First my cart breaks and now I have to give away a legendary sword.");
                                 userInput.nextLine();
-                                System.out.println("But by my honour I'll stand by my word");
+                                System.out.println("But by my honour I'll stand by my word.");
                                 userInput.nextLine();
                                 System.out.println("You've gained: Legendary sword Excalibre");
                                 player.excalibre = 1;
@@ -56,7 +57,7 @@ public class HardlyCodedEvent extends Event {
                                 userInput.nextLine();
                                 System.out.println("- Now thats a blade of marvels. It glows blue if there are orcs around.");
                                 userInput.nextLine();
-                                System.out.println("You've gained: Stung");
+                                System.out.println("You've gained: Stung.");
                                 player.addAttack(20);
                                 player.addSpeed(20);
                         } else if (randomLoot <= 89 && randomLoot > 70) {
@@ -108,7 +109,7 @@ public class HardlyCodedEvent extends Event {
                                 userInput.nextLine();
                                 System.out.println("- The soldiers are all slave-eunuchs and very effective warriors.");
                                 userInput.nextLine();
-                                System.out.println("You've gained: Helm of the unsallied");
+                                System.out.println("You've gained: Helm of the unsallied.");
                                 player.addMaxHp(15);
                                 player.addCurrentHp(15);
                         } else if (randomLoot <= 9 && randomLoot < 1) {
@@ -116,25 +117,33 @@ public class HardlyCodedEvent extends Event {
                                 userInput.nextLine();
                                 System.out.println("You've gained: Green cloak.");
                         } else {
-                                System.out.println("He pulls out a dirty rag");
+                                System.out.println("He pulls out a dirty rag.");
                                 userInput.nextLine();
                                 System.out.println("- Whew seems to be my lucky day.");
                                 userInput.nextLine();
                                 System.out.println("You've gained: Dirty rag.");
                         }
+                        player.addExperience(100);
+                        break;
                 } else if (giveHelpingHand.equals("2")) {
                         AdventureGame.clearScreen();
-                        System.out.println("You pull out your weapon");
+                        System.out.println("You pull out your weapon and threaten the old man. He gives you his moneypouch while cursing you.");
+                        userInput.nextLine();
+                        System.out.println("While walking away you feel yourself loosing strenght.");
+                        player.decreaseAttack(3);
+                        player.decreaseCurrentHp(5);
+                        player.decreaseMaxHp(5);
+                        player.decreaseSpeed(3);
+                        break;
                 } else if (giveHelpingHand.equals("3")) {
                         AdventureGame.clearScreen();
-                        System.out.println(" ");
+                        System.out.println("You continue past him.");
+                        break;
                 } else {
                         System.out.println("Incorrect input. Please choose: 1, 2 or 3");
                 }
-
-
+                }
                 
-
                 chooseToHelp.close();
         }
         
