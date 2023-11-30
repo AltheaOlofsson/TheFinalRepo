@@ -62,6 +62,7 @@ public class MenuController {
 
             default:
                 System.out.println("Incorrect input! Please try again.");
+                clearScreen();
                 break;
         }
         return player;
