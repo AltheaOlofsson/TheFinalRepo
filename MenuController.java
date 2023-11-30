@@ -17,11 +17,11 @@ public class MenuController {
                 clearScreen();
                 while(!storyOnce)
                 {
-                    // try 
-                    // {
-                    //     // beginStory();
-                    // }
-                    // catch (InterruptedException e) {/* IGNORE */}
+                    try 
+                    {
+                        beginStory(input);
+                    }
+                    catch (InterruptedException e) {/* IGNORE */}
                     storyOnce = true;
                 }
                 name = inputName(input);
@@ -29,17 +29,16 @@ public class MenuController {
                 clearScreen();
                 while(!introStoryOnce)
                 {
-                    // try
-                    // {
-                    //     introStory();
-                    // }
-                    // catch (InterruptedException e) {/* IGNORE */}
+                    try
+                    {
+                        introStory();
+                    }
+                    catch (InterruptedException e) {/* IGNORE */}
                     introStoryOnce = true;
                 }
                 IntroductionBattle introBattle = new IntroductionBattle(player);
                 introBattle.introBattle(player);
-                System.out.println(midStory);
-                input.readInput(player);
+                player.setApple(4);
                 GameController game = new GameController(player);
                 game.selectPath();
                 return player;
@@ -60,6 +59,7 @@ public class MenuController {
                 break;
 
             default:
+                clearScreen();
                 System.out.println("Incorrect input! Please try again.");
                 break;
         }
@@ -69,11 +69,11 @@ public class MenuController {
     String instructions =
         "In this game you will go through a series of encounters where the goal of the game is to reach the end."
         + "\nEach room will prompt you with a path of either left or right and present an event."
-        + "\nThese events could either be in the form combat against monsters or an event that will further prompt you to make a decision."
+        + "\nThese events could either be in the form of combat against monsters or an event that will further prompt you to make a decision."
         + "\nThese events can either reward or punish the player."
         
         + "\n\nThe player character and monsters has a set of stats, these are:"
-        + "\n- HP : How much health the player/monster has." + "\n- Attack : How much damage they deal."
+        + "\n- HP : How much health the player/monster has." 
         + "\n- Attack : How much minimum damage the player and the monster can output, the maximum output is randomized."
         + "\n- Level : What level the player is and determines their overall prowess."
         + "\n- Speed : How dexterous either one is, the one that has more than the other fights first."
@@ -86,13 +86,6 @@ public class MenuController {
         + "\n- /stats : Displays the current stats of the player." + "\n- /quit : Quits the game."
         
         + "\n\nGood luck \"mundane somebody\"!" + "\n\nPress ENTER to return to menu.";
-
-    String midStory =
-    "\nAfter your valiant victory against the slime you come across two paths."
-    +"\nYou feel confident in your adventure, ready to take on any challenge ahead."
-    +"\nOne path leading to the left, another leading to the right."
-    +"\n\nWhich path do you take?"
-    +"\nPress ENTER to continue and choose a path.";
     
     public String inputName(InputHandler inputHandler) {
         boolean nameEmpty = true;
@@ -111,7 +104,7 @@ public class MenuController {
         return name;
     }
 
-    public void beginStory() throws InterruptedException {
+    public void beginStory(InputHandler inputHandler) throws InterruptedException {
         System.out.println(">|GAME START|<");
         Thread.sleep(1500);
         clearScreen();
@@ -142,6 +135,9 @@ public class MenuController {
         Thread.sleep(2000);
         System.out.println("You leave and never look behind back at your old life...");
         Thread.sleep(2000);
+        System.out.println("Press ENTER to begin your adventure.");
+        input.readInput(null);
+
     }
 
     public static void introStory() throws InterruptedException 

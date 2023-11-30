@@ -1,5 +1,5 @@
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.Scanner;
+
 
 public class Player {
 
@@ -8,12 +8,12 @@ int currentHp;
 int maxHp;
 int attack;
 int speed;
-// int Dodge;
 int level;
 int experience;
 int apple;
 int fairy;
 int excalibre;
+int branch;
 
 
 
@@ -21,14 +21,14 @@ Player(String name) {
 this.name = name;
 this.currentHp = 20;
 this.maxHp = 20;
-this.attack = 10;
+this.attack = 7;
 this.speed = 10;
-// this.dodge = 0;
 this.level = 1;
 this.experience = 0;
 this.apple = 3;
 this.fairy = 0;
 this.excalibre = 0;
+this.branch = 0;
 }
 
 
@@ -44,10 +44,13 @@ public void displayPlayerStats() {
     System.out.println("Level: " + level);
     System.out.println("Current EXP: " + getExperience());
     System.out.println("Amount of Golden Apples: " + getApple() + "/4");
+    if(excalibre==1){System.out.println("You possess the magical sword Excalibre.");}
+    if (fairy==1){System.out.println("You have recieved the blessing of the Fairy Lady");}
+    if(branch==1){System.out.println("You are carrying a branch, maybe it will come in handy.. Or maybe it wont.");}
     System.out.println();
 }
 
-public void attack(Monster currentMonster) {
+public void attack(Enemy currentMonster) {
 
     double maxDamage = (attack*1.2);
 
@@ -62,8 +65,8 @@ public void attack(Monster currentMonster) {
 
 public void heal(Player player){
     if(currentHp < maxHp && getApple() > 0) {
-                eatApple();
-                System.out.println("\nYou consumed a Golden Apple and restored your HP to max! HP: " + getCurrentHp() +"/" + getMaxHp() + "\n");
+        eatApple();
+        System.out.println("\nYou consumed a Golden Apple and restored your HP to max! HP: " + getCurrentHp() +"/" + getMaxHp() + "\n");
     } else if (currentHp == maxHp){
         System.out.println("\nYou are already at max health.\n");
     } else if (getApple() == 0) {
@@ -76,7 +79,7 @@ public void heal(Player player){
 public void levelUp() {
     level++;
     maxHp += 10;
-    attack += 3;
+    attack += 2;
     speed += 5;
     setCurrentHp(maxHp);
     System.out.println("Congratulations! You leveled up to level " + getLevel() + "!");
@@ -215,8 +218,8 @@ public static void main(String[] args) throws InterruptedException {
     //Main method for testing. Remove before release.
     
     Player player = new Player("Jimmy");
-    Scanner s = new Scanner (System.in);
-    EventController ec = new EventController();
+    // Scanner s = new Scanner (System.in);
+    // EventController ec = new EventController();
     InputHandler input = new InputHandler();
 
     // player.addExperience(100);
@@ -225,10 +228,11 @@ public static void main(String[] args) throws InterruptedException {
     // player.setSpeed(15);
     // player.setCurrentHp(25);
 
-    player.setLevel(6);;
+    player.setLevel(6);
+    player.setExcalibre(1);
     
     // TravelerEvent aM = new TravelerEvent();
-    Event AM = new puzzleBoxEvent();
+    Event AM = new dragonFight();
     AM.execute(player, input);
 
 }

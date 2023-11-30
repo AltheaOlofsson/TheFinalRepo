@@ -6,12 +6,30 @@ public class EventController {
     
     Random randomgen = new Random();
 
-    public Event[] eventEncounters = {new RootEvent(), new TravelerEvent(), new WishingStarEvent(), new FairyEvent(), new LulEvent(), new AbandonedMinesEvent(), new TavernEvent(), new RandomChestEvent(), new puzzleBoxEvent(),new PotionEvent(),new ArenaEvent()};
+    public Event[] eventEncounters = {
+    //level 1
+    new TavernEvent(),
+    new WishingStarEvent(),
+    //level 2
+    new TravelerEvent(), 
+    new RandomChestEvent(),
+    new PotionEvent(),
+    //level 3
+    new puzzleBoxEvent(),
+    //level 4
+    new RootEvent(),  
+    new FairyEvent(),
+    //Level 5
+    new AbandonedMinesEvent(),
+    //Level 6
+    new TempleEvent(),
+
+    // Level 12
+    new LulEvent()};
 
     ArrayList<Event> eventList = new ArrayList<>(Arrays.asList(eventEncounters)); 
 
     public Event generateEvent(Player player) {
-        Battle b = new Battle(player);
 
         List<Event> filteredEventList = eventList.stream()
         .filter(e -> (e.eventLevel <= player.getLevel()))
@@ -19,15 +37,11 @@ public class EventController {
 
         Event selectedEvent;
         if(filteredEventList.isEmpty()){
-             selectedEvent = new NoEventsLeft();   
+             selectedEvent = new noEventsLeft();   
         } else {
             selectedEvent = filteredEventList.get(randomgen.nextInt(filteredEventList.size()));
             eventList.remove(selectedEvent);
         }
-
-        // Event selectedEvent = filteredEventList.get(randomgen.nextInt(filteredEventList.size()));
-        // eventList.remove(selectedEvent);
-        
 
         return selectedEvent;
     }
@@ -36,22 +50,11 @@ public class EventController {
         Event Level5 = new HardlyCodedEvent();
         return Level5;
     }
-    
-    
-    
-    
-    
-        
+
+    public Event dragonFight(Player player, InputHandler inputHandler){
+        Event dragonFight = new dragonFight();
+        return dragonFight;
     }
-
-
-    // Level 1: WishingStarEvent, TavernEvent
-    // Level 2: TravelerEvent, RandomChestEvent, puzzleBoxEvent
-    // Level 3: RootEvent, FairyEvent, ()
-    // Level 4: AbandonedMinesEvent, (), ()
-    // Level 5: (PotionsEvent), ()
-    // Level 6: (ArenaEvent)
-    // Level 7: ()
-    // Level 8: 
-    // Level 9: 
-    // Level 12: LulEvent
+    
+  
+}
