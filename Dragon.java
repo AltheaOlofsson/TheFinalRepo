@@ -64,7 +64,7 @@ public class Dragon {
 
     public void killsDragon() throws InterruptedException {
             Scanner scan = new Scanner(System.in);
-        System.out.println("You brandish your magnificent sword and with a powerfull swing, creating a beautiful arc.");
+        System.out.println("You brandish your magnificent sword, and with a powerfull swing create a beautiful arc.");
         // Thread.sleep(5500);
         System.out.println("The air warps and shoots out from where your sword swung.");
         // Thread.sleep(4500);
