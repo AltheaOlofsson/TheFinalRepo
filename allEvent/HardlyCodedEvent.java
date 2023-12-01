@@ -7,7 +7,6 @@ public class HardlyCodedEvent extends Event {
         }     
         @Override
         public void execute(Player player, InputHandler InputHandler) {
-                // Scanner userInput = new Scanner(System.in);
                 System.out.println("Press ENTER to continue");
                 System.out.println("At eavening you walk along the path and come across an old man with a cart laden with sacks and boxes. \nThe carts axle is broken and the man looks feeble and distraught.");
                 input.readInput(player);
@@ -18,7 +17,6 @@ public class HardlyCodedEvent extends Event {
                 System.out.println("I'll reward you with whatever my hand first touches when I reach inside my cart.");
                 System.out.println("What do you want to do?? \n[1] Help the poor man. \n[2] Rob him blind. \n[3] Leave him on the road. You have important buisness to atend.");
                 String giveHelpingHand = input.readInput(player);
-                for (int wrongInput = 0; wrongInput < 10; wrongInput++) {
                 if (giveHelpingHand.equals("1")) {
                         AdventureGame.clearScreen();
                         System.out.println("Press ENTER to continue");
@@ -117,7 +115,6 @@ public class HardlyCodedEvent extends Event {
                                 System.out.println("You've gained: Dirty rag.");
                         }
                         player.addExperience(100);
-                        break;
                 } else if (giveHelpingHand.equals("2")) {
                         AdventureGame.clearScreen();
                         System.out.println("You pull out your weapon and threaten the old man. He gives you his moneypouch while cursing you.");
@@ -127,16 +124,11 @@ public class HardlyCodedEvent extends Event {
                         player.decreaseCurrentHp(5);
                         player.decreaseMaxHp(5);
                         player.decreaseSpeed(3);
-                        break;
                 } else if (giveHelpingHand.equals("3")) {
                         AdventureGame.clearScreen();
                         System.out.println("You continue past him.");
-                        break;
                 } else {
                         System.out.println("Incorrect input. Please choose: 1, 2 or 3");
                 }
-                }
-                
         }
-        
 }
