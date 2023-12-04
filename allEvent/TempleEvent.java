@@ -52,7 +52,7 @@ public class TempleEvent extends Event {
                     System.out.println("\nYou decide to embrace the power of the gemstone, accepting the consequences.\n" +
                     "The guardian spirit warns you that the power comes at a great cost.\n" +
                     "As the power surges through you, your body can't handle it, and you collapse.\n" +
-                    "Game Over. You deadge.");
+                    "You died.");
                     player.setCurrentHp(0);
                     if (!player.isAlive()) {return;}
                     elysia = false;
@@ -60,8 +60,8 @@ public class TempleEvent extends Event {
                 case "2":
                     System.out.println("\nYou attempt to negotiate with the spirit or find another solution.\n" +
                     "The spirit, however, insists that the power of the gemstone cannot be tamed.\n" +
-                    "As you hesitate, the spirit becomes agitated and unleashes a powerful force.\n" +
-                    "Game Over. You deadge.");
+                    "As you hesitate, the spirit becomes agitated and unleashes a terrible scream.\n" +
+                    "You died.");
                     player.setCurrentHp(0);
                     if (!player.isAlive()) {return;}
                     elysia = false;
@@ -86,10 +86,9 @@ public class TempleEvent extends Event {
 
                 switch (secondChoiceExplore) {
                     case "1":
-                        System.out.println("\nYou follow the sound of the whispering and encounter a mysterious figure.\n" +
-                        "The figure reveals itself as a helpful spirit, warning you of dangers.\n" +
-                        "Grateful for your caution, the spirit guides you safely out of the temple.\n" +
-                        "Congratulations! You survived!");
+                        System.out.println("\nYou follow the sound of the whispering and encounter a mysterious statue.\n" +
+                        "The statue reveals itself as a helpful spirit, warning you of dangers.\n" +
+                        "The spirit guides you safely out of the temple.\n");
                         gainEXP(player);
                             kiana = false;
                             break;
@@ -109,18 +108,17 @@ public class TempleEvent extends Event {
 
         switch (randomOutcome) {
             case 0:
-                System.out.println("\nThe mysterious entity influences the events in your favor!\n" +
+                System.out.println("\n!\n" +
                 "You navigate the temple safely and find a hidden exit.\n" +
-                "Congratulations! You survived! You gain:\nAttack: + 2\nMax HP: + 5\n");
+                "You survived! You gain:\nAttack: + 2\nMax HP: + 5\n");
                 player.addAttack(2);
                 player.addMaxHp(5);
                 player.addCurrentHp(5);
                 gainEXP(player);
                     break;
             case 1:
-                System.out.println("\nThe mysterious entity influences the events against you!\n" +
-                "A trap is triggered, and you fall into a pit.\n" +
-                "Game Over. You deadge.");
+                System.out.println("\nA trap is triggered, and you fall into a pit.\n" +
+                "You died.");
                 player.setCurrentHp(0);
                 if (!player.isAlive()) {return;}
                     break;
