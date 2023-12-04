@@ -48,34 +48,27 @@ public class GameController {
             case "1":
 
                 crossroads();
-            if (player.getLevel() >= 10) { //This player level was just an example.
+            if (player.getLevel() >= 10) {
             
                 player.setFairy(0);
                 clearScreen();
                 Event e = eventControl.dragonFight(player,input);
                 e.execute(player, input);
                 return;}
-                
-
-                // clearScreen();                       // For testing. Remove before release.
-                // Event e = eventControl.generateEvent(player);
-                // e.execute(player, input);
+            
                 break;
 
             case "right":
             case "2":
 
                 crossroads();
-            if (player.getLevel() >= 10) { //This player level was just an example.
+            if (player.getLevel() >= 10) { 
             
                 player.setFairy(0);
                 clearScreen();
                 Event e = eventControl.dragonFight(player,input);
                 e.execute(player, input);
-                return; }               // clearScreen();                       // For testing. Remove before release.
-                // Battle battle = new Battle(player);
-                // battle.battle(player);
-                break;
+                return; } 
 
             case "eat apple":
             case "3":
@@ -105,14 +98,6 @@ public class GameController {
                 break;
             }
 
-            // if (player.getLevel() >= 10) { //This player level was just an example.
-            
-            //     player.setFairy(0);
-            //     clearScreen();
-            //     Event e = eventControl.dragonFight(player,input);
-            //     e.execute(player, input);
-            //     return;
-            // }
 
             if (!player.isAlive()) {
                 if (player.getFairy() > 0) 
@@ -217,9 +202,7 @@ public class GameController {
         input.readInput(player);  
         System.out.println("You make a feeble attempt to regain control of yourself.");
         System.out.print("Drawing your weapon and readying yourself for the beasts incoming attack.\n");
-        // Thread.sleep(1500);
         System.out.print(".");
-        // Thread.sleep(1500);
         System.out.print(".");
     }
 
