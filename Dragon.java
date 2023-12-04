@@ -1,4 +1,3 @@
-import java.util.Scanner;
 public class Dragon {
     String name;
     Dragon(String name) {
@@ -42,8 +41,8 @@ public class Dragon {
     }
 
 
-    public void killsPlayer() throws InterruptedException {
-    Scanner scan = new Scanner(System.in);
+    public void killsPlayer(Player player) throws InterruptedException {
+        InputHandler input = new InputHandler();
         System.out.println("The dragon laughs at your feeble attempt before it rears its neck and shoots out a spray of dark green fluid.");
         // Thread.sleep(5000);
         System.out.println("You cannot dodge. As it hits you your flesh begins to boil, your skin falls to the ground in big patches");
@@ -56,12 +55,12 @@ public class Dragon {
         // Thread.sleep(4500);
         // AdventureGame.clearScreen();
         System.out.println("Press Enter to continue.");
-        scan.nextLine();        
+        input.readInput(player);        
 
     }
 
-    public void killsDragon() throws InterruptedException {
-            Scanner scan = new Scanner(System.in);
+    public void killsDragon(Player player) throws InterruptedException {
+        InputHandler input = new InputHandler();
         System.out.println("You brandish your magnificent sword, and with a powerfull swing create a beautiful arc.");
         // Thread.sleep(5500);
         System.out.println("The air warps and shoots out from where your sword swung.");
@@ -74,7 +73,7 @@ public class Dragon {
         // Thread.sleep(10500);
         // AdventureGame.clearScreen();
         System.out.println("Press Enter to continue.");
-        scan.nextLine(); 
+        input.readInput(player); 
 
     }
 }

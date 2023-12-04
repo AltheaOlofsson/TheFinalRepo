@@ -72,10 +72,10 @@ public class Battle {
         catch (InterruptedException e) {/*Ignore this*/}
         
         if (dragonKillsPlayer() == true) {
-            try {currentBoss.killsPlayer();}
+            try {currentBoss.killsPlayer(player);}
             catch (InterruptedException e) {/*Ignore this*/}
         } else {
-            try {currentBoss.killsDragon();}
+            try {currentBoss.killsDragon(player);}
             catch (InterruptedException e) {/*Ignore this*/}
         }
     }
