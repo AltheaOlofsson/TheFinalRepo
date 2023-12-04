@@ -12,14 +12,14 @@ public class TravelerEvent extends Event{
 
     boolean traveler = true;
     while(traveler){
-    System.out.println("You meet a traveler on the road. Do you stop and chat? (Y/N)");
+    System.out.println("You meet a traveler on the road. Do you stop and chat? \n[1] Yes \n[2] No");
     String choice = input.readInput(player);
 
-    if(choice.equalsIgnoreCase("y")){
+    if(choice.equalsIgnoreCase("1")){
         chat(player);
         traveler=false;
       
-    } else if (choice.equalsIgnoreCase("n")) {
+    } else if (choice.equalsIgnoreCase("2")) {
         System.out.println("You ingore the traveler and continue down the road.");
         battle.battle(player);
         if (!player.isAlive()) {return;}
@@ -35,10 +35,10 @@ public void chat(Player player){
     while (chat){
     System.out.println("As you converse he tells you of his quest for a Golden Apple. You remember seeing some apples in your bag earlier and says as much.");
     System.out.println("His face lights up and he offers to trade his dagger for a Golden Apple.");
-    System.out.println("Do you accept? (Y/N)");
+    System.out.println("Do you accept? \n[1] Yes \n[2] No");
         String secondChoice = input.readInput(player);
 
-        if(secondChoice.equalsIgnoreCase("y")) {
+        if(secondChoice.equalsIgnoreCase("1")) {
                 
             if (player.getApple() != 0){
                     System.out.println("The traveler becomes delighted and hands you the dagger.");
@@ -58,11 +58,11 @@ public void chat(Player player){
                         chat = false;
                 } 
 
-        } else if(secondChoice.equalsIgnoreCase("n"))   {
+        } else if(secondChoice.equalsIgnoreCase("2"))   {
             uppedTrade(player);
             chat = false;
                 
-    }  else if (secondChoice.equalsIgnoreCase("n")) {    
+    }  else if (secondChoice.equalsIgnoreCase("2")) {    
             noTrade(player);
             chat = false;
         }   
@@ -85,10 +85,10 @@ public void uppedTrade(Player player){
         System.out.println("The travaler looks disappointed before rummaging through his backpack but finds nothing.");
         System.out.println("He looks at you desperately before frantically stripping himself of his cloak and offers it to you.");
         System.out.println("'If I give you this aswell, would you please reconsider?' he pleads desperately.");
-        System.out.println("Do you accept? (Y/N)");
+        System.out.println("Do you accept? \n[1] Yes \n[2] No");
             String thirdChoice = input.readInput(player);
 
-            if(thirdChoice.equalsIgnoreCase("y")) {
+            if(thirdChoice.equalsIgnoreCase("1")) {
                     
                 if ( player.getApple() != 0){
                 System.out.println("You take pity on him and accept. You could always use a new cloak anyway.");
@@ -101,7 +101,8 @@ public void uppedTrade(Player player){
                 System.out.println("Max HP: + 10 \nAttack: + 3 \nSpeed: + 2\n\nApple: - 1\n");
                 System.out.println("The traveler thanks you profously and rushes down the road with his precious apple.");
                 System.out.println("You feel pretty good about the trade even though you lost an apple. You continue down the road.");
-                System.out.println();                    gainEXP(player);
+                System.out.println();                    
+                gainEXP(player);
                 cloak = false;
                 }  else  {
                     System.out.println("You look through your bag but it seams you don't have any apples to trade. The traveler sighs disappointedly and continues his hunt for a Golden apple.");
@@ -110,7 +111,7 @@ public void uppedTrade(Player player){
                     cloak = false;
                     }
                         
-                } else if (thirdChoice.equalsIgnoreCase("n")) {    
+                } else if (thirdChoice.equalsIgnoreCase("2")) {    
                 noTrade(player);
                 cloak = false;
                 }
