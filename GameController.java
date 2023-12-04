@@ -52,7 +52,7 @@ public class GameController {
             
                 player.setFairy(0);
                 clearScreen();
-                Event e = eventControl.dragonFight(player,input);
+                Event e = eventControl.Ruins(player,input);
                 e.execute(player, input);
                 return;}
             
@@ -66,7 +66,7 @@ public class GameController {
             
                 player.setFairy(0);
                 clearScreen();
-                Event e = eventControl.dragonFight(player,input);
+                Event e = eventControl.Ruins(player,input);
                 e.execute(player, input);
                 return; } 
 

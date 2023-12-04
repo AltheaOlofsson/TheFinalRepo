@@ -3,8 +3,6 @@ public class Dragon {
     String name;
     Dragon(String name) {
         this.name = name;
-        InputHandler input = new InputHandler();
-
     }
 
     public void introduce(Player player) throws InterruptedException {
@@ -32,14 +30,14 @@ public class Dragon {
         Boolean attack = true;
         while (attack){
             
-        System.out.println("\nWhat do you want to do? \n[1] Attack the Dragon! \n[2] Heal.");
+        System.out.println("\nWhat do you want to do? \n[1] Attack the Dragon! \n[2] Heal (" + player.getApple() + "/4).");
         String choice = input.readInput(player);
         if(choice.equals("1")){
             attack=false;
             break;
         } else if (choice.equals("2")) {
-            player.heal(player);    
-        }
+            player.heal(player);
+         }
     }
     }
 

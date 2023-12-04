@@ -12,23 +12,31 @@ public void execute(Player player, InputHandler inputHandler){
     while(wishChoice){
     System.out.println("After a few hours of walking the sun rolls down under the horizon and you decide to stop for some rest.");
     System.out.println("When you are about to tuck in for the night you witness a meteor shower and have the opportunity to wish upon a falling star");
-    System.out.println("Do you make a wish? (y/n)");
+    System.out.println("Do you make a wish? \n[1] Yes \n[2] No");
     String choice = input.readInput(player);
-        if(choice.equalsIgnoreCase("y")) {
+        if(choice.equalsIgnoreCase("1")) {
             Wish(player, input);
              wishChoice=false;
-        } else if (choice.equalsIgnoreCase("n")) {
-            System.out.println("Are you sure? Opportunities like this don't come often!\nMake a wish?");
+        } else if (choice.equalsIgnoreCase("2")) {
+            boolean sure = true;
+            while (sure){
+            System.out.println("Are you sure? Opportunities like this don't come often!\nMake a wish? \n[1] Yes \n[2] No");
                 choice = input.readInput(player);
-                    if(choice.equalsIgnoreCase("y")) {
+                    if(choice.equalsIgnoreCase("1")) {
                         Wish(player, input);
                          wishChoice=false;
-                    } else {
+                         sure = false;
+                    } else if (choice.equalsIgnoreCase("2")) {
                         noWish(player);
                          wishChoice=false;
+                         sure = false;
                          if (!player.isAlive()) {return;}
+                    } else if(choice.equalsIgnoreCase("/menu")){}
+                    else{
+                        System.out.println("wrong input");
                     }
-        } else if (choice.equalsIgnoreCase("no")) {
+                }
+        } else if (choice.equalsIgnoreCase("2")) {
             noWish(player);
              wishChoice=false;
              if (!player.isAlive()) {return;}
