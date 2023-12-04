@@ -232,7 +232,7 @@ public static void main(String[] args) throws InterruptedException {
     player.setExcalibre(1);
     
     // TravelerEvent aM = new TravelerEvent();
-    Event AM = new dragonFight();
+    Event AM = new HardlyCodedEvent();
     AM.execute(player, input);
 
 }

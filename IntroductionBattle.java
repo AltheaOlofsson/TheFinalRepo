@@ -33,8 +33,6 @@ public class IntroductionBattle {
             } 
             else {
 
-                //The slime can now kill you if you dont heal but the text that comes up is one of victory. I'd want to either force the player to heal or make the screen say someting abot this if you die.
-
                 currentMonster.attack(player);
                 if (player.isAlive()) 
                 {
@@ -113,8 +111,7 @@ public class IntroductionBattle {
 
     String midStory = "\nAfter your valiant victory against the slime you come across two paths."
             + "\nYou feel confident in your adventure, ready to take on any challenge ahead."
-            + "\nOne path leading to the left, another leading to the right." + "\n\nWhich path do you take?"
-            + "\nPress ENTER to continue and choose a path.";
+            + "\nOne path leading to the left, another leading to the right." + "\n\nWhich path do you take?";
 
     public static void main(String[] args) {
         Player player = new Player("Brian");

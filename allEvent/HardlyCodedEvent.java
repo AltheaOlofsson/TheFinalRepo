@@ -7,7 +7,7 @@ public class HardlyCodedEvent extends Event {
         }     
         @Override
         public void execute(Player player, InputHandler InputHandler) {
-                // Scanner userInput = new Scanner(System.in);
+                
                 System.out.println("Press ENTER to continue");
                 System.out.println("At eavening you walk along the path and come across an old man with a cart laden with sacks and boxes. \nThe carts axle is broken and the man looks feeble and distraught.");
                 input.readInput(player);
@@ -18,7 +18,6 @@ public class HardlyCodedEvent extends Event {
                 System.out.println("I'll reward you with whatever my hand first touches when I reach inside my cart.");
                 System.out.println("What do you want to do?? \n[1] Help the poor man. \n[2] Rob him blind. \n[3] Leave him on the road. You have important buisness to atend.");
                 String giveHelpingHand = input.readInput(player);
-                for (int wrongInput = 0; wrongInput < 10; wrongInput++) {
                 if (giveHelpingHand.equals("1")) {
                         AdventureGame.clearScreen();
                         System.out.println("Press ENTER to continue");
@@ -30,7 +29,6 @@ public class HardlyCodedEvent extends Event {
                         input.readInput(player);
                         System.out.println("Well a promise is a promise. He sticks his hand into the pile of sacks.");
                         input.readInput(player);
-
                         int randomLoot = randomgen.nextInt(100) + 1;
                         if (randomLoot == 100) {
                                 System.out.println("He pulls out a beautiful sword and his smile immediately disappears.");
@@ -45,6 +43,7 @@ public class HardlyCodedEvent extends Event {
                                 player.addSpeed(100);
                                 player.addMaxHp(300);
                                 player.addCurrentHp(300);
+                                pressEnterToContinue(player);
                         } else if (randomLoot <= 99 && randomLoot > 90) {
                                 System.out.println("He pulls out a sleek, curvy shortsword and hands it to you.");
                                 input.readInput(player);
@@ -53,6 +52,7 @@ public class HardlyCodedEvent extends Event {
                                 System.out.println("You've gained: Stung.");
                                 player.addAttack(20);
                                 player.addSpeed(20);
+                                pressEnterToContinue(player);
                         } else if (randomLoot <= 89 && randomLoot > 70) {
                                 System.out.println("He pulls out a breastplate of peculiar shape. It looks almost like the gaunt chest of a burnt demon.");
                                 input.readInput(player);
@@ -61,6 +61,7 @@ public class HardlyCodedEvent extends Event {
                                 System.out.println("You've gained: Deedric armor.");
                                 player.addMaxHp(20);
                                 player.addSpeed(15);
+                                pressEnterToContinue(player);
                         } else if (randomLoot <= 69 && randomLoot > 50) {
                                 System.out.println("He pulls out a branch that holds two golden apples and hands it to you.");
                                 input.readInput(player);
@@ -71,12 +72,14 @@ public class HardlyCodedEvent extends Event {
                                 System.out.println("You have " + player.getApple() + "/4 golden apples.");
                                 input.readInput(player);
                                 System.out.println("Do you want to keep the branch? \n[1] Yes\n[2] No");
-                                String branch = input.readInput(player);
-                                if (branch.equals("1") || branch.equals("y")) {
+                                String choices = input.readInput(player);
+                                if (choices.equals("1") || choices.equals("Yes") || choices.equals("yes") || choices.equals("y")) {
                                         System.out.println("You keep the branch. Who knows? It could be usefull.");
                                         player.branch = 1;
+                                        pressEnterToContinue(player);
                                 } else {
                                         System.out.println("You throw the branch into the ditch.");
+                                        pressEnterToContinue(player);
                                 }
                         } else if (randomLoot <= 49 && randomLoot > 30) {
                                 System.out.println("He pulls out a golden dagger with a ruby fitted into the hilt.");
@@ -86,14 +89,16 @@ public class HardlyCodedEvent extends Event {
                                 System.out.println("- It is said that a great evil sleeps there and that everything in the ruins are connected to it.");
                                 input.readInput(player);
                                 System.out.println("Do you want to take the dagger?\n[1] Yes\n[2] No");
-                                String dagger = input.readInput(player);
-                                 if (dagger.equals("1") || dagger.equals("yes") || dagger.equals("y")) {
+                                String choices = input.readInput(player);
+                                 if (choices.equals("1") || choices.equals("Yes") || choices.equals("yes") || choices.equals("y")) {
                                         System.out.println("You've gained: Ruby hilted dagger.");
                                         player.decreaseMaxHp(10);
                                         player.decreaseCurrentHp(10);
                                         player.addAttack(15);
+                                        pressEnterToContinue(player);
                                  } else {
                                         System.out.println("You decline the dagger and the man shrugs and puts it back into the cart.");
+                                        pressEnterToContinue(player);
                                  }
                         } else if (randomLoot <= 29 && randomLoot > 10) {
                                 System.out.println("He pulls out a helmet that has a faceplate fastened with a long thing spike in the front.");
@@ -105,19 +110,22 @@ public class HardlyCodedEvent extends Event {
                                 System.out.println("You've gained: Helm of the unsallied.");
                                 player.addMaxHp(15);
                                 player.addCurrentHp(15);
+                                pressEnterToContinue(player);
                         } else if (randomLoot <= 9 && randomLoot < 1) {
                                 System.out.println("He pulls out a beautiful green cloak and hands it to you.");
                                 input.readInput(player);
                                 System.out.println("You've gained: Green cloak.");
+                                pressEnterToContinue(player);
                         } else {
                                 System.out.println("He pulls out a dirty rag.");
                                 input.readInput(player);
                                 System.out.println("- Whew seems to be my lucky day.");
                                 input.readInput(player);
                                 System.out.println("You've gained: Dirty rag.");
+                                pressEnterToContinue(player);
                         }
                         player.addExperience(100);
-                        break;
+                        
                 } else if (giveHelpingHand.equals("2")) {
                         AdventureGame.clearScreen();
                         System.out.println("You pull out your weapon and threaten the old man. He gives you his moneypouch while cursing you.");
@@ -127,16 +135,13 @@ public class HardlyCodedEvent extends Event {
                         player.decreaseCurrentHp(5);
                         player.decreaseMaxHp(5);
                         player.decreaseSpeed(3);
-                        break;
+                        pressEnterToContinue(player);
                 } else if (giveHelpingHand.equals("3")) {
                         AdventureGame.clearScreen();
                         System.out.println("You continue past him.");
-                        break;
+                        pressEnterToContinue(player);
                 } else {
                         System.out.println("Incorrect input. Please choose: 1, 2 or 3");
-                }
-                }
-                
-        }
-        
+                }               
+        }      
 }

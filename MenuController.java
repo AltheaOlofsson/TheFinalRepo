@@ -142,7 +142,7 @@ public class MenuController {
 
     public static void introStory() throws InterruptedException 
     {
-        System.out.println("After hearing a commotion of a giant beast among nearby ruined catacombs, you ask the men if you could hear more about this. One of them tells you:");
+        System.out.println("After hearing a commotion of a giant beast nearby your village, you ask the men if you could hear more about this. One of them tells you:");
         Thread.sleep(3000);
         System.out.print("\n -That damned bleeding monstrosity is holding us at standstill!");
         Thread.sleep(3000);
