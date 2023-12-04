@@ -72,7 +72,7 @@ public class IntroductionBattle {
     void choosesAttackOrStats(Enemy currentMonster, Player player) {
         String attackChoice = "";
         while (attackChoice != "1" || attackChoice != "2") {
-            System.out.println("\nWhat do you want to do? \n[1] Attack! \n[2] Eat Apple.");
+            System.out.println("\nWhat do you want to do? \n[1] Attack! \n[2] Heal. ( " + player.getApple() + "/4)");
             attackChoice = userInput.nextLine();
             if (attackChoice.equals("1")) {
                 player.attack(currentMonster);
