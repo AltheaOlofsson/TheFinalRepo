@@ -16,7 +16,7 @@ public class RandomChestEvent extends Event {
          "\nYou eye the three chests on the mat with interest, finding yourself asking what you have to do. " + 
          "\nIn one of these chests there is a valuable tresure. You get to choose only one to open and you gain whatever is inside. " + 
          "But beware, only one is a lucky choice, the others only contains missfortune. " + 
-         "\nYou cannot resist and against your better judgement you agree to the game. ");
+         "\nYou cannot resist and against your better judgement you agree to the game. \n You have trouble deciding so you fish a die from your pocket to help you out.");
 
         boolean chestPicked = true;
 
@@ -27,7 +27,7 @@ public class RandomChestEvent extends Event {
 
             case 0: {
                 pressEnterToContinue(player);
-                System.out.println("You go with gutfeeling and pick the sturdy chest to the left. " + 
+                System.out.println("You roll the die but at the result you still go with gutfeeling and pick the sturdy chest to the left. " + 
                 "\nYou lift the lid and find a golden amulet with a glowing orb of lapis lazuli in the center. Surely this must be the treasure.");
                 player.addMaxHp(10);
                 player.addAttack(5);
@@ -40,7 +40,7 @@ public class RandomChestEvent extends Event {
             }
             case 1: {
                 pressEnterToContinue(player);
-                System.out.println("After careful consideration you choose to open the wooden chest in the center. This felt like a test of your greed and you would not fail." + 
+                System.out.println("The die rolled a three. After careful consideration you choose to open the wooden chest in the center instead. This felt like a test of your greed and you would not fail." + 
                 "\nYour modesty paid off. The chest contained a ruby ring that glittered in the sunlight. A valuable tresure indeed.");
                 player.addSpeed(5);
                 player.addAttack(5);
@@ -52,7 +52,7 @@ public class RandomChestEvent extends Event {
             }
             case 2: {
                 pressEnterToContinue(player);
-                System.out.println("You decide to pick the golden chest of fine make and when you lift the lid you are met with a golden armcuff with inlaid emmeralds. " + 
+                System.out.println("You ignore the dieroll and decide to pick the golden chest of fine make and when you lift the lid you are met with a golden armcuff with inlaid emmeralds. " + 
                 "\nAs you slip it around your wrist you feel a surge of power through your arm. This was a great treasure.");
                 player.addAttack(10);
                 System.out.println("Attack: + 10");
@@ -63,7 +63,7 @@ public class RandomChestEvent extends Event {
             }
             case 3: {
                 pressEnterToContinue(player);
-                System.out.println("After careful consideration you choose to open the wooden chest in the center. This felt like a test of your greed and you would not fail. " + 
+                System.out.println("The die rolled a two, you pick the wooden chest in the center and open the lid. " + 
                 "\nYou are met with a foul stench and instinctively take a step back.");
                 System.out.println("The peculiarly dressed man seems delighted at the sight of the content of the chest." + 
                 "\n'I've been looking everywhere for this! The rules state it's yours now but would you trade your prize for this magical cloak instead?' he says. " + 

@@ -47,17 +47,17 @@ private void Wish(Player player, InputHandler inputHandler) {
         if(wish.equals("1")) {
             player.addMaxHp(20);
             System.out.println("\nA wave of vitality washes over your body, enhancing your resilience!\nMax HP: + 15\n");
-            // System.out.println("You sleep like a baby and wake up the next day feeling rejuvenated and ready to set out.");
+            System.out.println("You sleep like a baby and wake up the next day feeling rejuvenated and ready to set out.");
             wishChoice=false;
         } else if (wish.equals("2")) {
             player.addAttack(10);
             System.out.println("\nYou can feel the power surging inside!\nAttack: + 5\n");
-            // System.out.println("You eventually fall asleep. You wake up well rested and ready to set out.");
+            System.out.println("You eventually fall asleep. You wake up well rested and ready to set out.");
             wishChoice=false;
         } else if (wish.equals("3")) {
             player.addSpeed(20);
                 System.out.println("\nYou experience a burst of energy, feeling light on your feet!\nSpeed: + 10\n");
-                // System.out.println("At the break of dawn you waste no time and set out immediately."); 
+                System.out.println("At the break of dawn you waste no time and set out immediately."); 
                 wishChoice=false;
         }
     }

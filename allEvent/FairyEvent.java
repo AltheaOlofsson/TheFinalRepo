@@ -11,16 +11,14 @@ public void execute(Player player, InputHandler inputHandler){
 
     boolean voice = true;
     while(voice){
-        System.out.println("As you walk along the path you hear a singing voice coming from deep within the forest. Do you check it out? (Y/N)");
+        System.out.println("As you walk along the path you hear a singing voice coming from deep within the forest. Do you check it out? \n[1] Yes \n[2] No");
         String check = input.readInput(player);  
-        if(check.equals("y")) {
+        if(check.equals("yes")||check.equals("1")||check.equals("y")) {
             dontLeave(player);
             voice = false;
-        } else if (check.equals("/stats")){
+        } else if (check.equals("/menu")){
             continue;
-        } else if (check.equals("/help")){
-            continue;
-        } else if (check.equals("n")){
+        } else if (check.equals("no")||check.equals("2")||check.equals("n")){
             noFairy(player);
             voice = false;
         } else {
@@ -32,14 +30,14 @@ public void execute(Player player, InputHandler inputHandler){
         boolean no = true;
         while (no) {
             System.out.println("You follow the beautiful voice until the dark trees give way to a silver pool.");
-            System.out.println("Above the glittering water you see a beautiful lady dancing in the air. You get the feeling that you should not be here. \nLeave? (Y/N) ");
+            System.out.println("Above the glittering water you see a beautiful lady dancing in the air. You get the feeling that you should not be here. \nLeave? \n[1] Yes \n[2] No");
             String leave = input.readInput(player);
             switch (leave) {
-                case "y":
+                case "1":
                     doLeave(player);
                     no = false;
                     break;
-                case "n":
+                case "2":
                     entranced(player,no);
                     if (!player.isAlive()) {return;}
                     stay(player);
@@ -54,14 +52,14 @@ public void execute(Player player, InputHandler inputHandler){
     public void doLeave(Player player){
         boolean tryToLeave = true;
         while(tryToLeave){
-            System.out.println("You decide to try to sneak back the way you came but find that your legs won't obey your wishes. Try again?(Y/N)");
+            System.out.println("You decide to try to sneak back the way you came but find that your legs won't obey your wishes. Try again?\n[1] Yes \n[2] No");
             String leave = input.readInput(player);
             switch (leave){
-                case "y":
+                case "1":
                     fairyBlessing(player);
                     tryToLeave = false;
                     break;
-                case "n":
+                case "2":
                     entranced(player,tryToLeave);
                     if (!player.isAlive()) {return;}
                     stay(player);
@@ -76,7 +74,7 @@ public void execute(Player player, InputHandler inputHandler){
 
         boolean feetRooted = true;
         while (feetRooted) {
-            System.out.println("Your feet are firmly planted on the ground like they have taken root. What will you do? \n (1) Lift your left leg with your hands. \n (2) Lift your right leg with your hands. \n (3) Lay down and try to crawl away.");
+            System.out.println("Your feet are firmly planted on the ground like they have taken root. What will you do? \n [1] Lift your left leg with your hands. \n [2] Lift your right leg with your hands. \n [3] Lay down and try to crawl away.");
             String blessing = input.readInput(player);
             switch (blessing){
                 case "1":
@@ -125,14 +123,14 @@ public void execute(Player player, InputHandler inputHandler){
         System.out.println();
         player.decreaseCurrentHp(10);
         if (!player.isAlive()) {b=false; return;}
-        System.out.println("You should probaly leave. Will you walk away? (Y/N)");
+        System.out.println("You should probaly leave. Will you walk away? \n[1] Yes \n[2] No");
         input.readInput(player);
     }
 
     public void stay(Player player){
         boolean watching = true;
         while (watching){
-            System.out.println("You find it hard to move, the beautiful voice seem to draw you in and you are tempted to stay. What do you do? \n(1) Stay and watch a few more minutes. \n(2) It is time to leave.");
+            System.out.println("You find it hard to move, the beautiful voice seem to draw you in and you are tempted to stay. What do you do? \n[1] Stay and watch a few more minutes. \n[2] It is time to leave.");
             String hardChoice = input.readInput(player);
 
             switch (hardChoice){

@@ -21,7 +21,7 @@ public class AdventureGame {
         String name = "";
         while (nameEmpty) {
 
-            System.out.println("\n\nWhat is your name? ");
+            System.out.println("\nWhat is your name? ");
             name = userInput.nextLine();
             if (name.length() != 0) {
                 nameEmpty = false;
