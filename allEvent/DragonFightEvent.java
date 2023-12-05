@@ -1,6 +1,6 @@
-public class dragonFight extends Event {
+public class DragonFightEvent extends Event {
 
-    dragonFight(){
+    DragonFightEvent(){
         super();
         this.eventLevel = 20;
     }

@@ -1,6 +1,5 @@
 
 public class MenuController {
-    // Scanner userInput = new Scanner(System.in);
     InputHandler input = new InputHandler();
     boolean storyOnce = false;
     boolean introStoryOnce = false;

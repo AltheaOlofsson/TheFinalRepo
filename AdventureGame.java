@@ -4,7 +4,6 @@ public class AdventureGame {
     boolean gameOver = false;
 
     public static void main(String[] args) throws InterruptedException {
-        // AdventureGame game = new AdventureGame();
         MenuController menu = new MenuController();
 
         clearScreen();

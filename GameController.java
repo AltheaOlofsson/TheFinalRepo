@@ -43,7 +43,6 @@ public class GameController {
 
     
     public void selectPath() {
-        // clearScreen();
         while (player.isAlive()) {
 
             System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? \n[3]Eat a Golden Apple (" + player.getApple() + "/4)");

@@ -113,14 +113,5 @@ public class IntroductionBattle {
             + "\nYou feel confident in your adventure, ready to take on any challenge ahead."
             + "\nOne path leading to the left, another leading to the right." + "\n\nWhich path do you take?";
 
-    public static void main(String[] args) {
-        Player player = new Player("Brian");
-        IntroductionBattle intro = new IntroductionBattle(player);
-        player.setSpeed(2);
-        player.setMaxHp(20);
-        player.setCurrentHp(20);
-        player.setAttack(15);
-
-        intro.introBattle(player);
-    }
+   
 }

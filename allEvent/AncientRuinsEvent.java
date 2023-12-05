@@ -8,7 +8,7 @@ AncientRuinsEvent() {
 
 @Override
 public void execute(Player player, InputHandler inputHandler) {
-    Event dragonFight = new dragonFight();
+    Event dragonFight = new DragonFightEvent();
     System.out.println("The path takes you to the mighty dragons lair. As you step inside the ruins you find a mysterious altar in the first chamber.");
         System.out.println("Do you want to approach the altar? \n[1] Yes \n[2] No");
         String altarChoice = input.readInput(player);
