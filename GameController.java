@@ -99,7 +99,6 @@ public class GameController {
 
             default:
                 clearScreen();
-                System.out.println("Incorrect Input! Please try again. /stats to check your stats, /help for instructions, /exit to quit.");
                 break;
             }
 
