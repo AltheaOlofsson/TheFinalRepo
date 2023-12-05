@@ -49,7 +49,7 @@ class MTGDragon extends Dragon {
     InputHandler input = new InputHandler();
         System.out.println("The dragon laughs at your feeble attempt before it rears its neck and shoots out a spray of dark green fluid.");
         System.out.println("You cannot dodge. As it hits you your flesh begins to boil, your skin falls to the ground in big patches");
-        System.out.println("and your body follows soon after. Your screams of agony eco for a long time.");
+        System.out.println("and your body follows soon after. Your screams of agony echo for a long time.");
         System.out.println("You have died a horrible death. It was to be expected though.");
         System.out.println("I told you in the beginning... you are not the hero.");
         System.out.println("Press Enter to continue.");      
