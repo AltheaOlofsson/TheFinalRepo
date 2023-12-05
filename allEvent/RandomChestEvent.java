@@ -16,7 +16,7 @@ public class RandomChestEvent extends Event {
          "\nYou eye the three chests on the mat with interest, finding yourself asking what you have to do. " + 
          "\nIn one of these chests there is a valuable tresure. You get to choose only one to open and you gain whatever is inside. " + 
          "But beware, only one is a lucky choice, the others only contains missfortune. " + 
-         "\nYou cannot resist and against your better judgement you agree to the game. \n You have trouble deciding so you fish a die from your pocket to help you out.");
+         "\nYou cannot resist and against your better judgement you agree to the game. \nYou have trouble deciding so you fish a die from your pocket to help you out.");
 
         boolean chestPicked = true;
 
