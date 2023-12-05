@@ -37,7 +37,7 @@ public class EventController {
 
         Event selectedEvent;
         if(filteredEventList.isEmpty()){
-             selectedEvent = new noEventsLeft();   
+             selectedEvent = new NoEventsLeft();   
         } else {
             selectedEvent = filteredEventList.get(randomgen.nextInt(filteredEventList.size()));
             eventList.remove(selectedEvent);
