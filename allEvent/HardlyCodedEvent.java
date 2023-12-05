@@ -46,11 +46,13 @@ public class HardlyCodedEvent extends Event {
                         if (!player.isAlive()) {return;}
                         pressEnterToContinue(player);
                         helpingHand = false;
+                        player.setLevel(6);
                         break;
                         case "3":
                         AdventureGame.clearScreen();
                         System.out.println("You continue past him.");
                         helpingHand = false;
+                        player.setLevel(6);
                         pressEnterToContinue(player);
 
                 }
