@@ -26,6 +26,12 @@ public class GameController {
     +"\n      Level : What level the player is and determines their overall prowess."
     +"\n      Experience : The amount of exp the player has accumelated, if the player reaches."
     +"\n- /exit (To quit the game)"
+    +"\n- /menu (BATTLE/EVENT ONLY) type this command to display the following options:"
+    +"\n      (1)View Stats."
+    +"\n      (2)Heal."
+    +"\n      (3)View Help instructions."
+    +"\n      (4)Close menu."
+    +"\n      (5)Exit Game."
     
     +"\n\nYour goal is to reach a certain level, when you do you are granted to fight the final boss."
     +"\nBe careful now! For if you ever reach your health down to 0, you are dead and have to restart all the way from the beginning."
