@@ -9,6 +9,7 @@ public class Event {
     public Battle battle = new Battle(player);
     public InputHandler input = new InputHandler();
     static Random randomgen = new Random();
+    
     public Event() { }
 
     public int getEventLevel() {

@@ -17,7 +17,7 @@ public class InputHandler {
             System.exit(0);
 
         } else if ("/stats".equals(input.toLowerCase())) {
-            displayPlayerStats(player);
+            player.displayPlayerStats();
             System.out.println("Press ENTER to close.");
             scanner.nextLine();
 
@@ -34,7 +34,7 @@ public class InputHandler {
                 String choice = scanner.nextLine();
                 switch(choice){
                     case "1":
-                    displayPlayerStats(player);
+                    player.displayPlayerStats();
                     System.out.println("Press ENTER to close.");
                     scanner.nextLine();
                     break;
@@ -64,8 +64,6 @@ public class InputHandler {
         return input.toLowerCase();
     }
 
-    private void displayPlayerStats(Player player) {
-        player.displayPlayerStats();
-    }
+
 
 }
