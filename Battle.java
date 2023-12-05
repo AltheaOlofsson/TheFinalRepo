@@ -64,7 +64,7 @@ public class Battle {
         }
     }
 
-    public void dragonFight(Player player) {
+    public void dragonFight(Dragon bossDragon, Player player) {
         Dragon currentBoss = (Dragon) getRandomBoss();
         currentBoss.introduce(player);
         if (dragonKillsPlayer() == true) {

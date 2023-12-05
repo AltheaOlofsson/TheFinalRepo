@@ -16,11 +16,11 @@ public class MenuController {
                 clearScreen();
                 while(!storyOnce)
                 {
-                    // try 
-                    // {
-                    //     beginStory(input);
-                    // }
-                    // catch (InterruptedException e) {/* IGNORE */}
+                    try 
+                    {
+                        beginStory(input);
+                    }
+                    catch (InterruptedException e) {/* IGNORE */}
                     storyOnce = true;
                 }
                 name = inputName(input);
@@ -28,18 +28,15 @@ public class MenuController {
                 clearScreen();
                 while(!introStoryOnce)
                 {
-                    // try
-                    // {
-                    //     introStory();
-                    // }
-                    // catch (InterruptedException e) {/* IGNORE */}
+                    try
+                    {
+                        introStory();
+                    }
+                    catch (InterruptedException e) {/* IGNORE */}
                     introStoryOnce = true;
                 }
-                // IntroductionBattle introBattle = new IntroductionBattle(player);
-                // introBattle.introBattle(player);
-                player.addExperience(100);
-                player.addExperience(100);
-                player.addExperience(100);
+                IntroductionBattle introBattle = new IntroductionBattle(player);
+                introBattle.introBattle(player);
                 player.setApple(4);
                 GameController game = new GameController(player);
                 game.selectPath();
