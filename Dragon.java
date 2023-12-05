@@ -8,10 +8,10 @@ public class Dragon {
     }
 
 
-    public void killsPlayer() {
+    public void killsPlayer(Player player) {
     }
 
-    public void killsDragon() {
+    public void killsDragon(Player player) {
     }
 }
 
