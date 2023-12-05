@@ -4,14 +4,14 @@ public class Dragon {
         this.name = name;
     }
 
-    public void introduce(Player player) throws InterruptedException {
+    public void introduce(Player player) {
     }
 
 
-    public void killsPlayer() throws InterruptedException {
+    public void killsPlayer() {
     }
 
-    public void killsDragon() throws InterruptedException {
+    public void killsDragon() {
     }
 }
 
@@ -45,7 +45,7 @@ class MTGDragon extends Dragon {
     }
 
 
-    public void killsPlayer() {
+    public void killsPlayer(Player player) {
     InputHandler input = new InputHandler();
         System.out.println("The dragon laughs at your feeble attempt before it rears its neck and shoots out a spray of dark green fluid.");
         System.out.println("You cannot dodge. As it hits you your flesh begins to boil, your skin falls to the ground in big patches");
@@ -56,7 +56,7 @@ class MTGDragon extends Dragon {
 
     }
 
-    public void killsDragon() {
+    public void killsDragon(Player player) {
         InputHandler input = new InputHandler();
         System.out.println("You brandish your magnificent sword, and with a powerfull swing create a beautiful arc.");
         System.out.println("The air warps and shoots out from where your sword swung.");
@@ -98,7 +98,7 @@ class TolkienDragon extends Dragon {
         }
     }
 
-    public void killsPlayer() {
+    public void killsPlayer(Player player) {
         InputHandler input = new InputHandler();
         System.out.println("Smuggs long neck snapps out and the last thing you see are rows of sharp teeth and a curling tounge.");
         System.out.println("You cannot dodge.");
@@ -108,7 +108,7 @@ class TolkienDragon extends Dragon {
 
     }
 
-    public void killsDragon() {
+    public void killsDragon(Player player) {
         InputHandler input = new InputHandler();
         System.out.println("You brandish your magnificent sword, and with a powerfull swing create a black spear like shape.");
         System.out.println("It shoots out and hits the dragon in its chest, right where a small scar has left the skinn exposed.");
@@ -147,7 +147,7 @@ class WowDragon extends Dragon {
         }
     }
 
-    public void killsPlayer() {
+    public void killsPlayer(Player player) {
         InputHandler input = new InputHandler();
         System.out.println("The dragon fills the space with fire.");
         System.out.println("Deafwing does not even utter a sound as your body becomes ash and you perish from this world.");
@@ -156,7 +156,7 @@ class WowDragon extends Dragon {
        
     }
 
-    public void killsDragon() {
+    public void killsDragon(Player player) {
         InputHandler input = new InputHandler();
         System.out.println("You brandish your magnificent sword, and with a powerfull swing creating the image of a golden disc.");
         System.out.println("The disc shoots out towards the dragon and mid-flight the image of four other dragons apear alongside the disc.");
@@ -198,7 +198,7 @@ class PokeDragon extends Dragon {
         }
     }
 
-    public void killsPlayer() {
+    public void killsPlayer(Player player) {
         InputHandler input = new InputHandler();
         System.out.println("You swing your weapon at the same time as the dragon swipes at you with it's tail.");
         System.out.println("The flaming tail hit your weapon that immediately begins to melt from the heat.");
@@ -209,7 +209,7 @@ class PokeDragon extends Dragon {
                 
     }
 
-    public void killsDragon() {
+    public void killsDragon(Player player) {
         InputHandler input = new InputHandler();
         System.out.println("You brandish your magnificent sword, and with a powerfull swing creating the image of a wierd looking sphere.");
         System.out.println("It has a black top with yellow marking, a black indented band around is equator and a white bottom half.");
