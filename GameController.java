@@ -193,6 +193,7 @@ public class GameController {
         clearScreen();
     }
 
+    //denna metod andvänds ej längre. sorry
     public void endStory(InputHandler inputHandler) throws InterruptedException {
         System.out.println("You reached the ancient ruins where the mighty dragon lives.");
         System.out.print("As you keep pacing towards the ruined catacombs ");
