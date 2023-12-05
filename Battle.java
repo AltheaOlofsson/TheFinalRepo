@@ -52,7 +52,7 @@ public class Battle {
     void choosesAttackOrStats(Enemy currentMonster, Player player) {
         String attackChoice= "";
         while (attackChoice != "1" || attackChoice != "2") {
-            System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Heal.");
+            System.out.println("What do you want to do? \n[1] Attack the thing! \n[2] Heal. (" + player.getApple() + "/4)");
             attackChoice = input.readInput(player);
             if (attackChoice.equals("1")) {
                 player.attack(currentMonster);
@@ -72,10 +72,10 @@ public class Battle {
         catch (InterruptedException e) {/*Ignore this*/}
         
         if (dragonKillsPlayer() == true) {
-            try {currentBoss.killsPlayer();}
+            try {currentBoss.killsPlayer(player);}
             catch (InterruptedException e) {/*Ignore this*/}
         } else {
-            try {currentBoss.killsDragon();}
+            try {currentBoss.killsDragon(player);}
             catch (InterruptedException e) {/*Ignore this*/}
         }
     }

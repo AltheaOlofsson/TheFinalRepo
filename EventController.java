@@ -55,6 +55,10 @@ public class EventController {
         Event dragonFight = new dragonFight();
         return dragonFight;
     }
+    public Event Ruins(Player player, InputHandler inputHandler){
+        Event Ruins = new AncientRuinsEvent();
+        return Ruins;
+    }
     
   
 }

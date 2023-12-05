@@ -1,10 +1,7 @@
-import java.util.Scanner;
 public class Dragon {
     String name;
     Dragon(String name) {
         this.name = name;
-        InputHandler input = new InputHandler();
-
     }
 
     public void introduce(Player player) throws InterruptedException {
@@ -49,26 +46,24 @@ class MTGDragon extends Dragon {
 
 
     public void killsPlayer() {
-    Scanner scan = new Scanner(System.in);
+    InputHandler input = new InputHandler();
         System.out.println("The dragon laughs at your feeble attempt before it rears its neck and shoots out a spray of dark green fluid.");
         System.out.println("You cannot dodge. As it hits you your flesh begins to boil, your skin falls to the ground in big patches");
         System.out.println("and your body follows soon after. Your screams of agony eco for a long time.");
         System.out.println("You have died a horrible death. It was to be expected though.");
         System.out.println("I told you in the beginning... you are not the hero.");
-        System.out.println("Press Enter to continue.");
-        scan.nextLine();        
+        System.out.println("Press Enter to continue.");      
 
     }
 
     public void killsDragon() {
-            Scanner scan = new Scanner(System.in);
+        InputHandler input = new InputHandler();
         System.out.println("You brandish your magnificent sword, and with a powerfull swing create a beautiful arc.");
         System.out.println("The air warps and shoots out from where your sword swung.");
         System.out.println("The dragon's head slides of it's neck from a cut so clean that it was impossible to see.");
         System.out.println("You have slain the mighty Dragonlord Silamgar and freed the area of it's taint");
         System.out.println("Who would have known... you were a hero after all.");
-        System.out.println("Press Enter to continue.");
-        scan.nextLine(); 
+        System.out.println("Press Enter to continue."); 
 
     }    
     
@@ -104,25 +99,23 @@ class TolkienDragon extends Dragon {
     }
 
     public void killsPlayer() {
-    Scanner scan = new Scanner(System.in);
+        InputHandler input = new InputHandler();
         System.out.println("Smuggs long neck snapps out and the last thing you see are rows of sharp teeth and a curling tounge.");
         System.out.println("You cannot dodge.");
         System.out.println("You have died and it was to be expected.");
         System.out.println("I told you in the beginning... you are not the hero.");
-        System.out.println("Press Enter to continue.");
-        scan.nextLine();        
+        System.out.println("Press Enter to continue.");       
 
     }
 
     public void killsDragon() {
-            Scanner scan = new Scanner(System.in);
+        InputHandler input = new InputHandler();
         System.out.println("You brandish your magnificent sword, and with a powerfull swing create a black spear like shape.");
         System.out.println("It shoots out and hits the dragon in its chest, right where a small scar has left the skinn exposed.");
         System.out.println("The dragon collapses and breathes its last rasping breath.");
         System.out.println("You have slain the mighty Dragon Smugg and the pile of gold can be destributed to the people.");
         System.out.println("Who would have known... you were a hero after all.");
-        System.out.println("Press Enter to continue.");
-        scan.nextLine(); 
+        System.out.println("Press Enter to continue."); 
 
     } 
 }
@@ -155,23 +148,23 @@ class WowDragon extends Dragon {
     }
 
     public void killsPlayer() {
-    Scanner scan = new Scanner(System.in);
+        InputHandler input = new InputHandler();
         System.out.println("The dragon fills the space with fire.");
         System.out.println("Deafwing does not even utter a sound as your body becomes ash and you perish from this world.");
         System.out.println("I told you in the beginning... you are not the hero.");
         System.out.println("Press Enter to continue.");
-        scan.nextLine();        
+       
     }
 
     public void killsDragon() {
-            Scanner scan = new Scanner(System.in);
+        InputHandler input = new InputHandler();
         System.out.println("You brandish your magnificent sword, and with a powerfull swing creating the image of a golden disc.");
         System.out.println("The disc shoots out towards the dragon and mid-flight the image of four other dragons apear alongside the disc.");
         System.out.println("They all crash into the dragon, which disappears in a cloud of purple light.");
         System.out.println("You have defeated the dragon Deafwing and life will one again flurish.");
         System.out.println("Who would have known... you were a hero after all.");
         System.out.println("Press Enter to continue.");
-        scan.nextLine();
+
     }
 
 }
@@ -206,18 +199,18 @@ class PokeDragon extends Dragon {
     }
 
     public void killsPlayer() {
-    Scanner scan = new Scanner(System.in);
+        InputHandler input = new InputHandler();
         System.out.println("You swing your weapon at the same time as the dragon swipes at you with it's tail.");
         System.out.println("The flaming tail hit your weapon that immediately begins to melt from the heat.");
         System.out.println("The dragon jumps up and slams into you, breaking several ribs and your back.");
         System.out.println("The pain is surreal and the last thing you see before eternal darkness consumes you is... the dragon dabbing?");
         System.out.println("I told you in the beginning... you are not the hero.");
         System.out.println("Press Enter to continue.");
-        scan.nextLine();        
+                
     }
 
     public void killsDragon() {
-            Scanner scan = new Scanner(System.in);
+        InputHandler input = new InputHandler();
         System.out.println("You brandish your magnificent sword, and with a powerfull swing creating the image of a wierd looking sphere.");
         System.out.println("It has a black top with yellow marking, a black indented band around is equator and a white bottom half.");
         System.out.println("The sphere hits the dragon which seems to be sucked in to it.");
@@ -225,8 +218,7 @@ class PokeDragon extends Dragon {
         System.out.println("You have defeated the dragon Charizal and sent it back where it belong.");
         System.out.println("Who would have known... you were a hero after all.");
         System.out.println("Press Enter to continue.");
-        scan.nextLine(); 
-    } 
 
+    } 
 }
 
