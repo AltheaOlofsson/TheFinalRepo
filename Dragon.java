@@ -7,7 +7,6 @@ public class Dragon {
     public void introduce(Player player) {
     }
 
-
     public void killsPlayer(Player player) {
     }
 
@@ -52,7 +51,8 @@ class MTGDragon extends Dragon {
         System.out.println("and your body follows soon after. Your screams of agony echo for a long time.");
         System.out.println("You have died a horrible death. It was to be expected though.");
         System.out.println("I told you in the beginning... you are not the hero.");
-        System.out.println("Press Enter to continue.");      
+        System.out.println("Press Enter to continue."); 
+        input.readInput(player);     
 
     }
 
@@ -64,6 +64,7 @@ class MTGDragon extends Dragon {
         System.out.println("You have slain the mighty Dragonlord Silamgar and freed the area of it's taint");
         System.out.println("Who would have known... you were a hero after all.");
         System.out.println("Press Enter to continue."); 
+        input.readInput(player);
 
     }    
     
@@ -104,7 +105,8 @@ class TolkienDragon extends Dragon {
         System.out.println("You cannot dodge.");
         System.out.println("You have died and it was to be expected.");
         System.out.println("I told you in the beginning... you are not the hero.");
-        System.out.println("Press Enter to continue.");       
+        System.out.println("Press Enter to continue."); 
+        input.readInput(player);      
 
     }
 
@@ -116,7 +118,7 @@ class TolkienDragon extends Dragon {
         System.out.println("You have slain the mighty Dragon Smugg and the pile of gold can be destributed to the people.");
         System.out.println("Who would have known... you were a hero after all.");
         System.out.println("Press Enter to continue."); 
-
+        input.readInput(player);
     } 
 }
 
@@ -153,7 +155,7 @@ class WowDragon extends Dragon {
         System.out.println("Deafwing does not even utter a sound as your body becomes ash and you perish from this world.");
         System.out.println("I told you in the beginning... you are not the hero.");
         System.out.println("Press Enter to continue.");
-       
+        input.readInput(player);
     }
 
     public void killsDragon(Player player) {
@@ -164,7 +166,7 @@ class WowDragon extends Dragon {
         System.out.println("You have defeated the dragon Deafwing and life will one again flurish.");
         System.out.println("Who would have known... you were a hero after all.");
         System.out.println("Press Enter to continue.");
-
+        input.readInput(player);
     }
 
 }
@@ -206,7 +208,7 @@ class PokeDragon extends Dragon {
         System.out.println("The pain is surreal and the last thing you see before eternal darkness consumes you is... the dragon dabbing?");
         System.out.println("I told you in the beginning... you are not the hero.");
         System.out.println("Press Enter to continue.");
-                
+        input.readInput(player);       
     }
 
     public void killsDragon(Player player) {
@@ -218,7 +220,7 @@ class PokeDragon extends Dragon {
         System.out.println("You have defeated the dragon Charizal and sent it back where it belong.");
         System.out.println("Who would have known... you were a hero after all.");
         System.out.println("Press Enter to continue.");
-
+        input.readInput(player);
     } 
 }
 

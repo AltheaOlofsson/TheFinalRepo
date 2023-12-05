@@ -51,7 +51,7 @@ public void execute(Player player, InputHandler inputHandler) {
             }
             if(dragonordream.equals("1")){
                 System.out.println("The moment you step down the stairs a large metal door slams shut behind you. There is no way back.");
-                System.out.println("You reach the catacombs and feel the hair in your neck rise as you behold the mighty dragon. not sure where you find the courage you square your shoulders and step into the cavernous hall.");
+                System.out.println("You reach the catacombs and feel the hair in your neck rise as you behold the mighty dragon. Not sure where you find the courage you square your shoulders and step into the cavernous hall.");
                 dragonFight.execute(player,input);
             }
             else{

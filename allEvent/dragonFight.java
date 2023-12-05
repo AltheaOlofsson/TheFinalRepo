@@ -11,7 +11,7 @@ public class dragonFight extends Event {
         try {gameController.endStory(input);}
         catch (InterruptedException e) {/* IGNORE */}
         Battle b = new Battle(player);
-                b.dragonFight(new Dragon("Silamgar"), player);
+                b.dragonFight(new Dragon("Dragon"), player);
                 System.out.println("{THE END} \nPress ENTER to exit.");
                 input.readInput(player);
 
