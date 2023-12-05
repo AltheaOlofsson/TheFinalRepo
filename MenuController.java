@@ -1,6 +1,5 @@
 
 public class MenuController {
-    // Scanner userInput = new Scanner(System.in);
     InputHandler input = new InputHandler();
     boolean storyOnce = false;
     boolean introStoryOnce = false;
@@ -109,7 +108,11 @@ public class MenuController {
         Thread.sleep(1500);
         clearScreen();
         Thread.sleep(1000);
-        System.out.println("This is an era of Monsters, Beasts and Badmen. These lands are ridden with fear and strife.");
+        System.out.println("This is an era of Monsters, Beasts and Badmen.");
+        Thread.sleep(2000);
+        System.out.println("Aswell as Great Magic and Mighty Steel.");
+        Thread.sleep(2000);
+        System.out.println("These lands are ridden with fear and strife.");
         Thread.sleep(2000);
         System.out.println("In these times a great warrior is needed, a saviour of true heroism.");
         Thread.sleep(2000);
@@ -142,7 +145,7 @@ public class MenuController {
 
     public static void introStory() throws InterruptedException 
     {
-        System.out.println("After hearing a commotion of a giant beast among nearby ruined catacombs, you ask the men if you could hear more about this. One of them tells you:");
+        System.out.println("After hearing a commotion of a giant beast nearby your village, you ask the men if you could hear more about this. One of them tells you:");
         Thread.sleep(3000);
         System.out.print("\n -That damned bleeding monstrosity is holding us at standstill!");
         Thread.sleep(3000);

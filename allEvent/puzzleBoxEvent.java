@@ -1,8 +1,8 @@
 
 
-public class puzzleBoxEvent extends Event {
+public class PuzzleBoxEvent extends Event {
     
-    public puzzleBoxEvent() {
+    public PuzzleBoxEvent() {
         super();
         this.eventLevel = 3;
     }

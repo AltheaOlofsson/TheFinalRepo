@@ -17,7 +17,7 @@ public class InputHandler {
             System.exit(0);
 
         } else if ("/stats".equals(input.toLowerCase())) {
-            displayPlayerStats(player);
+            player.displayPlayerStats();
             System.out.println("Press ENTER to close.");
             scanner.nextLine();
 
@@ -34,7 +34,7 @@ public class InputHandler {
                 String choice = scanner.nextLine();
                 switch(choice){
                     case "1":
-                    displayPlayerStats(player);
+                    player.displayPlayerStats();
                     System.out.println("Press ENTER to close.");
                     scanner.nextLine();
                     break;
@@ -51,8 +51,12 @@ public class InputHandler {
                     menu=false;
                     break;
                     case "5":
-                    System.out.println("Exiting the program.");
-                    System.exit(0);
+                    System.out.println("Are you sure you want to exit the game? \n(1) Yes \n(2) No, return to game.");
+                    String exit = scanner.nextLine().toString();
+                    if(exit.equals("1")){
+                        System.out.println("Exiting the program.");
+                        System.exit(0);
+                    } else {}
                     default:
                 }
             }
@@ -60,8 +64,6 @@ public class InputHandler {
         return input.toLowerCase();
     }
 
-    private void displayPlayerStats(Player player) {
-        player.displayPlayerStats();
-    }
+
 
 }

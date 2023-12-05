@@ -4,7 +4,6 @@ public class AdventureGame {
     boolean gameOver = false;
 
     public static void main(String[] args) throws InterruptedException {
-        // AdventureGame game = new AdventureGame();
         MenuController menu = new MenuController();
 
         clearScreen();
@@ -21,7 +20,7 @@ public class AdventureGame {
         String name = "";
         while (nameEmpty) {
 
-            System.out.println("\n\nWhat is your name? ");
+            System.out.println("\nWhat is your name? ");
             name = userInput.nextLine();
             if (name.length() != 0) {
                 nameEmpty = false;

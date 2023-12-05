@@ -15,7 +15,7 @@ public class EventController {
     new RandomChestEvent(),
     new PotionEvent(),
     //level 3
-    new puzzleBoxEvent(),
+    new PuzzleBoxEvent(),
     //level 4
     new RootEvent(),  
     new FairyEvent(),
@@ -52,8 +52,12 @@ public class EventController {
     }
 
     public Event dragonFight(Player player, InputHandler inputHandler){
-        Event dragonFight = new dragonFight();
+        Event dragonFight = new DragonFightEvent();
         return dragonFight;
+    }
+    public Event Ruins(Player player, InputHandler inputHandler){
+        Event Ruins = new AncientRuinsEvent();
+        return Ruins;
     }
     
   

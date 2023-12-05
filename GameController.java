@@ -26,6 +26,12 @@ public class GameController {
     +"\n      Level : What level the player is and determines their overall prowess."
     +"\n      Experience : The amount of exp the player has accumelated, if the player reaches."
     +"\n- /exit (To quit the game)"
+    +"\n- /menu (BATTLE/EVENT ONLY) type this command to display the following options:"
+    +"\n      (1)View Stats."
+    +"\n      (2)Heal."
+    +"\n      (3)View Help instructions."
+    +"\n      (4)Close menu."
+    +"\n      (5)Exit Game."
     
     +"\n\nYour goal is to reach a certain level, when you do you are granted to fight the final boss."
     +"\nBe careful now! For if you ever reach your health down to 0, you are dead and have to restart all the way from the beginning."
@@ -37,7 +43,6 @@ public class GameController {
 
     
     public void selectPath() {
-        // clearScreen();
         while (player.isAlive()) {
 
             System.out.println("\nWhich path do you want to take?\n[1]Left?\n[2]Right? \n[3]Eat a Golden Apple (" + player.getApple() + "/4)");
@@ -48,34 +53,27 @@ public class GameController {
             case "1":
 
                 crossroads();
-            if (player.getLevel() >= 10) { //This player level was just an example.
+            if (player.getLevel() >= 10) {
             
                 player.setFairy(0);
                 clearScreen();
-                Event e = eventControl.dragonFight(player,input);
+                Event e = eventControl.Ruins(player,input);
                 e.execute(player, input);
                 return;}
-                
-
-                // clearScreen();                       // For testing. Remove before release.
-                // Event e = eventControl.generateEvent(player);
-                // e.execute(player, input);
+            
                 break;
 
             case "right":
             case "2":
 
                 crossroads();
-            if (player.getLevel() >= 10) { //This player level was just an example.
+            if (player.getLevel() >= 10) { 
             
                 player.setFairy(0);
                 clearScreen();
-                Event e = eventControl.dragonFight(player,input);
+                Event e = eventControl.Ruins(player,input);
                 e.execute(player, input);
-                return; }               // clearScreen();                       // For testing. Remove before release.
-                // Battle battle = new Battle(player);
-                // battle.battle(player);
-                break;
+                return; } 
 
             case "eat apple":
             case "3":
@@ -105,14 +103,6 @@ public class GameController {
                 break;
             }
 
-            // if (player.getLevel() >= 10) { //This player level was just an example.
-            
-            //     player.setFairy(0);
-            //     clearScreen();
-            //     Event e = eventControl.dragonFight(player,input);
-            //     e.execute(player, input);
-            //     return;
-            // }
 
             if (!player.isAlive()) {
                 if (player.getFairy() > 0) 
@@ -203,8 +193,10 @@ public class GameController {
         clearScreen();
     }
 
+    //denna metod andvänds ej längre. sorry
     public void endStory(InputHandler inputHandler) throws InterruptedException {
-        System.out.print("As you keep pacing towards the ruined catacombs... ");
+        System.out.println("You reached the ancient ruins where the mighty dragon lives.");
+        System.out.print("As you keep pacing towards the ruined catacombs ");
         System.out.print("you start to feel immense dread as you get closer and closer.");
         System.out.print("\nThe despair you're feeling grows intensely, your legs shakes in fear.");
         System.out.println("\nPress Enter to Continue");
@@ -216,13 +208,12 @@ public class GameController {
         input.readInput(player);  
         System.out.println("You make a feeble attempt to regain control of yourself.");
         System.out.print("Drawing your weapon and readying yourself for the beasts incoming attack.\n");
-        // Thread.sleep(1500);
         System.out.print(".");
-        // Thread.sleep(1500);
         System.out.print(".");
     }
 
-    public void clearScreen() {
+    public void clearScreen() 
+    {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }

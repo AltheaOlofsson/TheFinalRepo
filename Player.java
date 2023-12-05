@@ -13,7 +13,7 @@ int experience;
 int apple;
 int fairy;
 int excalibre;
-int branch;
+int branch; 
 
 
 
@@ -211,30 +211,6 @@ public int getExcalibre() {
 }
 public void setExcalibre(int excalibre) {
     this.excalibre = excalibre;
-}
-
-
-public static void main(String[] args) throws InterruptedException {
-    //Main method for testing. Remove before release.
-    
-    Player player = new Player("Jimmy");
-    // Scanner s = new Scanner (System.in);
-    // EventController ec = new EventController();
-    InputHandler input = new InputHandler();
-
-    // player.addExperience(100);
-    // player.addExperience(100);
-    // player.addExperience(100);
-    // player.setSpeed(15);
-    // player.setCurrentHp(25);
-
-    player.setLevel(6);
-    player.setExcalibre(1);
-    
-    // TravelerEvent aM = new TravelerEvent();
-    Event AM = new dragonFight();
-    AM.execute(player, input);
-
 }
 
 
