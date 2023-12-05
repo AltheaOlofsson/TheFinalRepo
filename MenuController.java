@@ -109,7 +109,11 @@ public class MenuController {
         Thread.sleep(1500);
         clearScreen();
         Thread.sleep(1000);
-        System.out.println("This is an era of Monsters, Beasts and Badmen. These lands are ridden with fear and strife.");
+        System.out.println("This is an era of Monsters, Beasts and Badmen.");
+        Thread.sleep(2000);
+        System.out.println("Aswell as Great Magic and Mighty Steel.");
+        Thread.sleep(2000);
+        System.out.println("These lands are ridden with fear and strife.");
         Thread.sleep(2000);
         System.out.println("In these times a great warrior is needed, a saviour of true heroism.");
         Thread.sleep(2000);
