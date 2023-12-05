@@ -1,5 +1,4 @@
 import java.util.Random;
-//import java.util.Collection;
 import java.util.Scanner;
 
 public class Battle {
@@ -44,7 +43,6 @@ public class Battle {
             }
     }
     
-    // What is this? Do we need this? Am I dumb?
     public Battle(Player player) {  
         this.player = player;
     }
@@ -82,23 +80,5 @@ public class Battle {
         } else {
             return true;
         }
-    }
-
-
-    
-    public static void main(String[] args) {
-        // Main for testing. Remove before release.
-        
-        Player player = new Player("Brian");
-        Battle b = new Battle(player);
-        player.setSpeed(1);
-        player.setMaxHp(200);
-        player.setCurrentHp(200);
-        player.setAttack(15);
-        player.setLevel(8);
-        
-        // b.createMonsterList(0, 2);
-        // b.dragonFight(bossDragon, player);
-        b.battle(player);
     }
 }
