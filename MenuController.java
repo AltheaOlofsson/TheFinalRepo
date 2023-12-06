@@ -81,8 +81,8 @@ public class MenuController {
         + "\nUseful if you've taken a large amount of damage."
         
         + "\n\n Whenever in-game you can also type the following commands:"
-        + "\n- /help : Will give you instructions how to play the game."
-        + "\n- /stats : Displays the current stats of the player." + "\n- /quit : Quits the game."
+        + "\n- /menu: Shows a menu with options.\nView Stats - Shows your character stats. \nHeal - Consumes an apple and restore health \nView help intructions - shows instructions.\nClose menu - Closes the menu. \nExit game - Will ask if you want to close the game and then Exit game at positive answer.\n"
+
         
         + "\n\nGood luck \"mundane somebody\"!" + "\n\nPress ENTER to return to menu.";
     
