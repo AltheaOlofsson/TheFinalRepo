@@ -74,7 +74,7 @@ public class GameController {
                 Event e = eventControl.Ruins(player,input);
                 e.execute(player, input);
                 return; } 
-
+            break;
             case "eat apple":
             case "3":
                 clearScreen();
