@@ -32,7 +32,7 @@ public class HeroDream extends Event {
                 if (player.isAlive()) 
                 {
                     if(player.getCurrentHp()<10){
-                        System.out.println("The monster hits hard. Eat a Golden apple to Heal.");
+                        System.out.println("The dragon hits hard. Eat a Golden apple to Heal.");
                     }
                     battle.choosesAttackOrStats(currentMonster, player);
                 }

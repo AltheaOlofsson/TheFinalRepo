@@ -8,9 +8,9 @@ public class TempleEvent extends Event {
     @Override
     public void execute(Player player, InputHandler inputHandler) {
 
-        boolean foo = true;
+        boolean altar = true;
         
-        while (foo) {
+        while (altar) {
         System.out.println("You find yourself in a dimly lit, ancient temple filled with mysterious artifacts.\n" +
                 "You notice a glimmering object on an altar. What do you want to do?\n\n" +
                 "1. Approach the altar and inspect the object.\n" +
@@ -21,11 +21,11 @@ public class TempleEvent extends Event {
             switch (choice) {
                 case "1":
                     embraceOrNegotiate(player, input);
-                    foo = false;
+                    altar = false;
                     break;
                 case "2":
                     investigateOrNo(player, input);
-                    foo = false;
+                    altar = false;
                     break;
                 default:           
             }
@@ -36,9 +36,9 @@ public class TempleEvent extends Event {
 
     public void embraceOrNegotiate(Player player, InputHandler inputHandler) {
     
-    boolean elysia = true;
+    boolean spirit = true;
 
-        while(elysia) {
+        while(spirit) {
         System.out.println("\nYou cautiously approach the altar and inspect the glimmering object.\n" +
         "It's a cursed gemstone! The moment you touch it, a mysterious guardian spirit appears.\n" +
         "The spirit reveals that the gemstone holds ancient power and offers you a choice:\n\n" +
@@ -55,7 +55,7 @@ public class TempleEvent extends Event {
                     "You died.");
                     player.setCurrentHp(0);
                     if (!player.isAlive()) {return;}
-                    elysia = false;
+                    spirit = false;
                     break;
                 case "2":
                     System.out.println("\nYou attempt to negotiate with the spirit or find another solution.\n" +
@@ -64,7 +64,7 @@ public class TempleEvent extends Event {
                     "You died.");
                     player.setCurrentHp(0);
                     if (!player.isAlive()) {return;}
-                    elysia = false;
+                    spirit = false;
                     break;
                 default:
             }
@@ -73,9 +73,9 @@ public class TempleEvent extends Event {
     
     public void investigateOrNo(Player player, InputHandler inputHandler)  {
 
-        boolean kiana = true;
+        boolean whispering = true;
 
-        while (kiana) {
+        while (whispering) {
          System.out.println("\nYou decide to continue exploring the temple without touching anything.\n" +
             "As you walk through the corridor, you hear a faint whispering sound.\n" +
             "What do you want to do?\n\n" +
@@ -90,11 +90,11 @@ public class TempleEvent extends Event {
                         "The statue reveals itself as a helpful spirit, warning you of dangers.\n" +
                         "The spirit guides you safely out of the temple.\n");
                         gainEXP(player);
-                            kiana = false;
+                            whispering = false;
                             break;
                     case "2":
                         randomLiveOrDie(player);
-                            kiana = false;
+                            whispering = false;
                             break;
                     default:
                 }

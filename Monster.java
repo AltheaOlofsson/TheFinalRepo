@@ -8,6 +8,7 @@ public enum Monster {
     DIRE_WOLF("Dire wolf", 35, 8, 10, 3, 40, 60, false),
     GIANT_SPIDER("Giant spider", 45, 4, 14, 4, 35, 70, false),
     BEAR("Bear", 55, 8, 12, 4, 30, 70, false),
+    BANDIT("Bandit", 50, 10, 15, 5,25, 50, false),
     OGRE("Ogre", 75, 14, 16, 6, 40, 50, false),
     TROLL("Troll", 95, 5, 20, 6, 25, 60, false),
     WURM("Wurm", 70, 12, 15, 6, 45, 50, false),
